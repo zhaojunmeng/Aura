@@ -1,0 +1,130 @@
+# Minerva's Makefile
+# Cesar Mora Castro
+# 2013 - University of Minnesota
+
+OUTPUTDIR = ../bin/
+OBJSDIR = ../obj/
+INCDIR = ../include/
+SRCDIR = ./
+CXX = g++
+CXXFLAGS = -Wall -c -O2
+
+# ARToolKit
+ARTKLIBS = -L../lib/ARToolKit/lib -lARgsub -lAR
+
+# Bullet
+BULLETDIR = bullet-2.78/
+BULLETLIBS = -L../lib/$(BULLETDIR)/src/BulletDynamics -lBulletDynamics\
+			-L../lib/$(BULLETDIR)/src/BulletCollision -lBulletCollision\
+			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath 
+
+# Python
+PYTHONDIR = /usr/include/python2.7
+PYTHONLIB = -lpython2.7
+
+# Compilation mode
+ifeq ($(mode), release) # Release mode
+	CXXFLAGS += -O2
+else # Debug mode
+	CXXFLAGS += -ggdb
+endif
+
+# Libraries
+LDFLAGS = -lGL -lGLU -lSDL -lSDL_ttf -lSDL_image -lSDL_mixer `pkg-config --libs opencv`\
+		  $(ARTKLIBS) $(BULLETLIBS) $(PYTHONLIB) -lboost_python -lboost_filesystem -lzip\
+		  -lboost_system -l3ds
+
+# Includes
+INCFLAGS = -I$(INCDIR) -I ../lib/ARToolKit/include -I../lib/$(BULLETDIR)/src -I$(PYTHONDIR)\
+			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost
+
+# Objects
+OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\
+	MLBFactory.o VideoFactory.o Logger.o VideoSource.o TrackingMethod.o\
+	TrackingMethodARTK.o TrackingMethodFactory.o MAOPositionator3D.o\
+	MAOMark.o MAOMarksGroup.o MAORenderable3D.o MAO.o \
+	World.o MLB.o MLBSensor.o MLBController.o MLBActuator.o  MLBActuatorRelativePose.o\
+	MLBControllerAND.o MLBActuatorVisibility.o MLBControllerNAND.o PhysicObject.o\
+	MLBControllerOR.o MLBControllerNOR.o MLBSensorAlways.o MLBSensorKeyboard.o\
+	MLBSensorNear.o MAORenderable2D.o MAORenderable2DText.o MAORenderable2DImage.o\
+	MLBSensorProperty.o MLBActuatorChangePose.o MLBActuatorDistance.o MLBActuatorAng.o\
+	MAORenderable3DLine.o MLBSensorRandom.o MLBActuatorRandom.o MLBSensorDelay.o\
+	ParserOrej.o Parser.o MAORenderable3DModel.o	MLBActuatorSound.o MAORenderable3DPath.o PathPoint.o\
+	MLBActuatorPathRemovePoints.o MLBActuatorQuitApp.o MLBActuatorProperty.o MLBSensorActuator.o\
+	MLBActuatorPathAddPoint.o MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
+	PhysicDynamicObject.o MLBActuatorAddDynamicObject.o MSLParser.o MSLScanner.o MSLProperties.o\
+	MLBActuatorAnim.o MLBControllerScript.o MGEModule.o MPYWrapper.o WrapperTypes.o EndController.o\
+	GLDebugDrawer.o MSLPreprocessor.o  ResourcesManager.o Resource.o ResourceZip.o ResourceFile.o\
+	ParserObj.o Parser3ds.o
+
+OBJS= $(addprefix $(OBJSDIR),$(OBJSCRUDE))
+
+
+# Rules
+all:  $(OUTPUTDIR)/minerva $(OUTPUTDIR)/player
+
+$(OUTPUTDIR)/minerva: $(SRCDIR)minerva.cpp $(OBJS)
+	$(CXX) $(OBJS) minerva.cpp -Wall $(LDFLAGS) $(INCFLAGS) -o $(OUTPUTDIR)/minerva
+	
+$(OUTPUTDIR)/player: $(SRCDIR)player.cpp $(OBJS)
+	$(CXX) $(OBJS) player.cpp -Wall $(LDFLAGS) $(INCFLAGS) -o $(OUTPUTDIR)/player
+	
+#Controller objs
+$(OBJSDIR)%.o: $(SRCDIR)Controllers/%.cpp $(INCDIR)Controllers/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+#Factories objs
+$(OBJSDIR)%.o: $(SRCDIR)Factories/%.cpp $(INCDIR)Factories/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+#Kernel objs
+$(OBJSDIR)%.o: $(SRCDIR)Kernel/%.cpp $(INCDIR)Kernel/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+	
+#Kernel/Parsers objs
+$(OBJSDIR)%.o: $(SRCDIR)Kernel/Parsers/%.cpp $(INCDIR)Kernel/Parsers/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+	
+#Kernel/TrackingMethods objs
+$(OBJSDIR)%.o: $(SRCDIR)Kernel/TrackingMethods/%.cpp $(INCDIR)Kernel/TrackingMethods/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+	
+#Kernel/Resources objs
+$(OBJSDIR)%.o: $(SRCDIR)Kernel/Resources/%.cpp $(INCDIR)Kernel/Resources/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+	
+#MAO objs
+$(OBJSDIR)%.o: $(SRCDIR)MAO/%.cpp $(INCDIR)MAO/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+#MLB objs
+$(OBJSDIR)%.o: $(SRCDIR)MLB/%.cpp $(INCDIR)MLB/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+$(OBJSDIR)%.o: $(SRCDIR)MLB/Sensor/%.cpp $(INCDIR)MLB/Sensor/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+$(OBJSDIR)%.o: $(SRCDIR)MLB/Controller/%.cpp $(INCDIR)MLB/Controller/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+$(OBJSDIR)%.o: $(SRCDIR)MLB/Actuator/%.cpp $(INCDIR)MLB/Actuator/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+#MPY
+$(OBJSDIR)%.o: $(SRCDIR)MPY/%.cpp $(INCDIR)MPY/%.h
+	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+#MSL's (Minerva Specification Languaje) rules
+$(OBJSDIR)MSLParser.o: $(SRCDIR)Kernel/Parsers/MSLParser.y
+	bison++ -d -h$(INCDIR)Kernel/Parsers/MSLParser.h -o $(SRCDIR)Kernel/Parsers/MSLParser.cpp $<
+	$(CXX) -o $@ $(SRCDIR)Kernel/Parsers/MSLParser.cpp  $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+	
+$(OBJSDIR)MSLScanner.o: $(SRCDIR)Kernel/Parsers/MSLScanner.l
+	flex++ -d -oKernel/Parsers/MSLScanner.cpp $<
+	$(CXX) -o $@ Kernel/Parsers/MSLScanner.cpp  $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
+
+clean:
+	rm -Rf $(OBJSDIR) $(OUTPUTDIR) *~
+	rm -f $(SRCDIR)Kernel/Parsers/MSLScanner.cpp # Autogenerated
+	rm -f $(INCDIR)Kernel/Parsers/MSLParser.h    # Autogenerated
+	rm -f $(SRCDIR)Kernel/Parsers/MSLParser.cpp  # Autogenerated
