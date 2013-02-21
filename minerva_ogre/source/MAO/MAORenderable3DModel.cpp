@@ -13,6 +13,10 @@ MAORenderable3DModel::MAORenderable3DModel(const std::string& name,
 		const boost::filesystem::path& file, float size) :
 		MAORenderable3D(name, size), _file(file) {
 
+	Ogre::Entity* ent = Ogre::Root::getSingleton().getSceneManager("SceneManager")->createEntity("Sinbad","Sinbad.mesh");
+	Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode();
+	node->attachObject(ent);
+
 	_type = T_MAORENDERABLE3DMODEL;
 }
 

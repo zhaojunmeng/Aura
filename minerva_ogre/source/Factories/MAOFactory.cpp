@@ -7,6 +7,8 @@
 
 #include <Factories/MAOFactory.h>
 
+using namespace std;
+
 MAOFactory::MAOFactory() {
 	_vectorMAO = std::vector<MAO*>();
 	_vectorMAOPositionator3D = std::vector<MAOPositionator3D*>();
@@ -85,6 +87,7 @@ MAORenderable3DModel& MAOFactory::addMAORenderable3DModel(std::string name,
 	if (!checkMAOName(name))
 		throw "MAO name already exists: " + name;
 
+	cout<<"Adding mao renderable: "<<name<<endl;
 	MAORenderable3DModel* model = new MAORenderable3DModel(name, file, size);
 
 
@@ -95,6 +98,9 @@ MAORenderable3DModel& MAOFactory::addMAORenderable3DModel(std::string name,
 		Logger::getInstance()->out(
 				"The MAO is a Class MAO (not instanciated one)!: " + name);
 	}
+
+	_vectorMAO.push_back(model);
+	_vectorMAORenderable3D.push_back(model);
 
 	return *model;
 }

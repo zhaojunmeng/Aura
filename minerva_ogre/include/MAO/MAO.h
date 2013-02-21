@@ -24,6 +24,7 @@
 #include <string>
 #include <vector>
 #include <cv.h>
+#include <Ogre.h>
 #include <SDL.h>
 #include <python.hpp>
 #include <filesystem.hpp>
