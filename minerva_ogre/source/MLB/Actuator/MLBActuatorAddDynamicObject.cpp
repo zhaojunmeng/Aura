@@ -111,10 +111,10 @@ void MLBActuatorAddDynamicObject::mPySetOffset(VectorFloat offset){
     throw "Offset vector size of MLBActuatorAddDynamicObject should be 16: "+getName();
   }
 
-  	  _offset = Ogre::Matrix4(offset.at(0),offset.at(1),offset.at(2),offset.at(3),
-  			offset.at(4),offset.at(5),offset.at(6),offset.at(7),
-  			offset.at(8),offset.at(9),offset.at(10),offset.at(11),
-  			offset.at(12),offset.at(13),offset.at(14),offset.at(15));
+  	  _offset = Ogre::Matrix4(offset.at(0),offset.at(4),offset.at(8),offset.at(12),
+  			offset.at(1),offset.at(5),offset.at(9),offset.at(13),
+  			offset.at(2),offset.at(6),offset.at(10),offset.at(14),
+  			offset.at(3),offset.at(7),offset.at(11),offset.at(15));
   }
 
 

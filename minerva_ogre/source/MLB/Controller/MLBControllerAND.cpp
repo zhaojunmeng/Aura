@@ -9,6 +9,7 @@
 
 MLBControllerAND::MLBControllerAND(const std::string& name, MAO& parent): MLBController(name, parent) {
 	_mlbType = T_MLBCONTROLLERAND;
+	std::cout<<"Creating controller AND"<<std::endl;
 }
 
 void MLBControllerAND::evaluate(){
@@ -17,7 +18,6 @@ void MLBControllerAND::evaluate(){
 	for(unsigned int i=0;i<_vectorMLBSensor.size();i++){
 		e &= _vectorMLBSensor.at(i)->getState();
 	}
-
 	_state = e;
 }
 

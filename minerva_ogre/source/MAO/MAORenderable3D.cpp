@@ -15,6 +15,8 @@ MAORenderable3D::MAORenderable3D(const std::string& name, const float& size) :
 	addPropertyPose("relative");
 	addPropertyFloat("mass", 0.f);
 
+	setSize(size); // Actually setting the size
+
 	_type = T_MAORENDERABLE3D;
 
 	_collisionShape = NULL;
@@ -198,6 +200,7 @@ void MAORenderable3D::setVisible(bool visible) {
 }
 
 void MAORenderable3D::setSize(float size) {
+	_node->setScale(size,size,size);
 	getProperty("size").setValue<float> (size);
 }
 float MAORenderable3D::getSize() {

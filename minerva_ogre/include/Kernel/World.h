@@ -16,6 +16,7 @@
 //#include <python.h>
 
 #include <Ogre.h>
+#include <OIS.h>
 #include <MAO/MAORenderable3D.h>
 #include <Controllers/PhysicsController.h>
 #include <Kernel/EndController.h>
@@ -38,14 +39,17 @@ class World: public Singleton<World>,
 	void _refreshBackground();
 	void _createBackground();
 
+	int _width,  _height;
+
 public:
 	World();
 	virtual ~World();
 	void initWorld(int width, int height);
 	void drawWorld();
 
-	int getWidth();
-	int getHeight();
+	int getWidth() { return _width; }
+	int getHeight(){ return _height; }
+	Ogre::RenderWindow* getRenderWindow(){ return _window; }
 
 	const std::string& getAppName() {
 		return _appName;

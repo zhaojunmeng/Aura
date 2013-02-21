@@ -8,21 +8,20 @@
 #ifndef MLBSENSORKEYBOARD_H_
 #define MLBSENSORKEYBOARD_H_
 
-#include <SDL.h>
 #include <MLB/Sensor/MLBSensor.h>
 
 class MLBSensorKeyboard: public MLBSensor {
 public:
-	MLBSensorKeyboard(const std::string& name, MAO& parent,SDL_EventType& type, SDLKey& key);
+	MLBSensorKeyboard(const std::string& name, MAO& parent,std::string& type, std::string& key);
 	virtual ~MLBSensorKeyboard();
 	void evaluate();
-	SDLKey& getKey();
-	SDL_EventType& getType();
+	std::string& getKey();
+	std::string& getType();
 	void setKeyDown(bool keyDown);
 private:
-	SDLKey _key;
+	std::string _key;
 	bool _keyDown;
-	SDL_EventType _type;
+	std::string _type;
 };
 
 #endif /* MLBSENSORKEYBOARD_H_ */

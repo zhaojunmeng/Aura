@@ -158,6 +158,7 @@ void TrackingMethodARTK::checkMarkVisibility(MAOMark* mark) {
 
 
 		//Rotate 180º through y-axis ;)
+		// TODO Optimize this part, the former loop :)
 		glAuxd[0] *= -1;
 		glAuxd[2] *= -1;
 		glAuxd[4] *= -1;
@@ -167,7 +168,12 @@ void TrackingMethodARTK::checkMarkVisibility(MAOMark* mark) {
 		glAuxd[12] *= -1;
 		glAuxd[14] *= -1;
 
-		mark->setTrackingMatrix(glAuxd);
+		Ogre::Matrix4 m(glAuxd[0], glAuxd[4], glAuxd[8], glAuxd[12],
+				glAuxd[1], glAuxd[5], glAuxd[9], glAuxd[13],
+				glAuxd[2], glAuxd[6], glAuxd[10], glAuxd[14],
+				glAuxd[3], glAuxd[7], glAuxd[11], glAuxd[15]);
+
+		mark->setTrackingMatrix(m);
 
 	} else {
 		mark->setPositioned(false);

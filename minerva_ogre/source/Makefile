@@ -30,12 +30,12 @@ else # Debug mode
 endif
 
 # Libraries
-LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS)\
+LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) -lOIS\
 		   $(PYTHONLIB) -lboost_python -lboost_filesystem -lboost_system `pkg-config --libs OGRE`\
 		  
 # Includes
 INCFLAGS = -I$(INCDIR) -I ../lib/ARToolKit/include -I../lib/$(BULLETDIR)/src -I$(PYTHONDIR)\
-			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost `pkg-config --cflags OGRE`
+			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost `pkg-config --cflags OGRE` `pkg-config --cflags OIS`
 
 # Objects
 OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\

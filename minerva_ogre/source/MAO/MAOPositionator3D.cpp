@@ -7,6 +7,8 @@
 
 #include <MAO/MAOPositionator3D.h>
 
+using namespace std;
+
 MAOPositionator3D::MAOPositionator3D(const std::string& name) :
 		MAO(name) {
 

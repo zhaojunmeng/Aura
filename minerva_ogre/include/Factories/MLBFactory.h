@@ -141,7 +141,6 @@ public:
 
 protected:
 	bool checkMLBName(std::string parent, std::string name);
-	SDLKey string2SDLKey(std::string key);
 
 	std::vector<MLB*> _vectorMLB;
 	std::vector<MLBSensor*> _vectorMLBSensor;

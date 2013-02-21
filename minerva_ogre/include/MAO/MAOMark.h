@@ -14,7 +14,12 @@
 
 #include<MAO/MAOPositionator3D.h>
 
+using namespace std;
+
+const int _historicSize = 4;
+
 class MAOMark: public MAOPositionator3D {
+
 public:
 	MAOMark(const std::string& name, const boost::filesystem::path& path,
 			const float& size);
@@ -26,11 +31,9 @@ public:
 	Ogre::Matrix4& getPosMatrix();
 
 	void setTrackingMatrix(Ogre::Matrix4& m);
-	void setTrackingMatrix(const double* m);
 
 	Ogre::Matrix4& getOffsetMatrix();
 	void setOffsetMatrix(const Ogre::Matrix4* offsetMatrix);
-	void setOffsetMatrix(const double* offsetMatrix);
 
 	void setId(int id);
 	int getId();
@@ -38,10 +41,11 @@ public:
 private:
 	Ogre::Matrix4 _offsetMatrix;
 	boost::filesystem::path _bPath;
-	std::vector<Ogre::Matrix4> _vectorPosMatrix;
+	std::list<Ogre::Matrix4> _listPosMatrix;
 	float _size;
 	int _id;
 	double* _center;
+
 
 };
 

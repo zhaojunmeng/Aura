@@ -49,18 +49,8 @@ MLBSensorKeyboard& MLBFactory::addMLBSensorKeyboard(std::string name,
 		throw "MLB name already exists " + name;
 
 	MAO& parent = MAOFactory::getInstance()->getMAO(nparent);
-	SDLKey sdlkey = string2SDLKey(key);
 
-	SDL_EventType sdltype;
-	if (type == "KEYDOWN") {
-		sdltype = SDL_KEYDOWN;
-	} else if (type == "KEYUP") {
-		sdltype = SDL_KEYUP;
-	} else {
-		throw "Invalid type for MLB Sensor Keyboard: " + name;
-	}
-
-	MLBSensorKeyboard* s = new MLBSensorKeyboard(name, parent, sdltype, sdlkey);
+	MLBSensorKeyboard* s = new MLBSensorKeyboard(name, parent, type, key);
 	_vectorMLB.push_back(s);
 	_vectorMLBSensor.push_back(s);
 
@@ -706,132 +696,7 @@ bool MLBFactory::checkMLBName(std::string parent,
 	return true;
 }
 
-SDLKey MLBFactory::string2SDLKey(std::string key) {
-	if (key == "A") {
-		return SDLK_a;
-	} else if (key == "B") {
-		return SDLK_b;
-	} else if (key == "C") {
-		return SDLK_c;
-	} else if (key == "D") {
-		return SDLK_d;
-	} else if (key == "E") {
-		return SDLK_e;
-	} else if (key == "F") {
-		return SDLK_f;
-	} else if (key == "G") {
-		return SDLK_g;
-	} else if (key == "H") {
-		return SDLK_h;
-	} else if (key == "I") {
-		return SDLK_i;
-	} else if (key == "J") {
-		return SDLK_j;
-	} else if (key == "K") {
-		return SDLK_k;
-	} else if (key == "L") {
-		return SDLK_l;
-	} else if (key == "M") {
-		return SDLK_m;
-	} else if (key == "N") {
-		return SDLK_n;
-	} else if (key == "O") {
-		return SDLK_o;
-	} else if (key == "P") {
-		return SDLK_p;
-	} else if (key == "Q") {
-		return SDLK_q;
-	} else if (key == "R") {
-		return SDLK_r;
-	} else if (key == "S") {
-		return SDLK_s;
-	} else if (key == "T") {
-		return SDLK_t;
-	} else if (key == "U") {
-		return SDLK_u;
-	} else if (key == "V") {
-		return SDLK_v;
-	} else if (key == "W") {
-		return SDLK_w;
-	} else if (key == "X") {
-		return SDLK_x;
-	} else if (key == "Y") {
-		return SDLK_y;
-	} else if (key == "Z") {
-		return SDLK_z;
-	} else if (key == "UP") {
-		return SDLK_UP;
-	} else if (key == "DOWN") {
-		return SDLK_DOWN;
-	} else if (key == "LEFT") {
-		return SDLK_LEFT;
-	} else if (key == "RIGHT") {
-		return SDLK_RIGHT;
-	} else if (key == "SPACE") {
-		return SDLK_SPACE;
-	} else if (key == "0") {
-		return SDLK_0;
-	} else if (key == "1") {
-		return SDLK_1;
-	} else if (key == "2") {
-		return SDLK_2;
-	} else if (key == "3") {
-		return SDLK_3;
-	} else if (key == "4") {
-		return SDLK_4;
-	} else if (key == "5") {
-		return SDLK_5;
-	} else if (key == "6") {
-		return SDLK_6;
-	} else if (key == "7") {
-		return SDLK_7;
-	} else if (key == "8") {
-		return SDLK_8;
-	} else if (key == "9") {
-		return SDLK_9;
-	} else if (key == "TAB") {
-		return SDLK_TAB;
-	} else if (key == "RETURN") {
-		return SDLK_RETURN;
-	} else if (key == "ESCAPE" || key == "ESC") {
-		return SDLK_ESCAPE;
-	} else if (key == "F1") {
-		return SDLK_F1;
-	} else if (key == "F2") {
-		return SDLK_F2;
-	} else if (key == "F3") {
-		return SDLK_F3;
-	} else if (key == "F4") {
-		return SDLK_F4;
-	} else if (key == "F5") {
-		return SDLK_F5;
-	} else if (key == "F6") {
-		return SDLK_F6;
-	} else if (key == "F7") {
-		return SDLK_F7;
-	} else if (key == "F8") {
-		return SDLK_F8;
-	} else if (key == "F9") {
-		return SDLK_F9;
-	} else if (key == "F10") {
-		return SDLK_F10;
-	} else if (key == "F11") {
-		return SDLK_F11;
-	} else if (key == "F12") {
-		return SDLK_F12;
-	} else if (key == "RCTRL") {
-		return SDLK_RCTRL;
-	} else if (key == "LCTRL") {
-		return SDLK_LCTRL;
-	} else if (key == "RSHIFT") {
-		return SDLK_RSHIFT;
-	} else if (key == "LSHIFT") {
-		return SDLK_LSHIFT;
-	}
 
-	throw "Key type not found!: "+key;
-
-}
 
 MLBFactory::~MLBFactory() {
 	for (unsigned int i = 0; i < _vectorMLBSensor.size(); i++)

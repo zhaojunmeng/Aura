@@ -7,7 +7,7 @@
 
 #include <Kernel/World.h>
 
-World::World() {
+World::World(): _width(640), _height(480) {
 }
 
 void World::initWorld(int width, int height) {
@@ -15,6 +15,9 @@ void World::initWorld(int width, int height) {
 
 	/* Name */
 	_appName = "ABBY";
+
+	_width = width;
+	_height = height;
 
 	/* Audio */
 	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT,
@@ -28,9 +31,7 @@ void World::initWorld(int width, int height) {
 	}
 
 	/* Ogre ;) */
-	_root = new Ogre::Root("config/plugins.cfg", "config/ogre.cfg",
-			"Ogre.log");
-	//_root = new Ogre::Root();
+	_root = new Ogre::Root("config/plugins.cfg", "config/ogre.cfg", "Ogre.log");
 	_root->addFrameListener(this);
 
 	//Deactivating the Ogre Log Console
@@ -41,33 +42,21 @@ void World::initWorld(int width, int height) {
 		_root->saveConfig();
 	}
 
-    //unsigned int windowHandle;
-    //std::ostringstream wHandleStr;
 	_window = _root->initialise(true, _appName);
-    //_window->getCustomAttribute("WINDOW", &windowHandle);
-    Ogre::WindowEventUtilities::addWindowEventListener(_window, this);
-    //wHandleStr << windowHandle;
-    //param.insert(std::make_pair("WINDOW", wHandleStr.str()));
-
+	Ogre::WindowEventUtilities::addWindowEventListener(_window, this);
 
 	_sceneManager = _root->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
 
 	_cam = _sceneManager->createCamera("Camera");
-	_cam->setPosition(Ogre::Vector3(15, 10, 15));
-	_cam->lookAt(Ogre::Vector3(0, 0, 0));
-	_cam->setNearClipDistance(0.01);
-	_cam->setFarClipDistance(1000);
+	_cam->setPosition(Ogre::Vector3(0, 0, 0));
+	_cam->lookAt(Ogre::Vector3(0, 0, -1));
+	_cam->setNearClipDistance(0.001);
+	_cam->setFarClipDistance(20);
+	_cam->setAspectRatio(width / (float) height);
+	_cam->setFOVy(Ogre::Degree(45));
 
-	//Ogre::Matrix4 mat=vD_user->getOgreProjectionMatrix();
-
-	/* Hack */
-	//mat[2][3]*=-1;
-	//cam->setCustomProjectionMatrix(true,mat);
 	Ogre::Viewport* viewport = _window->addViewport(_cam);
 	viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
-	//viewport->setActualWidth(width);
-	//height = viewport->setActualHeight(height);
-	_cam->setAspectRatio(width / height);
 
 	{
 		Ogre::ConfigFile cf;
@@ -96,19 +85,9 @@ void World::initWorld(int width, int height) {
 
 void World::drawWorld() {
 	Ogre::WindowEventUtilities::messagePump();
-	if(!_root->renderOneFrame()){
+	if (!_root->renderOneFrame()) {
 		EndController::getInstance()->end();
 	}
-	//Draw the camera frame
-	//drawBackground();
-
-	//Draw the ground plane / grid, etc..
-	//drawGround();
-
-	//Drawing shadows of 3D renderables!
-	//if (PhysicsController::getInstance()->shadowsActive()) {
-	//	drawShadows();
-	//}
 
 	//Draw renderable3D
 	std::vector<MAORenderable3D*>& renderables3d =
@@ -147,10 +126,9 @@ bool World::frameStarted(const Ogre::FrameEvent& evt) {
 }
 
 void World::_createBackground() {
-
-
 	VideoFactory::getInstance()->getMainCamera().grabFrame();
-	cv::Mat* frame = VideoFactory::getInstance()->getMainCamera().getLastFrame();
+	cv::Mat* frame =
+			VideoFactory::getInstance()->getMainCamera().getLastFrame();
 
 	/* Ogre code */
 	Ogre::TexturePtr texture =
@@ -162,7 +140,6 @@ void World::_createBackground() {
 					0,	// number of mipmaps
 					Ogre::PF_BYTE_BGRA,
 					Ogre::HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
-
 
 	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(
 			"Background",
@@ -228,7 +205,6 @@ void World::_refreshBackground() {
 			static_cast<Ogre::Rectangle2D*>(_sceneManager->getSceneNode(
 					"BackgroundNode")->getAttachedObject(0));
 	Ogre::MaterialPtr material = rect->getMaterial();
-
 
 }
 

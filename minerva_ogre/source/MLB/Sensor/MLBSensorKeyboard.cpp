@@ -8,8 +8,8 @@
 #include <MLB/Sensor/MLBSensorKeyboard.h>
 
 MLBSensorKeyboard::MLBSensorKeyboard(const std::string& name, MAO& parent,
-		SDL_EventType& type, SDLKey& key) :
-	MLBSensor(name, parent) {
+		std::string& type, std::string& key) :
+		MLBSensor(name, parent) {
 	_type = type;
 	_key = key;
 	_keyDown = false;
@@ -17,18 +17,13 @@ MLBSensorKeyboard::MLBSensorKeyboard(const std::string& name, MAO& parent,
 }
 
 void MLBSensorKeyboard::evaluate() {
-	switch (_type) {
-	case SDL_KEYDOWN:
-		if (_keyDown)
+	if (_type == "KEYDOWN") {
+		if (_keyDown){
 			_state = true;
-		else
+		}else
 			_state = false;
-		break;
-	case SDL_KEYUP:
+	} else if (_type == "KEYUP") {
 		//Just for one time! Intentionally empty!
-		break;
-	default:
-		break;
 	}
 }
 
@@ -36,11 +31,11 @@ void MLBSensorKeyboard::setKeyDown(bool keyDown) {
 	_keyDown = keyDown;
 }
 
-SDL_EventType& MLBSensorKeyboard::getType() {
+std::string& MLBSensorKeyboard::getType() {
 	return _type;
 }
 
-SDLKey& MLBSensorKeyboard::getKey() {
+std::string& MLBSensorKeyboard::getKey() {
 	return _key;
 }
 
