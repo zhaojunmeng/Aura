@@ -23,18 +23,19 @@ void MAOMarksGroup::addMarktoGroup(MAOMark& mark){
 	_vectorMAOMark.push_back(&mark);
 }
 
-cv::Mat& MAOMarksGroup::getPosMatrix(){
-	int nDetected = 0;
+Ogre::Matrix4& MAOMarksGroup::getPosMatrix(){
+// TODO
+	//int nDetected = 0;
 	//cv::Mat temp = cv::Mat(4,4,CV_32F,cv::Scalar(0));
 
-	for(unsigned int i=0;i<_vectorMAOMark.size();i++){
-		if(_vectorMAOMark.at(i)->isPositioned()){
+	//for(unsigned int i=0;i<_vectorMAOMark.size();i++){
+		//if(_vectorMAOMark.at(i)->isPositioned()){
 		  //nDetected++;
 		  //temp = temp + _vectorMAOMark.at(i)->getPosMatrix();
-		  setPosMatrix(_vectorMAOMark.at(i)->getPosMatrix());
-		  break;
-		}
-	}
+		  //setNodeMatrix(_vectorMAOMark.at(i)->getPosMatrix());
+		  //break;
+	//	}
+	//}
 
 	//if(nDetected>0){
 	//	temp = temp / nDetected;
@@ -54,7 +55,7 @@ cv::Mat& MAOMarksGroup::getPosMatrix(){
 		setPosMatrix(temp);
 	}*/
 
-	return _posMatrix;
+	//return _posMatrix;
 }
 
 void MAOMarksGroup::checkIfPositioned(){

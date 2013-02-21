@@ -9,7 +9,7 @@
 
 MLBActuatorAddDynamicObject::MLBActuatorAddDynamicObject(
 		const std::string& name, MAOPositionator3D& parent,
-		MAORenderable3D& mao, int timeToExpire, cv::Mat* offset,
+		MAORenderable3D& mao, int timeToExpire, Ogre::Matrix4* offset,
 		btVector3* impulse) :
 	MLBActuator(name, parent) {
 	if (mao.getMass() == 0) {
@@ -21,11 +21,7 @@ MLBActuatorAddDynamicObject::MLBActuatorAddDynamicObject(
 	_timeToExpire = timeToExpire;
 
 	if (offset == 0) { //Load an identity matrix
-		_offset = cv::Mat(4, 4, CV_32F, cv::Scalar(0.f));
-		_offset.at<float> (0, 0) = 1;
-		_offset.at<float> (1, 1) = 1;
-		_offset.at<float> (2, 2) = 1;
-		_offset.at<float> (3, 3) = 1;
+		_offset = Ogre::Matrix4::IDENTITY;
 	} else {
 		_offset = *offset;
 	}
@@ -102,7 +98,8 @@ VectorFloat MLBActuatorAddDynamicObject::mPyGetOffset(){
   VectorFloat v;
   for(unsigned int i = 0; i<4; i++){
     for(unsigned int j = 0; j<4; j++){
-      v.push_back(_offset.at<float>(i,j));
+    // TODO
+    	//  v.push_back(_offset.at<float>(i,j));
     }
   }
   return v;
@@ -114,12 +111,11 @@ void MLBActuatorAddDynamicObject::mPySetOffset(VectorFloat offset){
     throw "Offset vector size of MLBActuatorAddDynamicObject should be 16: "+getName();
   }
 
-  for(unsigned int i=0;i<4;i++){
-    for(unsigned j=0;j<4;j++){
-      _offset.at<float>(i,j) = offset.at(i*4+j);
-    }
+  	  _offset = Ogre::Matrix4(offset.at(0),offset.at(1),offset.at(2),offset.at(3),
+  			offset.at(4),offset.at(5),offset.at(6),offset.at(7),
+  			offset.at(8),offset.at(9),offset.at(10),offset.at(11),
+  			offset.at(12),offset.at(13),offset.at(14),offset.at(15));
   }
-}
 
 
 MLBActuatorAddDynamicObject::~MLBActuatorAddDynamicObject() {

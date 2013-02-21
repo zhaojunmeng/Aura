@@ -20,20 +20,20 @@
 
 class PhysicDynamicObject: public PhysicObject {
 public:
-	PhysicDynamicObject(MAORenderable3D* mao, MAOPositionator3D& creationRef, cv::Mat* offset=0, btVector3* impulse=0);
+	PhysicDynamicObject(MAORenderable3D* mao, MAOPositionator3D& creationRef, Ogre::Matrix4* offset=0, btVector3* impulse=0);
 	virtual ~PhysicDynamicObject();
 
 	bool isCreated();
 	void setCreated(bool created);
 
-	cv::Mat& getOffset();
+	Ogre::Matrix4& getOffset();
 	btVector3& getImpulse();
 
 	MAOPositionator3D& getCreationRef();
 private:
 	bool _created;
 	MAOPositionator3D* _creationRef;
-	cv::Mat _offset;
+	Ogre::Matrix4 _offset;
 	btVector3 _impulse;
 };
 

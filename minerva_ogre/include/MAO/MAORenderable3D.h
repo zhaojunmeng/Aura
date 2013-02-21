@@ -44,9 +44,9 @@ public:
 
 
 
-	cv::Mat& getPosMatrix();
-	cv::Mat& getRelativeMatrix();
-	void setRelativeMatrix(cv::Mat& relativeMatrix);
+	Ogre::Matrix4& getPosMatrix();
+	Ogre::Matrix4& getRelativeMatrix();
+	void setRelativeMatrix(Ogre::Matrix4& relativeMatrix);
 	void setRelativeMatrix(const float* relativeMatrix);
 
 	bool isVisible();

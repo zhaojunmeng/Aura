@@ -21,20 +21,22 @@ MLBActuatorRelativePose::MLBActuatorRelativePose(const std::string& name,
 }
 
 void MLBActuatorRelativePose::specificActuate() {
-	cv::Mat r;
+	Ogre::Matrix4 r;
 
 	if (((MAOPositionator3D*) _parent)->isPositioned()
 			&& ((MAOPositionator3D*) _ref)->isPositioned()) {
 
 		//TODO Maybe bug here! (
-		r = ((MAOPositionator3D*) _parent)->getPosMatrix()
-				* ((MAOPositionator3D*) _ref)->getPosMatrix().inv();
+		// TODO
+		//r = ((MAOPositionator3D*) _parent)->getPosMatrix()
+		//		* ((MAOPositionator3D*) _ref)->getPosMatrix().inv();
 
-		if (_inverse) {
-			_property->setValue<cv::Mat> (r.inv());
-		} else {
-			_property->setValue<cv::Mat> (r);
-		}
+		// TODO
+		//if (_inverse) {
+			//_property->setValue<Ogre::Matrix4> (r.inv());
+		//} else {
+			//_property->setValue<Ogre::Matrix4> (r);
+		//}
 	}
 }
 

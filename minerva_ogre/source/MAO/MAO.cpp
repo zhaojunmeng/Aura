@@ -66,13 +66,12 @@ void MAO::addPropertyPose(std::string name) {
 	if (hasProperty(name))
 		throw "Property already exists exception!: " + name;
 
-	MAOProperty* p = new MAOProperty(name, MAOPROPERTY_POSE, cv::Mat(4, 4,
-			CV_32F));
+	MAOProperty* p = new MAOProperty(name, MAOPROPERTY_POSE, Ogre::Matrix4());
 	_vectorMAOProperty.push_back(p);
 	_vectorMPYPropertyPose.push_back(new MPYPropertyPose(p));
 }
 
-void MAO::addPropertyPose(std::string name, cv::Mat& m) {
+void MAO::addPropertyPose(std::string name, Ogre::Matrix4& m) {
 	if (hasProperty(name))
 		throw "Property already exists exception!: " + name;
 

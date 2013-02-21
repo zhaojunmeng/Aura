@@ -49,13 +49,15 @@ void MLBSensorNear::mPySetNearProperty(std::string property) {
 }
 
 float MLBSensorNear::distance(MAOPositionator3D& mao) {
-	cv::Mat m1 = ((MAOPositionator3D*) _parent)->getPosMatrix();
-	cv::Mat m2 = mao.getPosMatrix();
+	Ogre::Matrix4 m1 = ((MAOPositionator3D*) _parent)->getPosMatrix();
+	Ogre::Matrix4 m2 = mao.getPosMatrix();
 
-	float dist = sqrt(pow(m1.at<float> (3, 0) - m2.at<float> (3, 0), 2) + pow(
+	float dist;
+	// TODO
+	/*float dist = sqrt(pow(m1.at<float> (3, 0) - m2.at<float> (3, 0), 2) + pow(
 			m1.at<float> (3, 1) - m2.at<float> (3, 1), 2) + pow(m1.at<float> (
 			3, 2) - m2.at<float> (3, 2), 2));
-
+*/
 	return dist;
 }
 

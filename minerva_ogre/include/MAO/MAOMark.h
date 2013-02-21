@@ -23,23 +23,22 @@ public:
 	float getSize();
 	double* getCenter();
 
-	cv::Mat& getPosMatrix();
+	Ogre::Matrix4& getPosMatrix();
 
-	void setTrackingMatrix(cv::Mat& m);
+	void setTrackingMatrix(Ogre::Matrix4& m);
 	void setTrackingMatrix(const double* m);
 
-	cv::Mat& getOffsetMatrix();
-	void setOffsetMatrix(const cv::Mat* offsetMatrix);
-	void setOffsetMatrix(const cv::Mat& offsetMatrix);
+	Ogre::Matrix4& getOffsetMatrix();
+	void setOffsetMatrix(const Ogre::Matrix4* offsetMatrix);
 	void setOffsetMatrix(const double* offsetMatrix);
 
 	void setId(int id);
 	int getId();
 
 private:
-	cv::Mat _offsetMatrix;
+	Ogre::Matrix4 _offsetMatrix;
 	boost::filesystem::path _bPath;
-	std::vector<cv::Mat> _vectorPosMatrix;
+	std::vector<Ogre::Matrix4> _vectorPosMatrix;
 	float _size;
 	int _id;
 	double* _center;

@@ -47,7 +47,7 @@ void PhysicsController::addStaticRigidBody(MAORenderable3D& body,
 }
 
 void PhysicsController::addDynamicRigidBody(MAORenderable3D& body, float mass,
-		cv::Mat* offset, btVector3* impulse, std::string ncollisionShapeType) {
+		Ogre::Matrix4* offset, btVector3* impulse, std::string ncollisionShapeType) {
 
 	MAOPositionator3D* creationRef = body.getGlobalReference();
 
@@ -71,7 +71,7 @@ void PhysicsController::addDynamicRigidBody(MAORenderable3D& body, float mass,
 }
 
 void PhysicsController::addDynamicRigidBody(MAORenderable3D& body,
-		MAOPositionator3D& creationRef, float mass, cv::Mat* offset,
+		MAOPositionator3D& creationRef, float mass, Ogre::Matrix4* offset,
 		btVector3* impulse, std::string ncollisionShapeType) {
 	if (!isActive()) {
 	  Logger::getInstance()->warning("Physics Controller is not active!: "+body.getName());
@@ -95,7 +95,8 @@ void PhysicsController::addDynamicRigidBody(MAORenderable3D& body,
 
 	generateMAOCollisionShape(&body, ncollisionShapeType);
 
-	po = new PhysicDynamicObject(&body, creationRef, offset, impulse);
+	// TODO
+	//po = new PhysicDynamicObject(&body, creationRef, offset, impulse);
 	_vectorPhysicDynamicObject.push_back(po);
 }
 
@@ -175,13 +176,15 @@ void PhysicsController::pollPhysics() {
 		//Managing static MAO's (They are Kinemtic, so we have tu update its position!)
 		for (unsigned int i = 0; i < _vectorPhysicStaticObject.size(); i++) {
 			PhysicObject* pO = _vectorPhysicStaticObject.at(i);
-			cv::Mat m;
-			m = pO->getMAO()->getGlobalReference()->getPosMatrix()
-					* _maoGround->getPosMatrix().inv();
+			Ogre::Matrix4 m;
+			// TODO
+			//m = pO->getMAO()->getGlobalReference()->getPosMatrix()
+			//		* _maoGround->getPosMatrix().inv();
 
 			btTransform t;
-			t.setFromOpenGLMatrix((btScalar*) m.data);
-			pO->getRigidBody()->getMotionState()->setWorldTransform(t);
+			// TODO
+			//t.setFromOpenGLMatrix((btScalar*) m.data);
+			//pO->getRigidBody()->getMotionState()->setWorldTransform(t);
 
 		}
 
@@ -196,11 +199,13 @@ void PhysicsController::pollPhysics() {
 					pO->setCreated(true);
 					pO->getMAO()->setActive(true);
 
-					cv::Mat m;
-					m = pO->getOffset() * pO->getCreationRef().getPosMatrix()* _maoGround->getPosMatrix().inv();
+					Ogre::Matrix4 m;
+					// TODO
+					//m = pO->getOffset() * pO->getCreationRef().getPosMatrix()* _maoGround->getPosMatrix().inv();
 
 					btTransform t;
-					t.setFromOpenGLMatrix((btScalar*) m.data);
+					// TODO
+					//t.setFromOpenGLMatrix((btScalar*) m.data);
 
 					delete pO->getRigidBody()->getMotionState();
 					btDefaultMotionState* ms = new btDefaultMotionState(t);
@@ -208,23 +213,23 @@ void PhysicsController::pollPhysics() {
 
 					/* The impulse should be in the local coordinates system of the reference */
 					/* Some transforms :)*/
-					cv::Mat localImpulse(4,1,CV_32F);
-					localImpulse.at<float>(0,0)=pO->getImpulse().x();
-					localImpulse.at<float>(1,0)=pO->getImpulse().y();
-					localImpulse.at<float>(2,0)=pO->getImpulse().z();
-					localImpulse.at<float>(3,0)=0.0;
+					//TODO
+					/*Ogre::Vector3 localImpulse;
+					localImpulse.x = pO->getImpulse().x();
+					localImpulse.y = pO->getImpulse().y();
+					localImpulse.z = pO->getImpulse().z();
 
-					cv::Mat globalImpulse = m.inv()*localImpulse;
+					Ogre::Vector4 globalImpulse = m.inv()*localImpulse;
 
 
-					btVector3 btGlobalImpulse(globalImpulse.at<float>(0,0),
-											  globalImpulse.at<float>(1,0),
-											  globalImpulse.at<float>(2,0));
+					btVector3 btGlobalImpulse(globalImpulse.x,
+											  globalImpulse.y,
+											  globalImpulse.z;
 
 					pO->getRigidBody()->applyCentralImpulse(btGlobalImpulse);
 
 					_world->addRigidBody(pO->getRigidBody());
-
+*/
 					pO->getMAO()->setRelativeMatrix(m);
 				}
 			} else {
@@ -248,26 +253,27 @@ float* PhysicsController::getShadowsMatrix() {
 }
 
 void PhysicsController::calculateShadowsMatrix() {
-	cv::Mat& mGround = _maoGround->getPosMatrix();
-	btVector3 vz(mGround.at<float> (2, 0), mGround.at<float> (2, 1),
-			mGround.at<float> (2, 2));
-	btVector3 p(mGround.at<float> (3, 0), mGround.at<float> (3, 1), mGround.at<
-			float> (3, 2));
+	// TODO
+	Ogre::Matrix4& mGround = _maoGround->getPosMatrix();
+	//btVector3 vz(mGround.at<float> (2, 0), mGround.at<float> (2, 1),
+	//		mGround.at<float> (2, 2));
+	//btVector3 p(mGround.at<float> (3, 0), mGround.at<float> (3, 1), mGround.at<
+	//		float> (3, 2));
 
 	GLfloat Lx = _sun.x(), Ly = _sun.y(), Lz = _sun.z(); // Sun pos
-	GLfloat Nx = -vz.x(), Ny = -vz.y(), Nz = -vz.z();
-	GLfloat modN = sqrt(pow(Nx,2)+pow(Ny,2)+pow(Nz,2));
-	GLfloat Cx = (GLfloat) p.x() + GROUND_HEIGHT*Nx/modN,
-	  Cy = (GLfloat) p.y() - GROUND_HEIGHT*Ny/modN,
-	  Cz = (GLfloat) p.z() - GROUND_HEIGHT*Nz/modN;
+	//GLfloat Nx = -vz.x(), Ny = -vz.y(), Nz = -vz.z();
+	//GLfloat modN = sqrt(pow(Nx,2)+pow(Ny,2)+pow(Nz,2));
+	//GLfloat Cx = (GLfloat) p.x() + GROUND_HEIGHT*Nx/modN,
+	 // Cy = (GLfloat) p.y() - GROUND_HEIGHT*Ny/modN,
+	  //Cz = (GLfloat) p.z() - GROUND_HEIGHT*Nz/modN;
 
 
 
-	//Calculating the shadow
+	/*//Calculating the shadow
 	float a, b;
 
-	a = Nx * Lx + Ny * Ly + Nz * Lz;
-	b = Cx * Nx + Cy * Ny + Cz * Nz - a;
+	//a = Nx * Lx + Ny * Ly + Nz * Lz;
+	//b = Cx * Nx + Cy * Ny + Cz * Nz - a;
 
 	_shadowsMatrix[0] = Lx * Nx + b;
 	_shadowsMatrix[1] = Nx * Ly;
@@ -288,7 +294,7 @@ void PhysicsController::calculateShadowsMatrix() {
 	_shadowsMatrix[13] = -Ly * b - Ly * a;
 	_shadowsMatrix[14] = -Lz * b - Lz * a;
 	_shadowsMatrix[15] = -a;
-}
+*/}
 
 void PhysicsController::setMAOGround(MAOPositionator3D& ground,
 		std::string& axis, float gravity, bool shadows, btVector3* sun) {
@@ -445,10 +451,11 @@ bool PhysicsController::collision(MAORenderable3D* m1, MAORenderable3D* m2) {
 	float d1[16];
 	float d2[16];
 
-	for (int i = 0; i < 16; i++) {
-		d1[i] = ((float*) m1->getPosMatrix().data)[i];
-		d2[i] = ((float*) m2->getPosMatrix().data)[i];
-	}
+	// TODO
+	/*FOR (INT I = 0; I < 16; I++) {
+		D1[I] = ((FLOAT*) M1->GETPOSMATRIX().DATA)[I];
+		D2[I] = ((FLOAT*) M2->GETPOSMATRIX().DATA)[I];
+	}*/
 
 	ob1.getWorldTransform().setFromOpenGLMatrix((btScalar*) d1);
 	ob2.getWorldTransform().setFromOpenGLMatrix((btScalar*) d2);
@@ -523,7 +530,8 @@ void PhysicsController::drawDebugWorld(){
 
   //glPushMatrix();
   //glLoadIdentity();
-  float *m = (float*) _maoGround->getPosMatrix().data;
+  // TODO
+ // float *m = (float*) _maoGround->getPosMatrix().data;
 
   //glMultMatrixf(m);
   //_world->debugDrawWorld();
@@ -534,10 +542,11 @@ PhysicsController::~PhysicsController() {
 	//Deleting in reverse order
 	if (isActive()) {
 		for (unsigned int i = 0; i < _vectorPhysicDynamicObject.size(); i++) {
-			if (_vectorPhysicDynamicObject.at(i)->isCreated()) {
-				_world->removeRigidBody(
-						_vectorPhysicDynamicObject.at(i)->getRigidBody());
-			}
+			// TODO
+			//if (_vectorPhysicDynamicObject.at(i)->isCreated()) {
+			//	_world->removeRigidBody(
+			//			_vectorPhysicDynamicObject.at(i)->getRigidBody());
+			//}
 
 			delete _vectorPhysicDynamicObject.at(i);
 		}

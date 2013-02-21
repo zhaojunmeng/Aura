@@ -11,7 +11,6 @@
 
 #include <string>
 #include <iostream>
-#include <cv.h>
 #include <btBulletDynamicsCommon.h>
 #include <MAO/MAOProperty.h>
 
@@ -40,8 +39,8 @@ public:
 	bool bool1;
 	btVector3* btvector1;
 	btVector3* btvector2;
-	cv::Mat* pose1;
-	cv::Mat* pose2;
+	Ogre::Matrix4* pose1;
+	Ogre::Matrix4* pose2;
 	MAOValue* maovalue1;
 	MAOValue* maovalue2;
 	MAOProperty* maoproperty1; //Don't delete!

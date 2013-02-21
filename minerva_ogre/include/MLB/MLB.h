@@ -13,6 +13,7 @@
 
 #include <python.hpp>
 #include <filesystem.hpp>
+#include <Ogre.h>
 #include <MPY/WrapperTypes.h>
 
 /* Types of MLB's */

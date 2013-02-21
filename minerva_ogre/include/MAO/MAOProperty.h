@@ -58,6 +58,6 @@ typedef MPYProperty<int> MPYPropertyInt;
 typedef MPYProperty<float> MPYPropertyFloat;
 typedef MPYProperty<std::string> MPYPropertyStr;
 typedef MPYProperty<bool> MPYPropertyBool;
-typedef MPYProperty<cv::Mat> MPYPropertyPose;
+typedef MPYProperty<Ogre::Matrix4> MPYPropertyPose;
 
 #endif /* MAOPROPERTY_H_ */

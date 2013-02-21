@@ -56,7 +56,7 @@ void TrackingMethodARTK::addMAOMark(MAOMark& mark) {
 	int id;
 
 	_vectorMAOMark.push_back(&mark);
-	//id = arLoadPatt(mark.getPath().c_str());
+	id = arLoadPatt(mark.getPath().c_str());
 	//id = loadPattFromResource(
 		//	ResourcesManager::getInstance()->getResource(mark.getPath()));
 

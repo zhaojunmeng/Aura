@@ -7,52 +7,44 @@
 
 #include <MAO/MAOPositionator3D.h>
 
-MAOPositionator3D::MAOPositionator3D(const std::string& name):MAO(name) {
-	_posMatrix = cv::Mat(4,4,CV_32F);
+MAOPositionator3D::MAOPositionator3D(const std::string& name) :
+		MAO(name) {
 
-	setIdentityMat(_posMatrix);
 	_positioned = false;
 	_type = T_MAOPOSITIONATOR3D;
+	_node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->createSceneNode(name);
 }
 
-MAOPositionator3D::MAOPositionator3D(const MAOPositionator3D& o): MAO(o){
-	_posMatrix = cv::Mat(4,4,CV_32F);
-	setIdentityMat(_posMatrix);
+MAOPositionator3D::MAOPositionator3D(const MAOPositionator3D& o) :
+		MAO(o) {
+
 
 	_positioned = o._positioned;
 	_type = o._type;
 }
 
-void MAOPositionator3D::setPosMatrix(cv::Mat& posMatrix) {
-	if (posMatrix.rows != 4 || posMatrix.cols != 4)
-		throw "Invalid matrix exception!";
+void MAOPositionator3D::setNodeMatrix(Ogre::Matrix4& posMatrix) {
 
-	for (unsigned int i = 0; i < 4; i++)
-		for (unsigned int j = 0; j < 4; j++)
-			_posMatrix.at<float> (i, j) = posMatrix.at<float> (i, j);
-
-
+	_node->setPosition(posMatrix.getTrans());
+	_node->setOrientation(posMatrix.extractQuaternion());
 }
 
-void MAOPositionator3D::setPosMatrix(const double* posMatrix) {
-	for (unsigned int i = 0; i < 4; i++)
-		for (unsigned int j = 0; j < 4; j++)
-			_posMatrix.at<float> (i, j) = (float) posMatrix[i * 4 + j];
+void MAOPositionator3D::setNodeMatrix(const double* posMatrix) {
+	Ogre::Matrix4 mat(posMatrix[0], posMatrix[1], posMatrix[2], posMatrix[3],
+			posMatrix[4], posMatrix[5], posMatrix[6], posMatrix[7],
+			posMatrix[8], posMatrix[9], posMatrix[10], posMatrix[11],
+			posMatrix[12], posMatrix[13], posMatrix[14], posMatrix[15]);
+
+	_node->setPosition(mat.getTrans());
+	_node->setOrientation(mat.extractQuaternion());
 }
 
-bool MAOPositionator3D::isPositioned(){
+bool MAOPositionator3D::isPositioned() {
 	return _positioned;
 }
 
-void MAOPositionator3D::setPositioned(bool positioned){
+void MAOPositionator3D::setPositioned(bool positioned) {
 	_positioned = positioned;
-}
-
-void MAOPositionator3D::setIdentityMat(cv::Mat& mat){
-	mat.at<float>(0,0) = 1.0; mat.at<float>(0,1) = 0.0; mat.at<float>(0,2) = 0.0; mat.at<float>(0,3) = 0.0;
-	mat.at<float>(1,0) = 0.0; mat.at<float>(1,1) = 1.0; mat.at<float>(1,2) = 0.0; mat.at<float>(1,3) = 0.0;
-	mat.at<float>(2,0) = 0.0; mat.at<float>(2,1) = 0.0; mat.at<float>(2,2) = 1.0; mat.at<float>(2,3) = 0.0;
-	mat.at<float>(3,0) = 0.0; mat.at<float>(3,1) = 0.0; mat.at<float>(3,2) = 0.0; mat.at<float>(3,3) = 1.0;
 }
 
 MAOPositionator3D::~MAOPositionator3D() {

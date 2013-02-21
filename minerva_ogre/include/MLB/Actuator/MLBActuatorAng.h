@@ -25,8 +25,8 @@ public:
 private:
 	int _angAxis;
 	MAOProperty* _property;
-	float angle(cv::Mat v1, cv::Mat v2);
-	float module(cv::Mat v);
+	float angle(Ogre::Matrix4 v1, Ogre::Matrix4 v2);
+	float module(Ogre::Matrix4 v);
 	void specificActuate();
 };
 

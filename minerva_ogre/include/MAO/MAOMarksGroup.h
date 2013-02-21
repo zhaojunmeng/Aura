@@ -8,9 +8,7 @@
 #ifndef MAOMARKSGROUP_H_
 #define MAOMARKSGROUP_H_
 
-#include <cv.h>
 #include <string>
-
 #include <MAO/MAOMark.h>
 
 class MAOMarksGroup: public MAOPositionator3D {
@@ -18,7 +16,7 @@ public:
 	MAOMarksGroup(const std::string& name);
 	virtual ~MAOMarksGroup();
 	void addMarktoGroup(MAOMark& mark);
-	cv::Mat &getPosMatrix();
+	Ogre::Matrix4& getPosMatrix();
 	void checkIfPositioned();
 
 private:

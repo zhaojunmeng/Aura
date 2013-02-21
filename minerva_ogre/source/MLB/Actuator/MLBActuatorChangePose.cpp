@@ -25,6 +25,8 @@ MLBActuatorChangePose::MLBActuatorChangePose(const std::string& name,
 }
 
 void MLBActuatorChangePose::specificActuate() {
+// TODO
+	/*
 	if (((MAORenderable3D*) _parent)->getMass() != 0) {
 		Logger::getInstance()->error(
 				"Can not apply ChangePose Actuator to Dynamic Objects!: "
@@ -111,7 +113,7 @@ void MLBActuatorChangePose::specificActuate() {
 
 		((MAORenderable3D*) _parent)->setRelativeMatrix(res);
 	}
-}
+*/}
 
 /* Python functions! */
 int MLBActuatorChangePose::mPyGetLocType() {

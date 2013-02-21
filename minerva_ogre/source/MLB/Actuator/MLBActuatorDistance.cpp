@@ -47,9 +47,12 @@ void MLBActuatorDistance::specificActuate() {
 float MLBActuatorDistance::distance() {
 	float dist;
 
+	// TODO
+/*
 	dist = sqrt(  pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 0) - _mao->getPosMatrix().at<float> (3, 0), 2)
 		    + pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 1) - _mao->getPosMatrix().at<float> (3, 1), 2)
 		    + pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 2) - _mao->getPosMatrix().at<float> (3, 2), 2));
+*/
 
 	return dist;
 }

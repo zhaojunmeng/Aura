@@ -534,7 +534,7 @@ MLBActuatorRelativePose& MLBFactory::addMLBActuatorRelativePose(
 
 MLBActuatorAddDynamicObject& MLBFactory::addMLBActuatorAddDynamicObject(
 		std::string name, std::string nparent, std::string nmao,
-		int timeToExpire, cv::Mat* offset, btVector3* impulse) {
+		int timeToExpire, Ogre::Matrix4* offset, btVector3* impulse) {
 
 	if (!checkMLBName(nparent, name))
 		throw "MLB name already exists " + name;

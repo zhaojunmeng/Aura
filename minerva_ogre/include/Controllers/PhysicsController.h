@@ -37,10 +37,10 @@ public:
 	void addStaticRigidBody(MAORenderable3D& body,
 			std::string ncollisionShapeType=std::string("BOX"));
 	void addDynamicRigidBody(MAORenderable3D& body, float mass,
-			cv::Mat* offset = 0, btVector3* impulse = 0,
+			Ogre::Matrix4* offset = 0, btVector3* impulse = 0,
 			std::string ncollisionShapeType=std::string("BOX"));
 	void addDynamicRigidBody(MAORenderable3D& body,
-			MAOPositionator3D& creationRef, float mass, cv::Mat* offset = 0,
+			MAOPositionator3D& creationRef, float mass, Ogre::Matrix4* offset = 0,
 			btVector3* impulse = 0,
 			std::string ncollisionShapeType=std::string("BOX"));
 

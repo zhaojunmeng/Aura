@@ -14,7 +14,7 @@ MAORenderable3D::MAORenderable3D(const std::string& name, const float& size) :
 	addPropertyBoolean("visible", false); //At first, is a MAO Class
 	addPropertyPose("relative");
 	addPropertyFloat("mass", 0.f);
-	setIdentityMat(getRelativeMatrix());
+
 	_type = T_MAORENDERABLE3D;
 
 	_collisionShape = NULL;
@@ -68,6 +68,7 @@ void MAORenderable3D::setActive(bool active) {
 void MAORenderable3D::setGlobalReference(MAOPositionator3D& globalReference) {
 	getProperty("visible").setValue<bool>(true);
 	_globalReference = &globalReference;
+	Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(_globalReference->getName())->addChild(_node);
 }
 
 MAOPositionator3D* MAORenderable3D::getGlobalReference() {
@@ -82,41 +83,34 @@ float MAORenderable3D::getMass() {
 	return getProperty("mass").getValue<float> ();
 }
 
-cv::Mat& MAORenderable3D::getPosMatrix() {
-	cv::Mat m;
+Ogre::Matrix4& MAORenderable3D::getPosMatrix() {
+	Ogre::Matrix4 m;
 
-	if (_globalReference->isPositioned()) {
+	/*if (_globalReference->isPositioned()) {
 		m = getRelativeMatrix() * _globalReference->getPosMatrix();
 	} else {
 		m = getRelativeMatrix();
 	}
 
 	setPosMatrix(m);
-
-	return _posMatrix;
+*/
+	//return _posMatrix;
+	return m;
 }
 
-void MAORenderable3D::setRelativeMatrix(cv::Mat& relativeMatrix) {
-	if (relativeMatrix.rows != 4 || relativeMatrix.cols != 4)
-		throw "Invalid matrix exception!";
+void MAORenderable3D::setRelativeMatrix(Ogre::Matrix4& relativeMatrix) {
 
-	for (unsigned int i = 0; i < 4; i++)
-		for (unsigned int j = 0; j < 4; j++)
-			getRelativeMatrix().at<float> (i, j) = relativeMatrix.at<float> (i,
-					j);
+			getRelativeMatrix() = relativeMatrix;
 
 }
 
 void MAORenderable3D::setRelativeMatrix(const float* relativeMatrix) {
-	for (unsigned int i = 0; i < 4; i++)
-		for (unsigned int j = 0; j < 4; j++)
-			getRelativeMatrix().at<float> (i, j) = (float) relativeMatrix[i * 4
-					+ j];
+	// TODO
 
 }
 
-cv::Mat& MAORenderable3D::getRelativeMatrix() {
-	return getProperty("relative").getValue<cv::Mat> ();
+Ogre::Matrix4& MAORenderable3D::getRelativeMatrix() {
+	return getProperty("relative").getValue<Ogre::Matrix4> ();
 	//return _relativeMatrix;
 }
 
@@ -187,22 +181,6 @@ void MAORenderable3D::draw() {
 	}
 
 	if (_positioned) {
-	/*	//Drawing the model
-		glDisable(GL_TEXTURE_2D);
-
-		glMatrixMode( GL_MODELVIEW);
-		glPushMatrix();
-		glLoadIdentity();
-
-		float *m = (float*) getPosMatrix().data;
-
-		glMultMatrixf(m);
-
-		_drawMAO();
-
-		glPopMatrix();
-
-		glDisable(GL_TEXTURE_2D);*/
 
 	}
 

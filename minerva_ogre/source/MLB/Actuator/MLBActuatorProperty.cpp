@@ -111,7 +111,7 @@ void MLBActuatorProperty::specificActuate() {
 		break;
 	}
 	case MAOPROPERTY_POSE: {
-		_property->setValue<cv::Mat> (_value.getValue<cv::Mat> ());
+		_property->setValue<Ogre::Matrix4> (_value.getValue<Ogre::Matrix4> ());
 	}
 
 	}

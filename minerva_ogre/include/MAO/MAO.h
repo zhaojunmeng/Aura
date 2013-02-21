@@ -23,7 +23,6 @@
 
 #include <string>
 #include <vector>
-#include <cv.h>
 #include <Ogre.h>
 #include <SDL.h>
 #include <python.hpp>
@@ -34,6 +33,12 @@
 #include <MAO/MAOProperty.h>
 
 class MAO {
+protected:
+	std::string _name;
+	std::vector<MAOProperty*> _vectorMAOProperty;
+	int _type;
+
+
 public:
 	MAO(std::string name);
 	MAO(const MAO& o);
@@ -47,7 +52,7 @@ public:
 	void addPropertyString(std::string name, const std::string& value = "");
 	void addPropertyBoolean(std::string name, bool value = false);
 	void addPropertyPose(std::string name);
-	void addPropertyPose(std::string name, cv::Mat& m);
+	void addPropertyPose(std::string name, Ogre::Matrix4& m);
 
 	MAOProperty& getProperty(std::string name);
 	int getType();
@@ -69,10 +74,6 @@ public:
 	std::vector<MPYPropertyBool*> _vectorMPYPropertyBool;
 	std::vector<MPYPropertyPose*> _vectorMPYPropertyPose;
 
-protected:
-	std::string _name;
-	std::vector<MAOProperty*> _vectorMAOProperty;
-	int _type;
 };
 
 #endif /* MAO_H_ */

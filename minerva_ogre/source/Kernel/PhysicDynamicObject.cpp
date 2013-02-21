@@ -8,24 +8,16 @@
 #include <Kernel/PhysicDynamicObject.h>
 
 PhysicDynamicObject::PhysicDynamicObject(MAORenderable3D* mao,
-		MAOPositionator3D& creationRef, cv::Mat* offset, btVector3* impulse) :
+		MAOPositionator3D& creationRef, Ogre::Matrix4* offset, btVector3* impulse) :
 	PhysicObject(mao) {
 	_created = false;
 	_creationRef = &creationRef;
-	_offset = cv::Mat(4, 4, CV_32F, cv::Scalar(0.f));
-	if (offset == 0) { //Load an identity matrix
-		_offset.at<float> (0, 0) = 1;
-		_offset.at<float> (1, 1) = 1;
-		_offset.at<float> (2, 2) = 1;
-		_offset.at<float> (3, 3) = 1;
-	} else {
-		//Copying!
-		for(int i=0;i<4;i++){
-			for(int j=0;j<4;j++){
-				_offset.at<float>(i,j) = offset->at<float>(i,j);
-			}
-		}
-	}
+	_offset = Ogre::Matrix4::IDENTITY;
+
+	// TODO
+	//if (offset != 0) { //Load an identity matrix
+	//	_offset = offset;
+	//}
 
 	if (impulse == 0) {
 		_impulse = btVector3(0, 0, 0);
@@ -44,7 +36,7 @@ void PhysicDynamicObject::setCreated(bool created) {
 	_created = created;
 }
 
-cv::Mat& PhysicDynamicObject::getOffset() {
+Ogre::Matrix4& PhysicDynamicObject::getOffset() {
 	return _offset;
 }
 

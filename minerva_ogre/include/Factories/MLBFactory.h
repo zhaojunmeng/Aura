@@ -118,7 +118,7 @@ public:
 			MAOProperty& property, bool inverse = false);
 	MLBActuatorAddDynamicObject& addMLBActuatorAddDynamicObject(
 			std::string name, std::string nparent, std::string nmao,
-			int timeToExpire = 0, cv::Mat* offset = 0, btVector3* impulse = 0);
+			int timeToExpire = 0, Ogre::Matrix4* offset = 0, btVector3* impulse = 0);
 	MLBActuatorAnim& addMLBActuatorAnim(std::string name,
 			std::string nparent, std::string nanimChoice,
 			std::string* nanimType);

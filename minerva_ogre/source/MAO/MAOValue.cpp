@@ -25,14 +25,10 @@ MAOValue::MAOValue(const MAOValue& o) {
 		_value = (void*) new std::string(*(std::string*)o._value);
 		break;
 	case MAOPROPERTY_POSE:{
-		cv::Mat* m = new cv::Mat(4,4,CV_32F);
-		cv::Mat* m2 = (cv::Mat*)o._value;
+		Ogre::Matrix4* m;
+		Ogre::Matrix4* m2 = (Ogre::Matrix4*)o._value;
 
-		for(unsigned int i=0;i<4;i++){
-			for(unsigned int j=0;j<4;j++){
-				m->at<float>(i,j) = m2->at<float>(i,j);
-			}
-		}
+		m = m2;
 		_value = (void*)m;
 		break;
 	}
@@ -59,7 +55,7 @@ MAOValue& MAOValue::operator=(const MAOValue& o){
 				_value = (void*) new std::string(*(std::string*)o._value);
 				break;
 			case MAOPROPERTY_POSE:
-				_value = (void*) new cv::Mat(*(cv::Mat*)o._value);
+				_value = (void*) new Ogre::Matrix4(*(Ogre::Matrix4*)o._value);
 				break;
 			}
 	}
@@ -127,8 +123,8 @@ MAOValue::~MAOValue() {
 		case MAOPROPERTY_BOOLEAN:
 				delete (bool*) _value;
 				break;
+				delete (Ogre::Matrix4*) _value;
 		case MAOPROPERTY_POSE:
-				delete (cv::Mat*) _value;
 				break;
 		}
 	}

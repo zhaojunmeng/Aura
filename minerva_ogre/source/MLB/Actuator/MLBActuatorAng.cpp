@@ -20,6 +20,9 @@ MLBActuatorAng::MLBActuatorAng(const std::string& name,
 }
 
 void MLBActuatorAng::specificActuate() {
+// TODO
+
+/*
 	cv::Mat v1(1, 3, CV_32F);
 	cv::Mat v2(1, 3, CV_32F);
 
@@ -89,23 +92,25 @@ void MLBActuatorAng::specificActuate() {
 	  break;
 
 	}
+*/
 }
 
-float MLBActuatorAng::module(cv::Mat v) {
+float MLBActuatorAng::module(Ogre::Matrix4 v) {
 	float mod;
 
-	mod = sqrt(pow(v.at<float> (0, 0), 2) + pow(v.at<float> (0, 1), 2) + pow(
-			v.at<float> (0, 2), 2));
+	// TOD
+	//mod = sqrt(pow(v.at<float> (0, 0), 2) + pow(v.at<float> (0, 1), 2) + pow(
+			//v.at<float> (0, 2), 2));
 
 	return mod;
 }
 
-float MLBActuatorAng::angle(cv::Mat v1, cv::Mat v2) {
+float MLBActuatorAng::angle(Ogre::Matrix4 v1, Ogre::Matrix4 v2) {
 	float ang;
 
-	ang = acos((v1.at<float> (0, 0) * v2.at<float> (0, 0) + v1.at<float> (0, 1)
-			* v2.at<float> (0, 1) + v1.at<float> (0, 2) * v2.at<float> (0, 2))
-			/ (module(v1) * module(v2)));
+	//ang = acos((v1.at<float> (0, 0) * v2.at<float> (0, 0) + v1.at<float> (0, 1)
+		//	* v2.at<float> (0, 1) + v1.at<float> (0, 2) * v2.at<float> (0, 2))
+	//		/ (module(v1) * module(v2)));
 
 	return ang;
 }
