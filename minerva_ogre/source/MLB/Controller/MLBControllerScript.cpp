@@ -36,14 +36,15 @@ void MLBControllerScript::setCompiled(bool compiled) {
 
 void MLBControllerScript::compileScript() {
 	//Allocating the memory!
-	Resource& r = ResourcesManager::getInstance()->getResource(_path);
-	char buf [r.getSize() + 2]; //Allocating the memory!
+	//Resource& r = ResourcesManager::getInstance()->getResource(_path);
+	//char buf [r.getSize() + 2]; //Allocating the memory!
+	char buf [2]; //Allocating the memory!
 
-	for(unsigned int i = 0; i<r.getSize(); i++)
-		buf[i] = r.getData()[i];
+	//for(unsigned int i = 0; i<r.getSize(); i++)
+	//	buf[i] = r.getData()[i];
 
-	buf[r.getSize()] = '\n';
-	buf[r.getSize() + 1] = '\0';
+	//buf[r.getSize()] = '\n';
+	//buf[r.getSize() + 1] = '\0';
 
 	try {
 		_compiledObj = boost::python::object(boost::python::handle<>(
@@ -182,18 +183,7 @@ object MLBControllerScript::mPyGetActuator(std::string name) {
 		pyObj = converter((MLBActuatorDistance*)a);
 	}
 		break;
-	case T_MLBACTUATORPATHADDPOINT: {
-		reference_existing_object::apply<MLBActuatorPathAddPoint*>::type
-				converter;
-		pyObj = converter((MLBActuatorPathAddPoint*)a);
-	}
-		break;
-	case T_MLBACTUATORPATHREMOVEPOINTS: {
-		reference_existing_object::apply<MLBActuatorPathRemovePoints*>::type
-				converter;
-		pyObj = converter((MLBActuatorPathRemovePoints*)a);
-	}
-		break;
+
 	case T_MLBACTUATORPROPERTY: {
 		reference_existing_object::apply<MLBActuatorProperty*>::type converter;
 		pyObj = converter((MLBActuatorProperty*)a);

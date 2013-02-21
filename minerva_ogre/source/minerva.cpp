@@ -15,9 +15,6 @@
 
 using namespace std;
 
-//char workingDirPath[255];
-//char minervaBinaryPath[255];
-
 void showCurrentDirectory() {
 	char c[255];
 #ifdef WIN32
@@ -110,8 +107,8 @@ int main(int argc, char* argv[]) {
 			parser.yyparse();
 
 			/* Packing */
-			ResourcesManager::getInstance()->pack(finalFile);
-			ResourcesManager::getInstance()->destroy();
+			//ResourcesManager::getInstance()->pack(finalFile);
+			//ResourcesManager::getInstance()->destroy();
 
 			// Restoring cin
 			cin.rdbuf(cinold);

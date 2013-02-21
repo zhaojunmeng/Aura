@@ -490,9 +490,6 @@ void PhysicsController::initPhysics() {
 	_world = new btDiscreteDynamicsWorld(_dispatcher, _broadphase, _solver,
 			_collisionConf);
 
-	_world->setDebugDrawer(&_debugDrawer);
-	_world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);// | btIDebugDraw::DBG_DrawAabb);
-
 	_active = true;
 
 }
@@ -524,13 +521,13 @@ void PhysicsController::drawDebugWorld(){
   if(!isActive())
     return;
 
-  glPushMatrix();
-  glLoadIdentity();
+  //glPushMatrix();
+  //glLoadIdentity();
   float *m = (float*) _maoGround->getPosMatrix().data;
 
-  glMultMatrixf(m);
-  _world->debugDrawWorld();
-  glPopMatrix();
+  //glMultMatrixf(m);
+  //_world->debugDrawWorld();
+  //glPopMatrix();
 }
 
 PhysicsController::~PhysicsController() {

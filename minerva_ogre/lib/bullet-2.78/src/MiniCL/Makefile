@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -110,14 +110,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/CMakeFiles/progress.marks
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/CMakeFiles/progress.marks
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/clean
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +126,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/MiniCL/CMakeFiles/MiniCL.dir/rule:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/CMakeFiles/MiniCL.dir/rule
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/MiniCL/CMakeFiles/MiniCL.dir/rule
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/rule
 
 # Convenience name for target.
@@ -150,52 +150,52 @@ MiniCL: src/MiniCL/CMakeFiles/MiniCL.dir/rule
 
 # fast build rule for target.
 MiniCL/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/build
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/build
 .PHONY : MiniCL/fast
 
 # target to build an object file
 MiniCL.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o
 .PHONY : MiniCL.o
 
 # target to preprocess a source file
 MiniCL.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.i
 .PHONY : MiniCL.i
 
 # target to generate assembly for a file
 MiniCL.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.s
 .PHONY : MiniCL.s
 
 # target to build an object file
 MiniCLTask/MiniCLTask.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o
 .PHONY : MiniCLTask/MiniCLTask.o
 
 # target to preprocess a source file
 MiniCLTask/MiniCLTask.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i
 .PHONY : MiniCLTask/MiniCLTask.i
 
 # target to generate assembly for a file
 MiniCLTask/MiniCLTask.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s
 .PHONY : MiniCLTask/MiniCLTask.s
 
 # target to build an object file
 MiniCLTaskScheduler.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o
 .PHONY : MiniCLTaskScheduler.o
 
 # target to preprocess a source file
 MiniCLTaskScheduler.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i
 .PHONY : MiniCLTaskScheduler.i
 
 # target to generate assembly for a file
 MiniCLTaskScheduler.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/MiniCL/CMakeFiles/MiniCL.dir/build.make src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s
 .PHONY : MiniCLTaskScheduler.s
 
 # Help Target
@@ -231,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

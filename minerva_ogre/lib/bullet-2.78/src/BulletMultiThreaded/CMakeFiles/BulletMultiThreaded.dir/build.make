@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Include any dependencies generated for this target.
 include src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/depend.make
@@ -51,17 +51,17 @@ include src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o: src/BulletMultiThreaded/SpuFakeDma.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuFakeDma.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o.requires
@@ -74,17 +74,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuFakeDma.o.provides
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o: src/BulletMultiThreaded/SpuLibspe2Support.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuLibspe2Support.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o.requires
@@ -97,17 +97,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuLibspe2Support.o.p
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o: src/BulletMultiThreaded/btThreadSupportInterface.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp > CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp > CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp -o CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btThreadSupportInterface.cpp -o CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterface.o.requires
@@ -120,17 +120,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btThreadSupportInterf
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o: src/BulletMultiThreaded/Win32ThreadSupport.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/Win32ThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o.requires
@@ -143,17 +143,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/Win32ThreadSupport.o.
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o: src/BulletMultiThreaded/PosixThreadSupport.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/PosixThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o.requires
@@ -166,17 +166,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/PosixThreadSupport.o.
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o: src/BulletMultiThreaded/SequentialThreadSupport.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp > CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SequentialThreadSupport.cpp -o CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSupport.o.requires
@@ -189,17 +189,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SequentialThreadSuppo
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o: src/BulletMultiThreaded/SpuSampleTaskProcess.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuSampleTaskProcess.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.o.requires
@@ -212,17 +212,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuSampleTaskProcess.
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o: src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionObjectWrapper.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWrapper.o.requires
@@ -235,17 +235,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionObjectWra
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o: src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuCollisionTaskProcess.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProcess.o.requires
@@ -258,17 +258,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuCollisionTaskProce
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o: src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuGatheringCollisionDispatcher.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollisionDispatcher.o.requires
@@ -281,17 +281,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuGatheringCollision
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o: src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuContactManifoldCollisionAlgorithm.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCollisionAlgorithm.o.requires
@@ -304,17 +304,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuContactManifoldCol
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o: src/BulletMultiThreaded/btParallelConstraintSolver.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp > CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp > CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp -o CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btParallelConstraintSolver.cpp -o CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintSolver.o.requires
@@ -327,17 +327,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btParallelConstraintS
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o: src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/boxBoxDistance.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/boxBoxDistance.o.requires
@@ -350,17 +350,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisi
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o: src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuContactResult.o.requires
@@ -373,17 +373,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisi
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o: src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuMinkowskiPenetrationDepthSolver.o.requires
@@ -396,17 +396,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisi
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o: src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.o.requires
@@ -419,17 +419,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisi
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o: src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp > CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.cpp -o CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisionTask/SpuCollisionShapes.o.requires
@@ -442,17 +442,17 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/SpuNarrowPhaseCollisi
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/flags.make
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o: src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp > CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp > CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.i
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp -o CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/btGpu3DGridBroadphase.cpp -o CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.s
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o.requires:
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/btGpu3DGridBroadphase.o.requires
@@ -508,8 +508,8 @@ src/BulletMultiThreaded/libBulletMultiThreaded.a: src/BulletMultiThreaded/CMakeF
 src/BulletMultiThreaded/libBulletMultiThreaded.a: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/build.make
 src/BulletMultiThreaded/libBulletMultiThreaded.a: src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libBulletMultiThreaded.a"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -P CMakeFiles/BulletMultiThreaded.dir/cmake_clean_target.cmake
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletMultiThreaded.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -P CMakeFiles/BulletMultiThreaded.dir/cmake_clean_target.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletMultiThreaded.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/build: src/BulletMultiThreaded/libBulletMultiThreaded.a
@@ -536,10 +536,10 @@ src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/requires: src/BulletM
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/requires
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -P CMakeFiles/BulletMultiThreaded.dir/cmake_clean.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded && $(CMAKE_COMMAND) -P CMakeFiles/BulletMultiThreaded.dir/cmake_clean.cmake
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/clean
 
 src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir/depend
 

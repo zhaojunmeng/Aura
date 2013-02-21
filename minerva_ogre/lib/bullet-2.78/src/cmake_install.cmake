@@ -1,4 +1,4 @@
-# Install script for directory: /home/cesar/git/minerva/lib/bullet-2.78/src
+# Install script for directory: /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -42,20 +42,20 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
 FILE(INSTALL DESTINATION "/usr/local/include/bullet" TYPE FILE FILES
-    "/home/cesar/git/minerva/lib/bullet-2.78/src/btBulletCollisionCommon.h"
-    "/home/cesar/git/minerva/lib/bullet-2.78/src/btBulletDynamicsCommon.h"
-    "/home/cesar/git/minerva/lib/bullet-2.78/src/Bullet-C-Api.h"
+    "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/btBulletCollisionCommon.h"
+    "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/btBulletDynamicsCommon.h"
+    "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/Bullet-C-Api.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/cmake_install.cmake")
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/cmake_install.cmake")
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/cmake_install.cmake")
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/BulletCollision/cmake_install.cmake")
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/cmake_install.cmake")
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletCollision/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

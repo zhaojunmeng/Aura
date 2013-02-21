@@ -27,10 +27,6 @@
 #include <MAO/MAOPositionator3D.h>
 #include <Factories/MAOFactory.h>
 
-#include <Kernel/GLDebugDrawer.h>
-
-
-
 class PhysicsController: public Singleton<PhysicsController> {
 public:
 	PhysicsController();
@@ -92,8 +88,6 @@ private:
 	void generateMAOCollisionShape(MAORenderable3D* mao, std::string& ncollisionShapeType);
 	void calculateShadowsMatrix();
 
-	//Debug drawer
-	GLDebugDrawer _debugDrawer;
 };
 
 #endif /* PHYSICSCONTROLLER_H_ */

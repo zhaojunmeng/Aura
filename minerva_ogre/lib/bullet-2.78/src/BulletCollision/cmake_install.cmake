@@ -1,4 +1,4 @@
-# Install script for directory: /home/cesar/git/minerva/lib/bullet-2.78/src/BulletCollision
+# Install script for directory: /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletCollision
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cesar/git/minerva/lib/bullet-2.78/src/BulletCollision/libBulletCollision.a")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletCollision/libBulletCollision.a")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -45,7 +45,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/usr/local/include/bullet" TYPE DIRECTORY FILES "/home/cesar/git/minerva/lib/bullet-2.78/src/BulletCollision" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\.svn$" EXCLUDE REGEX "/CMakeFiles$" EXCLUDE)
+FILE(INSTALL DESTINATION "/usr/local/include/bullet" TYPE DIRECTORY FILES "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletCollision" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\.svn$" EXCLUDE REGEX "/CMakeFiles$" EXCLUDE)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -57,6 +57,6 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/usr/local/include/bullet/BulletCollision" TYPE FILE FILES "/home/cesar/git/minerva/lib/bullet-2.78/src/BulletCollision/../btBulletCollisionCommon.h")
+FILE(INSTALL DESTINATION "/usr/local/include/bullet/BulletCollision" TYPE FILE FILES "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletCollision/../btBulletCollisionCommon.h")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

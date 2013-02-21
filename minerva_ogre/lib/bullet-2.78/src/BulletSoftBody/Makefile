@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -110,14 +110,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/CMakeFiles/progress.marks
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/CMakeFiles/progress.marks
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/clean
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +126,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/rule:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/rule
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/rule
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/rule
 
 # Convenience name for target.
@@ -150,127 +150,127 @@ BulletSoftBody: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/rule
 
 # fast build rule for target.
 BulletSoftBody/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build
 .PHONY : BulletSoftBody/fast
 
 # target to build an object file
 btDefaultSoftBodySolver.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o
 .PHONY : btDefaultSoftBodySolver.o
 
 # target to preprocess a source file
 btDefaultSoftBodySolver.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i
 .PHONY : btDefaultSoftBodySolver.i
 
 # target to generate assembly for a file
 btDefaultSoftBodySolver.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s
 .PHONY : btDefaultSoftBodySolver.s
 
 # target to build an object file
 btSoftBody.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o
 .PHONY : btSoftBody.o
 
 # target to preprocess a source file
 btSoftBody.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.i
 .PHONY : btSoftBody.i
 
 # target to generate assembly for a file
 btSoftBody.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.s
 .PHONY : btSoftBody.s
 
 # target to build an object file
 btSoftBodyConcaveCollisionAlgorithm.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o
 .PHONY : btSoftBodyConcaveCollisionAlgorithm.o
 
 # target to preprocess a source file
 btSoftBodyConcaveCollisionAlgorithm.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i
 .PHONY : btSoftBodyConcaveCollisionAlgorithm.i
 
 # target to generate assembly for a file
 btSoftBodyConcaveCollisionAlgorithm.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s
 .PHONY : btSoftBodyConcaveCollisionAlgorithm.s
 
 # target to build an object file
 btSoftBodyHelpers.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o
 .PHONY : btSoftBodyHelpers.o
 
 # target to preprocess a source file
 btSoftBodyHelpers.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i
 .PHONY : btSoftBodyHelpers.i
 
 # target to generate assembly for a file
 btSoftBodyHelpers.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s
 .PHONY : btSoftBodyHelpers.s
 
 # target to build an object file
 btSoftBodyRigidBodyCollisionConfiguration.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o
 .PHONY : btSoftBodyRigidBodyCollisionConfiguration.o
 
 # target to preprocess a source file
 btSoftBodyRigidBodyCollisionConfiguration.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i
 .PHONY : btSoftBodyRigidBodyCollisionConfiguration.i
 
 # target to generate assembly for a file
 btSoftBodyRigidBodyCollisionConfiguration.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s
 .PHONY : btSoftBodyRigidBodyCollisionConfiguration.s
 
 # target to build an object file
 btSoftRigidCollisionAlgorithm.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o
 .PHONY : btSoftRigidCollisionAlgorithm.o
 
 # target to preprocess a source file
 btSoftRigidCollisionAlgorithm.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i
 .PHONY : btSoftRigidCollisionAlgorithm.i
 
 # target to generate assembly for a file
 btSoftRigidCollisionAlgorithm.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s
 .PHONY : btSoftRigidCollisionAlgorithm.s
 
 # target to build an object file
 btSoftRigidDynamicsWorld.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o
 .PHONY : btSoftRigidDynamicsWorld.o
 
 # target to preprocess a source file
 btSoftRigidDynamicsWorld.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i
 .PHONY : btSoftRigidDynamicsWorld.i
 
 # target to generate assembly for a file
 btSoftRigidDynamicsWorld.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s
 .PHONY : btSoftRigidDynamicsWorld.s
 
 # target to build an object file
 btSoftSoftCollisionAlgorithm.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o
 .PHONY : btSoftSoftCollisionAlgorithm.o
 
 # target to preprocess a source file
 btSoftSoftCollisionAlgorithm.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i
 .PHONY : btSoftSoftCollisionAlgorithm.i
 
 # target to generate assembly for a file
 btSoftSoftCollisionAlgorithm.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s
 .PHONY : btSoftSoftCollisionAlgorithm.s
 
 # Help Target
@@ -321,6 +321,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

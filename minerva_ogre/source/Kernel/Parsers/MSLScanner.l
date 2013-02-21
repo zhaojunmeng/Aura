@@ -19,16 +19,12 @@ SIGN {-|+}
 "MarksGroup" 				{return MSLParser::MAOMARKSGROUP;}
 "Image" 			{return MSLParser::MAORENDERABLE2DIMAGE;}
 "Text" 			{return MSLParser::MAORENDERABLE2DTEXT;}
-"Line3D" 			{return MSLParser::MAORENDERABLE3DLINE;}
 "Model" 			{return MSLParser::MAORENDERABLE3DMODEL;}
-"Path3D" 			{return MSLParser::MAORENDERABLE3DPATH;}
 
 "ActuatorAddDynamicObject" 	{return MSLParser::MLBACTUATORADDDYNAMICOBJECT;}
 "ActuatorAng" 				{return MSLParser::MLBACTUATORANG;}
 "ActuatorChangePose" 		{return MSLParser::MLBACTUATORCHANGEPOSE;}
 "ActuatorDistance" 			{return MSLParser::MLBACTUATORDISTANCE;}
-"ActuatorPathAddPoint" 		{return MSLParser::MLBACTUATORPATHADDPOINT;}
-"ActuatorPathRemovePoints"	{return MSLParser::MLBACTUATORPATHREMOVEPOINTS;}
 "ActuatorProperty" 			{return MSLParser::MLBACTUATORPROPERTY;}
 "ActuatorQuitApp" 			{return MSLParser::MLBACTUATORQUITAPP;}
 "ActuatorRandom" 			{return MSLParser::MLBACTUATORRANDOM;}

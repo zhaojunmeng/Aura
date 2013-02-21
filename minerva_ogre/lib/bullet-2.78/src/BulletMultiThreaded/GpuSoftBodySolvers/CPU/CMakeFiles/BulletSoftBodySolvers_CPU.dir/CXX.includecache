@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolver_CPU.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolver_CPU.cpp
 BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
 BulletCollision/CollisionDispatch/btCollisionObject.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionDispatch/btCollisionObject.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionDispatch/btCollisionObject.h
 BulletCollision/CollisionShapes/btCollisionShape.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btCollisionShape.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btCollisionShape.h
 vectormath/vmInclude.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/vectormath/vmInclude.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/vectormath/vmInclude.h
 BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolver_CPU.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolver_CPU.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolver_CPU.h
 BulletSoftBody/btSoftBody.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletSoftBody/btSoftBody.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletSoftBody/btSoftBody.h
 BulletCollision/CollisionShapes/btCapsuleShape.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btCapsuleShape.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/BulletCollision/CollisionShapes/btCapsuleShape.h
 
 src/BulletCollision/BroadphaseCollision/btBroadphaseProxy.h
 LinearMath/btScalar.h

@@ -78,36 +78,7 @@ MAORenderable2DImage& MAOFactory::addMAORenderable2DImage(std::string name,
 	return *mao;
 }
 
-MAORenderable3DLine& MAOFactory::addMAORenderable3DLine(std::string name,
-		const float& size, int r, int g, int b) {
-	if (!checkMAOName(name))
-		throw "MAO name already exists: " + name;
 
-	MAORenderable3DLine* line = new MAORenderable3DLine(name, size, r, g, b);
-	_vectorMAO.push_back(line);
-	_vectorMAOPositionator3D.push_back(line);
-	_vectorMAORenderable3D.push_back(line);
-
-	return *line;
-}
-
-MAORenderable3DLine& MAOFactory::addMAORenderable3DLine(std::string name,
-		const float& size, int r, int g, int b, std::string& nMao1,
-		std::string& nMao2) {
-	if (!checkMAOName(name))
-		throw "MAO name already exists: " + name;
-
-	MAOPositionator3D& mao1 = getMAOPositionator3D(nMao1);
-	MAOPositionator3D& mao2 = getMAOPositionator3D(nMao2);
-
-	MAORenderable3DLine* line = new MAORenderable3DLine(name, size, r, g, b,
-			mao1, mao2);
-	_vectorMAO.push_back(line);
-	_vectorMAOPositionator3D.push_back(line);
-	_vectorMAORenderable3D.push_back(line);
-
-	return *line;
-}
 
 MAORenderable3DModel& MAOFactory::addMAORenderable3DModel(std::string name,
 		const float& size, const boost::filesystem::path& file, const std::string& nref) {
@@ -116,32 +87,6 @@ MAORenderable3DModel& MAOFactory::addMAORenderable3DModel(std::string name,
 
 	MAORenderable3DModel* model = new MAORenderable3DModel(name, file, size);
 
-	Parser *parser = NULL;
-
-	// Get the file format
-	std::string format = file.extension().string();
-	std::cout<<"Format: "<<format<<std::endl;
-
-	if (format == ".orj") {
-		Logger::getInstance()->out("Recognized file format " + format);
-		parser = ParserOrej::getInstance();
-	} else if (format == ".obj") {
-		Logger::getInstance()->out("Recognized file format " + format);
-		parser = ParserObj::getInstance();
-	}else if (format == ".3ds") {
-		Logger::getInstance()->out("Recognized file format " + format);
-		parser = Parser3ds::getInstance();
-	}else {
-		Logger::getInstance()->error(
-				"MAORenderable3DModel: unrecognized file format of: " + file.generic_string());
-		exit(-1);
-	}
-
-	parser->loadModel(file, *model);
-
-	_vectorMAO.push_back(model);
-	_vectorMAOPositionator3D.push_back(model);
-	_vectorMAORenderable3D.push_back(model);
 
 	if (nref != "Null") {
 		MAOPositionator3D& ref = getMAOPositionator3D(nref);
@@ -152,27 +97,6 @@ MAORenderable3DModel& MAOFactory::addMAORenderable3DModel(std::string name,
 	}
 
 	return *model;
-}
-
-MAORenderable3DPath& MAOFactory::addMAORenderable3DPath(std::string name,
-		const float& size, int r, int g, int b, std::string& nref) {
-	if (!checkMAOName(name))
-		throw "MAO name already exists: " + name;
-
-	MAORenderable3DPath* path = new MAORenderable3DPath(name, size, r, g, b);
-	_vectorMAO.push_back(path);
-	_vectorMAOPositionator3D.push_back(path);
-	_vectorMAORenderable3D.push_back(path);
-
-	if (nref != "Null") {
-		MAOPositionator3D& ref = getMAOPositionator3D(nref);
-		path->setGlobalReference(ref);
-	} else {
-		Logger::getInstance()->out(
-				"The MAO is a Class MAO (not instanciated one)!: " + name);
-	}
-
-	return *path;
 }
 
 /** INSTANTIATED **/

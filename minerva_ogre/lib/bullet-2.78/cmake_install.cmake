@@ -1,4 +1,4 @@
-# Install script for directory: /home/cesar/git/minerva/lib/bullet-2.78
+# Install script for directory: /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -41,12 +41,12 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/usr/local/lib/pkgconfig" TYPE FILE FILES "/home/cesar/git/minerva/lib/bullet-2.78/bullet.pc")
+FILE(INSTALL DESTINATION "/usr/local/lib/pkgconfig" TYPE FILE FILES "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/bullet.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/cesar/git/minerva/lib/bullet-2.78/src/cmake_install.cmake")
+  INCLUDE("/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -56,7 +56,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/cesar/git/minerva/lib/bullet-2.78/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/cesar/git/minerva/lib/bullet-2.78/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

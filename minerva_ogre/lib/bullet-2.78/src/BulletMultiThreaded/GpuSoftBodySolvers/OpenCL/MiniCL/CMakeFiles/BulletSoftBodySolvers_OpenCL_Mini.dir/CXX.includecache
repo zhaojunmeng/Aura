@@ -6,161 +6,161 @@
 
 #IncludeRegexTransform: 
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/ApplyForces.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/ApplyForces.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/Integrate.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/Integrate.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/PrepareLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/PrepareLinks.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolveCollisionsAndUpdateVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolveCollisionsAndUpdateVelocities.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolvePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolvePositions.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateConstants.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateConstants.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNodes.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNodes.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNormals.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNormals.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositions.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositionsFromVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositionsFromVelocities.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/VSolveLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/VSolveLinks.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/ApplyForces.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/ApplyForces.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/Integrate.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/Integrate.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/PrepareLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/PrepareLinks.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolveCollisionsAndUpdateVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolveCollisionsAndUpdateVelocities.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolvePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolvePositions.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateConstants.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateConstants.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNodes.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNodes.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNormals.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNormals.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositions.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositionsFromVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositionsFromVelocities.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/VSolveLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/VSolveLinks.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
 MiniCL/cl.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/cl.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/cl.h
 OpenCL/OpenCL.h
 -
 CL/cl.h
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverLinkData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverLinkData_OpenCL.h
 BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
 btSoftBodySolverBuffer_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverTriangleData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverTriangleData_OpenCL.h
 BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
 btSoftBodySolverBuffer_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverVertexData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverVertexData_OpenCL.h
 BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletMultiThreaded/GpuSoftBodySolvers/CPU/btSoftBodySolverData.h
 btSoftBodySolverBuffer_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.cpp
 BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h
 vectormath/vmInclude.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/vectormath/vmInclude.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/vectormath/vmInclude.h
 stdio.h
 -
 btSoftBodySolver_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.h
 BulletSoftBody/btSoftBodySolverVertexBuffer.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBodySolverVertexBuffer.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBodySolverVertexBuffer.h
 BulletSoftBody/btSoftBody.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBody.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBody.h
 BulletCollision/CollisionShapes/btCapsuleShape.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletCollision/CollisionShapes/btCapsuleShape.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletCollision/CollisionShapes/btCapsuleShape.h
 LinearMath/btQuickprof.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/LinearMath/btQuickprof.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/LinearMath/btQuickprof.h
 limits.h
 -
 MiniCL/cl.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/cl.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/cl.h
 OpenCL/OpenCL.h
 -
 CL/cl.h
 -
 OpenCLC/PrepareLinks.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/PrepareLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/PrepareLinks.cl
 OpenCLC/UpdatePositionsFromVelocities.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositionsFromVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositionsFromVelocities.cl
 OpenCLC/SolvePositions.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolvePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolvePositions.cl
 OpenCLC/UpdateNodes.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNodes.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNodes.cl
 OpenCLC/UpdatePositions.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdatePositions.cl
 OpenCLC/UpdateConstants.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateConstants.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateConstants.cl
 OpenCLC/Integrate.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/Integrate.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/Integrate.cl
 OpenCLC/ApplyForces.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/ApplyForces.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/ApplyForces.cl
 OpenCLC/UpdateNormals.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNormals.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/UpdateNormals.cl
 OpenCLC/VSolveLinks.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/VSolveLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/VSolveLinks.cl
 OpenCLC/SolveCollisionsAndUpdateVelocities.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolveCollisionsAndUpdateVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC/SolveCollisionsAndUpdateVelocities.cl
 OpenCLC10/PrepareLinks.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/PrepareLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/PrepareLinks.cl
 OpenCLC10/UpdatePositionsFromVelocities.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositionsFromVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositionsFromVelocities.cl
 OpenCLC10/SolvePositions.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolvePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolvePositions.cl
 OpenCLC10/UpdateNodes.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNodes.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNodes.cl
 OpenCLC10/UpdatePositions.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositions.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdatePositions.cl
 OpenCLC10/UpdateConstants.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateConstants.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateConstants.cl
 OpenCLC10/Integrate.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/Integrate.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/Integrate.cl
 OpenCLC10/ApplyForces.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/ApplyForces.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/ApplyForces.cl
 OpenCLC10/UpdateNormals.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNormals.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/UpdateNormals.cl
 OpenCLC10/VSolveLinks.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/VSolveLinks.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/VSolveLinks.cl
 OpenCLC10/SolveCollisionsAndUpdateVelocities.cl
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolveCollisionsAndUpdateVelocities.cl
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/OpenCLC10/SolveCollisionsAndUpdateVelocities.cl
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.h
 stddef.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/stddef.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/stddef.h
 vectormath/vmInclude.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/vectormath/vmInclude.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/vectormath/vmInclude.h
 BulletSoftBody/btSoftBodySolvers.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBodySolvers.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/BulletSoftBody/btSoftBodySolvers.h
 btSoftBodySolverBuffer_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverBuffer_OpenCL.h
 btSoftBodySolverLinkData_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverLinkData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverLinkData_OpenCL.h
 btSoftBodySolverVertexData_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverVertexData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverVertexData_OpenCL.h
 btSoftBodySolverTriangleData_OpenCL.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverTriangleData_OpenCL.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolverTriangleData_OpenCL.h
 
 src/BulletCollision/BroadphaseCollision/btBroadphaseProxy.h
 LinearMath/btScalar.h

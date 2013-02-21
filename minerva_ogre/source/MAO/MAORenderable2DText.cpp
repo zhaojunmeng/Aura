@@ -29,31 +29,31 @@ MAORenderable2DText::MAORenderable2DText(const std::string& name,
 }
 
 void MAORenderable2DText::generateTexFromSDLSurface() {
- 	SDL_Color color;
-	SDL_Surface* surface;
+ 	//SDL_Color color;
+	//SDL_Surface* surface;
 
-	color.r = getR();
-	color.g = getG();
-	color.b = getB();
+	//color.r = getR();
+	//color.g = getG();
+	//color.b = getB();
 
-	surface = TTF_RenderUTF8_Blended(_font,
-			getProperty("text").getValue<std::string>().c_str(),
-					  color);
+	//surface = TTF_RenderUTF8_Blended(_font,
+	//		getProperty("text").getValue<std::string>().c_str(),
+	//				  color);
 
 	//texto = TTF_RenderText_UTF8_Shaded(_font,_text.c_str(),color);
 	//texto = TTF_RenderText_UTF8_Blended(_font,_text.c_str(),color);
 
-	if (surface == NULL) {
-		Logger::getInstance()->error("Error generating SDL_Surface for a MAORenderable2DText");
-		throw "Error generating SDL_Surface for a MAORenderable2DText"+getName();
-	}
+	//if (surface == NULL) {
+		//Logger::getInstance()->error("Error generating SDL_Surface for a MAORenderable2DText");
+		//throw "Error generating SDL_Surface for a MAORenderable2DText"+getName();
+	//}
 
-	setWidth(surface->w);
-	setHeight(surface->h);
+	//setWidth(surface->w);
+	//setHeight(surface->h);
 
-	genGlTexture(surface);
+	//genGlTexture(surface);
 
-	SDL_FreeSurface(surface);
+	//SDL_FreeSurface(surface);
 }
 
 std::string& MAORenderable2DText::getText() {
@@ -98,18 +98,18 @@ int MAORenderable2DText::getB() {
 }
 
 void MAORenderable2DText::loadFont() {
-	Resource& r = ResourcesManager::getInstance()->getResource(_fontPath);
-	SDL_RWops *rw = SDL_RWFromMem((void*) r.getData(), r.getSize());
+	//Resource& r = ResourcesManager::getInstance()->getResource(_fontPath);
+	//SDL_RWops *rw = SDL_RWFromMem((void*) r.getData(), r.getSize());
 
-	_font = TTF_OpenFontRW(rw, 1, getPtSize());
+	//_font = TTF_OpenFontRW(rw, 1, getPtSize());
 
 	if (_font == NULL) {
 		Logger::getInstance()->error("Error loading the font: "+_fontPath.generic_string());
-		Logger::getInstance()->error(TTF_GetError());
+	//	Logger::getInstance()->error(TTF_GetError());
 		throw "Error loading the font "+_fontPath.generic_string();
 	}
 }
 
 MAORenderable2DText::~MAORenderable2DText() {
-	TTF_CloseFont(_font);
+	//TTF_CloseFont(_font);
 }

@@ -13,20 +13,15 @@
 #include <Factories/TrackingMethodFactory.h>
 #include <Kernel/Logger.h>
 #include <Kernel/Singleton.h>
-#include <Kernel/Parsers/ParserOrej.h>
-#include <Kernel/Parsers/ParserObj.h>
-#include <Kernel/Parsers/Parser3ds.h>
 #include <MAO/MAOPositionator3D.h>
 #include <MAO/MAOMark.h>
 #include <MAO/MAOMarksGroup.h>
 #include <MAO/MAO.h>
 #include <MAO/MAORenderable3D.h>
-#include <MAO/MAORenderable3DLine.h>
 #include <MAO/MAORenderable2D.h>
 #include <MAO/MAORenderable2DText.h>
 #include <MAO/MAORenderable2DImage.h>
 #include <MAO/MAORenderable3DModel.h>
-#include <MAO/MAORenderable3DPath.h>
 
 class MAOFactory: public Singleton<MAOFactory> {
 public:
@@ -44,15 +39,8 @@ public:
 	MAORenderable2DImage& addMAORenderable2DImage(std::string name,
 			const boost::filesystem::path& filePath, const int& x, const int& y,
 			const int& width, const int& height);
-	MAORenderable3DLine& addMAORenderable3DLine(std::string name,
-			const float& size, int r, int g, int b);
-	MAORenderable3DLine& addMAORenderable3DLine(std::string name,
-			const float& size, int r, int g, int b, std::string& nMao1,
-			std::string& nMao2);
 	MAORenderable3DModel& addMAORenderable3DModel(std::string name,
 			const float& size, const boost::filesystem::path& file, const std::string& nref);
-	MAORenderable3DPath& addMAORenderable3DPath(std::string name,
-			const float& size, int r, int g, int b, std::string& nref);
 
 	//Instantiated
 	void addInstMAORenderable3D(MAORenderable3D& mao, int timeToExpire = -1);

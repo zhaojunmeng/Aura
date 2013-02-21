@@ -14,8 +14,8 @@ libs: ARTK BULLET
 credentials:
 	@echo
 	@echo '--------------------------------------'
-	@echo ' Minerva Makefile'
-	@echo ' Cesar Mora Castro - 2012 University of Minnesota'
+	@echo ' ABBY Makefile'
+	@echo ' Cesar Mora Castro - 2013'
 	@echo ' Compiling $(mode) mode'
 	@echo '--------------------------------------'
 	@echo ' NOTE: To build the libraries, run "make libs" first!'

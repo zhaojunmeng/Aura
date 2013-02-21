@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Include any dependencies generated for this target.
 include src/LinearMath/CMakeFiles/LinearMath.dir/depend.make
@@ -51,17 +51,17 @@ include src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o: src/LinearMath/btAlignedAllocator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btAlignedAllocator.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btAlignedAllocator.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btAlignedAllocator.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp > CMakeFiles/LinearMath.dir/btAlignedAllocator.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp > CMakeFiles/LinearMath.dir/btAlignedAllocator.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btAlignedAllocator.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp -o CMakeFiles/LinearMath.dir/btAlignedAllocator.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp -o CMakeFiles/LinearMath.dir/btAlignedAllocator.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o.requires
@@ -74,17 +74,17 @@ src/LinearMath/CMakeFiles/LinearMath.dir/btAlignedAllocator.o.provides.build: sr
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o: src/LinearMath/btConvexHull.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btConvexHull.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btConvexHull.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btConvexHull.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp > CMakeFiles/LinearMath.dir/btConvexHull.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp > CMakeFiles/LinearMath.dir/btConvexHull.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btConvexHull.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp -o CMakeFiles/LinearMath.dir/btConvexHull.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp -o CMakeFiles/LinearMath.dir/btConvexHull.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o.requires
@@ -97,17 +97,17 @@ src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHull.o.provides.build: src/Line
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o: src/LinearMath/btConvexHullComputer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btConvexHullComputer.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btConvexHullComputer.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btConvexHullComputer.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp > CMakeFiles/LinearMath.dir/btConvexHullComputer.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp > CMakeFiles/LinearMath.dir/btConvexHullComputer.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btConvexHullComputer.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp -o CMakeFiles/LinearMath.dir/btConvexHullComputer.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp -o CMakeFiles/LinearMath.dir/btConvexHullComputer.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o.requires
@@ -120,17 +120,17 @@ src/LinearMath/CMakeFiles/LinearMath.dir/btConvexHullComputer.o.provides.build: 
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o: src/LinearMath/btGeometryUtil.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btGeometryUtil.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btGeometryUtil.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btGeometryUtil.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp > CMakeFiles/LinearMath.dir/btGeometryUtil.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp > CMakeFiles/LinearMath.dir/btGeometryUtil.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btGeometryUtil.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp -o CMakeFiles/LinearMath.dir/btGeometryUtil.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp -o CMakeFiles/LinearMath.dir/btGeometryUtil.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o.requires
@@ -143,17 +143,17 @@ src/LinearMath/CMakeFiles/LinearMath.dir/btGeometryUtil.o.provides.build: src/Li
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o: src/LinearMath/btQuickprof.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btQuickprof.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btQuickprof.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btQuickprof.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp > CMakeFiles/LinearMath.dir/btQuickprof.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp > CMakeFiles/LinearMath.dir/btQuickprof.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btQuickprof.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp -o CMakeFiles/LinearMath.dir/btQuickprof.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp -o CMakeFiles/LinearMath.dir/btQuickprof.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o.requires
@@ -166,17 +166,17 @@ src/LinearMath/CMakeFiles/LinearMath.dir/btQuickprof.o.provides.build: src/Linea
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.o: src/LinearMath/CMakeFiles/LinearMath.dir/flags.make
 src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.o: src/LinearMath/btSerializer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btSerializer.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btSerializer.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LinearMath.dir/btSerializer.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btSerializer.cpp
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LinearMath.dir/btSerializer.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btSerializer.cpp > CMakeFiles/LinearMath.dir/btSerializer.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btSerializer.cpp > CMakeFiles/LinearMath.dir/btSerializer.i
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LinearMath.dir/btSerializer.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btSerializer.cpp -o CMakeFiles/LinearMath.dir/btSerializer.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btSerializer.cpp -o CMakeFiles/LinearMath.dir/btSerializer.s
 
 src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.o.requires:
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/btSerializer.o.requires
@@ -208,8 +208,8 @@ src/LinearMath/libLinearMath.a: src/LinearMath/CMakeFiles/LinearMath.dir/btSeria
 src/LinearMath/libLinearMath.a: src/LinearMath/CMakeFiles/LinearMath.dir/build.make
 src/LinearMath/libLinearMath.a: src/LinearMath/CMakeFiles/LinearMath.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libLinearMath.a"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -P CMakeFiles/LinearMath.dir/cmake_clean_target.cmake
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LinearMath.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -P CMakeFiles/LinearMath.dir/cmake_clean_target.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LinearMath.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/LinearMath/CMakeFiles/LinearMath.dir/build: src/LinearMath/libLinearMath.a
@@ -224,10 +224,10 @@ src/LinearMath/CMakeFiles/LinearMath.dir/requires: src/LinearMath/CMakeFiles/Lin
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/requires
 
 src/LinearMath/CMakeFiles/LinearMath.dir/clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -P CMakeFiles/LinearMath.dir/cmake_clean.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath && $(CMAKE_COMMAND) -P CMakeFiles/LinearMath.dir/cmake_clean.cmake
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/clean
 
 src/LinearMath/CMakeFiles/LinearMath.dir/depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath /home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/CMakeFiles/LinearMath.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/CMakeFiles/LinearMath.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/LinearMath/CMakeFiles/LinearMath.dir/depend
 

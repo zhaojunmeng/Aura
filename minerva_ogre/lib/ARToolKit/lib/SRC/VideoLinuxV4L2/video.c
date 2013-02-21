@@ -715,6 +715,7 @@ ARUint8 *ar2VideoGetImage( AR2VideoParamT *vid )
     buffer = (ARUint8*)vid->buffers[buf.index].start;
     vid->video_cont_num = buf.index;
 
+    // TODO: Add other video format conversions.
     if (vid->palette == V4L2_PIX_FMT_YUYV) {
 #if defined(AR_PIX_FORMAT_BGRA)
       ccvt_yuyv_rgb32(vid->width, vid->height, buffer, vid->videoBuffer);

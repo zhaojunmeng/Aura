@@ -57,8 +57,8 @@ void TrackingMethodARTK::addMAOMark(MAOMark& mark) {
 
 	_vectorMAOMark.push_back(&mark);
 	//id = arLoadPatt(mark.getPath().c_str());
-	id = loadPattFromResource(
-			ResourcesManager::getInstance()->getResource(mark.getPath()));
+	//id = loadPattFromResource(
+		//	ResourcesManager::getInstance()->getResource(mark.getPath()));
 
 	if (id == -1) {
 		Logger::getInstance()->error("Unable to load mark " + mark.getName());
@@ -141,7 +141,21 @@ void TrackingMethodARTK::checkMarkVisibility(MAOMark* mark) {
 		mark->setPositioned(true);
 		arGetTransMat(&_markerInfo[k], mark->getCenter(), mark->getSize(),
 				arRelativeTrans);
-		argConvGlpara(arRelativeTrans, glAuxd);
+
+
+		//argConvGlpara(arRelativeTrans, glAuxd);
+		{
+		int     i, j;
+
+		    for( j = 0; j < 3; j++ ) {
+		        for( i = 0; i < 4; i++ ) {
+		        	glAuxd[i*4+j] = arRelativeTrans[j][i];
+		        }
+		    }
+		    glAuxd[0*4+3] = glAuxd[1*4+3] = glAuxd[2*4+3] = 0.0;
+		    glAuxd[3*4+3] = 1.0;
+		}
+
 
 		//Rotate 180º through y-axis ;)
 		glAuxd[0] *= -1;
@@ -163,6 +177,7 @@ void TrackingMethodARTK::checkMarkVisibility(MAOMark* mark) {
 /* Modified function of ARToolKit to load
  * patterns from a zip file Resource
  */
+/*
 int TrackingMethodARTK::loadPattFromResource(Resource& r) {
 	int patno;
 	int h, i, j, l, m;
@@ -236,6 +251,7 @@ int TrackingMethodARTK::loadPattFromResource(Resource& r) {
 
 	return (patno);
 }
+*/
 
 TrackingMethodARTK::~TrackingMethodARTK() {
 

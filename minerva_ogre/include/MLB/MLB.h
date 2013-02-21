@@ -14,7 +14,6 @@
 #include <python.hpp>
 #include <filesystem.hpp>
 #include <MPY/WrapperTypes.h>
-#include <Kernel/Resources/ResourcesManager.h>
 
 /* Types of MLB's */
 #define T_MLBACTUATOR 0
@@ -23,8 +22,8 @@
 #define T_MLBACTUATORANIM 3
 #define T_MLBACTUATORCHANGEPOSE 4
 #define T_MLBACTUATORDISTANCE 5
-#define T_MLBACTUATORPATHADDPOINT 6
-#define T_MLBACTUATORPATHREMOVEPOINTS 7
+//#define T_MLBACTUATORPATHADDPOINT 6
+//#define T_MLBACTUATORPATHREMOVEPOINTS 7
 #define T_MLBACTUATORPROPERTY 8
 #define T_MLBACTUATORQUITAPP 9
 #define T_MLBACTUATORRANDOM 10

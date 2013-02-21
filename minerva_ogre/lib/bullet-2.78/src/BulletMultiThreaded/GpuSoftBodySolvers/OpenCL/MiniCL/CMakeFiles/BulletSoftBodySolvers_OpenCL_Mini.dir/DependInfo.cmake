@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.cpp" "/home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/CMakeFiles/BulletSoftBodySolvers_OpenCL_Mini.dir/__/btSoftBodySolver_OpenCL.o"
+  "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/btSoftBodySolver_OpenCL.cpp" "/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/CMakeFiles/BulletSoftBodySolvers_OpenCL_Mini.dir/__/btSoftBodySolver_OpenCL.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

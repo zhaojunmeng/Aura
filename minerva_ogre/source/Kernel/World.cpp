@@ -13,31 +13,10 @@ World::World() {
 void World::initWorld(int width, int height) {
 	Logger::getInstance()->out("Initializing world...");
 
+	/* Name */
+	_appName = "ABBY";
 
-
-	_appName = "Minerva's Application";
-
-	_width = width;
-	_height = height;
-
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
-		Logger::getInstance()->error("Unable to initalize SDL!");
-		throw "Unable to initalize SDL!";
-	}
-
-	//const SDL_VideoInfo* info = NULL;
-	//info = SDL_GetVideoInfo();
-
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	_screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_OPENGL
-			| SDL_HWPALETTE);
-
-	if (TTF_Init() == -1) { //Init font subsystem
-		Logger::getInstance()->error("Error initializing TTF subsystem.");
-		Logger::getInstance()->error(TTF_GetError());
-		throw "Error initializing TTF subsystem.";
-	}
-
+	/* Audio */
 	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT,
 			MIX_DEFAULT_CHANNELS, 4096) < 0) { //Init audio subsystem
 		Logger::getInstance()->error("Error opening audio subsystem!");
@@ -48,35 +27,88 @@ void World::initWorld(int width, int height) {
 					("Error allocating channels for Sdl Mixel"));
 	}
 
+	/* Ogre ;) */
+	_root = new Ogre::Root("config/plugins.cfg", "config/ogre.cfg",
+			"Ogre.log");
+	//_root = new Ogre::Root();
+	_root->addFrameListener(this);
 
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(45.f, (GLfloat) 640 / (GLfloat) 480, .001f, 20.f);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	//Deactivating the Ogre Log Console
+	//Ogre::LogManager::getSingleton().getDefaultLog()->setDebugOutputEnabled(false);
+
+	if (!_root->restoreConfig()) {
+		_root->showConfigDialog();
+		_root->saveConfig();
+	}
+
+    //unsigned int windowHandle;
+    //std::ostringstream wHandleStr;
+	_window = _root->initialise(true, _appName);
+    //_window->getCustomAttribute("WINDOW", &windowHandle);
+    Ogre::WindowEventUtilities::addWindowEventListener(_window, this);
+    //wHandleStr << windowHandle;
+    //param.insert(std::make_pair("WINDOW", wHandleStr.str()));
+
+
+	_sceneManager = _root->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
+
+	_cam = _sceneManager->createCamera("Camera");
+	_cam->setPosition(Ogre::Vector3(15, 10, 15));
+	_cam->lookAt(Ogre::Vector3(0, 0, 0));
+	_cam->setNearClipDistance(0.01);
+	_cam->setFarClipDistance(1000);
+
+	//Ogre::Matrix4 mat=vD_user->getOgreProjectionMatrix();
+
+	/* Hack */
+	//mat[2][3]*=-1;
+	//cam->setCustomProjectionMatrix(true,mat);
+	Ogre::Viewport* viewport = _window->addViewport(_cam);
+	viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
+	//viewport->setActualWidth(width);
+	//height = viewport->setActualHeight(height);
+	_cam->setAspectRatio(width / height);
+
+	{
+		Ogre::ConfigFile cf;
+		cf.load("config/resources.cfg");
+
+		Ogre::ConfigFile::SectionIterator sI = cf.getSectionIterator();
+		Ogre::String sectionstr, typestr, datastr;
+		while (sI.hasMoreElements()) {
+			sectionstr = sI.peekNextKey();
+			Ogre::ConfigFile::SettingsMultiMap *settings = sI.getNext();
+			Ogre::ConfigFile::SettingsMultiMap::iterator i;
+			for (i = settings->begin(); i != settings->end(); ++i) {
+				typestr = i->first;
+				datastr = i->second;
+				Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
+						datastr, typestr, sectionstr);
+			}
+		}
+		Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
+	}
+
+	_createBackground();
 
 	Logger::getInstance()->out("World succesfully loaded!");
 }
 
 void World::drawWorld() {
-	glClearDepth(1.0f);
-	glClear(GL_DEPTH_BUFFER_BIT);
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-
+	Ogre::WindowEventUtilities::messagePump();
+	if(!_root->renderOneFrame()){
+		EndController::getInstance()->end();
+	}
 	//Draw the camera frame
-	drawBackground();
+	//drawBackground();
 
 	//Draw the ground plane / grid, etc..
-	drawGround();
-
+	//drawGround();
 
 	//Drawing shadows of 3D renderables!
-	if (PhysicsController::getInstance()->shadowsActive()) {
-		drawShadows();
-	}
+	//if (PhysicsController::getInstance()->shadowsActive()) {
+	//	drawShadows();
+	//}
 
 	//Draw renderable3D
 	std::vector<MAORenderable3D*>& renderables3d =
@@ -95,14 +127,6 @@ void World::drawWorld() {
 			renderables3dInst.at(i)->draw();
 		}
 
-
-	//Draw Physics DebugWorld!
-	//PhysicsController::getInstance()->drawDebugWorld();
-
-	glDisable(GL_DEPTH_TEST);
-
-	enable2D();
-
 	//Draw renderable 2D
 	std::vector<MAORenderable2D*>& renderables2d =
 			MAOFactory::getInstance()->getVectorMAORenderable2D();
@@ -110,217 +134,104 @@ void World::drawWorld() {
 		if (renderables2d.at(i)->isVisible())
 			renderables2d.at(i)->draw();
 
-	disable2D();
-
-	SDL_GL_SwapBuffers();
 }
 
-void World::drawGround() {
-	if(!PhysicsController::getInstance()->isActive()) return;
-
-	MAOPositionator3D& ground =
-			PhysicsController::getInstance()->getMAOGround();
-	bool drawPlane = true;
-
-	if (drawPlane && ground.isPositioned()) {
-		GLfloat planeScale = .2;
-		cv::Mat& mground = ground.getPosMatrix();
-		btVector3 vx(mground.at<float> (0, 0), mground.at<float> (0, 1),
-				mground.at<float> (0, 2));
-		btVector3 vy(mground.at<float> (1, 0), mground.at<float> (1, 1),
-				mground.at<float> (1, 2));
-		btVector3 vz(mground.at<float> (2, 0), mground.at<float> (2, 1),
-				mground.at<float> (2, 2));
-		btVector3 p(mground.at<float> (3, 0), mground.at<float> (3, 1),
-				mground.at<float> (3, 2));
-		GLfloat E = -0.001; /* Micro gap between the plane ground and the shadows */
-
-		glDisable(GL_TEXTURE_2D);
-		glColor3f(.9, .9, .9);
-
-		/* Drawing the ground plane! */
-		glBegin(GL_POLYGON);
-		glVertex3f(p.x() + planeScale * (+vx.x() + vy.x()), p.y() + planeScale
-				* (+vx.y() + vy.y()) - E, p.z() + planeScale * (+vx.z()
-				+ vy.z()));
-		glVertex3f(p.x() + planeScale * (+vx.x() - vy.x()), p.y() + planeScale
-				* (+vx.y() - vy.y()) - E, p.z() + planeScale * (+vx.z()
-				- vy.z()));
-		glVertex3f(p.x() + planeScale * (-vx.x() - vy.x()), p.y() + planeScale
-				* (-vx.y() - vy.y()) - E, p.z() + planeScale * (-vx.z()
-				- vy.z()));
-		glVertex3f(p.x() + planeScale * (-vx.x() + vy.x()), p.y() + planeScale
-				* (-vx.y() + vy.y()) - E, p.z() + planeScale * (-vx.z()
-				+ vy.z()));
-		glEnd();
-	}
+void World::windowClosed(Ogre::RenderWindow* win) {
+	EndController::getInstance()->end();
 }
 
-void World::drawShadows() {
+bool World::frameStarted(const Ogre::FrameEvent& evt) {
+	_refreshBackground();
 
-	if(!PhysicsController::getInstance()->isActive()) return;
-
-	MAOPositionator3D& ground =
-			PhysicsController::getInstance()->getMAOGround();
-
-	if (ground.isPositioned()) {
-		cv::Mat& mground = ground.getPosMatrix();
-		btVector3 vx(mground.at<float> (0, 0), mground.at<float> (0, 1),
-				mground.at<float> (0, 2));
-		btVector3 vy(mground.at<float> (1, 0), mground.at<float> (1, 1),
-				mground.at<float> (1, 2));
-		btVector3 vz(mground.at<float> (2, 0), mground.at<float> (2, 1),
-				mground.at<float> (2, 2));
-		btVector3 p(mground.at<float> (3, 0), mground.at<float> (3, 1),
-				mground.at<float> (3, 2));
-
-		//Calculating the shadow
-		float* res = PhysicsController::getInstance()->getShadowsMatrix();
-
-		glPushMatrix();
-		glDisable(GL_LIGHTING);
-
-
-		glDisable(GL_TEXTURE_2D);
-		glDisable(GL_DEPTH_TEST);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-
-		glLoadIdentity();
-		glColor4f(0.3, 0.3, 0.3,0.3);
-
-		/*Drawing shadows!*/
-		//Draw Renderable3D's Shadows
-		std::vector<MAORenderable3D*>& renderables3d =
-				MAOFactory::getInstance()->getVectorMAORenderable3D();
-
-		for (unsigned int i = 0; i < renderables3d.size(); i++) {
-			if (renderables3d.at(i)->isVisible()) {
-				glPushMatrix();
-				float* renderablePosMatrix =
-						(float*) renderables3d.at(i)->getPosMatrix().data;
-				glMultMatrixf(res);
-				glMultMatrixf(renderablePosMatrix);
-				renderables3d.at(i)->drawNoTexture();
-				glPopMatrix();
-			}
-		}
-
-		/* Draw Instantiated Renderable3D's Shadows */
-		std::vector<MAORenderable3D*>& renderables3dInst =
-				MAOFactory::getInstance()->getVectorInstMAORenderable3D();
-		for (unsigned int i = 0; i < renderables3dInst.size(); i++) {
-			if (renderables3dInst.at(i)->isVisible()) {
-				glPushMatrix();
-				float* renderablePosMatrix =
-						(float*) renderables3dInst.at(i)->getPosMatrix().data;
-				glMultMatrixf(res);
-				glMultMatrixf(renderablePosMatrix);
-				renderables3dInst.at(i)->drawNoTexture();
-				glPopMatrix();
-			}
-		}
-
-		//Ending Shadows Draw
-		glDisable(GL_BLEND);
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_LIGHTING);
-		glEnable(GL_TEXTURE_2D);
-		glPopMatrix();
-
-	}
+	return true;
 }
 
-void World::drawBackground() {
+void World::_createBackground() {
+
+
+	VideoFactory::getInstance()->getMainCamera().grabFrame();
 	cv::Mat* frame = VideoFactory::getInstance()->getMainCamera().getLastFrame();
 
-	unsigned int textureId;
-	glGenTextures(1, &textureId);
+	/* Ogre code */
+	Ogre::TexturePtr texture =
+			Ogre::TextureManager::getSingleton().createManual(
+					"BackgroundTex",	// name
+					Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+					Ogre::TEX_TYPE_2D,	// texture type
+					frame->cols, frame->rows,
+					0,	// number of mipmaps
+					Ogre::PF_BYTE_BGRA,
+					Ogre::HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
 
-	if (textureId == GL_INVALID_OPERATION) {
-	  Logger::getInstance()->warning("Error processing a frame texture");
-	  return;
+
+	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(
+			"Background",
+			Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	material->getTechnique(0)->getPass(0)->createTextureUnitState();
+	material->getTechnique(0)->getPass(0)->setSceneBlending(
+			Ogre::SBT_TRANSPARENT_ALPHA);
+	material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
+	material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
+	material->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	material->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureName(
+			"BackgroundTex");
+
+	// Create background rectangle covering the whole screen
+	Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
+	rect->setCorners(-1.0, 1.0, 1.0, -1.0);
+	rect->setMaterial("Background");
+
+	// Render the background before everything else
+	rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
+
+	rect->setBoundingBox(
+			Ogre::AxisAlignedBox(-100000.0 * Ogre::Vector3::UNIT_SCALE,
+					100000.0 * Ogre::Vector3::UNIT_SCALE));
+
+	// Attach background to the scene
+	Ogre::SceneNode* node =
+			_sceneManager->getRootSceneNode()->createChildSceneNode(
+					"BackgroundNode");
+	node->attachObject(rect);
+}
+
+void World::_refreshBackground() {
+	cv::Mat* frame =
+			VideoFactory::getInstance()->getMainCamera().getLastFrame();
+	if (frame->rows == 0)
+		return;
+
+	Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().getByName(
+			"BackgroundTex",
+			Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+
+	Ogre::HardwarePixelBufferSharedPtr pixelBuffer = texture->getBuffer();
+
+	pixelBuffer->lock(Ogre::HardwareBuffer::HBL_DISCARD);
+	const Ogre::PixelBox& pixelBox = pixelBuffer->getCurrentLock();
+
+	Ogre::uint8* pDest = static_cast<Ogre::uint8*>(pixelBox.data);
+
+	for (int j = 0; j < frame->rows; j++) {
+		for (int i = 0; i < frame->cols; i++) {
+			int idx = ((j) * pixelBox.rowPitch + i) * 4; //Use pixelBox.rowPitch instead of "width"
+			pDest[idx] = frame->data[(j * frame->cols + i) * 3];
+			pDest[idx + 1] = frame->data[(j * frame->cols + i) * 3 + 1];
+			pDest[idx + 2] = frame->data[(j * frame->cols + i) * 3 + 2];
+			pDest[idx + 3] = 255;
+		}
 	}
 
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glBindTexture(GL_TEXTURE_2D, textureId);
+	pixelBuffer->unlock();
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, frame->cols, frame->rows,0, GL_BGR, GL_UNSIGNED_BYTE, frame->data);
+	Ogre::Rectangle2D* rect =
+			static_cast<Ogre::Rectangle2D*>(_sceneManager->getSceneNode(
+					"BackgroundNode")->getAttachedObject(0));
+	Ogre::MaterialPtr material = rect->getMaterial();
 
 
-
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-	glOrtho(0,1,1,0,-1,1);
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	glLoadIdentity();
-
-
-	glDisable(GL_DEPTH_TEST);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textureId);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glBegin(GL_QUADS);
-	        glTexCoord2f(0,0);
-		glVertex2f(0,0);
-
-		glTexCoord2f(1,0);
-		glVertex2f(1,0);
-
-		glTexCoord2f(1,1);
-		glVertex2f(1,1);
-
-		glTexCoord2f(0,1);
-		glVertex2f(0,1);
-	glEnd();
-	glDeleteTextures(1,&textureId);
-	glDisable(GL_TEXTURE_2D);
-
-
-	glEnable(GL_DEPTH_TEST);
-
-	glPopMatrix();
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
 }
-
-void World::enable2D() {
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-	glOrtho(0, _width, 0, _height, -1., 1.);
-}
-
-void World::disable2D() {
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-}
-
-int World::getWidth() {
-	return _width;
-}
-
-int World::getHeight() {
-	return _height;
-}
-
-SDL_Surface& World::getScreen() {
-	return *_screen;
-}
-
 
 World::~World() {
-	SDL_Quit();
-	TTF_Quit();
 	Mix_CloseAudio();
 }

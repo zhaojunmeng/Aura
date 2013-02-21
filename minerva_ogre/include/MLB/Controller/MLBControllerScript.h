@@ -32,8 +32,6 @@
 #include <MLB/Actuator/MLBActuatorAng.h>
 #include <MLB/Actuator/MLBActuatorRandom.h>
 #include <MLB/Actuator/MLBActuatorSound.h>
-#include <MLB/Actuator/MLBActuatorPathRemovePoints.h>
-#include <MLB/Actuator/MLBActuatorPathAddPoint.h>
 #include <MLB/Actuator/MLBActuatorRelativePose.h>
 #include <MLB/Actuator/MLBActuatorAddDynamicObject.h>
 #include <MLB/Actuator/MLBActuatorAnim.h>

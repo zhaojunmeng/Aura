@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -110,14 +110,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/CMakeFiles/progress.marks
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/CMakeFiles/progress.marks
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/clean
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +126,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/rule:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/rule
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/rule
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/rule
 
 # Convenience name for target.
@@ -150,307 +150,307 @@ BulletDynamics: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/rule
 
 # fast build rule for target.
 BulletDynamics/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build
 .PHONY : BulletDynamics/fast
 
 # target to build an object file
 Character/btKinematicCharacterController.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o
 .PHONY : Character/btKinematicCharacterController.o
 
 # target to preprocess a source file
 Character/btKinematicCharacterController.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i
 .PHONY : Character/btKinematicCharacterController.i
 
 # target to generate assembly for a file
 Character/btKinematicCharacterController.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s
 .PHONY : Character/btKinematicCharacterController.s
 
 # target to build an object file
 ConstraintSolver/btConeTwistConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o
 .PHONY : ConstraintSolver/btConeTwistConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btConeTwistConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i
 .PHONY : ConstraintSolver/btConeTwistConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btConeTwistConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s
 .PHONY : ConstraintSolver/btConeTwistConstraint.s
 
 # target to build an object file
 ConstraintSolver/btContactConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o
 .PHONY : ConstraintSolver/btContactConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btContactConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i
 .PHONY : ConstraintSolver/btContactConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btContactConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s
 .PHONY : ConstraintSolver/btContactConstraint.s
 
 # target to build an object file
 ConstraintSolver/btGeneric6DofConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o
 .PHONY : ConstraintSolver/btGeneric6DofConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btGeneric6DofConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i
 .PHONY : ConstraintSolver/btGeneric6DofConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btGeneric6DofConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s
 .PHONY : ConstraintSolver/btGeneric6DofConstraint.s
 
 # target to build an object file
 ConstraintSolver/btGeneric6DofSpringConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o
 .PHONY : ConstraintSolver/btGeneric6DofSpringConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btGeneric6DofSpringConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i
 .PHONY : ConstraintSolver/btGeneric6DofSpringConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btGeneric6DofSpringConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s
 .PHONY : ConstraintSolver/btGeneric6DofSpringConstraint.s
 
 # target to build an object file
 ConstraintSolver/btHinge2Constraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o
 .PHONY : ConstraintSolver/btHinge2Constraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btHinge2Constraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i
 .PHONY : ConstraintSolver/btHinge2Constraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btHinge2Constraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s
 .PHONY : ConstraintSolver/btHinge2Constraint.s
 
 # target to build an object file
 ConstraintSolver/btHingeConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o
 .PHONY : ConstraintSolver/btHingeConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btHingeConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i
 .PHONY : ConstraintSolver/btHingeConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btHingeConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s
 .PHONY : ConstraintSolver/btHingeConstraint.s
 
 # target to build an object file
 ConstraintSolver/btPoint2PointConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o
 .PHONY : ConstraintSolver/btPoint2PointConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btPoint2PointConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i
 .PHONY : ConstraintSolver/btPoint2PointConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btPoint2PointConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s
 .PHONY : ConstraintSolver/btPoint2PointConstraint.s
 
 # target to build an object file
 ConstraintSolver/btSequentialImpulseConstraintSolver.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o
 .PHONY : ConstraintSolver/btSequentialImpulseConstraintSolver.o
 
 # target to preprocess a source file
 ConstraintSolver/btSequentialImpulseConstraintSolver.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i
 .PHONY : ConstraintSolver/btSequentialImpulseConstraintSolver.i
 
 # target to generate assembly for a file
 ConstraintSolver/btSequentialImpulseConstraintSolver.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s
 .PHONY : ConstraintSolver/btSequentialImpulseConstraintSolver.s
 
 # target to build an object file
 ConstraintSolver/btSliderConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o
 .PHONY : ConstraintSolver/btSliderConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btSliderConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i
 .PHONY : ConstraintSolver/btSliderConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btSliderConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s
 .PHONY : ConstraintSolver/btSliderConstraint.s
 
 # target to build an object file
 ConstraintSolver/btSolve2LinearConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o
 .PHONY : ConstraintSolver/btSolve2LinearConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btSolve2LinearConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i
 .PHONY : ConstraintSolver/btSolve2LinearConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btSolve2LinearConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s
 .PHONY : ConstraintSolver/btSolve2LinearConstraint.s
 
 # target to build an object file
 ConstraintSolver/btTypedConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o
 .PHONY : ConstraintSolver/btTypedConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btTypedConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i
 .PHONY : ConstraintSolver/btTypedConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btTypedConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s
 .PHONY : ConstraintSolver/btTypedConstraint.s
 
 # target to build an object file
 ConstraintSolver/btUniversalConstraint.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o
 .PHONY : ConstraintSolver/btUniversalConstraint.o
 
 # target to preprocess a source file
 ConstraintSolver/btUniversalConstraint.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i
 .PHONY : ConstraintSolver/btUniversalConstraint.i
 
 # target to generate assembly for a file
 ConstraintSolver/btUniversalConstraint.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s
 .PHONY : ConstraintSolver/btUniversalConstraint.s
 
 # target to build an object file
 Dynamics/Bullet-C-API.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o
 .PHONY : Dynamics/Bullet-C-API.o
 
 # target to preprocess a source file
 Dynamics/Bullet-C-API.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i
 .PHONY : Dynamics/Bullet-C-API.i
 
 # target to generate assembly for a file
 Dynamics/Bullet-C-API.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s
 .PHONY : Dynamics/Bullet-C-API.s
 
 # target to build an object file
 Dynamics/btContinuousDynamicsWorld.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o
 .PHONY : Dynamics/btContinuousDynamicsWorld.o
 
 # target to preprocess a source file
 Dynamics/btContinuousDynamicsWorld.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i
 .PHONY : Dynamics/btContinuousDynamicsWorld.i
 
 # target to generate assembly for a file
 Dynamics/btContinuousDynamicsWorld.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s
 .PHONY : Dynamics/btContinuousDynamicsWorld.s
 
 # target to build an object file
 Dynamics/btDiscreteDynamicsWorld.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o
 .PHONY : Dynamics/btDiscreteDynamicsWorld.o
 
 # target to preprocess a source file
 Dynamics/btDiscreteDynamicsWorld.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i
 .PHONY : Dynamics/btDiscreteDynamicsWorld.i
 
 # target to generate assembly for a file
 Dynamics/btDiscreteDynamicsWorld.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s
 .PHONY : Dynamics/btDiscreteDynamicsWorld.s
 
 # target to build an object file
 Dynamics/btRigidBody.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o
 .PHONY : Dynamics/btRigidBody.o
 
 # target to preprocess a source file
 Dynamics/btRigidBody.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i
 .PHONY : Dynamics/btRigidBody.i
 
 # target to generate assembly for a file
 Dynamics/btRigidBody.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s
 .PHONY : Dynamics/btRigidBody.s
 
 # target to build an object file
 Dynamics/btSimpleDynamicsWorld.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o
 .PHONY : Dynamics/btSimpleDynamicsWorld.o
 
 # target to preprocess a source file
 Dynamics/btSimpleDynamicsWorld.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i
 .PHONY : Dynamics/btSimpleDynamicsWorld.i
 
 # target to generate assembly for a file
 Dynamics/btSimpleDynamicsWorld.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s
 .PHONY : Dynamics/btSimpleDynamicsWorld.s
 
 # target to build an object file
 Vehicle/btRaycastVehicle.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o
 .PHONY : Vehicle/btRaycastVehicle.o
 
 # target to preprocess a source file
 Vehicle/btRaycastVehicle.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i
 .PHONY : Vehicle/btRaycastVehicle.i
 
 # target to generate assembly for a file
 Vehicle/btRaycastVehicle.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s
 .PHONY : Vehicle/btRaycastVehicle.s
 
 # target to build an object file
 Vehicle/btWheelInfo.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o
 .PHONY : Vehicle/btWheelInfo.o
 
 # target to preprocess a source file
 Vehicle/btWheelInfo.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i
 .PHONY : Vehicle/btWheelInfo.i
 
 # target to generate assembly for a file
 Vehicle/btWheelInfo.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s
 .PHONY : Vehicle/btWheelInfo.s
 
 # Help Target
@@ -537,6 +537,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

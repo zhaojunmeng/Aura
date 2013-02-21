@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Include any dependencies generated for this target.
 include src/BulletDynamics/CMakeFiles/BulletDynamics.dir/depend.make
@@ -51,17 +51,17 @@ include src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o: src/BulletDynamics/Character/btKinematicCharacterController.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp > CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp > CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp -o CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Character/btKinematicCharacterController.cpp -o CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterController.o.requires
@@ -74,17 +74,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Character/btKinematicCharacterC
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o: src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btConeTwistConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistConstraint.o.requires
@@ -97,17 +97,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btConeTwistCon
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o: src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btContactConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConstraint.o.requires
@@ -120,17 +120,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btContactConst
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o: src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofConstraint.o.requires
@@ -143,17 +143,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofC
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o: src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofSpringConstraint.o.requires
@@ -166,17 +166,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btGeneric6DofS
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o: src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHinge2Constraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constraint.o.requires
@@ -189,17 +189,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHinge2Constr
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o: src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btHingeConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstraint.o.requires
@@ -212,17 +212,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btHingeConstra
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o: src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btPoint2PointConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointConstraint.o.requires
@@ -235,17 +235,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btPoint2PointC
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o: src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialImpulseConstraintSolver.o.requires
@@ -258,17 +258,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSequentialIm
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o: src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSliderConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstraint.o.requires
@@ -281,17 +281,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSliderConstr
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o: src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2LinearConstraint.o.requires
@@ -304,17 +304,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btSolve2Linear
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o: src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btTypedConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstraint.o.requires
@@ -327,17 +327,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btTypedConstra
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o: src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp > CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/ConstraintSolver/btUniversalConstraint.cpp -o CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalConstraint.o.requires
@@ -350,17 +350,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/ConstraintSolver/btUniversalCon
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o: src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btContinuousDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWorld.o.requires
@@ -373,17 +373,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btContinuousDynamicsWo
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o: src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btDiscreteDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorld.o.requires
@@ -396,17 +396,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btDiscreteDynamicsWorl
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o: src/BulletDynamics/Dynamics/btRigidBody.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btRigidBody.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o.requires
@@ -419,17 +419,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btRigidBody.o.provides
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o: src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/btSimpleDynamicsWorld.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.o.requires
@@ -442,17 +442,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/btSimpleDynamicsWorld.
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o: src/BulletDynamics/Dynamics/Bullet-C-API.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp > CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Dynamics/Bullet-C-API.cpp -o CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o.requires
@@ -465,17 +465,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Dynamics/Bullet-C-API.o.provide
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o: src/BulletDynamics/Vehicle/btRaycastVehicle.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp > CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp > CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp -o CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btRaycastVehicle.cpp -o CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o.requires
@@ -488,17 +488,17 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btRaycastVehicle.o.prov
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/flags.make
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o: src/BulletDynamics/Vehicle/btWheelInfo.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp > CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp > CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.i
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp -o CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/Vehicle/btWheelInfo.cpp -o CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.s
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o.requires:
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/Vehicle/btWheelInfo.o.requires
@@ -558,8 +558,8 @@ src/BulletDynamics/libBulletDynamics.a: src/BulletDynamics/CMakeFiles/BulletDyna
 src/BulletDynamics/libBulletDynamics.a: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build.make
 src/BulletDynamics/libBulletDynamics.a: src/BulletDynamics/CMakeFiles/BulletDynamics.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libBulletDynamics.a"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -P CMakeFiles/BulletDynamics.dir/cmake_clean_target.cmake
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletDynamics.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -P CMakeFiles/BulletDynamics.dir/cmake_clean_target.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletDynamics.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/build: src/BulletDynamics/libBulletDynamics.a
@@ -588,10 +588,10 @@ src/BulletDynamics/CMakeFiles/BulletDynamics.dir/requires: src/BulletDynamics/CM
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/requires
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -P CMakeFiles/BulletDynamics.dir/cmake_clean.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics && $(CMAKE_COMMAND) -P CMakeFiles/BulletDynamics.dir/cmake_clean.cmake
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/clean
 
 src/BulletDynamics/CMakeFiles/BulletDynamics.dir/depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics /home/cesar/git/minerva/lib/bullet-2.78/src/BulletDynamics/CMakeFiles/BulletDynamics.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletDynamics/CMakeFiles/BulletDynamics.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/BulletDynamics/CMakeFiles/BulletDynamics.dir/depend
 

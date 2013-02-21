@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.cpp
 btAlignedAllocator.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
 malloc.h
 -
 stdlib.h
@@ -16,15 +16,15 @@ stdlib.h
 stdio.h
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
 btScalar.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btScalar.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 btScalar.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btScalar.h
 btAlignedAllocator.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
 memory.h
 -
 string.h
@@ -32,63 +32,63 @@ string.h
 new
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.cpp
 string.h
 -
 btConvexHull.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.h
 btAlignedObjectArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 btMinMax.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btMinMax.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btMinMax.h
 btVector3.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHull.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHull.h
 btVector3.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 btAlignedObjectArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.cpp
 string.h
 -
 btConvexHullComputer.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.h
 btAlignedObjectArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 btMinMax.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btMinMax.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btMinMax.h
 btVector3.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 stdint.h
 -
 stdio.h
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btConvexHullComputer.h
 btVector3.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 btAlignedObjectArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.cpp
 btGeometryUtil.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btGeometryUtil.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btGeometryUtil.h
 btVector3.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 btAlignedObjectArray.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedObjectArray.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btMinMax.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btMinMax.h
 LinearMath/btScalar.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/LinearMath/btScalar.h
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.cpp
 btQuickprof.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.h
 sys/sys_time.h
 -
 sys/time_util.h
@@ -108,17 +108,17 @@ sys/time.h
 stdio.h
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btQuickprof.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btQuickprof.h
 stdio.h
 -
 btScalar.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btScalar.h
 btAlignedAllocator.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btAlignedAllocator.h
 new
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btScalar.h
 math.h
 -
 stdlib.h
@@ -144,13 +144,13 @@ assert.h
 assert.h
 -
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btSerializer.cpp
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btSerializer.cpp
 
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btVector3.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btVector3.h
 btScalar.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btScalar.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btScalar.h
 btMinMax.h
-/home/cesar/git/minerva/lib/bullet-2.78/src/LinearMath/btMinMax.h
+/home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/LinearMath/btMinMax.h
 
 src/LinearMath/btScalar.h
 math.h

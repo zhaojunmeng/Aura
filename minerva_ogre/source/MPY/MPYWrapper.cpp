@@ -122,15 +122,7 @@ BOOST_PYTHON_MODULE(MGE) {
 	.def("actuate",&MLBActuatorDistance::actuate)
 	;
 
-	object MLBActuatorPathAddPoint_class = class_<MLBActuatorPathAddPoint>("MLBActuatorPathAddPoint",no_init)
-	.def("getName",&MLB::getName)
-	.def("actuate",&MLBActuatorPathAddPoint::actuate)
-	;
 
-	object MLBActuatorPathRemovePoints_class = class_<MLBActuatorPathRemovePoints>("MLBActuatorPathRemovePoints",no_init)
-	.def("getName",&MLB::getName)
-	.def("actuate",&MLBActuatorPathRemovePoints::actuate)
-	;
 
 	object MLBActuatorProperty_class = class_<MLBActuatorProperty>("MLBActuatorProperty",no_init)
 	.def("getName",&MLB::getName)

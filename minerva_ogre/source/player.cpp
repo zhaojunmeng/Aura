@@ -22,20 +22,20 @@
 
 using namespace std;
 
-string getDirPath(char* path){
+string getDirPath(char* path) {
 	string strpath(path);
-	#ifdef WIN32
-		int p = strpath.rfind('\\');
-	#else
-		int p = strpath.rfind('/');
-	#endif
+#ifdef WIN32
+	int p = strpath.rfind('\\');
+#else
+	int p = strpath.rfind('/');
+#endif
 
 	return strpath.substr(0, p);
 }
 
 void setDirectory(string path) {
 
-	#ifdef WIN32
+#ifdef WIN32
 	SetCurrentDirectory(path.c_str());
 #else
 	chdir(path.c_str());
@@ -43,28 +43,65 @@ void setDirectory(string path) {
 
 }
 
+string getFileName(char* path) {
+	string strpath(path);
+
+#ifdef WIN32
+	int p = strpath.rfind('\\');
+#else
+	int p = strpath.rfind('/');
+#endif
+
+	return strpath.substr(p + 1);
+}
+
+string getCurrentDirectory() {
+	char buf[255];
+#ifdef WIN32
+	GetCurrentDirectory(255,buf);
+#else
+	getcwd(buf, 255);
+#endif
+	return string(buf);
+}
+
 int main(int argc, char* argv[]) {
+	if (argc != 2) {
+		cout << "Error args" << endl;
+		return 0;
+	}
 
-	/* Set app directory */
-	string appDir = getDirPath(argv[0]);
-	setDirectory(appDir);
+	/* Setting application directory */
+	string workingDir = getCurrentDirectory();
+	string minervaBinaryDir = getDirPath(argv[0]);
 
+	string sourceCodeName = getFileName(argv[1]);
+	string sourceCodeDir = getDirPath(argv[1]);
 
 	try {
 
 		/* Initializations */
+		setDirectory(workingDir);
+
 		MPYWrapper::getInstance()->initPython();
-		World::getInstance()->initWorld(640, 480);
 		VideoFactory::getInstance()->addVideoSource("cam", 0);
+		World::getInstance()->initWorld(640, 480);
 		TrackingMethodFactory::getInstance(); /* Init tracking */
 
 		// Redirect cin
-		streambuf* cinold = cin.rdbuf();
-		Resource& sourceCode = ResourcesManager::getInstance()->getResource(
-				ResourcesManager::sourceCodeFile);
+		setDirectory(sourceCodeDir);
 
+		/* Preprocessing! */
+		MSLPreprocessor preprocessor;
 		stringstream finalFile;
-		finalFile << string(sourceCode.getData());
+		preprocessor.start(sourceCodeName, finalFile);
+
+		streambuf* cinold = cin.rdbuf();
+		//Resource& sourceCode = ResourcesManager::getInstance()->getResource(
+		//		ResourcesManager::sourceCodeFile);
+
+		//stringstream finalFile;
+		//finalFile << string(sourceCode.getData());
 		cin.rdbuf(finalFile.rdbuf());
 
 		/* Parsing! */
@@ -113,7 +150,6 @@ int main(int argc, char* argv[]) {
 	PhysicsController::getInstance()->destroy();
 	InputEventController::getInstance()->destroy();
 	VideoFactory::getInstance()->destroy();
-	ResourcesManager::getInstance()->destroy();
 
 	return 0;
 }

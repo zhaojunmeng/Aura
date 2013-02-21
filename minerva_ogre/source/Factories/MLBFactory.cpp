@@ -511,50 +511,7 @@ MLBActuatorSound& MLBFactory::addMLBActuatorSound(std::string name,
 	return *a;
 }
 
-MLBActuatorPathRemovePoints& MLBFactory::addMLBActuatorPathRemovePoints(
-		std::string name, std::string nparent) {
-	if (!checkMLBName(nparent, name))
-		throw "MLB name already exists " + name;
 
-	MAORenderable3DPath
-			& parent =
-					(MAORenderable3DPath&) MAOFactory::getInstance()->getMAORenderable3D(
-							nparent);
-
-	if (parent.getType() != T_MAORENDERABLE3DPATH) {
-		throw "MLB Actuator Path Remove Points just applicable to MAO Renderable 3D Path: "
-				+ name;
-	}
-
-	MLBActuatorPathRemovePoints* a = new MLBActuatorPathRemovePoints(name,
-			parent);
-	_vectorMLB.push_back(a);
-	_vectorMLBActuator.push_back(a);
-
-	return *a;
-}
-
-MLBActuatorPathAddPoint& MLBFactory::addMLBActuatorPathAddPoint(
-		std::string name, std::string nparent) {
-	if (!checkMLBName(nparent, name))
-		throw "MLB name already exists " + name;
-
-	MAORenderable3DPath
-			& parent =
-					(MAORenderable3DPath&) MAOFactory::getInstance()->getMAORenderable3D(
-							nparent);
-
-	if (parent.getType() != T_MAORENDERABLE3DPATH) {
-		throw "MLB Actuator Path Add Point just applicable to MAO Renderable 3D Path: "
-				+ name;
-	}
-
-	MLBActuatorPathAddPoint* a = new MLBActuatorPathAddPoint(name, parent);
-	_vectorMLB.push_back(a);
-	_vectorMLBActuator.push_back(a);
-
-	return *a;
-}
 
 MLBActuatorRelativePose& MLBFactory::addMLBActuatorRelativePose(
 		std::string name, std::string nparent, std::string nref,

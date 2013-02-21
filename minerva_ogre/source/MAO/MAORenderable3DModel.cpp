@@ -110,6 +110,7 @@ void MAORenderable3DModel::generateSphereShape() {
 }
 
 void MAORenderable3DModel::_drawMesh(const MAOMesh& mesh) {
+/*
 	glEnable(GL_TEXTURE_2D);
 
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
@@ -124,10 +125,11 @@ void MAORenderable3DModel::_drawMesh(const MAOMesh& mesh) {
 		_drawMeshNoTexture(mesh);
 
 		glDisable(GL_TEXTURE_2D);
+*/
 }
 
 void MAORenderable3DModel::_drawMeshNoTexture(const MAOMesh& mesh) {
-	glPushMatrix();
+/*	glPushMatrix();
 
 	//Refresh anim!
 	if (_anim.frames > 0) {
@@ -157,7 +159,7 @@ void MAORenderable3DModel::_drawMeshNoTexture(const MAOMesh& mesh) {
 	}
 
 	glCallList (mesh.idListMesh);
-	glPopMatrix();
+	glPopMatrix();*/
 }
 
 

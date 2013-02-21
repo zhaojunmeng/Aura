@@ -17,12 +17,12 @@
 #define   DEBUG        0
 #define   EVEC_MAX     10
 
-int    pattern_num = -1;
-int    patf[AR_PATT_NUM_MAX] = { 0 };
-int    pat[AR_PATT_NUM_MAX][4][AR_PATT_SIZE_Y*AR_PATT_SIZE_X*3];
-double patpow[AR_PATT_NUM_MAX][4];
-int    patBW[AR_PATT_NUM_MAX][4][AR_PATT_SIZE_Y*AR_PATT_SIZE_X*3];
-double patpowBW[AR_PATT_NUM_MAX][4];
+static int    pattern_num = -1;
+static int    patf[AR_PATT_NUM_MAX] = { 0 };
+static int    pat[AR_PATT_NUM_MAX][4][AR_PATT_SIZE_Y*AR_PATT_SIZE_X*3];
+static double patpow[AR_PATT_NUM_MAX][4];
+static int    patBW[AR_PATT_NUM_MAX][4][AR_PATT_SIZE_Y*AR_PATT_SIZE_X*3];
+static double patpowBW[AR_PATT_NUM_MAX][4];
 
 static double evec[EVEC_MAX][AR_PATT_SIZE_Y*AR_PATT_SIZE_X*3];
 static double epat[AR_PATT_NUM_MAX][4][EVEC_MAX];

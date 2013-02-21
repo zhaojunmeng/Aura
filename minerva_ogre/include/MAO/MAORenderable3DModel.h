@@ -12,8 +12,6 @@
 
 #ifdef WIN32
 #include <windows.h>
-#define GL_BGRA 0x80E1
-#define GL_BGR 0x80E0
 #endif
 
 enum AnimType {SIMPLE, LOOP, PINGPONG};

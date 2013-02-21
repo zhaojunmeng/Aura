@@ -9,7 +9,7 @@
  * 
  * 2004/11/17 Grasset  adding new parameters for better controls of
  * V4L driver
- * 2004/11/17 Grasset  adding patch done by  for supporting YUV 4:2:0
+ * 2004/11/17 Grasset  adding patch done by XXX for supporting YUV 4:2:0
  * (adding #define and videoBuffer encoding parameters)
  * 2006/10/04 S.Goodall: Modified for V4L2 data.
 

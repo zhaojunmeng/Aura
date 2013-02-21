@@ -8,7 +8,6 @@
 #ifndef TRACKINGMETHODARTK_H_
 #define TRACKINGMETHODARTK_H_
 
-#include <Kernel/Resources/ResourcesManager.h>
 #include <Kernel/TrackingMethods/TrackingMethod.h>
 #include <Kernel/Logger.h>
 #include <Factories/VideoFactory.h>
@@ -17,7 +16,7 @@
 
 #include <cv.h>
 #include <AR/ar.h>
-#include <AR/gsub.h>
+//#include <AR/gsub.h>
 
 class TrackingMethodARTK: public TrackingMethod {
 public:
@@ -29,7 +28,7 @@ public:
 
 private:
 
-	int loadPattFromResource(Resource& r);
+	int loadPatt(std::string& r);
 	void initARTK();
 	void initCameraParams();
 	void checkMarkVisibility(MAOMark* mark);

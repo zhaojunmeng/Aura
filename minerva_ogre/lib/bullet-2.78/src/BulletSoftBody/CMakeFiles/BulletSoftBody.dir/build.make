@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Include any dependencies generated for this target.
 include src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/depend.make
@@ -51,17 +51,17 @@ include src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o: src/BulletSoftBody/btSoftBody.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBody.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBody.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftBody.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBody.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBody.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftBody.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBody.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBody.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBody.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o.requires
@@ -74,17 +74,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBody.o.provides.build: sr
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o: src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyConcaveCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgorithm.o.requires
@@ -97,17 +97,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyConcaveCollisionAlgor
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o: src/BulletSoftBody/btSoftBodyHelpers.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyHelpers.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o.requires
@@ -120,17 +120,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyHelpers.o.provides.bu
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o: src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp > CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionConfiguration.o.requires
@@ -143,17 +143,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftBodyRigidBodyCollisionCon
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o: src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o.requires
@@ -166,17 +166,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidCollisionAlgorithm.o
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o: src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp > CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp > CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftRigidDynamicsWorld.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o.requires
@@ -189,17 +189,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftRigidDynamicsWorld.o.prov
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o: src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp > CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btSoftSoftCollisionAlgorithm.cpp -o CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o.requires
@@ -212,17 +212,17 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btSoftSoftCollisionAlgorithm.o.
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/flags.make
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o: src/BulletSoftBody/btDefaultSoftBodySolver.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp > CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp > CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.i
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp -o CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/btDefaultSoftBodySolver.cpp -o CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.s
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o.requires:
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/btDefaultSoftBodySolver.o.requires
@@ -258,8 +258,8 @@ src/BulletSoftBody/libBulletSoftBody.a: src/BulletSoftBody/CMakeFiles/BulletSoft
 src/BulletSoftBody/libBulletSoftBody.a: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build.make
 src/BulletSoftBody/libBulletSoftBody.a: src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libBulletSoftBody.a"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -P CMakeFiles/BulletSoftBody.dir/cmake_clean_target.cmake
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletSoftBody.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -P CMakeFiles/BulletSoftBody.dir/cmake_clean_target.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BulletSoftBody.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/build: src/BulletSoftBody/libBulletSoftBody.a
@@ -276,10 +276,10 @@ src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/requires: src/BulletSoftBody/CM
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/requires
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -P CMakeFiles/BulletSoftBody.dir/cmake_clean.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody && $(CMAKE_COMMAND) -P CMakeFiles/BulletSoftBody.dir/cmake_clean.cmake
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/clean
 
 src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody /home/cesar/git/minerva/lib/bullet-2.78/src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir/depend
 

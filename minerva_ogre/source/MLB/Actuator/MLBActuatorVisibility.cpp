@@ -14,9 +14,7 @@ MLBActuatorVisibility::MLBActuatorVisibility(const std::string& name,
 	_mlbType = T_MLBACTUATORVISIBILITY;
 	if (parent.getType() != T_MAORENDERABLE2DTEXT
 			&& parent.getType() != T_MAORENDERABLE3DMODEL
-			&& parent.getType() != T_MAORENDERABLE2DIMAGE
-			&& parent.getType() != T_MAORENDERABLE3DLINE
-			&& parent.getType() != T_MAORENDERABLE3DPATH) {
+			&& parent.getType() != T_MAORENDERABLE2DIMAGE) {
 		Logger::getInstance()->error(
 				"MAO type is not applicable to MLBActuatorVisibility!: "
 						+ parent.getName());
@@ -31,8 +29,6 @@ void MLBActuatorVisibility::specificActuate() {
 	case T_MAORENDERABLE2DTEXT:
 		((MAORenderable2D*) _parent)->setVisible(_value);
 		break;
-	case T_MAORENDERABLE3DLINE:
-	case T_MAORENDERABLE3DPATH:
 	case T_MAORENDERABLE3DMODEL:
 		((MAORenderable3D*) _parent)->setVisible(_value);
 		break;

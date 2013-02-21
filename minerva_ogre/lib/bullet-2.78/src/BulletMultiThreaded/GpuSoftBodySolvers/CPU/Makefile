@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -110,14 +110,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/progress.marks
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/progress.marks
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/clean
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +126,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/preinstall
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/rule:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/rule
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f CMakeFiles/Makefile2 src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/rule
 .PHONY : src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/rule
 
 # Convenience name for target.
@@ -150,22 +150,22 @@ BulletSoftBodySolvers_CPU: src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeF
 
 # fast build rule for target.
 BulletSoftBodySolvers_CPU/fast:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build
 .PHONY : BulletSoftBodySolvers_CPU/fast
 
 # target to build an object file
 btSoftBodySolver_CPU.o:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.o
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.o
 .PHONY : btSoftBodySolver_CPU.o
 
 # target to preprocess a source file
 btSoftBodySolver_CPU.i:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.i
 .PHONY : btSoftBodySolver_CPU.i
 
 # target to generate assembly for a file
 btSoftBodySolver_CPU.s:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(MAKE) -f src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/build.make src/BulletMultiThreaded/GpuSoftBodySolvers/CPU/CMakeFiles/BulletSoftBodySolvers_CPU.dir/btSoftBodySolver_CPU.s
 .PHONY : btSoftBodySolver_CPU.s
 
 # Help Target
@@ -195,6 +195,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

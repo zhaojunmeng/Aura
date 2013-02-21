@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_SOURCE_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/git/minerva/lib/bullet-2.78
+CMAKE_BINARY_DIR = /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78
 
 # Include any dependencies generated for this target.
 include src/MiniCL/CMakeFiles/MiniCL.dir/depend.make
@@ -51,17 +51,17 @@ include src/MiniCL/CMakeFiles/MiniCL.dir/flags.make
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o: src/MiniCL/CMakeFiles/MiniCL.dir/flags.make
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o: src/MiniCL/MiniCL.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCL.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCL.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCL.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCL.cpp
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MiniCL.dir/MiniCL.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCL.cpp > CMakeFiles/MiniCL.dir/MiniCL.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCL.cpp > CMakeFiles/MiniCL.dir/MiniCL.i
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MiniCL.dir/MiniCL.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCL.cpp -o CMakeFiles/MiniCL.dir/MiniCL.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCL.cpp -o CMakeFiles/MiniCL.dir/MiniCL.s
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o.requires:
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o.requires
@@ -74,17 +74,17 @@ src/MiniCL/CMakeFiles/MiniCL.dir/MiniCL.o.provides.build: src/MiniCL/CMakeFiles/
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o: src/MiniCL/CMakeFiles/MiniCL.dir/flags.make
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o: src/MiniCL/MiniCLTaskScheduler.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp > CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp > CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.i
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp -o CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTaskScheduler.cpp -o CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.s
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o.requires:
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o.requires
@@ -97,17 +97,17 @@ src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTaskScheduler.o.provides.build: src/MiniC
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o: src/MiniCL/CMakeFiles/MiniCL.dir/flags.make
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o: src/MiniCL/MiniCLTask/MiniCLTask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o -c /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o -c /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp > CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp > CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.i
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp -o CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/MiniCLTask/MiniCLTask.cpp -o CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.s
 
 src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o.requires:
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o.requires
@@ -133,8 +133,8 @@ src/MiniCL/libMiniCL.a: src/MiniCL/CMakeFiles/MiniCL.dir/MiniCLTask/MiniCLTask.o
 src/MiniCL/libMiniCL.a: src/MiniCL/CMakeFiles/MiniCL.dir/build.make
 src/MiniCL/libMiniCL.a: src/MiniCL/CMakeFiles/MiniCL.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libMiniCL.a"
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -P CMakeFiles/MiniCL.dir/cmake_clean_target.cmake
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MiniCL.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -P CMakeFiles/MiniCL.dir/cmake_clean_target.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MiniCL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/MiniCL/CMakeFiles/MiniCL.dir/build: src/MiniCL/libMiniCL.a
@@ -146,10 +146,10 @@ src/MiniCL/CMakeFiles/MiniCL.dir/requires: src/MiniCL/CMakeFiles/MiniCL.dir/Mini
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/requires
 
 src/MiniCL/CMakeFiles/MiniCL.dir/clean:
-	cd /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -P CMakeFiles/MiniCL.dir/cmake_clean.cmake
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL && $(CMAKE_COMMAND) -P CMakeFiles/MiniCL.dir/cmake_clean.cmake
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/clean
 
 src/MiniCL/CMakeFiles/MiniCL.dir/depend:
-	cd /home/cesar/git/minerva/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL /home/cesar/git/minerva/lib/bullet-2.78 /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL /home/cesar/git/minerva/lib/bullet-2.78/src/MiniCL/CMakeFiles/MiniCL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78 /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL /home/cesar/git/minerva_ogre/minerva_ogre/lib/bullet-2.78/src/MiniCL/CMakeFiles/MiniCL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/MiniCL/CMakeFiles/MiniCL.dir/depend
 

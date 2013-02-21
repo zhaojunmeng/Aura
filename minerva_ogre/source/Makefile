@@ -30,13 +30,12 @@ else # Debug mode
 endif
 
 # Libraries
-LDFLAGS = -lGL -lGLU -lSDL -lSDL_ttf -lSDL_image -lSDL_mixer `pkg-config --libs opencv`\
-		  $(ARTKLIBS) $(BULLETLIBS) $(PYTHONLIB) -lboost_python -lboost_filesystem -lzip\
-		  -lboost_system -l3ds
-
+LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS)\
+		   $(PYTHONLIB) -lboost_python -lboost_filesystem -lboost_system `pkg-config --libs OGRE`\
+		  
 # Includes
 INCFLAGS = -I$(INCDIR) -I ../lib/ARToolKit/include -I../lib/$(BULLETDIR)/src -I$(PYTHONDIR)\
-			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost
+			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost `pkg-config --cflags OGRE`
 
 # Objects
 OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\
@@ -48,14 +47,14 @@ OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\
 	MLBControllerOR.o MLBControllerNOR.o MLBSensorAlways.o MLBSensorKeyboard.o\
 	MLBSensorNear.o MAORenderable2D.o MAORenderable2DText.o MAORenderable2DImage.o\
 	MLBSensorProperty.o MLBActuatorChangePose.o MLBActuatorDistance.o MLBActuatorAng.o\
-	MAORenderable3DLine.o MLBSensorRandom.o MLBActuatorRandom.o MLBSensorDelay.o\
-	ParserOrej.o Parser.o MAORenderable3DModel.o	MLBActuatorSound.o MAORenderable3DPath.o PathPoint.o\
-	MLBActuatorPathRemovePoints.o MLBActuatorQuitApp.o MLBActuatorProperty.o MLBSensorActuator.o\
-	MLBActuatorPathAddPoint.o MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
+	MLBSensorRandom.o MLBActuatorRandom.o MLBSensorDelay.o\
+	MAORenderable3DModel.o	MLBActuatorSound.o \
+	MLBActuatorQuitApp.o MLBActuatorProperty.o MLBSensorActuator.o\
+	 MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
 	PhysicDynamicObject.o MLBActuatorAddDynamicObject.o MSLParser.o MSLScanner.o MSLProperties.o\
 	MLBActuatorAnim.o MLBControllerScript.o MGEModule.o MPYWrapper.o WrapperTypes.o EndController.o\
-	GLDebugDrawer.o MSLPreprocessor.o  ResourcesManager.o Resource.o ResourceZip.o ResourceFile.o\
-	ParserObj.o Parser3ds.o
+	MSLPreprocessor.o  \
+
 
 OBJS= $(addprefix $(OBJSDIR),$(OBJSCRUDE))
 

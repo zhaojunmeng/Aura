@@ -187,7 +187,7 @@ void MAORenderable3D::draw() {
 	}
 
 	if (_positioned) {
-		//Drawing the model
+	/*	//Drawing the model
 		glDisable(GL_TEXTURE_2D);
 
 		glMatrixMode( GL_MODELVIEW);
@@ -202,7 +202,7 @@ void MAORenderable3D::draw() {
 
 		glPopMatrix();
 
-		glDisable(GL_TEXTURE_2D);
+		glDisable(GL_TEXTURE_2D);*/
 
 	}
 
