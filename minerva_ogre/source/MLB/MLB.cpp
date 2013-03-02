@@ -25,11 +25,5 @@ int MLB::getMLBType(){
 	return _mlbType;
 }
 
-object MLB::mPyGetParent() {
-	reference_existing_object::apply<MAO*>::type converter;
-	PyObject* pyObj = converter(_parent);
-	return object(handle<> (pyObj));
-}
-
 MLB::~MLB() {
 }

@@ -25,10 +25,7 @@
 #include <vector>
 #include <Ogre.h>
 #include <SDL.h>
-#include <python.hpp>
 #include <filesystem.hpp>
-
-#include <MPY/WrapperTypes.h>
 #include <Kernel/Logger.h>
 #include <MAO/MAOProperty.h>
 
@@ -60,13 +57,6 @@ public:
 	/* Util */
 	bool hasProperty(std::string name);
 
-	/* Python functions! */
-	boost::python::object mPyGetProperty(std::string name);
-	MPYPropertyInt& getMPYPropertyInt(std::string name);
-	MPYPropertyFloat& getMPYPropertyFloat(std::string name);
-	MPYPropertyStr& getMPYPropertyStr(std::string name);
-	MPYPropertyBool& getMPYPropertyBool(std::string name);
-	MPYPropertyPose& getMPYPropertyPose(std::string name);
 
 	std::vector<MPYPropertyInt*> _vectorMPYPropertyInt;
 	std::vector<MPYPropertyFloat*> _vectorMPYPropertyFloat;

@@ -10,12 +10,13 @@
 MLBActuatorDistance::MLBActuatorDistance(const std::string& name,
 		MAOPositionator3D& parent, MAOPositionator3D& mao,
 		MAOProperty& property) :
-	MLBActuator(name, parent) {
+		MLBActuator(name, parent) {
 
 	_property = &property;
 
-	if (_property->getType() != MAOPROPERTY_INT && _property->getType()
-			!= MAOPROPERTY_FLOAT && _property->getType() != MAOPROPERTY_STRING)
+	if (_property->getType() != MAOPROPERTY_INT
+			&& _property->getType() != MAOPROPERTY_FLOAT
+			&& _property->getType() != MAOPROPERTY_STRING)
 		throw "Can not apply Boolean or Pose properties to MLB Actuator Distance: "
 				+ name;
 
@@ -31,28 +32,24 @@ void MLBActuatorDistance::specificActuate() {
 
 		switch (_property->getType()) {
 		case MAOPROPERTY_INT:
-			_property->setValue<int> ((int)dist);
+			_property->setValue<int>((int) dist);
 			break;
 		case MAOPROPERTY_FLOAT:
-			_property->setValue<float> (dist);
+			_property->setValue<float>(dist);
 			break;
 		case MAOPROPERTY_STRING:
-			_property->setValue<std::string> (MAOProperty("",
-					MAOPROPERTY_FLOAT, dist).toString());
+			_property->setValue<std::string>(
+					MAOProperty("", MAOPROPERTY_FLOAT, dist).toString());
 			break;
 		}
 	}
 }
 
 float MLBActuatorDistance::distance() {
-	float dist;
+	MAOPositionator3D& mao1 = (MAOPositionator3D&) *_parent;
 
-	// TODO
-/*
-	dist = sqrt(  pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 0) - _mao->getPosMatrix().at<float> (3, 0), 2)
-		    + pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 1) - _mao->getPosMatrix().at<float> (3, 1), 2)
-		    + pow(((MAOPositionator3D*) _parent)->getPosMatrix().at<float> (3, 2) - _mao->getPosMatrix().at<float> (3, 2), 2));
-*/
+	float dist = (_mao->getSceneNode()._getDerivedPosition()
+			- mao1.getSceneNode()._getDerivedPosition()).length();
 
 	return dist;
 }

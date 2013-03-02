@@ -1,6 +1,6 @@
 OUTPUTDIR = bin/
 OBJSDIR = obj/
-BULLETDIR = bullet-2.78
+ARTKDIR = ARToolKit
 
 # Default compilation value
 mode = debug
@@ -9,7 +9,7 @@ mode = debug
 all: credentials dirs
 	cd source; $(MAKE) mode=$(mode)
 
-libs: ARTK BULLET
+libs: ARTK
 
 credentials:
 	@echo
@@ -26,21 +26,12 @@ dirs:
 	mkdir -p $(OBJSDIR)
 
 ARTK:
-	cd lib/ARToolKit; $(MAKE)
+	cd lib/$(ARTKDIR); $(MAKE)
 
-BULLET:
-	cd lib/$(BULLETDIR); rm -f CMakeCache.txt; cmake -DBUILD_EXTRAS=OFF -DBUILD_DEMOS=OFF . -G "Unix Makefiles"; $(MAKE)
-
+	
 clean:
 	cd source; $(MAKE) clean
 
 allclean: clean
-	cd lib/ARToolKit; $(MAKE) clean
-	cd lib/$(BULLETDIR); $(MAKE) clean
-	rm -Rf bin
-
-install:
-	mkdir -p $(DESTDIR)/usr/bin
-	mkdir -p $(DESTDIR)/usr/share/minerva/data
-	cp bin/minerva $(DESTDIR)/usr/bin
-	cp usr/share/minerva/data/camera_para.dat $(DESTDIR)/usr/share/minerva/data
+	cd lib/$(ARTKDIR); $(MAKE) clean
+	rm -Rf bin	

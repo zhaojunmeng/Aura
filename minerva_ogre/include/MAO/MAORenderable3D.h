@@ -13,10 +13,6 @@
 #define MAO_CYLINDER_SHAPE 2
 #define MAO_CONVEXTRIANGLEMESH_SHAPE 3
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include <string>
 #include <GL/gl.h>
 #include <btBulletCollisionCommon.h>
@@ -28,8 +24,7 @@
 class MAORenderable3D: public MAOPositionator3D {
 protected:
 
-	virtual void _drawMAO()=0;
-	virtual void _drawMAONoTexture()=0; /* For shadows Purposes ;) */
+	Ogre::Entity* _ent;
 
 public:
 	MAORenderable3D(const std::string& name, const float& size);
@@ -39,15 +34,7 @@ public:
 
 	MAOPositionator3D* getGlobalReference();
 
-	void draw();
-	void drawNoTexture();
-
-
-
-	Ogre::Matrix4& getPosMatrix();
-	Ogre::Matrix4& getRelativeMatrix();
-	void setRelativeMatrix(Ogre::Matrix4& relativeMatrix);
-	void setRelativeMatrix(const float* relativeMatrix);
+	void update();
 
 	bool isVisible();
 	void setVisible(bool visible);

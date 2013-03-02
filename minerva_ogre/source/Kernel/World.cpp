@@ -94,24 +94,14 @@ void World::drawWorld() {
 			MAOFactory::getInstance()->getVectorMAORenderable3D();
 
 	for (unsigned int i = 0; i < renderables3d.size(); i++)
-		if (renderables3d.at(i)->isVisible()) {
-			renderables3d.at(i)->draw();
-		}
+		renderables3d.at(i)->update();
+
 
 	//Draw Instantiated renderable3D
 	std::vector<MAORenderable3D*>& renderables3dInst =
 			MAOFactory::getInstance()->getVectorInstMAORenderable3D();
 	for (unsigned int i = 0; i < renderables3dInst.size(); i++)
-		if (renderables3dInst.at(i)->isVisible()) {
-			renderables3dInst.at(i)->draw();
-		}
-
-	//Draw renderable 2D
-	std::vector<MAORenderable2D*>& renderables2d =
-			MAOFactory::getInstance()->getVectorMAORenderable2D();
-	for (unsigned int i = 0; i < renderables2d.size(); i++)
-		if (renderables2d.at(i)->isVisible())
-			renderables2d.at(i)->draw();
+		renderables3dInst.at(i)->update();
 
 }
 

@@ -251,22 +251,6 @@ MLBControllerNOR& MLBFactory::addMLBControllerNOR(std::string name,
 	return *c;
 }
 
-MLBControllerScript& MLBFactory::addMLBControllerScript(
-		std::string name, const std::string nparent, const boost::filesystem::path& path) {
-
-	if (!checkMLBName(nparent, name))
-		throw "MLB name already exists " + name;
-
-	MAO& parent = MAOFactory::getInstance()->getMAO(nparent);
-
-	MLBControllerScript* c = new MLBControllerScript(name, parent, path);
-	_vectorMLB.push_back(c);
-	_vectorMLBController.push_back(c);
-	_vectorMLBControllerScript.push_back(c);
-
-	return *c;
-
-}
 
 /* -Actuators */
 MLBActuatorVisibility& MLBFactory::addMLBActuatorVisibility(
@@ -671,11 +655,6 @@ std::vector<MLBSensor*>& MLBFactory::getVectorMLBSensor() {
 std::vector<MLBController*>& MLBFactory::getVectorMLBController() {
 	return _vectorMLBController;
 }
-
-std::vector<MLBControllerScript*>& MLBFactory::getVectorMLBControllerScript() {
-	return _vectorMLBControllerScript;
-}
-
 
 std::vector<MLBActuator*>& MLBFactory::getVectorMLBActuator() {
 	return _vectorMLBActuator;

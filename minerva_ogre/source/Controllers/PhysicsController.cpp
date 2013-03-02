@@ -31,7 +31,7 @@ void PhysicsController::addStaticRigidBody(MAORenderable3D& body,
 
 	body.setPhysic(true);
 
-	generateMAOCollisionShape(&body, ncollisionShapeType);
+	//generateMAOCollisionShape(&body, ncollisionShapeType);
 
 	if (body.getGlobalReference() == NULL) {
 		Logger::getInstance()->error(
@@ -93,7 +93,7 @@ void PhysicsController::addDynamicRigidBody(MAORenderable3D& body,
 
 	body.setPhysic(true);
 
-	generateMAOCollisionShape(&body, ncollisionShapeType);
+	//generateMAOCollisionShape(&body, ncollisionShapeType);
 
 	// TODO
 	//po = new PhysicDynamicObject(&body, creationRef, offset, impulse);
@@ -170,8 +170,6 @@ bool PhysicsController::removeStaticRigidBody(MAORenderable3D* mao) {
 void PhysicsController::pollPhysics() {
 
 	if (isActive() && _maoGround->isPositioned()) {
-		//Calculating the shadows
-		calculateShadowsMatrix();
 
 		//Managing static MAO's (They are Kinemtic, so we have tu update its position!)
 		for (unsigned int i = 0; i < _vectorPhysicStaticObject.size(); i++) {
@@ -230,7 +228,7 @@ void PhysicsController::pollPhysics() {
 
 					_world->addRigidBody(pO->getRigidBody());
 */
-					pO->getMAO()->setRelativeMatrix(m);
+//					pO->getMAO()->setRelativeMatrix(m);
 				}
 			} else {
 				float m[16];
@@ -238,7 +236,7 @@ void PhysicsController::pollPhysics() {
 				pO->getRigidBody()->getMotionState()->getWorldTransform(t);
 				t.getOpenGLMatrix(m);
 
-				pO->getMAO()->setRelativeMatrix(m);
+	//			pO->getMAO()->setRelativeMatrix(m);
 
 			}
 		}
@@ -248,70 +246,15 @@ void PhysicsController::pollPhysics() {
 	}
 }
 
-float* PhysicsController::getShadowsMatrix() {
-	return _shadowsMatrix;
-}
 
-void PhysicsController::calculateShadowsMatrix() {
-	// TODO
-	Ogre::Matrix4& mGround = _maoGround->getPosMatrix();
-	//btVector3 vz(mGround.at<float> (2, 0), mGround.at<float> (2, 1),
-	//		mGround.at<float> (2, 2));
-	//btVector3 p(mGround.at<float> (3, 0), mGround.at<float> (3, 1), mGround.at<
-	//		float> (3, 2));
-
-	GLfloat Lx = _sun.x(), Ly = _sun.y(), Lz = _sun.z(); // Sun pos
-	//GLfloat Nx = -vz.x(), Ny = -vz.y(), Nz = -vz.z();
-	//GLfloat modN = sqrt(pow(Nx,2)+pow(Ny,2)+pow(Nz,2));
-	//GLfloat Cx = (GLfloat) p.x() + GROUND_HEIGHT*Nx/modN,
-	 // Cy = (GLfloat) p.y() - GROUND_HEIGHT*Ny/modN,
-	  //Cz = (GLfloat) p.z() - GROUND_HEIGHT*Nz/modN;
-
-
-
-	/*//Calculating the shadow
-	float a, b;
-
-	//a = Nx * Lx + Ny * Ly + Nz * Lz;
-	//b = Cx * Nx + Cy * Ny + Cz * Nz - a;
-
-	_shadowsMatrix[0] = Lx * Nx + b;
-	_shadowsMatrix[1] = Nx * Ly;
-	_shadowsMatrix[2] = Nx * Lz;
-	_shadowsMatrix[3] = Nx;
-
-	_shadowsMatrix[4] = Ny * Lx;
-	_shadowsMatrix[5] = Ly * Ny + b;
-	_shadowsMatrix[6] = Ny * Lz;
-	_shadowsMatrix[7] = Ny;
-
-	_shadowsMatrix[8] = Nz * Lx;
-	_shadowsMatrix[9] = Nz * Ly;
-	_shadowsMatrix[10] = Lz * Nz + b;
-	_shadowsMatrix[11] = Nz;
-
-	_shadowsMatrix[12] = -Lx * b - Lx * a;
-	_shadowsMatrix[13] = -Ly * b - Ly * a;
-	_shadowsMatrix[14] = -Lz * b - Lz * a;
-	_shadowsMatrix[15] = -a;
-*/}
 
 void PhysicsController::setMAOGround(MAOPositionator3D& ground,
-		std::string& axis, float gravity, bool shadows, btVector3* sun) {
+		std::string& axis, float gravity) {
 	if (!isActive()) {
 		throw "Physics Controller is not active!: " + ground.getName();
 	}
 
 	_maoGround = &ground;
-	_shadows = shadows;
-	if (_shadows) { //Setting the sun position
-		if (sun == 0) {
-			Logger::getInstance()->error("Invalid sun position!");
-			_shadows = false;
-		} else {
-			_sun = *sun;
-		}
-	}
 
 	int iaxis;
 	if (axis == "X") {
@@ -374,9 +317,6 @@ MAOPositionator3D& PhysicsController::getMAOGround() {
 	return *_maoGround;
 }
 
-bool PhysicsController::shadowsActive() {
-	return _shadows;
-}
 
 bool PhysicsController::collision(MAORenderable3D* m1, MAORenderable3D* m2) {
 	bool collision = false;
@@ -460,23 +400,23 @@ bool PhysicsController::collision(MAORenderable3D* m1, MAORenderable3D* m2) {
 	ob1.getWorldTransform().setFromOpenGLMatrix((btScalar*) d1);
 	ob2.getWorldTransform().setFromOpenGLMatrix((btScalar*) d2);
 
-	btCollisionAlgorithm* algo = _colWorld->getDispatcher()->findAlgorithm(
-			&ob1, &ob2);
+	//btCollisionAlgorithm* algo = _colWorld->getDispatcher()->findAlgorithm(
+		//	&ob1, &ob2);
 
-	btManifoldResult contactPointResult(&ob1, &ob2);
-	algo->processCollision(&ob1, &ob2, _colWorld->getDispatchInfo(),
-			&contactPointResult);
+ 	//btManifoldResult contactPointResult(&ob1, &ob2);
+	//algo->processCollision(&ob1, &ob2, _colWorld->getDispatchInfo(),
+			//&contactPointResult);
 
-	btManifoldArray manifoldArray;
-	algo->getAllContactManifolds(manifoldArray);
+	//btManifoldArray manifoldArray;
+	//algo->getAllContactManifolds(manifoldArray);
 
-	for (int i = 0; i < manifoldArray.size() && !collision; i++) {
-		btPersistentManifold* contactManifold = manifoldArray[i];
-		int numContacts = contactManifold->getNumContacts();
-		if (numContacts > 0) {
-			collision = true;
-		}
-	}
+	//for (int i = 0; i < manifoldArray.size() && !collision; i++) {
+		//btPersistentManifold* contactManifold = manifoldArray[i];
+		//int numContacts = contactManifold->getNumContacts();
+		//if (numContacts > 0) {
+		//	collision = true;
+		//}
+	//}
 
 	delete cs1;
 	delete cs2;
@@ -501,42 +441,6 @@ void PhysicsController::initPhysics() {
 
 }
 
-void PhysicsController::generateMAOCollisionShape(MAORenderable3D* mao,
-		std::string& ncollisionShapeType) {
-
-	//If is your first time, generate your collision shape! ;)
-	if ((mao->getCollisionShape()) == NULL) {
-		int collisionShapeType;
-		if (ncollisionShapeType == "BOX") {
-			collisionShapeType = MAO_BOX_SHAPE;
-		} else if (ncollisionShapeType == "SPHERE") {
-			collisionShapeType = MAO_SPHERE_SHAPE;
-		} else if (ncollisionShapeType == "CYLINDER") {
-			collisionShapeType = MAO_CYLINDER_SHAPE;
-		} else if (ncollisionShapeType == "TRIANGLE_MESH") {
-			collisionShapeType = MAO_CONVEXTRIANGLEMESH_SHAPE;
-		} else {
-			throw "Invalid Collision Shape type for MAO: " + mao->getName();
-		}
-
-		mao->generateCollisionShape(collisionShapeType);
-	}
-
-}
-
-void PhysicsController::drawDebugWorld(){
-  if(!isActive())
-    return;
-
-  //glPushMatrix();
-  //glLoadIdentity();
-  // TODO
- // float *m = (float*) _maoGround->getPosMatrix().data;
-
-  //glMultMatrixf(m);
-  //_world->debugDrawWorld();
-  //glPopMatrix();
-}
 
 PhysicsController::~PhysicsController() {
 	//Deleting in reverse order

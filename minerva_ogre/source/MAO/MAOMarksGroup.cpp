@@ -7,63 +7,52 @@
 
 #include <MAO/MAOMarksGroup.h>
 
-MAOMarksGroup::MAOMarksGroup(const std::string& name): MAOPositionator3D(name) {
-  _vectorMAOMark = std::vector<MAOMark*>();
-  _type = T_MAOMARKSGROUP;
+MAOMarksGroup::MAOMarksGroup(const std::string& name) :
+		MAOPositionator3D(name) {
+	_type = T_MAOMARKSGROUP;
+
+	Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->addChild(
+			_node);
 }
 
-void MAOMarksGroup::addMarktoGroup(MAOMark& mark){
+void MAOMarksGroup::addMarktoGroup(MAOMark& mark) {
 	/* Check if is already in the vector */
-  	for(unsigned int i=0;i<_vectorMAOMark.size();i++){
-		MAOMark* m = _vectorMAOMark.at(i);
-		if(m->getName()==mark.getName())
-			throw "Mark already in MarksGroup: "+mark.getName();
+	std::list<MAOMark*>::iterator ptrMark;
+	for (ptrMark = _listMAOMark.begin(); ptrMark != _listMAOMark.end();
+			++ptrMark) {
+		MAOMark* m = *ptrMark;
+		if (m->getName() == mark.getName())
+			throw "Mark already in MarksGroup: " + mark.getName();
 	}
 
-	_vectorMAOMark.push_back(&mark);
+	_listMAOMark.push_back(&mark);
 }
 
-Ogre::Matrix4& MAOMarksGroup::getPosMatrix(){
-// TODO
-	//int nDetected = 0;
-	//cv::Mat temp = cv::Mat(4,4,CV_32F,cv::Scalar(0));
+void MAOMarksGroup::updatePosition() {
+	bool positioned = false;
 
-	//for(unsigned int i=0;i<_vectorMAOMark.size();i++){
-		//if(_vectorMAOMark.at(i)->isPositioned()){
-		  //nDetected++;
-		  //temp = temp + _vectorMAOMark.at(i)->getPosMatrix();
-		  //setNodeMatrix(_vectorMAOMark.at(i)->getPosMatrix());
-		  //break;
-	//	}
-	//}
+	Ogre::Vector3 finalPos;
+	Ogre::Quaternion finalRot;
 
-	//if(nDetected>0){
-	//	temp = temp / nDetected;
-	//setPosMatrix(temp);
-	//}
+	int nMarks = 0;
 
-
-	/*for(unsigned int i=0;i<_vectorMAOMark.size();i++){
-		if(_vectorMAOMark.at(i)->isPositioned()){
-			nDetected++;
-			temp = temp + _vectorMAOMark.at(i)->getPosMatrix();
+	std::list<MAOMark*>::iterator ptrMark;
+	for (ptrMark = _listMAOMark.begin(); ptrMark != _listMAOMark.end();
+			++ptrMark) {
+		MAOMark* m = *ptrMark;
+		if(m->isPositioned()){
+			positioned = true;
+			nMarks++;
+			finalPos += m->getSceneNode().getPosition();
+			finalRot = m->getSceneNode().getOrientation();
 		}
 	}
+	setPositioned(positioned);
 
-	if(nDetected>0){
-		temp = temp / nDetected;
-		setPosMatrix(temp);
-	}*/
+	finalPos /= nMarks;
 
-	//return _posMatrix;
-}
-
-void MAOMarksGroup::checkIfPositioned(){
-  bool positioned = false;
-  for(unsigned int i=0;i<_vectorMAOMark.size() && !positioned;i++){
-    positioned|=_vectorMAOMark.at(i)->isPositioned();
-  }
-  setPositioned(positioned);
+	_node->setPosition(finalPos);
+	_node->setOrientation(finalRot);
 }
 
 MAOMarksGroup::~MAOMarksGroup() {

@@ -20,13 +20,6 @@ MAORenderable2D::MAORenderable2D(const std::string& name, const int& x,
 
 }
 
-void MAORenderable2D::draw() {
-
-}
-
-void MAORenderable2D::genGlTexture(SDL_Surface* surface) {
-}
-
 bool MAORenderable2D::isVisible() {
 	return getProperty("visible").getValue<bool> ();
 }

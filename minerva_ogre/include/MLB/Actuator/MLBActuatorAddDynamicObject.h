@@ -21,14 +21,6 @@ public:
 	virtual ~MLBActuatorAddDynamicObject();
 	void specificActuate();
 
-	/* Python functions! */
-	int mPyGetTimeToExpire();
-	void mPySetTimeToExpire(int timeToExpire);
-	VectorFloat mPyGetImpulse();
-	void mPySetImpulse(VectorFloat impulse);
-	VectorFloat mPyGetOffset();
-	void mPySetOffset(VectorFloat offset);
-
 private:
 	MAORenderable3D* _mao;
 	Ogre::Matrix4 _offset;

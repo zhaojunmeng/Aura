@@ -9,7 +9,6 @@
 #define MAORENDERABLE2DTEXT_H_
 
 #include <MAO/MAORenderable2D.h>
-#include <SDL_ttf.h>
 
 class MAORenderable2DText: public MAORenderable2D {
 public:
@@ -18,7 +17,6 @@ public:
 			const std::string& text, const int& x, const int& y,
 			const int& style);
 	virtual ~MAORenderable2DText();
-	void generateTexFromSDLSurface();
 
 	std::string& getText();
 	void setText(const std::string& text);
@@ -33,9 +31,6 @@ public:
 	int getG();
 	int getB();
 private:
-
-	void loadFont();
-	TTF_Font* _font;
 	boost::filesystem::path _fontPath;
 	int _style;
 };

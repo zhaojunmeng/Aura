@@ -1,4 +1,4 @@
-# Minerva's Makefile
+# ABBY's Makefile
 # Cesar Mora Castro
 # 2013 - University of Minnesota
 
@@ -11,16 +11,18 @@ CXXFLAGS = -Wall -c -O2
 
 # ARToolKit
 ARTKLIBS = -L../lib/ARToolKit/lib -lARgsub -lAR
+ARTKINCS = -I ../lib/ARToolKit/include
 
 # Bullet
-BULLETDIR = bullet-2.78/
+BULLETDIR = bullet-2.81/
 BULLETLIBS = -L../lib/$(BULLETDIR)/src/BulletDynamics -lBulletDynamics\
 			-L../lib/$(BULLETDIR)/src/BulletCollision -lBulletCollision\
 			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath 
+BULLETINCS = -I../lib/$(BULLETDIR)/src -I../lib/$(BULLETDIR)
 
-# Python
-PYTHONDIR = /usr/include/python2.7
-PYTHONLIB = -lpython2.7
+# OgreBullet Wrapper
+OGREBULLETDIR = ogrebullet/
+OGREBULLETINCS = -I../lib/$(OGREBULLETDIR)/Dynamics/include -I../lib/$(OGREBULLETDIR)/Collisions/include
 
 # Compilation mode
 ifeq ($(mode), release) # Release mode
@@ -31,10 +33,10 @@ endif
 
 # Libraries
 LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) -lOIS\
-		   $(PYTHONLIB) -lboost_python -lboost_filesystem -lboost_system `pkg-config --libs OGRE`\
+		  -lboost_filesystem -lboost_system `pkg-config --libs OGRE`
 		  
 # Includes
-INCFLAGS = -I$(INCDIR) -I ../lib/ARToolKit/include -I../lib/$(BULLETDIR)/src -I$(PYTHONDIR)\
+INCFLAGS = -I$(INCDIR)  $(ARTKINCS) $(BULLETINCS) $(OGREBULLETINCS)\
 			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost `pkg-config --cflags OGRE` `pkg-config --cflags OIS`
 
 # Objects
@@ -52,7 +54,7 @@ OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\
 	MLBActuatorQuitApp.o MLBActuatorProperty.o MLBSensorActuator.o\
 	 MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
 	PhysicDynamicObject.o MLBActuatorAddDynamicObject.o MSLParser.o MSLScanner.o MSLProperties.o\
-	MLBActuatorAnim.o MLBControllerScript.o MGEModule.o MPYWrapper.o WrapperTypes.o EndController.o\
+	MLBActuatorAnim.o EndController.o\
 	MSLPreprocessor.o  \
 
 
@@ -60,10 +62,10 @@ OBJS= $(addprefix $(OBJSDIR),$(OBJSCRUDE))
 
 
 # Rules
-all:  $(OUTPUTDIR)/minerva $(OUTPUTDIR)/player
+all:  $(OUTPUTDIR)/abby $(OUTPUTDIR)/player
 
-$(OUTPUTDIR)/minerva: $(SRCDIR)minerva.cpp $(OBJS)
-	$(CXX) $(OBJS) minerva.cpp -Wall $(LDFLAGS) $(INCFLAGS) -o $(OUTPUTDIR)/minerva
+$(OUTPUTDIR)/abby: $(SRCDIR)abby.cpp $(OBJS)
+	$(CXX) $(OBJS) abby.cpp -Wall $(LDFLAGS) $(INCFLAGS) -o $(OUTPUTDIR)/abby
 	
 $(OUTPUTDIR)/player: $(SRCDIR)player.cpp $(OBJS)
 	$(CXX) $(OBJS) player.cpp -Wall $(LDFLAGS) $(INCFLAGS) -o $(OUTPUTDIR)/player
@@ -107,10 +109,6 @@ $(OBJSDIR)%.o: $(SRCDIR)MLB/Controller/%.cpp $(INCDIR)MLB/Controller/%.h
 	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
 
 $(OBJSDIR)%.o: $(SRCDIR)MLB/Actuator/%.cpp $(INCDIR)MLB/Actuator/%.h
-	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
-
-#MPY
-$(OBJSDIR)%.o: $(SRCDIR)MPY/%.cpp $(INCDIR)MPY/%.h
 	$(CXX) -o $@ $< $(CXXFLAGS) $(INCFLAGS) $(LDFLAGS)
 
 #MSL's (Minerva Specification Languaje) rules

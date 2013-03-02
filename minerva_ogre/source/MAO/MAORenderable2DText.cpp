@@ -20,41 +20,8 @@ MAORenderable2DText::MAORenderable2DText(const std::string& name,
 
 	_fontPath = fontPath;
 	_style = style;
-
-	loadFont();
-
-	generateTexFromSDLSurface();
-
-
 }
 
-void MAORenderable2DText::generateTexFromSDLSurface() {
- 	//SDL_Color color;
-	//SDL_Surface* surface;
-
-	//color.r = getR();
-	//color.g = getG();
-	//color.b = getB();
-
-	//surface = TTF_RenderUTF8_Blended(_font,
-	//		getProperty("text").getValue<std::string>().c_str(),
-	//				  color);
-
-	//texto = TTF_RenderText_UTF8_Shaded(_font,_text.c_str(),color);
-	//texto = TTF_RenderText_UTF8_Blended(_font,_text.c_str(),color);
-
-	//if (surface == NULL) {
-		//Logger::getInstance()->error("Error generating SDL_Surface for a MAORenderable2DText");
-		//throw "Error generating SDL_Surface for a MAORenderable2DText"+getName();
-	//}
-
-	//setWidth(surface->w);
-	//setHeight(surface->h);
-
-	//genGlTexture(surface);
-
-	//SDL_FreeSurface(surface);
-}
 
 std::string& MAORenderable2DText::getText() {
 	return getProperty("text").getValue<std::string>();
@@ -62,7 +29,6 @@ std::string& MAORenderable2DText::getText() {
 
 void MAORenderable2DText::setText(const std::string& text) {
 	getProperty("text").setValue<std::string>(text);
-	generateTexFromSDLSurface();
 }
 
 int MAORenderable2DText::getStyle() {
@@ -81,7 +47,6 @@ void MAORenderable2DText::setColor(int r, int b, int g) {
 
 int MAORenderable2DText::getPtSize() {
 	return getProperty("ptSize").getValue<int>();
-
 }
 
 void MAORenderable2DText::setPtSize(int ptSize) {
@@ -97,19 +62,7 @@ int MAORenderable2DText::getB() {
 	return getProperty("b").getValue<int>();
 }
 
-void MAORenderable2DText::loadFont() {
-	//Resource& r = ResourcesManager::getInstance()->getResource(_fontPath);
-	//SDL_RWops *rw = SDL_RWFromMem((void*) r.getData(), r.getSize());
 
-	//_font = TTF_OpenFontRW(rw, 1, getPtSize());
-
-	if (_font == NULL) {
-		Logger::getInstance()->error("Error loading the font: "+_fontPath.generic_string());
-	//	Logger::getInstance()->error(TTF_GetError());
-		throw "Error loading the font "+_fontPath.generic_string();
-	}
-}
 
 MAORenderable2DText::~MAORenderable2DText() {
-	//TTF_CloseFont(_font);
 }

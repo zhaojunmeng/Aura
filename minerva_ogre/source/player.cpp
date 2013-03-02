@@ -15,7 +15,6 @@
 #include <Kernel/Logger.h>
 #include <Kernel/Parsers/MSLParser.h>
 #include <Kernel/Parsers/MSLPreprocessor.h>
-#include <MPY/MPYWrapper.h>
 #include <string>
 #include <unistd.h>
 #include <sstream>
@@ -82,14 +81,14 @@ int main(int argc, char* argv[]) {
 
 		/* Initializations */
 		setDirectory(workingDir);
+		setDirectory(sourceCodeDir);
 
-		MPYWrapper::getInstance()->initPython();
 		VideoFactory::getInstance()->addVideoSource("cam", 0);
 		World::getInstance()->initWorld(640, 480);
 		TrackingMethodFactory::getInstance(); /* Init tracking */
 
 		// Redirect cin
-		setDirectory(sourceCodeDir);
+
 
 		/* Preprocessing! */
 		MSLPreprocessor preprocessor;

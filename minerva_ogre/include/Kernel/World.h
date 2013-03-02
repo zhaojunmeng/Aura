@@ -13,8 +13,6 @@
 
 #include <cv.h>
 
-//#include <python.h>
-
 #include <Ogre.h>
 #include <OIS.h>
 #include <MAO/MAORenderable3D.h>

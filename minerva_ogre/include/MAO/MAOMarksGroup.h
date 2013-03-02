@@ -16,11 +16,10 @@ public:
 	MAOMarksGroup(const std::string& name);
 	virtual ~MAOMarksGroup();
 	void addMarktoGroup(MAOMark& mark);
-	Ogre::Matrix4& getPosMatrix();
-	void checkIfPositioned();
+	void updatePosition();
 
 private:
-	std::vector<MAOMark*> _vectorMAOMark;
+	std::list<MAOMark*> _listMAOMark;
 };
 
 #endif /* MAOMARKSGROUP_H_ */

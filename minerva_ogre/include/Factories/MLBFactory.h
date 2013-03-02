@@ -31,7 +31,6 @@
 #include <MLB/Controller/MLBControllerNAND.h>
 #include <MLB/Controller/MLBControllerOR.h>
 #include <MLB/Controller/MLBControllerNOR.h>
-#include <MLB/Controller/MLBControllerScript.h>
 
 #include <MLB/Actuator/MLBActuator.h>
 #include <MLB/Actuator/MLBActuatorVisibility.h>
@@ -88,8 +87,6 @@ public:
 			std::string nparent);
 	MLBControllerNOR& addMLBControllerNOR(std::string name,
 			std::string nparent);
-	MLBControllerScript& addMLBControllerScript(std::string name,
-			std::string nparent, const boost::filesystem::path& path);
 
 	/* -Actuators */
 	MLBActuatorVisibility& addMLBActuatorVisibility(std::string name,
@@ -136,7 +133,6 @@ public:
 
 	std::vector<MLBSensor*>& getVectorMLBSensor();
 	std::vector<MLBController*>& getVectorMLBController();
-	std::vector<MLBControllerScript*>& getVectorMLBControllerScript();
 	std::vector<MLBActuator*>& getVectorMLBActuator();
 
 protected:
@@ -145,7 +141,6 @@ protected:
 	std::vector<MLB*> _vectorMLB;
 	std::vector<MLBSensor*> _vectorMLBSensor;
 	std::vector<MLBController*> _vectorMLBController;
-	std::vector<MLBControllerScript*> _vectorMLBControllerScript;
 	std::vector<MLBActuator*> _vectorMLBActuator;
 };
 

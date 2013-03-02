@@ -17,7 +17,6 @@
 #include <MLB/Sensor/MLBSensor.h>
 #include <MLB/Controller/MLBController.h>
 #include <MLB/Actuator/MLBActuator.h>
-#include <MPY/MPYWrapper.h>
 
 class GameLogicController: public Singleton<GameLogicController>{
 public:

@@ -21,7 +21,6 @@ MAOMark::MAOMark(const std::string& name, const boost::filesystem::path& path,
 
 	Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->addChild(
 			_node);
-
 }
 
 void MAOMark::setTrackingMatrix(Ogre::Matrix4& m) {
@@ -33,11 +32,6 @@ void MAOMark::setTrackingMatrix(Ogre::Matrix4& m) {
 	}
 
 	setNodeMatrix(posAux);
-
-}
-
-Ogre::Matrix4& MAOMark::getOffsetMatrix() {
-	return _offsetMatrix;
 }
 
 void MAOMark::setOffsetMatrix(const Ogre::Matrix4* offsetMatrix) {
@@ -48,12 +42,6 @@ void MAOMark::setOffsetMatrix(const Ogre::Matrix4* offsetMatrix) {
 
 const boost::filesystem::path& MAOMark::getPath() {
 	return _bPath;
-}
-
-Ogre::Matrix4& MAOMark::getPosMatrix() {
-	// TODO
-	Ogre::Matrix4 m;
-	return m;
 }
 
 float MAOMark::getSize() {

@@ -20,7 +20,6 @@ void GameLogicController::pollLogic() {
 
 	//Evaluate the controllers
 	std::vector<MLBController*>& activeControllers = pollControllers();
-	MPYWrapper::getInstance()->runScripts(); //Running scripts!
 
 	cleanupSensors(); //Clean up sensors first! To make MLBSensorActuators work! ;)
 	cleanupControllers();

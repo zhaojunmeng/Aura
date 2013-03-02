@@ -64,59 +64,6 @@ void MLBActuatorAddDynamicObject::specificActuate() {
 
 }
 
-int MLBActuatorAddDynamicObject::mPyGetTimeToExpire() {
-	return _timeToExpire;
-}
-void MLBActuatorAddDynamicObject::mPySetTimeToExpire(int timeToExpire) {
-	_timeToExpire = timeToExpire;
-}
-
-VectorFloat MLBActuatorAddDynamicObject::mPyGetImpulse() {
-	VectorFloat v;
-	 v.push_back(_impulse.x());
-	 v.push_back(_impulse.y());
-	 v.push_back(_impulse.z());
-
-	 return v;
-}
-
-void MLBActuatorAddDynamicObject::mPySetImpulse(VectorFloat impulse) {
-	if (impulse.size() != 3) {
-		Logger::getInstance()->error(
-				"Impulse vector size should be 3 for MLB Actuator Add Dynamic Object: "
-						+ getName());
-		throw "Impulse vector size should be 3 for MLB Actuator Add Dynamic Object: "
-				+ getName();
-	} else {
-		_impulse.setX(impulse.at(0));
-		_impulse.setY(impulse.at(1));
-		_impulse.setZ(impulse.at(2));
-	}
-}
-
-VectorFloat MLBActuatorAddDynamicObject::mPyGetOffset(){
-  VectorFloat v;
-  for(unsigned int i = 0; i<4; i++){
-    for(unsigned int j = 0; j<4; j++){
-    // TODO
-    	//  v.push_back(_offset.at<float>(i,j));
-    }
-  }
-  return v;
-}
-
-void MLBActuatorAddDynamicObject::mPySetOffset(VectorFloat offset){
-  if(offset.size()!=16){
-    Logger::getInstance()->error("Offset vector size of MLBActuatorAddDynamicObject should be 16: "+getName());
-    throw "Offset vector size of MLBActuatorAddDynamicObject should be 16: "+getName();
-  }
-
-  	  _offset = Ogre::Matrix4(offset.at(0),offset.at(4),offset.at(8),offset.at(12),
-  			offset.at(1),offset.at(5),offset.at(9),offset.at(13),
-  			offset.at(2),offset.at(6),offset.at(10),offset.at(14),
-  			offset.at(3),offset.at(7),offset.at(11),offset.at(15));
-  }
-
 
 MLBActuatorAddDynamicObject::~MLBActuatorAddDynamicObject() {
 }

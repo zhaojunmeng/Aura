@@ -11,10 +11,8 @@
 #include <MAO/MAO.h>
 #include <Kernel/Logger.h>
 
-#include <python.hpp>
 #include <filesystem.hpp>
 #include <Ogre.h>
-#include <MPY/WrapperTypes.h>
 
 /* Types of MLB's */
 #define T_MLBACTUATOR 0
@@ -37,7 +35,7 @@
 #define T_MLBCONTROLLERNAND 16
 #define T_MLBCONTROLLEROR 17
 #define T_MLBCONTROLLERNOR 18
-#define T_MLBCONTROLLERSCRIPT 19
+//#define T_MLBCONTROLLERSCRIPT 19
 
 #define T_MLBSENSOR 20
 #define T_MLBSENSORACTUATOR 21
@@ -49,8 +47,6 @@
 #define T_MLBSENSORPROPERTY 27
 #define T_MLBSENSORRANDOM 28
 
-using namespace boost::python;
-
 #include <string>
 class MLB {
 public:
@@ -60,9 +56,6 @@ public:
 	MAO& getParent();
 	std::string getName();
 	int getMLBType();
-
-	/* Python functions! */
-	object mPyGetParent();
 
 protected:
 	std::string _name;

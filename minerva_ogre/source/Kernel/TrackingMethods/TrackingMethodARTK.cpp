@@ -44,7 +44,7 @@ void TrackingMethodARTK::pollMethod() {
 
 	/* Check if they are positioned */
 	for (unsigned int i = 0; i < _vectorMAOMarksGroup.size(); i++) {
-		_vectorMAOMarksGroup.at(i)->checkIfPositioned();
+		_vectorMAOMarksGroup.at(i)->updatePosition();
 	}
 
 }
@@ -136,42 +136,17 @@ void TrackingMethodARTK::checkMarkVisibility(MAOMark* mark) {
 		k = -1;
 
 	if (k != -1) {
-		double glAuxd[16];
-		double arRelativeTrans[3][4];
+
+		double arRot[3][4];
 		mark->setPositioned(true);
 		arGetTransMat(&_markerInfo[k], mark->getCenter(), mark->getSize(),
-				arRelativeTrans);
+				arRot);
 
+		Ogre::Matrix4 m(-arRot[0][0], -arRot[0][1], -arRot[0][2], -arRot[0][3],
+						 arRot[1][0],  arRot[1][1],  arRot[1][2],  arRot[1][3],
+						-arRot[2][0], -arRot[2][1], -arRot[2][2], -arRot[2][3],
+						0.       , 0.       , 0.        , 1.);
 
-		//argConvGlpara(arRelativeTrans, glAuxd);
-		{
-		int     i, j;
-
-		    for( j = 0; j < 3; j++ ) {
-		        for( i = 0; i < 4; i++ ) {
-		        	glAuxd[i*4+j] = arRelativeTrans[j][i];
-		        }
-		    }
-		    glAuxd[0*4+3] = glAuxd[1*4+3] = glAuxd[2*4+3] = 0.0;
-		    glAuxd[3*4+3] = 1.0;
-		}
-
-
-		//Rotate 180º through y-axis ;)
-		// TODO Optimize this part, the former loop :)
-		glAuxd[0] *= -1;
-		glAuxd[2] *= -1;
-		glAuxd[4] *= -1;
-		glAuxd[6] *= -1;
-		glAuxd[8] *= -1;
-		glAuxd[10] *= -1;
-		glAuxd[12] *= -1;
-		glAuxd[14] *= -1;
-
-		Ogre::Matrix4 m(glAuxd[0], glAuxd[4], glAuxd[8], glAuxd[12],
-				glAuxd[1], glAuxd[5], glAuxd[9], glAuxd[13],
-				glAuxd[2], glAuxd[6], glAuxd[10], glAuxd[14],
-				glAuxd[3], glAuxd[7], glAuxd[11], glAuxd[15]);
 
 		mark->setTrackingMatrix(m);
 

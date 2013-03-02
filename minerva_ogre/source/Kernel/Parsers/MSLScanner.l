@@ -37,7 +37,6 @@ SIGN {-|+}
 "NAND" 			{return MSLParser::MLBCONTROLLERNAND;}
 "NOR" 				{return MSLParser::MLBCONTROLLERNOR;}
 "OR" 				{return MSLParser::MLBCONTROLLEROR;}
-"Script"			{return MSLParser::MLBCONTROLLERSCRIPT;}
 
 "SensorActuator" 			{return MSLParser::MLBSENSORACTUATOR;}
 "SensorAlways" 				{return MSLParser::MLBSENSORALWAYS;}
@@ -87,8 +86,6 @@ SIGN {-|+}
 "axis"							{return MSLParser::PARAM_AXIS;}
 "mass"							{return MSLParser::PARAM_MASS;}
 "shape"							{return MSLParser::PARAM_SHAPE;}
-"shadows"						{return MSLParser::PARAM_SHADOWS;}
-"sun"							{return MSLParser::PARAM_SUN;}
 
 "int"							{return MSLParser::T_INTEGER;}
 "float"							{return MSLParser::T_FLOAT;}

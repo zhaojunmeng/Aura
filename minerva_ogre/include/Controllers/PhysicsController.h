@@ -18,7 +18,7 @@
 #include <windows.h>
 #endif
 
-#include <btBulletDynamicsCommon.h>
+#include <OgreBulletDynamicsRigidBody.h>
 #include <Kernel/Singleton.h>
 #include <Kernel/Logger.h>
 #include <Kernel/PhysicObject.h>
@@ -45,12 +45,11 @@ public:
 			std::string ncollisionShapeType=std::string("BOX"));
 
 	void setMAOGround(MAOPositionator3D& ground, std::string& axis,
-			float gravity = -9.8f, bool shadows = true, btVector3* sun = 0);
+			float gravity = -9.8f);
+
 	MAOPositionator3D& getMAOGround();
 
 	bool isActive();
-	bool shadowsActive();
-	float* getShadowsMatrix();
 
 	void pollPhysics();
 
@@ -60,20 +59,15 @@ public:
 
 	btDiscreteDynamicsWorld* _world;
 
-	//Debug World
-	void drawDebugWorld();
 
 private:
 	bool _active;
-	bool _shadows;
-	float _shadowsMatrix[16];
 
 	std::vector<PhysicDynamicObject*> _vectorPhysicDynamicObject;
 	std::vector<PhysicObject*> _vectorPhysicStaticObject;
 
 	MAOPositionator3D* _maoGround;
 	btRigidBody* _ground;
-	btVector3 _sun;
 
 	btDispatcher* _dispatcher;
 	btBroadphaseInterface* _broadphase;
@@ -85,8 +79,6 @@ private:
 	btBroadphaseInterface* _colBroadphase;
 	btCollisionConfiguration* _colCollisionConf;
 
-	void generateMAOCollisionShape(MAORenderable3D* mao, std::string& ncollisionShapeType);
-	void calculateShadowsMatrix();
 
 };
 

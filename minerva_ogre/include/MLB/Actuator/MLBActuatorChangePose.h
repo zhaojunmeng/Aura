@@ -10,7 +10,7 @@
 
 #define CHANGEPOSE_LOCAL 0
 #define CHANGEPOSE_GLOBAL 1
-#define DEGREES 3.14159264/180
+
 #include <MLB/Actuator/MLBActuator.h>
 #include <MAO/MAOPositionator3D.h>
 #include <MAO/MAOMark.h>
@@ -23,22 +23,11 @@ public:
 			float rotX, float rotY, float rotZ);
 	virtual ~MLBActuatorChangePose();
 
-	/* Python functions! */
-	int mPyGetLocType();
-	void mPySetLocType(int locType);
-	int mPyGetRotType();
-	void mPySetRotType(int rotType);
-
-	VectorFloat mPyGetLoc();
-	void mPySetLoc(VectorFloat loc);
-	VectorFloat mPyGetRot();
-	void mPySetRot(VectorFloat rot);
-
 
 private:
 	int _locType, _rotType;
-	float _locX, _locY, _locZ;
-	float _rotX, _rotY, _rotZ;
+	Ogre::Vector3 _loc;
+	Ogre::Quaternion _rot;
 
 	void specificActuate();
 };

@@ -99,8 +99,6 @@
 %token < int_type > PARAM_AXIS
 %token < int_type > PARAM_MASS
 %token < int_type > PARAM_SHAPE
-%token < int_type > PARAM_SHADOWS
-%token < int_type > PARAM_SUN
 
 %token  APPLICATION
 %token  MAOWORLD
@@ -127,7 +125,6 @@
 %token  MLBCONTROLLERNAND
 %token  MLBCONTROLLERNOR
 %token  MLBCONTROLLEROR
-%token  MLBCONTROLLERSCRIPT
 
 %token  MLBSENSORACTUATOR
 %token  MLBSENSORALWAYS
@@ -226,7 +223,6 @@
 %type < int_type > list_mlbcontrolleror
 %type < int_type > def_mlbcontrollernor
 %type < int_type > list_mlbcontrollernor
-%type < int_type > def_mlbcontrollerscript
 
 %type < int_type > mlbsensor
 %type < int_type > def_mlbsensoractuator
@@ -338,14 +334,12 @@ param_maorenderable3dmodel: PARAM_SIZE '=' float           param_maorenderable3d
 ;
 
 //Bullet stuff!
-ground: GROUND '{' param_ground '}' { PhysicsController::getInstance()->initPhysics(); PhysicsController::getInstance()->setMAOGround(*((MAOPositionator3D*)currentMAO),*$3->string1,$3->float1, $3->bool1, $3->btvector1); }
+ground: GROUND '{' param_ground '}' { PhysicsController::getInstance()->initPhysics(); PhysicsController::getInstance()->setMAOGround(*((MAOPositionator3D*)currentMAO),*$3->string1,$3->float1); }
 	| /* empty */ {}
 ;
 
 param_ground: | PARAM_AXIS '=' string param_ground   {$$ = new MSLProperties(*$4); $$->string1 = $3;}
               | PARAM_GRAVITY '=' float param_ground {$$ = new MSLProperties(*$4); $$->float1 = $3;}
-              | PARAM_SHADOWS '=' bool param_ground  {$$ = new MSLProperties(*$4); $$->bool1 = $3;}
-              | PARAM_SUN '=' vector3df param_ground  {$$ = new MSLProperties(*$4); $$->btvector1 = $3;}
               | /* empty */ {$$ = new MSLProperties();}
 ;
 
@@ -393,7 +387,6 @@ mlbcontroller: def_mlbcontrollerand {}
 	| def_mlbcontrollernand {}
 	| def_mlbcontrolleror {}
 	| def_mlbcontrollernor {}
-	| def_mlbcontrollerscript {}
 ;
 
 mlbsensor: def_mlbsensoractuator {}
@@ -512,9 +505,6 @@ def_mlbcontrollernor: MLBCONTROLLERNOR list_mlbcontrollernor {}
 list_mlbcontrollernor: list_mlbcontrollernor ',' identifier {MLBFactory::getInstance()->addMLBControllerNOR(*$3, currentMAO->getName());}
 	| identifier {MLBFactory::getInstance()->addMLBControllerNOR(*$1, currentMAO->getName());}
 	| /*empty*/ {}
-;
-
-def_mlbcontrollerscript: MLBCONTROLLERSCRIPT identifier '{' PARAM_PATH '=' string '}' {MLBFactory::getInstance()->addMLBControllerScript(*$2,currentMAO->getName(),*$6); }
 ;
 
 

@@ -28,11 +28,8 @@ public:
 	float getSize();
 	double* getCenter();
 
-	Ogre::Matrix4& getPosMatrix();
-
 	void setTrackingMatrix(Ogre::Matrix4& m);
 
-	Ogre::Matrix4& getOffsetMatrix();
 	void setOffsetMatrix(const Ogre::Matrix4* offsetMatrix);
 
 	void setId(int id);

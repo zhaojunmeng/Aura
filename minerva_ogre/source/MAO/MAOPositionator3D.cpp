@@ -31,16 +31,6 @@ void MAOPositionator3D::setNodeMatrix(Ogre::Matrix4& posMatrix) {
 	_node->setOrientation(posMatrix.extractQuaternion());
 }
 
-void MAOPositionator3D::setNodeMatrix(const double* posMatrix) {
-	Ogre::Matrix4 mat(posMatrix[0], posMatrix[1], posMatrix[2], posMatrix[3],
-			posMatrix[4], posMatrix[5], posMatrix[6], posMatrix[7],
-			posMatrix[8], posMatrix[9], posMatrix[10], posMatrix[11],
-			posMatrix[12], posMatrix[13], posMatrix[14], posMatrix[15]);
-
-	_node->setPosition(mat.getTrans());
-	_node->setOrientation(mat.extractQuaternion());
-}
-
 bool MAOPositionator3D::isPositioned() {
 	return _positioned;
 }

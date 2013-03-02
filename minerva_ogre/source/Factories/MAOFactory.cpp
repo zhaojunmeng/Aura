@@ -10,12 +10,6 @@
 using namespace std;
 
 MAOFactory::MAOFactory() {
-	_vectorMAO = std::vector<MAO*>();
-	_vectorMAOPositionator3D = std::vector<MAOPositionator3D*>();
-	_vectorMAOMark = std::vector<MAOMark*>();
-	_vectorMAOMarksGroup = std::vector<MAOMarksGroup*>();
-	_vectorMAORenderable3D = std::vector<MAORenderable3D*>();
-
 }
 
 /* ADDS */
