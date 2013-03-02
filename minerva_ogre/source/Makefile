@@ -14,15 +14,14 @@ ARTKLIBS = -L../lib/ARToolKit/lib -lARgsub -lAR
 ARTKINCS = -I ../lib/ARToolKit/include
 
 # Bullet
-BULLETDIR = bullet-2.81/
+BULLETINCS = -I /usr/local/include/bullet
 BULLETLIBS = -L../lib/$(BULLETDIR)/src/BulletDynamics -lBulletDynamics\
 			-L../lib/$(BULLETDIR)/src/BulletCollision -lBulletCollision\
 			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath 
-BULLETINCS = -I../lib/$(BULLETDIR)/src -I../lib/$(BULLETDIR)
 
 # OgreBullet Wrapper
 OGREBULLETDIR = ogrebullet/
-OGREBULLETINCS = -I../lib/$(OGREBULLETDIR)/Dynamics/include -I../lib/$(OGREBULLETDIR)/Collisions/include
+OGREBULLETINCS = -I/usr/local/include/OgreBullet/Dynamics -I/usr/local/include/OgreBullet/Collisions
 
 # Compilation mode
 ifeq ($(mode), release) # Release mode
@@ -36,7 +35,7 @@ LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) -lOIS
 		  -lboost_filesystem -lboost_system `pkg-config --libs OGRE`
 		  
 # Includes
-INCFLAGS = -I$(INCDIR)  $(ARTKINCS) $(BULLETINCS) $(OGREBULLETINCS)\
+INCFLAGS = -I$(INCDIR)  $(ARTKINCS) $(BULLETINCS) $(OGREBULLETINCS) \
 			-I /usr/include/SDL -I /usr/include/opencv -I /usr/include/boost `pkg-config --cflags OGRE` `pkg-config --cflags OIS`
 
 # Objects
