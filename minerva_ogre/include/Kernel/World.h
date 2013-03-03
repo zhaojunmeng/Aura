@@ -10,9 +10,7 @@
 
 #include <SDL.h>
 #include <SDL_mixer.h>
-
 #include <cv.h>
-
 #include <Ogre.h>
 #include <OIS.h>
 #include <MAO/MAORenderable3D.h>
@@ -45,6 +43,7 @@ public:
 	void initWorld(int width, int height);
 	void drawWorld();
 
+	Ogre::SceneManager* getSceneManager(){ return _sceneManager; }
 	int getWidth() { return _width; }
 	int getHeight(){ return _height; }
 	Ogre::RenderWindow* getRenderWindow(){ return _window; }

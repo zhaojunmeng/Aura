@@ -14,17 +14,18 @@
 #include <MAO/MAORenderable3D.h>
 #include <MAO/MAORenderable3DModel.h>
 
-
 class MLBActuatorAddDynamicObject: public MLBActuator {
 public:
-	MLBActuatorAddDynamicObject(const std::string& name, MAOPositionator3D& parent, MAORenderable3D& mao, int timeToExpire = -1, Ogre::Matrix4* offset = 0, btVector3* impulse = 0);
+	MLBActuatorAddDynamicObject(const std::string& name,
+			MAOPositionator3D& parent, MAORenderable3D& mao, int timeToExpire =
+					-1, Ogre::Matrix4* offset = 0, Ogre::Vector3* impulse = 0);
 	virtual ~MLBActuatorAddDynamicObject();
 	void specificActuate();
 
 private:
 	MAORenderable3D* _mao;
 	Ogre::Matrix4 _offset;
-	btVector3 _impulse;
+	Ogre::Vector3 _impulse;
 	int _timeToExpire;
 };
 

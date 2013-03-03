@@ -11,7 +11,7 @@
 
 #include <string>
 #include <iostream>
-#include <btBulletDynamicsCommon.h>
+#include <Ogre.h>
 #include <MAO/MAOProperty.h>
 
 class MSLProperties {
@@ -37,8 +37,8 @@ public:
 	int int3;
 	int int4;
 	bool bool1;
-	btVector3* btvector1;
-	btVector3* btvector2;
+	Ogre::Vector3* vector1;
+	Ogre::Vector3* vector2;
 	Ogre::Matrix4* pose1;
 	Ogre::Matrix4* pose2;
 	MAOValue* maovalue1;

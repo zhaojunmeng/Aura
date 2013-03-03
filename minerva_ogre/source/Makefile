@@ -17,11 +17,11 @@ ARTKINCS = -I ../lib/ARToolKit/include
 BULLETINCS = -I /usr/local/include/bullet
 BULLETLIBS = -L../lib/$(BULLETDIR)/src/BulletDynamics -lBulletDynamics\
 			-L../lib/$(BULLETDIR)/src/BulletCollision -lBulletCollision\
-			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath 
+			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath -lConvexDecomposition 
 
 # OgreBullet Wrapper
-OGREBULLETDIR = ogrebullet/
 OGREBULLETINCS = -I/usr/local/include/OgreBullet/Dynamics -I/usr/local/include/OgreBullet/Collisions
+OGREBULLETLIBS = -lOgreBulletCol -lOgreBulletDyn
 
 # Compilation mode
 ifeq ($(mode), release) # Release mode
@@ -31,7 +31,7 @@ else # Debug mode
 endif
 
 # Libraries
-LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) -lOIS\
+LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) $(OGREBULLETLIBS) -lOIS\
 		  -lboost_filesystem -lboost_system `pkg-config --libs OGRE`
 		  
 # Includes
@@ -44,15 +44,15 @@ OBJSCRUDE = InputEventController.o GameLogicController.o MAOFactory.o\
 	TrackingMethodARTK.o TrackingMethodFactory.o MAOPositionator3D.o\
 	MAOMark.o MAOMarksGroup.o MAORenderable3D.o MAO.o \
 	World.o MLB.o MLBSensor.o MLBController.o MLBActuator.o  MLBActuatorRelativePose.o\
-	MLBControllerAND.o MLBActuatorVisibility.o MLBControllerNAND.o PhysicObject.o\
+	MLBControllerAND.o MLBActuatorVisibility.o MLBControllerNAND.o \
 	MLBControllerOR.o MLBControllerNOR.o MLBSensorAlways.o MLBSensorKeyboard.o\
 	MLBSensorNear.o MAORenderable2D.o MAORenderable2DText.o MAORenderable2DImage.o\
 	MLBSensorProperty.o MLBActuatorChangePose.o MLBActuatorDistance.o MLBActuatorAng.o\
 	MLBSensorRandom.o MLBActuatorRandom.o MLBSensorDelay.o\
 	MAORenderable3DModel.o	MLBActuatorSound.o \
 	MLBActuatorQuitApp.o MLBActuatorProperty.o MLBSensorActuator.o\
-	 MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
-	PhysicDynamicObject.o MLBActuatorAddDynamicObject.o MSLParser.o MSLScanner.o MSLProperties.o\
+	MAOProperty.o MAOValue.o PhysicsController.o MLBSensorCollision.o\
+	MLBActuatorAddDynamicObject.o MSLParser.o MSLScanner.o MSLProperties.o\
 	MLBActuatorAnim.o EndController.o\
 	MSLPreprocessor.o  \
 

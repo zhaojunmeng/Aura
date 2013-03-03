@@ -43,17 +43,13 @@ void GameLogicController::checkInstMAO() {
 		(*it)->decrementTimeToExpire();
 		if((*it)->getTimeToExpire() == 1){ //If time is zero it means that lives forever! ;)
 			if((*it)->isPhysic()){
-				PhysicsController::getInstance()->removeDynamicRigidBody(*(it));
+				PhysicsController::getInstance()->removeRigidBody(*(it));
 			}
 
 			v.erase(it);
 			it--;
-
 		}
 	}
-
-
-
 }
 
 void GameLogicController::pollSensors() {

@@ -100,8 +100,8 @@ public:
 			std::string nparent, MAOProperty& property,
 			MAOProperty& valueProp, std::string type);
 	MLBActuatorChangePose& addMLBActuatorChangePose(std::string name,
-			std::string nparent, std::string locType, btVector3* loc,
-			std::string rotType, btVector3* rot);
+			std::string nparent, std::string locType, Ogre::Vector3* loc,
+			std::string rotType, Ogre::Vector3* rot);
 	MLBActuatorDistance& addMLBActuatorDistance(std::string name,
 			std::string nparent, std::string nmao, MAOProperty& property);
 	MLBActuatorAng& addMLBActuatorAng(std::string name,
@@ -115,7 +115,7 @@ public:
 			MAOProperty& property, bool inverse = false);
 	MLBActuatorAddDynamicObject& addMLBActuatorAddDynamicObject(
 			std::string name, std::string nparent, std::string nmao,
-			int timeToExpire = 0, Ogre::Matrix4* offset = 0, btVector3* impulse = 0);
+			int timeToExpire = 0, Ogre::Matrix4* offset = 0, Ogre::Vector3* impulse = 0);
 	MLBActuatorAnim& addMLBActuatorAnim(std::string name,
 			std::string nparent, std::string nanimChoice,
 			std::string* nanimType);

@@ -20,14 +20,6 @@ public:
 	MAORenderable3DModel(const std::string& name, const boost::filesystem::path& file, float scale = 1.0f);
 	virtual ~MAORenderable3DModel();
 
-	void generateCollisionShape(int type);
-
-	btCollisionShape* getCollisionShape();
-	void generateBoxShape();
-	void generateConvexTriangleMeshShape();
-	void generateCylinderShape();
-	void generateSphereShape();
-
 	void playAnim(int animType = SIMPLE);
 	void stopAnim();
 	void pauseAnim();

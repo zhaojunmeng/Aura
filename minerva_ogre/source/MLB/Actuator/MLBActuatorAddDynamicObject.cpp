@@ -10,7 +10,7 @@
 MLBActuatorAddDynamicObject::MLBActuatorAddDynamicObject(
 		const std::string& name, MAOPositionator3D& parent,
 		MAORenderable3D& mao, int timeToExpire, Ogre::Matrix4* offset,
-		btVector3* impulse) :
+		Ogre::Vector3* impulse) :
 	MLBActuator(name, parent) {
 	if (mao.getMass() == 0) {
 		throw "MLB Actuator Add Dynamic Object only applicable to Dynamic MAO's (Non-Zero mass): "
@@ -27,7 +27,7 @@ MLBActuatorAddDynamicObject::MLBActuatorAddDynamicObject(
 	}
 
 	if (impulse == 0) {
-		_impulse = btVector3(0, 0, 0);
+		_impulse = Ogre::Vector3(0, 0, 0);
 	} else {
 		_impulse = *impulse;
 	}

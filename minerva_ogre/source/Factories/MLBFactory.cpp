@@ -355,7 +355,7 @@ MLBActuatorProperty& MLBFactory::addMLBActuatorProperty(
 
 MLBActuatorChangePose& MLBFactory::addMLBActuatorChangePose(
 		std::string name, std::string nparent, std::string locType,
-		btVector3* loc, std::string rotType, btVector3* rot) {
+		Ogre::Vector3* loc, std::string rotType, Ogre::Vector3* rot) {
 	if (!checkMLBName(nparent, name))
 		throw "MLB name already exists " + name;
 
@@ -386,9 +386,9 @@ MLBActuatorChangePose& MLBFactory::addMLBActuatorChangePose(
 		locY = 0;
 		locZ = 0;
 	} else {
-		locX = loc->x();
-		locY = loc->y();
-		locZ = loc->z();
+		locX = loc->x;
+		locY = loc->y;
+		locZ = loc->z;
 	}
 
 	if (rot == 0) {
@@ -396,9 +396,9 @@ MLBActuatorChangePose& MLBFactory::addMLBActuatorChangePose(
 		rotY = 0;
 		rotZ = 0;
 	} else {
-		rotX = rot->x();
-		rotY = rot->y();
-		rotZ = rot->z();
+		rotX = rot->x;
+		rotY = rot->y;
+		rotZ = rot->z;
 	}
 
 	MAORenderable3D& parent = MAOFactory::getInstance()->getMAORenderable3D(
@@ -508,7 +508,7 @@ MLBActuatorRelativePose& MLBFactory::addMLBActuatorRelativePose(
 
 MLBActuatorAddDynamicObject& MLBFactory::addMLBActuatorAddDynamicObject(
 		std::string name, std::string nparent, std::string nmao,
-		int timeToExpire, Ogre::Matrix4* offset, btVector3* impulse) {
+		int timeToExpire, Ogre::Matrix4* offset, Ogre::Vector3* impulse) {
 
 	if (!checkMLBName(nparent, name))
 		throw "MLB name already exists " + name;

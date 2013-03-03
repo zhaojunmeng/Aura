@@ -156,8 +156,7 @@ void World::_createBackground() {
 					100000.0 * Ogre::Vector3::UNIT_SCALE));
 
 	// Attach background to the scene
-	Ogre::SceneNode* node =
-			_sceneManager->getRootSceneNode()->createChildSceneNode(
+	Ogre::SceneNode* node =	_sceneManager->getRootSceneNode()->createChildSceneNode(
 					"BackgroundNode");
 	node->attachObject(rect);
 }

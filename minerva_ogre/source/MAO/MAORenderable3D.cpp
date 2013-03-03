@@ -8,7 +8,7 @@
 #include <MAO/MAORenderable3D.h>
 
 MAORenderable3D::MAORenderable3D(const std::string& name, const float& size) :
-		MAOPositionator3D(name) {
+		MAOPositionator3D(name),_globalReference(NULL), _active(true), _physic(false) {
 
 	addPropertyFloat("size", size);
 	addPropertyBoolean("visible", false); //At first, is a MAO Class
@@ -19,24 +19,14 @@ MAORenderable3D::MAORenderable3D(const std::string& name, const float& size) :
 	setSize(size);
 
 	_type = T_MAORENDERABLE3D;
-	_globalReference = NULL;
-	_collisionShape = NULL;
-	_collisionShapeType = -1;
-
-	_physic = false;
-	_active = true;
-	_timeToExpire = 0;
 }
 
 MAORenderable3D::MAORenderable3D(const MAORenderable3D& o) :
 		MAOPositionator3D(o) {
 	_globalReference = o._globalReference;
 	_type = o._type;
-	_collisionShape = o._collisionShape;
-	_collisionShapeType = o._collisionShapeType;
 	_physic = o._physic;
 	_active = o._active;
-	_timeToExpire = 0;
 }
 
 void MAORenderable3D::update(){
@@ -47,6 +37,15 @@ void MAORenderable3D::update(){
 	}
 }
 
+OgreBulletDynamics::RigidBody* MAORenderable3D::getRigidBody(){
+	return _rigidBody;
+}
+
+OgreBulletCollisions::CollisionShape* MAORenderable3D::getCollisionShape(){
+	return _colShape;
+}
+
+
 bool MAORenderable3D::isPhysic() {
 	return _physic;
 }
@@ -56,16 +55,16 @@ void MAORenderable3D::setPhysic(bool physic) {
 }
 
 int MAORenderable3D::getTimeToExpire() {
-	return _timeToExpire;
+	return _dynamicState.timeToExpire;
 }
 
 void MAORenderable3D::decrementTimeToExpire() {
-	if (_timeToExpire > 0)
-		_timeToExpire--;
+	if (_dynamicState.timeToExpire > 0)
+		_dynamicState.timeToExpire--;
 }
 
 void MAORenderable3D::setTimeToExpire(int timeToExpire) {
-	_timeToExpire = timeToExpire;
+	_dynamicState.timeToExpire = _dynamicState.timeToExpire;
 }
 
 bool MAORenderable3D::isActive() {
@@ -97,34 +96,11 @@ float MAORenderable3D::getMass() {
 }
 
 
-btCollisionShape* MAORenderable3D::getCollisionShape() {
-	return _collisionShape;
-}
-
-void MAORenderable3D::setBoxShape(btCollisionShape* b) {
-	_collisionShape = b;
-	_collisionShapeType = MAO_BOX_SHAPE;
-}
-
-void MAORenderable3D::setSphereShape(btCollisionShape* b) {
-	_collisionShape = b;
-	_collisionShapeType = MAO_SPHERE_SHAPE;
-}
-void MAORenderable3D::setCylinderShape(btCollisionShape* b) {
-	_collisionShape = b;
-	_collisionShapeType = MAO_CYLINDER_SHAPE;
-}
-
-void MAORenderable3D::setConvexTriangleMeshShape(btCollisionShape* b) {
-	_collisionShape = b;
-	_collisionShapeType = MAO_CONVEXTRIANGLEMESH_SHAPE;
-
-}
-
 
 bool MAORenderable3D::isVisible() {
 	return getProperty("visible").getValue<bool>();
 }
+
 void MAORenderable3D::setVisible(bool visible) {
 	getProperty("visible").setValue<bool>(visible);
 	_node->setVisible(visible);
@@ -138,31 +114,16 @@ float MAORenderable3D::getSize() {
 	return getProperty("size").getValue<float>();
 }
 
-void MAORenderable3D::setCollisionShapeType(int collisionShapeType) {
-	_collisionShapeType = collisionShapeType;
-	generateCollisionShape(_collisionShapeType);
+void MAORenderable3D::setRigidBody(OgreBulletDynamics::RigidBody* rigidBody){
+	if(_rigidBody) delete _rigidBody;
+	_rigidBody =  rigidBody;
 }
 
-void MAORenderable3D::setCollisionShapeType(std::string sCollisionShapeType) {
-	if (sCollisionShapeType == "BOX") {
-		_collisionShapeType = MAO_BOX_SHAPE;
-	} else if (sCollisionShapeType == "SPHERE") {
-		_collisionShapeType = MAO_SPHERE_SHAPE;
-	} else if (sCollisionShapeType == "CYLINDER") {
-		_collisionShapeType = MAO_CYLINDER_SHAPE;
-	} else if (sCollisionShapeType == "TRIANGLE_MESH") {
-		_collisionShapeType = MAO_CONVEXTRIANGLEMESH_SHAPE;
-	} else {
-		throw "Invalid Collision Shape type for MAO: " + getName();
-		return;
-	}
-	generateCollisionShape(_collisionShapeType);
-
+void MAORenderable3D::setCollisionShape(OgreBulletCollisions::CollisionShape* colShape){
+	if(_colShape) delete _colShape;
+	_colShape = colShape;
 }
 
-int MAORenderable3D::getCollisionShapeType() {
-	return _collisionShapeType;
-}
 
 MAORenderable3D::~MAORenderable3D() {
 }

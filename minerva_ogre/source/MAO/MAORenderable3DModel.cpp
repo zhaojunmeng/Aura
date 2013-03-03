@@ -19,35 +19,6 @@ MAORenderable3DModel::MAORenderable3DModel(const std::string& name,
 	_type = T_MAORENDERABLE3DMODEL;
 }
 
-btCollisionShape* MAORenderable3DModel::getCollisionShape() {
-	return _collisionShape;
-}
-
-void MAORenderable3DModel::generateCollisionShape(int type) {
-
-}
-
-void MAORenderable3DModel::generateBoxShape() {
-
-}
-void MAORenderable3DModel::generateConvexTriangleMeshShape() {
-
-}
-
-void MAORenderable3DModel::generateCylinderShape() {
-	Logger::getInstance()->error(
-			"Generating Cylinder Shapes for Models is not implemented yet!!");
-	throw "Generating Cylinder Shapes from Models is not implemented yet!!";
-
-}
-void MAORenderable3DModel::generateSphereShape() {
-	Logger::getInstance()->error(
-			"Generating Sphere Shapes from Models is not implemented yet!!");
-	throw "Generating Sphere Shapes from Models is not implemented yet!!";
-}
-
-
-
 
 void MAORenderable3DModel::playAnim(int animType) {
 

@@ -14,17 +14,35 @@
 #define MAO_CONVEXTRIANGLEMESH_SHAPE 3
 
 #include <string>
+#include <list>
 #include <GL/gl.h>
-#include <btBulletCollisionCommon.h>
-#include <BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h>
+#include <OgreBulletDynamicsRigidBody.h>
 #include <MAO/MAOPositionator3D.h>
 #include <Kernel/Logger.h>
-#include <list>
+
+struct DynamicObjectState{
+	bool created;
+	Ogre::Matrix4 offset;
+	Ogre::Vector3 impulse;
+	int timeToExpire; //For instantiated MAO's
+
+	DynamicObjectState():created(false), offset(Ogre::Matrix4::IDENTITY), impulse(0,0,1), timeToExpire(0){}
+};
+
 
 class MAORenderable3D: public MAOPositionator3D {
 protected:
 
+	MAOPositionator3D* _globalReference;
 	Ogre::Entity* _ent;
+	bool _active;
+
+	/* Bullet stuff */
+	OgreBulletDynamics::RigidBody* _rigidBody;
+	OgreBulletCollisions::CollisionShape* _colShape;
+
+	bool _physic;
+	DynamicObjectState _dynamicState;
 
 public:
 	MAORenderable3D(const std::string& name, const float& size);
@@ -58,28 +76,14 @@ public:
 	void decrementTimeToExpire();
 	void setTimeToExpire(int timeToExpire);
 
-	btCollisionShape* getCollisionShape();
-	int getCollisionShapeType();
+	void setEntity(Ogre::Entity* ent){ _ent = ent;}
 
-	void setCollisionShapeType(int collisionShapeType);
-	void setCollisionShapeType(std::string sCollisionShapeType);
+	OgreBulletDynamics::RigidBody* getRigidBody();
+	OgreBulletCollisions::CollisionShape* getCollisionShape();
 
-	virtual void generateCollisionShape(int type)=0;
+	void setRigidBody(OgreBulletDynamics::RigidBody* rigidBody);
+	void setCollisionShape(OgreBulletCollisions::CollisionShape* colShape);
 
-protected:
-
-
-	void setBoxShape(btCollisionShape* b); //From an Instantiated Box Shape
-	void setSphereShape(btCollisionShape* b);
-	void setCylinderShape(btCollisionShape* b);
-	void setConvexTriangleMeshShape(btCollisionShape* b);
-
-	MAOPositionator3D* _globalReference;
-	btCollisionShape* _collisionShape;
-	int _collisionShapeType;
-	bool _physic;
-	bool _active;
-	int _timeToExpire; //For instantiated MAO's
 };
 
 #endif /* MAORENDERABLE_H_ */

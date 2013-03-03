@@ -33,8 +33,8 @@ void MSLProperties::fill(const MSLProperties& o){
 
 	if(o.bool1 != false) bool1 = o.bool1;
 
-	if(o.btvector1 != NULL) btvector1 = o.btvector1;
-	if(o.btvector2 != NULL) btvector2 = o.btvector2;
+	if(o.vector1 != NULL) vector1 = o.vector1;
+	if(o.vector2 != NULL) vector2 = o.vector2;
 
 	//if(o.pose1 != NULL) pose1 = new cv::Mat(*o.pose1);
 	//if(o.pose2 != NULL) pose2= new cv::Mat(*o.pose2);
@@ -63,8 +63,8 @@ void MSLProperties::init(){
 	int3 = 0;
 	int4 = 0;
 	bool1 = false;
-	btvector1 = NULL;
-	btvector2 = NULL;
+	vector1 = NULL;
+	vector2 = NULL;
 	pose1 = NULL;
 	pose2 = NULL;
 	maovalue1 = NULL;
