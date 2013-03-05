@@ -15,13 +15,11 @@ ARTKINCS = -I ../lib/ARToolKit/include
 
 # Bullet
 BULLETINCS = -I /usr/local/include/bullet
-BULLETLIBS = -L../lib/$(BULLETDIR)/src/BulletDynamics -lBulletDynamics\
-			-L../lib/$(BULLETDIR)/src/BulletCollision -lBulletCollision\
-			-L../lib/$(BULLETDIR)/src/LinearMath -lLinearMath -lConvexDecomposition 
+BULLETLIBS = -lConvexDecomposition  -lLinearMath 
 
 # OgreBullet Wrapper
 OGREBULLETINCS = -I/usr/local/include/OgreBullet/Dynamics -I/usr/local/include/OgreBullet/Collisions
-OGREBULLETLIBS = -lOgreBulletCol -lOgreBulletDyn
+OGREBULLETLIBS = -lOgreBulletCol -lOgreBulletDyn 
 
 # Compilation mode
 ifeq ($(mode), release) # Release mode
@@ -31,7 +29,7 @@ else # Debug mode
 endif
 
 # Libraries
-LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(BULLETLIBS) $(OGREBULLETLIBS) -lOIS\
+LDFLAGS = -lSDL_mixer `pkg-config --libs opencv` $(ARTKLIBS) $(OGREBULLETLIBS) $(BULLETLIBS) -lOIS\
 		  -lboost_filesystem -lboost_system `pkg-config --libs OGRE`
 		  
 # Includes
