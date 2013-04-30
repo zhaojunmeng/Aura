@@ -14,7 +14,7 @@ libs: ARTK
 credentials:
 	@echo
 	@echo '--------------------------------------'
-	@echo ' ABBY Makefile'
+	@echo ' Aura's Makefile'
 	@echo ' Cesar Mora Castro - 2013'
 	@echo ' Compiling $(mode) mode'
 	@echo '--------------------------------------'

@@ -123,9 +123,9 @@ void PhysicsController::pollPhysics() {
 
 	//TODO
 	//Managing static MAO's (They are Kinemtic, so we have tu update its position!)
-	for (unsigned int i = 0; i < _listPhysicObjects.size(); i++) {
+	//for (unsigned int i = 0; i < _listPhysicObjects.size(); i++) {
 		//PhysicObject* pO = _vectorPhysicStaticObject.at(i);
-		Ogre::Matrix4 m;
+		//Ogre::Matrix4 m;
 		// TODO
 		//m = pO->getMAO()->getGlobalReference()->getPosMatrix()
 		//		* _maoGround->getPosMatrix().inv();
@@ -135,9 +135,9 @@ void PhysicsController::pollPhysics() {
 		//t.setFromOpenGLMatrix((btScalar*) m.data);
 		//pO->getRigidBody()->getMotionState()->setWorldTransform(t);
 
-	}
+	//}
 
-	//_world->stepSimulation(1.f / 60, 10);
+	_colWorld->stepSimulation(1.f / 60, 10);
 	//_world->stepSimulation(1.f / 60, 10);
 
 	//Managing dynamics MAO's
