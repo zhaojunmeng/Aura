@@ -1,0 +1,38 @@
+BUILDDIR = Build_Linux/
+OUTPUTDIR = $(BUILDDIR)/bin/
+OBJSDIR = $(BUILDDIR/)obj/
+ARTKDIR = ARToolKit
+
+# Default compilation value
+mode = debug
+
+#To build libs, please run a 'make libs' first!
+all: credentials dirs
+	cd jni/source; $(MAKE) mode=$(mode)
+
+libs: ARTK
+
+credentials:
+	@echo
+	@echo '--------------------------------------'
+	@echo ' Aura's Makefile'
+	@echo ' Cesar Mora Castro - 2013'
+	@echo ' Compiling $(mode) mode'
+	@echo '--------------------------------------'
+	@echo ' NOTE: To build the libraries, run "make libs" first!'
+	@echo
+
+dirs:
+	mkdir -p $(OUTPUTDIR)
+	mkdir -p $(OBJSDIR)
+
+ARTK:
+	cd lib/$(ARTKDIR); $(MAKE)
+
+	
+clean:
+	cd jni/source; $(MAKE) clean
+
+allclean: clean
+	cd lib/$(ARTKDIR); $(MAKE) clean
+	rm -Rf $(OUTPUTDIR) $(OBJSDIR) $(BUILDDIR)	
