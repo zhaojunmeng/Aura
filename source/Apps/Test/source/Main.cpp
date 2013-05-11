@@ -40,7 +40,7 @@ public:
     }
     else
     {
-    	gkLogMessage("ERROR: FILE NOT FOUND ---> " << startCfg);
+      gkLogMessage("ERROR: FILE NOT FOUND ---> " << startCfg);
     }
   }
 
@@ -76,7 +76,7 @@ public:
 
 int main(int argc, char** argv)
 {
-  TestApp app("OgreKitResource.cfg");
+  TestApp app("OgreKitStartup.cfg");
 
   app.run();
   

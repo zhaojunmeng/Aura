@@ -101,7 +101,6 @@ void gkUserDefs::load(const gkString& fname)
 	if (startup.empty())
 		return;
 
-
 	try
 	{
 		// try and initialize prefs

@@ -57,9 +57,10 @@ else ()
 			ADD_CUSTOM_COMMAND(
 				TARGET ${PROJECT_NAME}
 				POST_BUILD
-				#COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/data/momo_ogre_plus.blend ${CMAKE_CURRENT_BINARY_DIR}
 				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../data/OgreKitResource.cfg ${CMAKE_CURRENT_BINARY_DIR}
-				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../data/OgreKitStartup.cfg ${CMAKE_CURRENT_BINARY_DIR})
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../data/OgreKitStartup.cfg ${CMAKE_CURRENT_BINARY_DIR}
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/../data/media/ ${CMAKE_CURRENT_BINARY_DIR}/media)
+			INSTALL(DIRECTORY ${CMAKE_CURRENT_DIR}/../data/media DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 		endif()
 	endif()
 		
