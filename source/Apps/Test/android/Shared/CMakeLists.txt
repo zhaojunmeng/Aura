@@ -1,7 +1,7 @@
 # ---------------------------------------------------------
 cmake_minimum_required(VERSION 2.6)
 
-PROJECT(ogrekit)
+PROJECT(aura)
 
 include_directories(
 	${OGREKIT_INCLUDE}

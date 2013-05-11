@@ -52,6 +52,10 @@
 #include "OgreOverlaySystem.h"
 #endif
 
+#ifdef OGREKIT_USE_RTSHADER_SYSTEM
+#include "OgreRTShaderSystem.h"
+#endif
+
 
 class gkEngine : public utSingleton<gkEngine>, public Ogre::FrameListener, public gkTickState 
 {

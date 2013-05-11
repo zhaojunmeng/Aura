@@ -21,7 +21,7 @@
 //----------------------------------------------------------------------------------
 package com.nvidia.devtech;
 
-import org.gamekit.jni.GameKitJNI;
+import org.aura.jni.AuraJNI;
 
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -30,7 +30,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 

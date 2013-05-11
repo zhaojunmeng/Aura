@@ -120,6 +120,14 @@ void gkEngine::initialize()
 
 	initializeWindow();
 
+#ifdef OGREKIT_USE_RTSHADER_SYSTEM	
+	defs.hasFixedCapability = renderers[0]->getCapabilities()->hasCapability(Ogre::RSC_FIXED_FUNCTION);
+
+	gkResourceGroupManager::getSingleton().initRTShaderSystem(
+		m_private->plugin_factory->getShaderLanguage(), defs.shaderCachePath, defs.hasFixedCapability);
+#endif
+
+
 	// Create the camera
 	m_cam = m_sceneManager->createCamera("MainCamera");
 	m_cam->setPosition(Ogre::Vector3(5,10,20));
@@ -168,6 +176,12 @@ void gkEngine::finalize()
 #ifndef BUILD_OGRE18
 	delete m_overlaySystem;
 #endif
+
+#ifdef OGREKIT_USE_RTSHADER_SYSTEM
+	Ogre::MaterialManager::getSingleton().setActiveScheme(Ogre::MaterialManager::DEFAULT_SCHEME_NAME);
+	Ogre::RTShader::ShaderGenerator::finalize();
+#endif
+
 	delete m_root;
 
 	m_initialized = false;

@@ -40,7 +40,7 @@ set(Core_SOURCE
 	gkRenderFactory.cpp
 #	gkResource.cpp
 #	gkResourceManager.cpp
-#	gkResourceGroupManager.cpp
+	gkResourceGroupManager.cpp
 #	gkScene.cpp
 #	gkSceneManager.cpp
 #	gkSkeleton.cpp
@@ -100,7 +100,7 @@ set(Core_HEADER
 #	gkResource.h
 #	gkResourceName.h
 #	gkResourceManager.h
-#	gkResourceGroupManager.h
+	gkResourceGroupManager.h
 #	gkScene.h
 #	gkSceneManager.h
 #	gkSerialize.h
@@ -1025,9 +1025,9 @@ endif()
 # Resources Files
 # ---------------------------------------------------------
 
-# set(Resources_FILES)
+set(Resources_FILES)
 
-# if (OGREKIT_GENERATE_BUILTIN_RES)
+if (OGREKIT_GENERATE_BUILTIN_RES)
 
 # 	#particle
 # 	set(PARTICLE_TMPL
@@ -1036,10 +1036,10 @@ endif()
 # 	add_templates(1 GEN_PARTICLE_OUT User/gkParticleTemplates.inl ${PARTICLE_TMPL})
 # 	LIST(APPEND Resources_FILES	${GEN_PARTICLE_OUT})
 	
-# 	#rtshader
-# 	set(RTSHADER_TMPL User/RTShaderLib.zip)
-# 	add_templates(1 GEN_RTSHADER_OUT User/gkRTShaderTemplates.inl ${RTSHADER_TMPL})
-# 	LIST(APPEND Resources_FILES	${GEN_RTSHADER_OUT})
+	#rtshader
+	set(RTSHADER_TMPL User/RTShaderLib.zip)
+	add_templates(1 GEN_RTSHADER_OUT User/gkRTShaderTemplates.inl ${RTSHADER_TMPL})
+	LIST(APPEND Resources_FILES	${GEN_RTSHADER_OUT})
 	
 # 	#compositor
 # 	set(COMPOSITOR_TMPL User/Compositor.zip)
@@ -1053,9 +1053,9 @@ endif()
 	
 # 	#font, etc...
 
-# 	source_group(Resources FILES ${Resources_FILES})			
+ 	source_group(Resources FILES ${Resources_FILES})			
 
-# endif()
+endif()
 
 
 

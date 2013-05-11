@@ -40,14 +40,14 @@
 #include "OgreWindowEventUtilities.h"
 #include "OIS.h"
 
-// #ifdef OGREKIT_USE_RTSHADER_SYSTEM
-// #include "OgreRTShaderSystem.h"
+#ifdef OGREKIT_USE_RTSHADER_SYSTEM
+#include "OgreRTShaderSystem.h"
 
-// #ifndef RTSHADER_SYSTEM_BUILD_EXT_SHADERS
-// #error "rtss ext undefined. try re-run cmake."
-// #endif
+#ifndef RTSHADER_SYSTEM_BUILD_EXT_SHADERS
+#error "rtss ext undefined. try re-run cmake."
+#endif
 
-// #endif
+#endif
 
 
 

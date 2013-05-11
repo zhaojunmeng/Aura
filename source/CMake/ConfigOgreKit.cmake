@@ -77,7 +77,7 @@ macro (configure_ogrekit ROOT OGREPATH OGRE_BACKEND)
 	endif()
     
     if (OGREKIT_BUILD_GLES2RS)
-        set(OGREKIT_USE_RTSHADER_SYSTEM TRUE CACHE BOOL "Forcing RTShaderSystem" FORCE)
+        set(OGREKIT_USE_RTSHADER_SYSTEM TRUE CACHE BOOL "Disabling RTShaderSystem" FORCE)
     endif()
 	
 	if (OGREKIT_USE_RTSHADER_SYSTEM OR OGREKIT_USE_COMPOSITOR)
