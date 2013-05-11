@@ -27,13 +27,36 @@
 #ifndef _gkEngine_h_
 #define _gkEngine_h_
 
-//#include "gkCommon.h"
 #include "gkMathUtils.h"
 #include "utSingleton.h"
+#include "gkWindowSystem.h"
+#include "gkWindow.h"
+#include "gkLogger.h"
+#include "gkRenderFactory.h"
+#include "gkUserDefs.h"
+#include "gkTickState.h"
+#include "gkViewport.h"
 
-class gkEngine : public utSingleton<gkEngine>
+// Ogre includes
+#include "Ogre.h"
+/* #include "OgreRoot.h" */
+/* #include "OgreConfigFile.h" */
+/* #include "OgreRenderSystem.h" */
+/* #include "OgreStringConverter.h" */
+/* #include "OgreFrameListener.h" */
+/* #include "OgreOverlayManager.h" */
+/* #include "OgreViewport.h" */
+
+// temporary hack for keeping compatibility with ogre18 due to the android-version
+#ifndef BUILD_OGRE18
+#include "OgreOverlaySystem.h"
+#endif
+
+
+class gkEngine : public utSingleton<gkEngine>, public Ogre::FrameListener, public gkTickState 
 {
 public:
+
 	class Listener
 	{
 	public:
@@ -43,20 +66,31 @@ public:
 
 	typedef utArray<Listener*>	Listeners;
 
-public:
+ public: // Public interface :)
 	gkEngine(gkUserDefs* otherDefs = 0);
 	~gkEngine();
+
+	bool isInitialized(void)  {return m_initialized;}
+	bool isRunning(void)      {return m_running;}
+
+	void addListener(Listener* listener);
+	void removeListener(Listener* listener);
 
 	void initialize();
 	void finalize(void);
 	void run(void);
 
+	Ogre::SceneManager* getSceneManager(){ return m_sceneManager;}
+
+
+private:
+
+
+
 	bool initializeStepLoop(void);
 	bool stepOneFrame(void);
 	void finalizeStepLoop(void);
 
-	bool isInitialized(void)  {return m_initialized;}
-	bool isRunning(void)      {return m_running;}
 
 	void initializeWindow(void);
 
@@ -70,23 +104,39 @@ public:
 
 	unsigned long getCurTime(); //return ms, updated per frame
 
-	void addListener(Listener* listener);
-	void removeListener(Listener* listener);
+
+	// one full update
+	void tickImpl(gkScalar delta);
+
+	// Ogre listener
+	bool frameRenderingQueued(const Ogre::FrameEvent& evt);
+
 
 private:
 
-	class Private;
-	Private*                m_private;
-	friend class Private;
-
-	gkWindow*				m_window;
+	gkWindow*		m_window;
 	bool                    m_initialized;
 	bool                    m_ownsDefs;
 	bool                    m_running;
 	gkUserDefs*             m_defs;
+	static gkScalar         m_tickRate;
+	gkEngine*               m_engine;
+	gkWindowSystem*         m_windowsystem;       // current window system
+	gkRenderFactoryPrivate* m_plugin_factory;     // static plugin loading
+	btClock*		m_timer;
+	unsigned long		m_curTime;
 	Listeners               m_listeners;
 
-	static gkScalar         m_tickRate;
+#ifndef BUILD_OGRE18
+	Ogre::OverlaySystem*		m_overlaySystem;
+#endif
+
+
+	// What I really need
+	Ogre::Root*             m_root;
+	Ogre::Camera* m_cam;
+	Ogre::SceneManager* m_sceneManager;
+	gkViewport* m_viewport;
 
 	UT_DECLARE_SINGLETON(gkEngine);
 };

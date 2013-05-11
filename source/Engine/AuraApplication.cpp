@@ -41,8 +41,7 @@ AuraApplication::~AuraApplication()
 
 void AuraApplication::run(void)
 {
-	if (!initialize())
-		return;
+	if (!initialize()) return;
 
 	if (m_engine) m_engine->run();
 }
@@ -54,11 +53,12 @@ bool AuraApplication::initialize(void)
 	m_engine = new gkEngine(&m_prefs);
 	m_engine->initialize();
 
-	if (!m_engine->isInitialized())
-		return false;
 
-	// Setup scene information
-	if (!setup())
+
+	if (!m_engine->isInitialized())	return false;
+
+	// Create scene information
+	if (!createScene())
 	{
 		m_engine->finalize();
 		delete m_engine;
@@ -66,7 +66,7 @@ bool AuraApplication::initialize(void)
 		return false;
 	}
 
-	// add update
 	m_engine->addListener(this);
+
 	return true;
 }

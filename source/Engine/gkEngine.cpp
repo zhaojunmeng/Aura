@@ -26,124 +26,45 @@
 */
 
 #include "gkEngine.h"
-#include "gkWindowSystem.h"
-#include "gkWindow.h"
-//#include "gkScene.h"
-//#include "gkSceneManager.h"
-#include "gkLogger.h"
-//#include "gkUtils.h"
-#include "gkRenderFactory.h"
-#include "gkUserDefs.h"
-//#include "gkTextManager.h"
-//#include "gkDynamicsWorld.h"
-//#include "gkDebugScreen.h"
-//#include "gkDebugProperty.h"
-#include "gkTickState.h"
-//#include "gkDebugFps.h"
-//#include "gkStats.h"
-//#include "gkMessageManager.h"
-//#include "gkMeshManager.h"
-//#include "gkGroupManager.h"
-//#include "gkGameObjectManager.h"
-//#include "gkResourceGroupManager.h"
 
-//# include "Sound/gkSoundManager.h"
-
-// Ogre includes
-#include "OgreRoot.h"
-#include "OgreConfigFile.h"
-#include "OgreRenderSystem.h"
-#include "OgreStringConverter.h"
-#include "OgreFrameListener.h"
-#include "OgreOverlayManager.h"
-
-// temporary hack for keeping compatibility with ogre18 due to the android-version
-#ifndef BUILD_OGRE18
-#include "OgreOverlaySystem.h"
-#endif
-
-#ifdef OGREKIT_USE_RTSHADER_SYSTEM
-//#include "OgreRTShaderSystem.h"
-#endif
 
 // shorthand
-#define gkOgreEnginePrivate			gkEngine::Private
 #define ENGINE_TICKS_PER_SECOND		gkScalar(60)
 
 // tick states
 gkScalar gkEngine::m_tickRate = ENGINE_TICKS_PER_SECOND;
 
 
-class gkOgreEnginePrivate : public Ogre::FrameListener, public gkTickState
-{
-public:
-	Private(gkEngine* par)
-		:       gkTickState(par->getTickRate()),
-		        engine(par),
-		        windowsystem(0),
-			timer(0),
-			root(0)
-
-	{
-		timer = new btClock();
-		timer->reset();
-		curTime = timer->getTimeMilliseconds();
-
-		plugin_factory = new gkRenderFactoryPrivate();
-	}
-
-	virtual ~Private()
-	{
-		delete timer;
-		delete plugin_factory;
-	}
-
-
-	// one full update
-	void tickImpl(gkScalar delta);
-	void beginTickImpl(void);
-	void endTickImpl(void);
-
-	bool frameStarted(const Ogre::FrameEvent& evt);
-	bool frameRenderingQueued(const Ogre::FrameEvent& evt);
-	bool frameEnded(const Ogre::FrameEvent& evt);
-
-	gkEngine*                   engine;
-	gkWindowSystem*             windowsystem;       // current window system
-	gkRenderFactoryPrivate*     plugin_factory;     // static plugin loading
-	Ogre::Root*                 root;
-	
-	btClock*					timer;
-	unsigned long				curTime;
-
-#ifndef BUILD_OGRE18
-	Ogre::OverlaySystem*		overlaySystem;
-#endif
-};
-
-
-
-
 gkEngine::gkEngine(gkUserDefs* oth)
-	:	m_window(0),
+	:	gkTickState(getTickRate()),
+		m_window(0),
 		m_initialized(false),
 		m_ownsDefs(oth != 0),
-		m_running(false)
+		m_running(false),
+		m_windowsystem(0),
+		m_timer(0),
+		m_root(0)
+
 {
-	m_private = new gkOgreEnginePrivate(this);
+
+  m_timer = new btClock();
+  m_timer->reset();
+  m_curTime = m_timer->getTimeMilliseconds();
+  m_plugin_factory = new gkRenderFactoryPrivate();
+
 	if (oth != 0)
 		m_defs = oth;
 	else
 		m_defs = new gkUserDefs();
 }
 
-
-
-
 gkEngine::~gkEngine()
 {
 	if (m_initialized)
 		finalize();
+
+	delete m_timer;
+	delete m_plugin_factory;
 
 	// persistent throughout
 	gkLogger::disable();
@@ -172,13 +93,12 @@ void gkEngine::initialize()
 
 	// Creating the root stuff :)
 	Ogre::Root* root = new Ogre::Root("", "");
-	m_private->root = root;
-	m_private->plugin_factory->createRenderSystem(root, defs.rendersystem);
-	m_private->plugin_factory->createParticleSystem(root);
-	//	m_private->archive_factory->addArchiveFactory();
+	m_root = root;
+	m_plugin_factory->createRenderSystem(root, defs.rendersystem);
+	m_plugin_factory->createParticleSystem(root);
 
 #ifndef BUILD_OGRE18
-	m_private->overlaySystem = new Ogre::OverlaySystem();
+	m_overlaySystem = new Ogre::OverlaySystem();
 #endif
 	const Ogre::RenderSystemList& renderers = root->getAvailableRenderers();
 	if (renderers.empty())
@@ -194,37 +114,28 @@ void gkEngine::initialize()
 
 	root->initialise(false);
 
-	m_private->windowsystem = new gkWindowSystem();
+	m_sceneManager = m_root->createSceneManager(Ogre::ST_GENERIC);
+
+	m_windowsystem = new gkWindowSystem();
 
 	initializeWindow();
+
+	// Create the camera
+	m_cam = m_sceneManager->createCamera("MainCamera");
+	m_cam->setPosition(Ogre::Vector3(5,10,20));
+	m_cam->lookAt(Ogre::Vector3(0,0,0));
+	m_cam->setNearClipDistance(5);
+	m_cam->setFarClipDistance(10000);
+
+	m_viewport = m_window->addViewport(m_cam);
+	m_viewport->getViewport()->setBackgroundColour(Ogre::ColourValue(0.0,0.0,0.0));
+	double width = m_viewport->getViewport()->getActualWidth();
+	double height = m_viewport->getViewport()->getActualHeight();
+	m_cam->setAspectRatio(width / height);
 
 	// Load the resources :) Good thing, I guess
 	if (!defs.resources.empty())
 		loadResources(defs.resources);
-
-#ifdef OGREKIT_USE_RTSHADER_SYSTEM	
-	defs.hasFixedCapability = renderers[0]->getCapabilities()->hasCapability(Ogre::RSC_FIXED_FUNCTION);
-
-	gkResourceGroupManager::getSingleton().initRTShaderSystem(
-		m_private->plugin_factory->getShaderLanguage(), defs.shaderCachePath, defs.hasFixedCapability);
-#endif
-
-	// create the builtin resource group
-	//gkResourceGroupManager::getSingleton().createResourceGroup(GK_BUILTIN_GROUP);
-
-	//gkResourceGroupManager::getSingleton().initialiseAllResourceGroups();
-
-#ifdef OGREKIT_USE_PARTICLE
-	//gkParticleManager::getSingleton().initialize();
-#endif
-
-#ifdef OGREKIT_USE_COMPOSITOR
-	//gkCompositorManager::getSingleton().initialize();
-#endif
-
-
-
-
 
 	m_initialized = true;
 
@@ -237,9 +148,9 @@ void gkEngine::initialize()
 
 void gkEngine::initializeWindow(void)
 {
-	if (m_private->windowsystem && !m_window)
+	if (m_windowsystem && !m_window)
 	{
-		gkWindowSystem* sys = m_private->windowsystem;
+		gkWindowSystem* sys = m_windowsystem;
 		gkUserDefs& defs = getUserDefs();
 
 		m_window = sys->createWindow(defs);
@@ -254,30 +165,10 @@ void gkEngine::finalize()
 {
 	if (!m_initialized) return;	
 
-#ifdef OGREKIT_OPENAL_SOUND
-	//gkSoundManager::getSingleton().stopAllSounds();
-#endif	
-
-#ifdef OGREKIT_USE_PARTICLE
-	//delete gkParticleManager::getSingletonPtr();
-#endif
-	//delete gkHUDManager::getSingletonPtr();
-	//delete gkAnimationManager::getSingletonPtr();
-
-#ifdef OGREKIT_OPENAL_SOUND
-	//delete gkSoundManager::getSingletonPtr();
-#endif
-
-#ifdef OGREKIT_USE_RTSHADER_SYSTEM
-	//Ogre::MaterialManager::getSingleton().setActiveScheme(Ogre::MaterialManager::DEFAULT_SCHEME_NAME);
-	//Ogre::RTShader::ShaderGenerator::finalize();
-#endif
-
 #ifndef BUILD_OGRE18
-	delete m_private->overlaySystem;
+	delete m_overlaySystem;
 #endif
-	delete m_private->root;
-	delete m_private;
+	delete m_root;
 
 	m_initialized = false;
 }
@@ -337,18 +228,6 @@ gkScalar gkEngine::getTickRate(void)
 	return m_tickRate;
 }
 
-void gkEngine::addListener(gkEngine::Listener* listener)
-{
-	m_listeners.push_back(listener);
-}
-
-void gkEngine::removeListener(gkEngine::Listener* listener)
-{
-	if (m_listeners.find(listener))
-		m_listeners.erase(listener);
-}
-
-
 void gkEngine::run(void)
 {
 	if (!initializeStepLoop()) return;
@@ -363,9 +242,7 @@ bool gkEngine::initializeStepLoop(void)
 {
 	// init main game loop
 
-	GK_ASSERT(m_private);
-
-	gkWindowSystem* sys = m_private->windowsystem;
+	gkWindowSystem* sys = m_windowsystem;
 	if (!sys)
 	{
 		gkLogMessage("Engine: Can't run with out a window system. exiting\n");
@@ -374,10 +251,10 @@ bool gkEngine::initializeStepLoop(void)
 
 
 	// setup timer
-	m_private->root->clearEventTimes();
-	m_private->root->getRenderSystem()->_initRenderTargets();
-	m_private->root->addFrameListener(m_private);
-	m_private->reset();
+	m_root->clearEventTimes();
+	m_root->getRenderSystem()->_initRenderTargets();
+	m_root->addFrameListener(this);
+	reset();
 
 	m_running = true;
 
@@ -387,12 +264,12 @@ bool gkEngine::initializeStepLoop(void)
 
 bool gkEngine::stepOneFrame(void)
 {
-	m_private->curTime = m_private->timer->getTimeMilliseconds();
+	m_curTime = m_timer->getTimeMilliseconds();
 
-	gkWindowSystem* sys = m_private->windowsystem;
+	gkWindowSystem* sys = m_windowsystem;
 	sys->process();
 
-	if (!m_private->root->renderOneFrame())
+	if (!m_root->renderOneFrame())
 		return false;
 
 	return !sys->exitRequest();
@@ -401,73 +278,64 @@ bool gkEngine::stepOneFrame(void)
 
 void gkEngine::finalizeStepLoop(void)
 {
-	m_private->root->removeFrameListener(m_private);
 	m_running = false;
 }
 
 unsigned long gkEngine::getCurTime()
 {
-	return m_private->curTime;
-}
-
-bool gkOgreEnginePrivate::frameStarted(const Ogre::FrameEvent& evt)
-{
-
-
-
-
-	return true;
-}
-
-
-
-bool gkOgreEnginePrivate::frameRenderingQueued(const Ogre::FrameEvent& evt)
-{
-
-
-
+	return m_curTime;
 }
 
 
 
 
-bool gkOgreEnginePrivate::frameEnded(const Ogre::FrameEvent& evt)
-{
 
-	return true;
-}
-
-
-
-
-void gkOgreEnginePrivate::beginTickImpl(void)
-{
-
-}
-
-
-
-
-void gkOgreEnginePrivate::endTickImpl(void)
-{
-
-}
-
-
-
-
-void gkOgreEnginePrivate::tickImpl(gkScalar dt)
+void gkEngine::tickImpl(gkScalar dt)
 {
 	// dispatch inputs
-	windowsystem->dispatch();
-
+	m_windowsystem->dispatch();
 
 	// update callbacks
-	utArrayIterator<gkEngine::Listeners> iter(engine->m_listeners);
+	utArrayIterator<gkEngine::Listeners> iter(m_listeners);
 	while (iter.hasMoreElements())
 		iter.getNext()->tick(dt);
 
 }
+
+
+
+
+bool gkEngine::frameRenderingQueued(const Ogre::FrameEvent& evt)
+{
+  tick();
+  return true;
+}
+
+
+void gkEngine::addListener(gkEngine::Listener* listener)
+{
+	m_listeners.push_back(listener);
+}
+
+
+
+
+
+void gkEngine::removeListener(gkEngine::Listener* listener)
+{
+	if (m_listeners.find(listener))
+		m_listeners.erase(listener);
+}
+
+
+// bool gkEngine::frameEnded(const Ogre::FrameEvent& evt)
+// {
+// 	return true;
+// }
+// bool gkEngine::frameStarted(const Ogre::FrameEvent& evt)
+// {
+// 	return true;
+// }
 
 
 

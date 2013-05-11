@@ -32,31 +32,31 @@
 
 
 // Main application interface
-class AuraApplication : public gkEngine::Listener
+class AuraApplication: public gkEngine::Listener
 {
-protected:
+ protected:
+  gkEngine*   m_engine;
+  gkUserDefs  m_prefs;
+  
+  // Logic here, create the scene and stuff :)
+  // Maybe put frame started and rest.. cause I want to close gkEngine :)
+  virtual bool createScene(void) = 0;
+  virtual void tick(gkScalar rate) = 0;
+  
+  // Internal startup
+  bool initialize(void);
+
+  // access to user options ( apply before a call to run )
+  gkUserDefs& getPrefs(void) {return m_prefs;}
+  gkEngine* getEngine(void) {return m_engine;}
 
 
+ public:
+  AuraApplication();
+  virtual ~AuraApplication();
+    
+  void run(void);
 
-
-protected:
-	gkEngine*   m_engine;
-	gkUserDefs  m_prefs;
-
-	// Logic here, create the scene and stuff :)
-	// Maybe put frame started and rest.. cause I want to close gkEngine :)
-	virtual bool setup(void) = 0;
-	virtual void tick(gkScalar rate) = 0;
-
-public:
-	AuraApplication();
-	virtual ~AuraApplication();
-
-	// access to user options ( apply before a call to run )
-	gkUserDefs& getPrefs(void) {return m_prefs;}
-	// Internal startup
-	bool initialize(void);
-	void run(void);
 };
 
 #endif//_AuraApplication_h_
