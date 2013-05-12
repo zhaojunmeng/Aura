@@ -21,11 +21,7 @@ endif()
 set(SRC 
 	${DATA} 
 	../source/Main.cpp 
-#	source/Common.h 
-#	source/ACalls.h source/ACalls.cpp
-#	source/RatLogic.h source/RatLogic.cpp 
-#	source/MomoLogic.h source/MomoLogic.cpp 
-#	source/SceneLogic.h source/SceneLogic.cpp
+	../source/TestApp.cpp 
 )
 
 include_directories(
@@ -35,7 +31,6 @@ include_directories(
 link_libraries(
     ${OGREKIT_LIB}
 )
-
 
 #set(HiddenCMakeLists ../CMakeLists.txt)
 #source_group(ParentCMakeLists FILES ${HiddenCMakeLists})

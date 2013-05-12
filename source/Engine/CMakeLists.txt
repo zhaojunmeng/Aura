@@ -31,7 +31,7 @@ set(Core_SOURCE
 	gkLogger.cpp
 #	gkMesh.cpp
 #	gkMeshManager.cpp
-#	gkMessageManager.cpp
+	gkMessageManager.cpp
 	gkMathUtils.cpp
 	gkPath.cpp
 #	gkTextFile.cpp

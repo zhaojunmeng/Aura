@@ -36,6 +36,7 @@
 #include "gkUserDefs.h"
 #include "gkTickState.h"
 #include "gkViewport.h"
+#include "gkResourceGroupManager.h"
 
 // Ogre includes
 #include "Ogre.h"
@@ -85,20 +86,16 @@ public:
 	void run(void);
 
 	Ogre::SceneManager* getSceneManager(){ return m_sceneManager;}
-
-
-private:
-
-
+	gkUserDefs& getUserDefs(void);
 
 	bool initializeStepLoop(void);
 	bool stepOneFrame(void);
 	void finalizeStepLoop(void);
 
+private:
 
 	void initializeWindow(void);
 
-	gkUserDefs& getUserDefs(void);
 	void requestExit(void);
 
 	void loadResources(const gkString& name);

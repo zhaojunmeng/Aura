@@ -5,8 +5,9 @@
 #   Usage: ${TARGET} ${OUTFILE} ${SOURCE0} ... ${SOURCE[N]}                   #
 #                                                                             #
 # ----------------------------------------------------------------------------#
-subdirs(${OGREKIT_SOURCE_DIR}/Tools/TemplateCompiler)
-set(TCL_EXECUTABLE tcl)
+#subdirs(${OGREKIT_SOURCE_DIR}/Tools/TemplateCompiler)
+set(TOOLS_EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin")
+set(TCL_EXECUTABLE ${TOOLS_EXECUTABLE_OUTPUT_PATH}/tcl)
 # ----------------------------------------------------------------------------#
 #                                                                             #
 # Get a list of absolute paths                                                #

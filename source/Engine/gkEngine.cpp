@@ -124,7 +124,7 @@ void gkEngine::initialize()
 	defs.hasFixedCapability = renderers[0]->getCapabilities()->hasCapability(Ogre::RSC_FIXED_FUNCTION);
 
 	gkResourceGroupManager::getSingleton().initRTShaderSystem(
-		m_private->plugin_factory->getShaderLanguage(), defs.shaderCachePath, defs.hasFixedCapability);
+		m_plugin_factory->getShaderLanguage(), defs.shaderCachePath, defs.hasFixedCapability);
 #endif
 
 

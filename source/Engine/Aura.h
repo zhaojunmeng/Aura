@@ -51,7 +51,7 @@
 //#include "gkMemoryTest.h"
 //#include "gkMesh.h"
 //#include "gkMeshManager.h"
-//#include "gkMessageManager.h"
+#include "gkMessageManager.h"
 #include "gkPath.h"
 #include "gkRenderFactory.h"
 //#include "gkScene.h"
@@ -74,24 +74,24 @@
 
 //#include "AI/gkFSM.h"
 
-#ifdef OGREKIT_COMPILE_ENET
-#include "Network/gkNetworkInstance.h"
-#include "Network/gkNetworkClient.h"
-#include "Network/gkNetworkServer.h"
-#include "Network/gkNetworkManager.h"
-#endif
+/* #ifdef OGREKIT_COMPILE_ENET */
+/* #include "Network/gkNetworkInstance.h" */
+/* #include "Network/gkNetworkClient.h" */
+/* #include "Network/gkNetworkServer.h" */
+/* #include "Network/gkNetworkManager.h" */
+/* #endif */
 
-#ifdef OGREKIT_COMPILE_RECAST
-#include "AI/gkRecast.h"
-#endif
+/* #ifdef OGREKIT_COMPILE_RECAST */
+/* #include "AI/gkRecast.h" */
+/* #endif */
 
-#ifdef OGREKIT_COMPILE_OPENSTEER
-#include "AI/gkNavMeshData.h"
-#include "AI/gkSteeringObject.h"
-#include "AI/gkSteeringCapture.h"
-#include "AI/gkSteeringPathFollowing.h"
-#include "AI/gkSteeringWander.h"
-#endif
+/* #ifdef OGREKIT_COMPILE_OPENSTEER */
+/* #include "AI/gkNavMeshData.h" */
+/* #include "AI/gkSteeringObject.h" */
+/* #include "AI/gkSteeringCapture.h" */
+/* #include "AI/gkSteeringPathFollowing.h" */
+/* #include "AI/gkSteeringWander.h" */
+/* #endif */
 
 /* #include "Animation/gkAnimation.h" */
 /* #include "Animation/gkAnimationManager.h" */
@@ -196,20 +196,20 @@
 /* #include "Particles/gkParticleResource.h" */
 /* #include "Particles/gkParticleObject.h" */
 
-#ifdef OGREKIT_USE_PROCESSMANAGER
-#include "Process/gkProcess.h"
-#include "Process/gkProcessManager.h"
-#include "Process/gkWaitProcess.h"
-#include "Process/gkTranslationProcess.h"
-#include "Process/gkOrientationProcess.h"
-#include "Process/gkParallelProcess.h"
-#include "Process/gkSequenceProcess.h"
-#include "Process/gkSoundProcess.h"
-#endif
+/* #ifdef OGREKIT_USE_PROCESSMANAGER */
+/* #include "Process/gkProcess.h" */
+/* #include "Process/gkProcessManager.h" */
+/* #include "Process/gkWaitProcess.h" */
+/* #include "Process/gkTranslationProcess.h" */
+/* #include "Process/gkOrientationProcess.h" */
+/* #include "Process/gkParallelProcess.h" */
+/* #include "Process/gkSequenceProcess.h" */
+/* #include "Process/gkSoundProcess.h" */
+/* #endif */
 
-#ifdef OGREKIT_USE_LUA
-#include "Script/Lua/gkLuaManager.h"
-#endif
+/* #ifdef OGREKIT_USE_LUA */
+/* #include "Script/Lua/gkLuaManager.h" */
+/* #endif */
 
 #include "utCommon.h"
 #include "utString.h"
@@ -224,16 +224,16 @@
 /* #include "Thread/gkSyncObj.h" */
 /* #include "Thread/gkThread.h" */
 
-#ifdef OGREKIT_OPENAL_SOUND
-#include "Sound/gkBuffer.h"
-#include "Sound/gkSound.h"
-#include "Sound/gkSoundManager.h"
-#include "Sound/gkSoundStream.h"
-#include "Sound/gkSoundUtil.h"
-#include "Sound/gkSource.h"
-#include "Sound/gkStreamer.h"
-#include "Sound/gkWaveform.h"
-#endif
+/* #ifdef OGREKIT_OPENAL_SOUND */
+/* #include "Sound/gkBuffer.h" */
+/* #include "Sound/gkSound.h" */
+/* #include "Sound/gkSoundManager.h" */
+/* #include "Sound/gkSoundStream.h" */
+/* #include "Sound/gkSoundUtil.h" */
+/* #include "Sound/gkSource.h" */
+/* #include "Sound/gkStreamer.h" */
+/* #include "Sound/gkWaveform.h" */
+/* #endif */
 
 /* #include "Graphics/gkHUD.h" */
 /* #include "Graphics/gkHUDElement.h" */

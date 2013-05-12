@@ -25,54 +25,8 @@
   -------------------------------------------------------------------------------
 */
 
-#include "Aura.h"
 
-class TestApp : public AuraApplication
-{
-public:
-
-  TestApp(std::string startCfg)
-  {
-    gkPath path = gkUtils::getFile(startCfg);
-    if (path.isFile())
-    {
-    	m_prefs.load(path.getPath());
-    }
-    else
-    {
-      gkLogMessage("ERROR: FILE NOT FOUND ---> " << startCfg);
-    }
-  }
-
-  ~TestApp()
-  {
-  }
-
-  void tick(gkScalar rate)
-  {
-  }
-
-
-  bool createScene() {
-    /* Preparing simbad and ground */
-    Ogre::Entity* sinbad = getEngine()->getSceneManager()->createEntity("Sinbad.mesh");
-    Ogre::SceneNode* sinbadNode = getEngine()->getSceneManager()->getRootSceneNode()->createChildSceneNode("SinbadNode");
-    sinbadNode->attachObject(sinbad);
-    
-
-    return true;
-  }
-
-
-  bool setup()
-  {
-
-    createScene();
-
-    return true;
-  }
-
-};
+#include "TestApp.h"
 
 int main(int argc, char** argv)
 {

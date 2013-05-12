@@ -46,9 +46,8 @@ class AuraApplication: public gkEngine::Listener
   // Internal startup
   bool initialize(void);
 
-  // access to user options ( apply before a call to run )
-  gkUserDefs& getPrefs(void) {return m_prefs;}
   gkEngine* getEngine(void) {return m_engine;}
+
 
 
  public:
@@ -57,6 +56,7 @@ class AuraApplication: public gkEngine::Listener
     
   void run(void);
 
+  gkUserDefs& getPrefs(void) {return m_prefs;}
 };
 
 #endif//_AuraApplication_h_
