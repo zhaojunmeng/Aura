@@ -15,7 +15,6 @@ endif(COMMAND cmake_policy)
 
 if (MSVC)
 	add_definitions( -D_WINSOCKAPI_ )
-
 	add_definitions( -D_CRT_SECURE_NO_WARNINGS )
 	add_definitions( -D_CRT_SECURE_NO_DEPRECATE )
 	add_definitions( -DNOMINMAX)
@@ -220,4 +219,4 @@ if(NOT OGREKIT_ONLY_DEPENDENCIES)
 	#endif()
 endif()
 
-subdirs(Apps)
+#subdirs(Apps)

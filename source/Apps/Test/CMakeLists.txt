@@ -1,12 +1,7 @@
-# Build all the versions
-if(AURA_BUILD_LINUX)
- subdirs(linux)
-endif()
-
 if(AURA_BUILD_ANDROID)
-  subdirs(android)
+subdirs(source)
 endif()
 
-if(AURA_BUILD_IOS)
-  subdirs(ios)
+if(AURA_BUILD_LINUX)
+subdirs(linux)
 endif()

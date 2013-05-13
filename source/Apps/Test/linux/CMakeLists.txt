@@ -5,7 +5,7 @@ project(Test)
 SET(${PROJECT_NAME} 1.0)
 set(DATA 
 #	data/momo_ogre_plus.blend 
-	../data/OgreKitStartup.cfg 
+	./data/OgreKitStartup.cfg 
 #	data/OgreKitResource.cfg 
 )
 
@@ -20,8 +20,8 @@ endif()
 
 set(SRC 
 	${DATA} 
-	../source/Main.cpp 
-	../source/TestApp.cpp 
+	./source/Main.cpp 
+	./source/TestApp.cpp 
 )
 
 include_directories(
@@ -40,7 +40,7 @@ if (APPLE)
 	add_executable(
 	${PROJECT_NAME}
 	MACOSX_BUNDLE
-	../data/MainMenu.nib
+	./data/MainMenu.nib
 	${SRC} ${HiddenCMakeLists}
 )
 else ()
@@ -52,9 +52,9 @@ else ()
 			ADD_CUSTOM_COMMAND(
 				TARGET ${PROJECT_NAME}
 				POST_BUILD
-				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../data/OgreKitResource.cfg ${CMAKE_CURRENT_BINARY_DIR}
-				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../data/OgreKitStartup.cfg ${CMAKE_CURRENT_BINARY_DIR}
-				COMMAND ${CMAKE_COMMAND} ARGS -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/../data/media/ ${CMAKE_CURRENT_BINARY_DIR}/media)
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/./data/OgreKitResource.cfg ${CMAKE_CURRENT_BINARY_DIR}
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/./data/OgreKitStartup.cfg ${CMAKE_CURRENT_BINARY_DIR}
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/./data/media/ ${CMAKE_CURRENT_BINARY_DIR}/media)
 			INSTALL(DIRECTORY ${CMAKE_CURRENT_DIR}/../data/media DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 		endif()
 	endif()

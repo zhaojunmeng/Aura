@@ -43,7 +43,7 @@
 #endif
 
 #ifdef OGREKIT_BUILD_ANDROID
-#include "gkWindowAndroid.h"
+#include "Android/gkWindowAndroid.h"
 #endif
 
 

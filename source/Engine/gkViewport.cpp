@@ -33,9 +33,9 @@
 #include "OgreRenderWindow.h"
 #include "OgreRoot.h"
 
-#ifdef OGREKIT_USE_COMPOSITOR
-#include "External/Ogre/gkOgreCompositorManager.h"
-#endif
+// #ifdef OGREKIT_USE_COMPOSITOR
+// #include "External/Ogre/gkOgreCompositorManager.h"
+// #endif
 
 gkViewport::gkViewport(gkWindow* window, Ogre::Viewport* vp)
 	:	m_window(window),
@@ -49,9 +49,9 @@ gkViewport::~gkViewport()
 {	
 	if (m_viewport)
 	{
-#ifdef OGREKIT_USE_COMPOSITOR
-		gkCompositorManager::getSingleton().removeCompositorChain(this);
-#endif
+// #ifdef OGREKIT_USE_COMPOSITOR
+// 		gkCompositorManager::getSingleton().removeCompositorChain(this);
+// #endif
 		GK_ASSERT(m_window->getRenderWindow() != 0);
 		m_window->getRenderWindow()->removeViewport(m_viewport->getZOrder());
 	}
