@@ -219,4 +219,7 @@ if(NOT OGREKIT_ONLY_DEPENDENCIES)
 	#endif()
 endif()
 
-#subdirs(Apps)
+# The Android apps are built with Eclipse ;)
+if(NOT AURA_BUILD_ANDROID)
+  subdirs(Apps)
+endif()

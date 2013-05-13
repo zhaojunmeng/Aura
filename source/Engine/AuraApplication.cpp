@@ -43,6 +43,8 @@ void AuraApplication::run(void)
 {
 	if (!initialize()) return;
 
+
+
 	if (m_engine) m_engine->run();
 }
 
@@ -50,23 +52,29 @@ void AuraApplication::run(void)
 // Internal startup
 bool AuraApplication::initialize(void)
 {
-	m_engine = new gkEngine(&m_prefs);
-	m_engine->initialize();
+
+  _LOGI_("INITIALIZING AURA APP :)");
+  m_engine = new gkEngine(&m_prefs);
+
+  m_engine->initialize();
 
 
 
-	if (!m_engine->isInitialized())	return false;
-
-	// Create scene information
-	if (!createScene())
+  if (!m_engine->isInitialized())	return false;
+  
+  // Create scene information
+  if (!createScene())
 	{
-		m_engine->finalize();
-		delete m_engine;
-		m_engine = 0;
+	  m_engine->finalize();
+	  delete m_engine;
+	  m_engine = 0;
 		return false;
 	}
-
-	m_engine->addListener(this);
-
-	return true;
+  
+  _LOGI_("Anadiendo listener");
+  m_engine->addListener(this);
+  
+  _LOGI_("Listener anadido!!!");
+  
+  return true;
 }

@@ -69,6 +69,7 @@ public:
 	bool                    enableshadows;
 	int                     defaultMipMap;      // Number of mipmaps to generate per texture (default 5)
 	gkString                shaderCachePath;    // RTShaderSystem cache file path
+	gkString                resourcesPath;
 
 	gkString                shadowtechnique;
 	gkColor                 colourshadow;

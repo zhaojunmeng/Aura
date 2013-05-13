@@ -29,7 +29,7 @@
 
 #include "gkCommon.h"
 #include "gkString.h"
-
+#include "gkLogger.h"
 
 // File system path utilities
 class gkPath

@@ -12,6 +12,7 @@ endif()
 project(OgreLite)
 include(PrecompiledHeader)
 
+
 set(OgreLite 1.0)
 set (OGRE_CONFIG_HEADER 1)
 set (OGRE_SDK_BUILD 1)
@@ -171,3 +172,4 @@ if (APPLE)
 endif()
 
 subdirs(OgreMain RenderSystems PlugIns Components)
+

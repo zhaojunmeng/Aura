@@ -211,18 +211,18 @@ bool gkWindow::createWindow(gkWindowSystem* sys, const gkUserDefs& prefs)
 		m_sys = sys;
 
 		int winsizex = 0, winsizey = 0;
-
 		m_requestedWidth = (int)(prefs.winsize.x + 0.5f);
 		m_requestedHeight = (int)(prefs.winsize.y + 0.5f);
 		m_framingType = prefs.framingType;
 
+
+	 
 		Ogre::NameValuePairList params;
 
 		if (prefs.fsaa)
 		{
 			params["FSAA"] = Ogre::StringConverter::toString(prefs.fsaaSamples);
 		}
-
 		if (prefs.vsync)
 		{
 			params["vsync"] = Ogre::StringConverter::toString(prefs.vsync);
@@ -283,11 +283,14 @@ bool gkWindow::createWindow(gkWindowSystem* sys, const gkUserDefs& prefs)
 			winsizey = m_requestedHeight;
 		}
 #ifdef __ANDROID__
+
 		params["externalWindowHandle"] = Ogre::StringConverter::toString(0);
+
 		params["externalGLContext"] = Ogre::StringConverter::toString(0);
 #endif
 		m_rwindow = Ogre::Root::getSingleton().createRenderWindow(prefs.wintitle,
 				   winsizex, winsizey, prefs.fullscreen, &params);
+
 		m_rwindow->setActive(true);
 
 		// copy window size (used later for hit testing)

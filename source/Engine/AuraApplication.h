@@ -29,7 +29,7 @@
 
 #include "gkEngine.h"
 #include "gkUserDefs.h"
-
+#include "gkLogger.h"
 
 // Main application interface
 class AuraApplication: public gkEngine::Listener
@@ -44,10 +44,7 @@ class AuraApplication: public gkEngine::Listener
   virtual void tick(gkScalar rate) = 0;
   
   // Internal startup
-  bool initialize(void);
-
-  gkEngine* getEngine(void) {return m_engine;}
-
+ 
 
 
  public:
@@ -55,6 +52,9 @@ class AuraApplication: public gkEngine::Listener
   virtual ~AuraApplication();
     
   void run(void);
+  
+  bool initialize(void);
+  gkEngine* getEngine(void) {return m_engine;}
 
   gkUserDefs& getPrefs(void) {return m_prefs;}
 };

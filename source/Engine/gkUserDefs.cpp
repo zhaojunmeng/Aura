@@ -83,6 +83,7 @@ gkUserDefs::gkUserDefs()
 	extWinhandle(""),
 	animFps(24.f),
 	shaderCachePath(""),
+	resourcesPath("./"),
 	rtss(false),
 	hasFixedCapability(true)
 {
@@ -94,7 +95,8 @@ void gkUserDefs::load(const gkString& fname)
 {
 	gkString startup;
 
-	gkPath pth(fname);
+	gkPath pth(resourcesPath + fname);
+
 	if (pth.isFile())
 		startup = pth.getPath();
 
@@ -105,27 +107,29 @@ void gkUserDefs::load(const gkString& fname)
 	{
 		// try and initialize prefs
 
-		Ogre::ConfigFile fp;
-		fp.load(startup);
-
-		Ogre::ConfigFile::SectionIterator cit = fp.getSectionIterator();
-		while (cit.hasMoreElements())
+	  Ogre::ConfigFile fp;
+	  fp.load(startup);
+	  
+	  Ogre::ConfigFile::SectionIterator cit = fp.getSectionIterator();
+	  while (cit.hasMoreElements())
+	    {
+	      Ogre::ConfigFile::SettingsMultiMap* ptr = cit.getNext();
+	      for (Ogre::ConfigFile::SettingsMultiMap::iterator dit = ptr->begin(); dit != ptr->end(); ++dit)
 		{
-			Ogre::ConfigFile::SettingsMultiMap* ptr = cit.getNext();
-			for (Ogre::ConfigFile::SettingsMultiMap::iterator dit = ptr->begin(); dit != ptr->end(); ++dit)
-			{
-				gkString key = dit->first;
-				gkString val = dit->second;
-
-				// not case sensitive
-				Ogre::StringUtil::toLowerCase(key);
-				parseString(key, val);
-			}
+		  gkString key = dit->first;
+		  gkString val = dit->second;
+		  
+		  
+		  
+		  // not case sensitive
+		  Ogre::StringUtil::toLowerCase(key);
+		  parseString(key, val);
 		}
+	    }
 	}
 	catch (Ogre::Exception& e)
 	{
-		gkLogMessage("Failed to initialize resource file!\n" << e.getDescription());
+	  gkLogMessage("Failed to initialize resource file!\n" << e.getDescription());
 	}
 }
 
@@ -226,11 +230,12 @@ void gkUserDefs::parseString(const gkString& key, const gkString& val)
 	}
 	if (KeyEq("resources"))
 	{
-		gkPath p(val);
-		if (p.isFile())
-			resources = val;
+	  // We have to make it an absolute path ;)
+	  gkPath p(resourcesPath + val);
+	  if (p.isFile())
+	    resources = val;
 
-		return;
+	  return;
 	}
 	if (KeyEq("blendermat"))
 	{

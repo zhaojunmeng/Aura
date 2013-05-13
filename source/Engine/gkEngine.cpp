@@ -80,6 +80,7 @@ gkEngine::~gkEngine()
 
 void gkEngine::initialize()
 {
+
 	if (m_initialized) return;
 
 	gkUserDefs& defs = getUserDefs();
@@ -94,12 +95,15 @@ void gkEngine::initialize()
 	// Creating the root stuff :)
 	Ogre::Root* root = new Ogre::Root("", "");
 	m_root = root;
+
 	m_plugin_factory->createRenderSystem(root, defs.rendersystem);
+
 	m_plugin_factory->createParticleSystem(root);
 
 #ifndef BUILD_OGRE18
 	m_overlaySystem = new Ogre::OverlaySystem();
 #endif
+
 	const Ogre::RenderSystemList& renderers = root->getAvailableRenderers();
 	if (renderers.empty())
 	{
@@ -135,19 +139,20 @@ void gkEngine::initialize()
 	m_cam->setNearClipDistance(5);
 	m_cam->setFarClipDistance(10000);
 
+
 	m_viewport = m_window->addViewport(m_cam);
 	m_viewport->getViewport()->setBackgroundColour(Ogre::ColourValue(0.0,0.0,0.0));
 	double width = m_viewport->getViewport()->getActualWidth();
 	double height = m_viewport->getViewport()->getActualHeight();
 	m_cam->setAspectRatio(width / height);
 
+
 	// Load the resources :) Good thing, I guess
 	if (!defs.resources.empty())
-		loadResources(defs.resources);
+		loadResources(defs.resourcesPath + defs.resources);
 
 	m_initialized = true;
 
-	// Maybe more things here :)
 
 }
 
@@ -160,7 +165,6 @@ void gkEngine::initializeWindow(void)
 	{
 		gkWindowSystem* sys = m_windowsystem;
 		gkUserDefs& defs = getUserDefs();
-
 		m_window = sys->createWindow(defs);
 	}
 }
@@ -217,8 +221,9 @@ void gkEngine::loadResources(const gkString& name)
 		{
 			gkString elementname = cit.peekNextKey();
 			Ogre::ConfigFile::SettingsMultiMap* ptr = cit.getNext();
-			for (Ogre::ConfigFile::SettingsMultiMap::iterator dit = ptr->begin(); dit != ptr->end(); ++dit)
-				resourceManager->addResourceLocation(dit->second, dit->first, elementname);
+			for (Ogre::ConfigFile::SettingsMultiMap::iterator dit = ptr->begin(); dit != ptr->end(); ++dit){
+			  resourceManager->addResourceLocation(getUserDefs().resourcesPath + dit->second, dit->first, elementname);
+			}
 		}
 		Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 	}
@@ -278,14 +283,20 @@ bool gkEngine::initializeStepLoop(void)
 
 bool gkEngine::stepOneFrame(void)
 {
+  _LOGI_("Steping one frame");
+  _LOGI_("Getting time");
 	m_curTime = m_timer->getTimeMilliseconds();
 
+
+  _LOGI_("Sys process");
 	gkWindowSystem* sys = m_windowsystem;
 	sys->process();
 
-	if (!m_root->renderOneFrame())
-		return false;
+  _LOGI_("Root render one frame");
+  if (!m_root->renderOneFrame())
+    return false;
 
+  _LOGI_("Good! rendered! Exit request?");
 	return !sys->exitRequest();
 }
 

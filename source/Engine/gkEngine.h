@@ -92,8 +92,6 @@ public:
 	bool stepOneFrame(void);
 	void finalizeStepLoop(void);
 
-private:
-
 	void initializeWindow(void);
 
 	void requestExit(void);
