@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 
 # Tools
 if(BUILD_TOOLS)
-subdirs(Tools)
+subdirs(source/Tools)
 endif()
 
 # Engine

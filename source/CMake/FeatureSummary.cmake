@@ -26,15 +26,15 @@ if (OGRE_BUILD_COMPONENT_TERRAIN)
 endif ()
 if (OGRE_BUILD_COMPONENT_RTSHADERSYSTEM)
 	set(_components "${_components}  + RTShader System\n")
-	
+
 	if (OGRE_BUILD_RTSHADERSYSTEM_CORE_SHADERS)
 		set(_components "${_components}  + RTShader System Core Shaders\n")
 	endif ()
-	
+
 	if (OGRE_BUILD_RTSHADERSYSTEM_EXT_SHADERS)
 		set(_components "${_components}  + RTShader System Extensions Shaders\n")
 	endif ()
-	
+
 endif ()
 if (OGRE_BUILD_COMPONENT_VOLUME)
 	set(_components "${_components}  + Volume\n")
@@ -116,7 +116,7 @@ if (OGRE_CONFIG_ENABLE_PVRTC)
 endif ()
 if (OGRE_CONFIG_ENABLE_ETC1)
 	set(_core "${_core}  + ETC1 image codec\n")
-endif()
+endif ()
 if (OGRE_CONFIG_ENABLE_FREEIMAGE)
 	set(_core "${_core}  + FreeImage codec\n")
 endif ()

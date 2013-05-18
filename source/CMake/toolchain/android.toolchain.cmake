@@ -1193,6 +1193,16 @@ if( APPLE )
  mark_as_advanced( CMAKE_INSTALL_NAME_TOOL )
 endif()
 
+#export directories
+set( ANDROID_SYSTEM_INCLUDE_DIRS "" )
+set( ANDROID_SYSTEM_LIB_DIRS "" )
+
+#includes
+list( APPEND ANDROID_SYSTEM_INCLUDE_DIRS "${ANDROID_SYSROOT}/usr/include" "${ANDROID_NDK}/sources/cpufeatures")
+if( __stlIncludePath AND EXISTS "${__stlIncludePath}" )
+ list( APPEND ANDROID_SYSTEM_INCLUDE_DIRS "${__stlIncludePath}" )
+endif()
+
 # Force set compilers because standard identification works badly for us
 include( CMakeForceCompiler )
 CMAKE_FORCE_C_COMPILER( "${CMAKE_C_COMPILER}" GNU )
@@ -1375,6 +1385,7 @@ set( ANDROID_RELRO                  ${ANDROID_RELRO}                  CACHE BOOL
 mark_as_advanced( ANDROID_NO_UNDEFINED ANDROID_SO_UNDEFINED ANDROID_FUNCTION_LEVEL_LINKING ANDROID_GOLD_LINKER ANDROID_NOEXECSTACK ANDROID_RELRO )
 
 # linker flags
+list( APPEND ANDROID_SYSTEM_LIB_DIRS "${CMAKE_BINARY_DIR}/systemlibs/${ANDROID_NDK_ABI_NAME}" "${CMAKE_INSTALL_PREFIX}/libs/${ANDROID_NDK_ABI_NAME}" )
 set( ANDROID_LINKER_FLAGS "" )
 
 if( ARMEABI_V7A )
@@ -1497,7 +1508,9 @@ if( DEFINED ANDROID_EXCEPTIONS AND ANDROID_STL_FORCE_FEATURES )
 endif()
 
 # global includes and link directories
-include_directories( SYSTEM "${ANDROID_SYSROOT}/usr/include" ${ANDROID_STL_INCLUDE_DIRS} )
+include_directories( SYSTEM "${ANDROID_SYSROOT}/usr/include" ${ANDROID_STL_INCLUDE_DIRS})
+include_directories( SYSTEM ${ANDROID_SYSTEM_INCLUDE_DIRS} )
+link_directories( ${ANDROID_SYSTEM_LIB_DIRS} )
 link_directories( "${CMAKE_INSTALL_PREFIX}/libs/${ANDROID_NDK_ABI_NAME}" )
 
 # detect if need link crtbegin_so.o explicitly

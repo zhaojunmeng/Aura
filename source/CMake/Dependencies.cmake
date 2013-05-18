@@ -97,8 +97,8 @@ endif ()
 
 # Find OpenGL
 if(NOT ANDROID AND NOT FLASHCC)
-find_package(OpenGL)
-macro_log_feature(OPENGL_FOUND "OpenGL" "Support for the OpenGL render system" "http://www.opengl.org/" FALSE "" "")
+  find_package(OpenGL)
+  macro_log_feature(OPENGL_FOUND "OpenGL" "Support for the OpenGL render system" "http://www.opengl.org/" FALSE "" "")
 endif()
 
 # Find OpenGL 3+
@@ -208,8 +208,8 @@ if (OGRE_BUILD_PLATFORM_WINRT)
 	set(OIS_INCLUDE_DIRS ${OIS_INCLUDE_DIR})
 	macro_log_feature(OIS_INCLUDE_DIRS "OIS" "Input library needed for the samples" "http://sourceforge.net/projects/wgois" FALSE "" "")
 else ()
-find_package(OIS)
-macro_log_feature(OIS_FOUND "OIS" "Input library needed for the samples" "http://sourceforge.net/projects/wgois" FALSE "" "")
+	find_package(OIS)
+	macro_log_feature(OIS_FOUND "OIS" "Input library needed for the samples" "http://sourceforge.net/projects/wgois" FALSE "" "")
 endif ()
 
 #######################################################################
@@ -236,7 +236,7 @@ macro_log_feature(CppUnit_FOUND "CppUnit" "Library for performing unit tests" "h
 #######################################################################
 # Apple-specific
 #######################################################################
-if (APPLE)
+if (APPLE)  
   if (NOT OGRE_BUILD_PLATFORM_APPLE_IOS)
     find_package(Carbon)
     macro_log_feature(Carbon_FOUND "Carbon" "Carbon" "http://developer.apple.com/mac" TRUE "" "")
