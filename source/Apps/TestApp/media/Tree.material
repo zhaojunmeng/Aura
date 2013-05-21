@@ -1,0 +1,17 @@
+material Tree
+{
+	receive_shadows off
+	technique
+	{
+		pass
+		{
+			ambient 0.75 0.75 0.75
+			diffuse 1 1 1 1
+			scene_blend src_alpha one_minus_src_alpha
+			texture_unit
+			{
+				texture tree.tga
+			}
+		}
+	}
+}
