@@ -51,8 +51,8 @@ namespace Aura
     
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     AuraApplication(struct android_app* state, bool nograb){
-      mOgreEngine = new AuraOgreEngineAndroid(state);
-      mIOEngine = new AuraIOEngine(nograb);
+      mIOEngine = new AuraIOEngineAndroid(nograb); // Closely related to Android Ogre Engine
+      mOgreEngine = new AuraOgreEngineAndroid(state, static_cast<AuraIOEngineAndroid*>(mIOEngine));
       mRunning = true;
     }
 #else
@@ -65,9 +65,10 @@ namespace Aura
 
 
     void go(){
-
+      
       // Init the Engine
       mOgreEngine->init();
+
       // Retrieve the main objects
       mRoot = mOgreEngine->mRoot;
       mSceneManager = mOgreEngine->mSceneManager;
@@ -78,7 +79,7 @@ namespace Aura
       mIOEngine->setupInput(mWindow);
             
       // Create the scene
-      //setupApp();
+      setupApp();
 
       // Run the loop! (Just the loop)
       while (mRunning)
