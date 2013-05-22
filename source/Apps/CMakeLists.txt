@@ -7,6 +7,8 @@ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
 include_directories(${OGRE_BINARY_DIR}/include)
 include_directories(${AURA_SOURCE_DIR}/Engine)
 
+configure_file("${OGRE_TEMPLATES_DIR}/Android.mk_engine.in" "${CMAKE_BINARY_DIR}/Android_engine.mk" @ONLY)
+
 # Make sure all plugins are built
 if (OGRE_BUILD_PLUGIN_OCTREE)
   set(APPS_DEPENDENCIES ${APPS_DEPENDENCIES} Plugin_OctreeSceneManager)

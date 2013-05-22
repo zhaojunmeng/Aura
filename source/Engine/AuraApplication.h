@@ -48,98 +48,21 @@ namespace Aura
   {        
 
   public:
-    
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-    AuraApplication(struct android_app* state, bool nograb){
-      mIOEngine = new AuraIOEngineAndroid(nograb); // Closely related to Android Ogre Engine
-      mOgreEngine = new AuraOgreEngineAndroid(state, static_cast<AuraIOEngineAndroid*>(mIOEngine));
-      mRunning = true;
-    }
+    AuraApplication(struct android_app* state, bool nograb);
 #else
-    AuraApplication(bool nograb){
-      mOgreEngine = new AuraOgreEngine();
-      mIOEngine = new AuraIOEngine(nograb);
-      mRunning = true;
-    }
+    AuraApplication(bool nograb);
 #endif
 
-
-    void go(){
-      
-      // Init the Engine
-      mOgreEngine->init();
-
-      // Retrieve the main objects
-      mRoot = mOgreEngine->mRoot;
-      mSceneManager = mOgreEngine->mSceneManager;
-      mCamera = mOgreEngine->mCamera;
-      mWindow = mOgreEngine->mWindow;
-
-      // Init the IO
-      mIOEngine->setupInput(mWindow);
-            
-      // Create the scene
-      setupApp();
-
-      // Run the loop! (Just the loop)
-      while (mRunning)
-	{
-
-	  mIOEngine->capture();
-	  if(!mOgreEngine->auraFrameStarted()) break;
-	  
-	  if(!mOgreEngine->auraRenderOneFrame()) break;
-	  
-	  mOgreEngine->auraFrameEnded();
-	}
-      
-
-      // Shutting down :)
-      mOgreEngine->shutdown();
-      
-    }
-
-    void finish(){
-      mRunning = false;
-    }
+    void go();
+    void finish();
 
 
   protected:
     /* Scene */
     virtual void setupApp() {};	  
     virtual void destroyApp() {};
-    //virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt) {return true;};
 
-    /* Window changes */
-    /* virtual void windowResized(Ogre::RenderWindow* rw) {}; */
-    /* virtual void windowMoved(Ogre::RenderWindow* rw) {}; */
-    /* virtual bool windowClosing(Ogre::RenderWindow* rw) {return true;}; */
-    /* virtual void windowClosed(Ogre::RenderWindow* rw) {}; */
-    /* virtual void windowFocusChange(Ogre::RenderWindow* rw) {}; */
-
-    /* Input - Output */
-    /*     virtual bool keyPressed(const OIS::KeyEvent& evt) {return true;}; */
-    /*     virtual bool keyReleased(const OIS::KeyEvent& evt) {return true;}; */
-		
-    /* #if (OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS) || (OGRE_PLATFORM == OGRE_PLATFORM_ANDROID) */
-    /*     virtual bool touchMoved(const OIS::MultiTouchEvent& evt) {return true;}; */
-    /*     virtual bool touchPressed(const OIS::MultiTouchEvent& evt) {return true;}; */
-    /*     virtual bool touchReleased(const OIS::MultiTouchEvent& evt) {return true;}; */
-    /*     virtual bool touchCancelled(const OIS::MultiTouchEvent& evt) {return true;}; */
-    /* #else */
-    /*     virtual bool mouseMoved(const OIS::MouseEvent& evt) {return true;}; */
-    /*     virtual bool mouseReleased(const OIS::MouseEvent& evt, OIS::MouseButtonID id) {return true;}; */
-    /*     virtual bool mousePressed(const OIS::MouseEvent& evt, OIS::MouseButtonID id) {return true;}; */
-    /* #endif */
-
-    /* #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS */
-    /*     virtual void motionBegan( void ) = 0; */
-    /*     virtual void motionEnded( void ) = 0; */
-    /*     virtual void motionCancelled( void ) = 0; */
-    /* #endif */
-
-
-  protected:
     bool mRunning;
     AuraOgreEngine* mOgreEngine;
     AuraIOEngine* mIOEngine;

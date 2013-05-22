@@ -59,7 +59,7 @@ if(ANDROID)
   SET(JNI_SRC "${JNI_SRC}\tLOCAL_SRC_FILES := ${APP_SOURCE_FILES_ANDROID} \n")
   
   if(NOT ANDROID_GLES_ONLY)
-    configure_file("${OGRE_TEMPLATES_DIR}/Android.mk.in" "${NDKOUT}/jni/Android.mk" @ONLY)
+    configure_file("${OGRE_TEMPLATES_DIR}/Android.mk_app.in" "${NDKOUT}/jni/Android.mk" @ONLY)
   else()
     configure_file("${OGRE_TEMPLATES_DIR}/AndroidGLES1.mk.in" "${NDKOUT}/jni/Android.mk" @ONLY)
   endif()
