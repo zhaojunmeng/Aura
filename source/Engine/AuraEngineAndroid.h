@@ -7,20 +7,22 @@
 #include "Android/OgreAndroidEGLWindow.h"
 #include "Android/OgreAPKFileSystemArchive.h"
 #include "Android/OgreAPKZipArchive.h"
-#include "AuraOgreEngine.h"
+#include "AuraEngine.h"
 #include "AuraIOEngineAndroid.h"
 #include <android/log.h>
+#include "AuraApplication.h"
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
 
+
 namespace Aura{
 
-  class AuraOgreEngineAndroid: public AuraOgreEngine
+  class AuraEngineAndroid: public AuraEngine
   {
   public:
 
-    AuraOgreEngineAndroid(struct android_app* state, AuraIOEngineAndroid* ioEngine);
+    AuraEngineAndroid(struct android_app* state, AuraIOEngineAndroid* ioEngine);
       
     virtual void init();
     virtual void shutdown();
@@ -33,7 +35,7 @@ namespace Aura{
     Ogre::DataStreamPtr openAPKFile(const Ogre::String& fileName);
 
   private:
-    static AuraOgreEngineAndroid* mInstance;
+    static AuraEngineAndroid* mInstance;
     struct android_app* mState;
     AAssetManager* mAssetMgr;       // Android asset manager to access files inside apk
     AuraIOEngineAndroid* mIOEngine;

@@ -29,24 +29,9 @@
 
 #include "@APP_NAME@.h"
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-  #define WIN32_LEAN_AND_MEAN
-  #include "windows.h"
-  #include "OgreString.h"
-#elif OGRE_PLATFORM == OGRE_PLATFORM_APPLE
-  #include "AuraOgreEngineOSX.h"
-#elif OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
-  #include "AuraOgreEngineIOS.h"
-#elif OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-  #include "AuraOgreEngineAndroid.h"
-  Aura::AuraOgreEngineAndroid* Aura::AuraOgreEngineAndroid::mInstance = NULL;
-#endif
-
 
 // Different headers for different platforms (Main :) )
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-INT WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR cmdLine, INT) {
-#elif OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
 void android_main(struct android_app* state) {
 #else
 int main(int argc, char *argv[]) {

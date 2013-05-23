@@ -25,8 +25,8 @@
   THE SOFTWARE.
   -----------------------------------------------------------------------------
 */
-#ifndef __AuraOgreEngine_H__
-#define __AuraOgreEngine_H__
+#ifndef __AuraEngine_H__
+#define __AuraEngine_H__
 
 #include "Ogre.h"
 #include "OgreBuildSettings.h"
@@ -54,7 +54,9 @@
 #  endif
 #  ifdef OGRE_BUILD_RENDERSYSTEM_GLES2
 #  undef OGRE_STATIC_GLES
-#    define USE_RTSHADER_SYSTEM
+#    ifndef USE_RTSHADER_SYSTEM
+#      define USE_RTSHADER_SYSTEM
+#    endif
 #    define OGRE_STATIC_GLES2
 #  endif
 #  if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_WINRT
@@ -96,17 +98,20 @@
 
 namespace Aura
 {
+  
+  class AuraApplication;
 
   /*=============================================================================
     | Base class responsible for setting up a common context.
     =============================================================================*/
-  class AuraOgreEngine : public Ogre::FrameListener, public Ogre::WindowEventListener
+  class AuraEngine : public Ogre::FrameListener, public Ogre::WindowEventListener
     {
     public:
+
       friend class AuraApplication;
 
-      AuraOgreEngine();
-      virtual ~AuraOgreEngine();
+      AuraEngine();
+      virtual ~AuraEngine();
       virtual void init( );
       virtual Ogre::RenderWindow* createWindow();
       void setup();
@@ -122,13 +127,21 @@ namespace Aura
       bool frameStarted(const Ogre::FrameEvent& evt){ return true; }
       bool frameEnded(const Ogre::FrameEvent& evt){  return true; }
 
+      /* Activity / Applet life cycle methods */
+      virtual void onStart(){}
+      virtual void onResume(){}
+      virtual void onPause(){}
+      virtual void onStop(){}
+      virtual void onDestroy(){}
+      
       virtual void createRoot();
       virtual void loadConfigFile(Ogre::ConfigFile& cf);
       void locateResources();
       void loadResources(){ Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();}
-
+      void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
+      
     protected:
-
+      AuraApplication* mAppCallback;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
       Ogre::Root* mRoot;              // OGRE root
       Ogre::OverlaySystem* mOverlaySystem;  // Overlay system
@@ -142,4 +155,4 @@ namespace Aura
     };
 }
 
-#endif // _AuraOgreEngine_h_
+#endif // _AuraEngine_h_

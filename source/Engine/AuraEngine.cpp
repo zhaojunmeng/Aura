@@ -1,8 +1,8 @@
-#include "AuraOgreEngine.h"
+#include "AuraEngine.h"
 
 namespace Aura{
 
-  AuraOgreEngine::AuraOgreEngine()
+  AuraEngine::AuraEngine()
   {
     mFSLayer = OGRE_NEW_T(Ogre::FileSystemLayer, Ogre::MEMCATEGORY_GENERAL)(OGRE_VERSION_NAME);
     mRoot = 0;
@@ -13,12 +13,12 @@ namespace Aura{
 #endif
   }
 
-  AuraOgreEngine::~AuraOgreEngine() 
+  AuraEngine::~AuraEngine() 
   {
     OGRE_DELETE_T(mFSLayer, FileSystemLayer, Ogre::MEMCATEGORY_GENERAL);
   }
 
-  void AuraOgreEngine::init( )
+  void AuraEngine::init( )
   {
     createRoot();
     Ogre::String nextRenderer = mRoot->getAvailableRenderers()[0]->getName();
@@ -26,14 +26,14 @@ namespace Aura{
     setup();
   }
 
-  Ogre::RenderWindow* AuraOgreEngine::createWindow()
+  Ogre::RenderWindow* AuraEngine::createWindow()
   {
     Ogre::RenderWindow* res = mRoot->initialise(true, "AuraWindow");
     return res;
   }
 
 
-  void AuraOgreEngine::setup()
+  void AuraEngine::setup()
   {
     if(mWindow == NULL)  mWindow = createWindow();
   
@@ -78,7 +78,7 @@ namespace Aura{
   }
 
 	
-  void AuraOgreEngine::shutdown()
+  void AuraEngine::shutdown()
   {
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     [mGestureView release];
@@ -101,7 +101,7 @@ namespace Aura{
   }
 	
 
-  void AuraOgreEngine::createRoot()
+  void AuraEngine::createRoot()
   {
     Ogre::String pluginsPath = Ogre::StringUtil::BLANK;
     mRoot = OGRE_NEW Ogre::Root(pluginsPath, mFSLayer->getWritablePath("ogre.cfg"), 
@@ -110,11 +110,11 @@ namespace Aura{
     mOverlaySystem = OGRE_NEW Ogre::OverlaySystem();
   }
 
-  void AuraOgreEngine::loadConfigFile(Ogre::ConfigFile& cf){
+  void AuraEngine::loadConfigFile(Ogre::ConfigFile& cf){
     cf.load(mFSLayer->getConfigFilePath("resources.cfg"));	  
   }
 
-  void AuraOgreEngine::locateResources()
+  void AuraEngine::locateResources()
   {
     Ogre::ConfigFile cf;
     loadConfigFile(cf);
@@ -151,6 +151,4 @@ namespace Aura{
 #endif
 
   }
-		
-
 }

@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cesardev.aura"
-    android:versionCode="1"
-    android:versionName="1.0" 
-	android:installLocation="auto">
+	  package="com.cesardev.aura"
+	  android:versionCode="1"
+	  android:versionName="1.0" 
+	  android:installLocation="auto">
 
-    <uses-sdk android:minSdkVersion="@ANDROID_NATIVE_API_LEVEL@" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- <uses-permission android:name="android.permission.INTERNET" />  -->
+  <uses-sdk android:minSdkVersion="@ANDROID_NATIVE_API_LEVEL@" android:targetSdkVersion="17"/>
 
-    <!-- This .apk has no Java code itself, so set hasCode to false. -->
-    <application android:label="@APP_NAME@" android:hasCode="false">
-        <activity android:name="android.app.NativeActivity"
-                  android:label="@APP_NAME@"
-                  android:configChanges="orientation@SCREEN_SIZE@|keyboardHidden"
-		   android:debuggable="true"
-		  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-            <!-- Tell NativeActivity the name of or .so -->
-            <meta-data android:name="android.app.lib_name" android:value="@APP_NAME@" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> 
-    </application>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  
+  <application
+      android:label="@APP_NAME@"
+      android:icon="@drawable/ic_launcher"
+      android:launchMode="singleTask"
+      android:hardwareAccelerated="true" 
+      android:allowBackup="true">
+
+    <activity
+	android:name="Aura"
+	android:screenOrientation="landscape"
+	android:configChanges="keyboardHidden|screenSize|smallestScreenSize"
+	android:noHistory="true" >
+      <intent-filter>
+	<action android:name="android.intent.action.MAIN" />
+	<category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name="android.app.NativeActivity"
+	      android:label="@APP_NAME@"
+	      android:configChanges="orientation@SCREEN_SIZE@|keyboardHidden"
+	      android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+      <!-- Tell NativeActivity the name of or .so -->
+      <meta-data android:name="android.app.lib_name" android:value="@APP_NAME@" />
+    </activity> 
+  </application>
 
 </manifest>

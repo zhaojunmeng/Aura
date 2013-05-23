@@ -10,10 +10,9 @@ namespace Aura{
 {
 
  public:
-  virtual void setupApp(){
+  virtual void createScene(){
     mIOEngine->setIOCallback(this); // Very important line
-
-
+    
     mCamera->setPosition(Ogre::Vector3(5,10,20));
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(5);

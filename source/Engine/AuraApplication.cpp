@@ -5,14 +5,14 @@ namespace Aura{
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
   AuraApplication::AuraApplication(struct android_app* state, bool nograb){
     mIOEngine = new AuraIOEngineAndroid(nograb); // Closely related to Android Ogre Engine
-    mOgreEngine = new AuraOgreEngineAndroid(state, static_cast<AuraIOEngineAndroid*>(mIOEngine));
-    mRunning = true;
+    mEngine = new AuraEngineAndroid(state, static_cast<AuraIOEngineAndroid*>(mIOEngine));
+    _setup();
   }
 #else
   AuraApplication::AuraApplication(bool nograb){
-    mOgreEngine = new AuraOgreEngine();
+    mEngine = new AuraEngine();
     mIOEngine = new AuraIOEngine(nograb);
-    mRunning = true;
+    _setup();
   }
 #endif
 
@@ -20,40 +20,46 @@ namespace Aura{
   void AuraApplication::go(){
       
     // Init the Engine
-    mOgreEngine->init();
-
+    mEngine->init();
+    
     // Retrieve the main objects
-    mRoot = mOgreEngine->mRoot;
-    mSceneManager = mOgreEngine->mSceneManager;
-    mCamera = mOgreEngine->mCamera;
-    mWindow = mOgreEngine->mWindow;
-
+    mRoot = mEngine->mRoot;
+    mSceneManager = mEngine->mSceneManager;
+    mCamera = mEngine->mCamera;
+    mWindow = mEngine->mWindow;
+    
     // Init the IO
     mIOEngine->setupInput(mWindow);
-            
+    
     // Create the scene
-    setupApp();
-
+    createScene();
+    
     // Run the loop! (Just the loop)
     while (mRunning)
       {
-
+	
 	mIOEngine->capture();
-	if(!mOgreEngine->auraFrameStarted()) break;
-	  
-	if(!mOgreEngine->auraRenderOneFrame()) break;
-	  
-	mOgreEngine->auraFrameEnded();
+	if(!mEngine->auraFrameStarted()) break;
+	
+	if(!mEngine->auraRenderOneFrame()) break;
+	
+	mEngine->auraFrameEnded();
       }
-      
-
+    
+    
     // Shutting down :)
-    mOgreEngine->shutdown();
-      
+    mEngine->shutdown();
+    
   }
-
+  
   void AuraApplication::finish(){
     mRunning = false;
+  }
+
+
+  void AuraApplication::_setup(){
+    //    QCARController = new AuraQCARController();
+    mRunning = true;
   }
 
 }
