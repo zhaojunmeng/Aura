@@ -4,3 +4,8 @@
 Aura is a multiplatform framework to make Augmented Reality
 applications Ogre and Bullet.
 
+Compiling!
+
+1) It is necessary to define the env variable QCAR_SDK_ROOT to point 
+to the root of the SDK in Eclipse->Window->Preferences->Java->Build Path->Classpath variables :) Otherwise... it will not work!
+

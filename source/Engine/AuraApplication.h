@@ -38,6 +38,7 @@
 
 #include "AuraQCARController.h"
 #include "AuraIOEngine.h"
+#include "AuraJNIUtils.h"
 
 namespace Aura
 {
@@ -82,8 +83,10 @@ namespace Aura
     Ogre::SceneManager* mSceneManager;
     Ogre::Camera* mCamera;
     Ogre::RenderWindow* mWindow;
-    //AuraQCARController* QCARController;
-
+    AuraQCARController* mQCARController;
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+    struct android_app* mState;
+#endif
   private:
     void _setup();
   };

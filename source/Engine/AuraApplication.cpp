@@ -3,7 +3,7 @@
 namespace Aura{
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-  AuraApplication::AuraApplication(struct android_app* state, bool nograb){
+  AuraApplication::AuraApplication(struct android_app* state, bool nograb): mState(state){
     mIOEngine = new AuraIOEngineAndroid(nograb); // Closely related to Android Ogre Engine
     mEngine = new AuraEngineAndroid(state, static_cast<AuraIOEngineAndroid*>(mIOEngine));
     _setup();
@@ -18,7 +18,8 @@ namespace Aura{
 
 
   void AuraApplication::go(){
-      
+    mQCARController->init();
+        
     // Init the Engine
     mEngine->init();
     
@@ -46,7 +47,6 @@ namespace Aura{
 	mEngine->auraFrameEnded();
       }
     
-    
     // Shutting down :)
     mEngine->shutdown();
     
@@ -58,7 +58,7 @@ namespace Aura{
 
 
   void AuraApplication::_setup(){
-    //    QCARController = new AuraQCARController();
+    mQCARController = new AuraQCARController();
     mRunning = true;
   }
 

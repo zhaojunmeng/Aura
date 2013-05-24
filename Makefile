@@ -29,11 +29,6 @@ COMMON_OPTIONS = -DBUILD_ENGINE=1 \
 
 all: linux android #iphone windows
 
-#tools:
-#	rm -Rf build_tools
-#	mkdir build_tools
-#	cd build_tools; cmake -DBUILD_TOOLS=1 ..; make
-
 linux:
 	rm -Rf build_linux
 	mkdir build_linux
@@ -44,7 +39,7 @@ android:
 #	mkdir -p build_android/source/systemlibs
 	mkdir -p build_android/
 #	cp -R libs/AndroidDependencies/lib/* build_android/source/systemlibs
-	cd build_android; cmake $(COMMON_OPTIONS) $(ANDROID_OPTIONS) .. # Twice to solve an error
+#	cd build_android; cmake $(COMMON_OPTIONS) $(ANDROID_OPTIONS) .. # Twice to solve an error
 	cd build_android; cmake $(COMMON_OPTIONS) $(ANDROID_OPTIONS) ..	
 
 iphone:

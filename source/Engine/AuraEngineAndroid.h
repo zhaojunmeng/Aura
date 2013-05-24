@@ -2,14 +2,15 @@
 #define _AURAOGREENGINEANDROID_H_
 
 #include <android_native_app_glue.h>
+#include <android/log.h>
 #include <EGL/egl.h>
+
 #include "OgrePlatform.h"
 #include "Android/OgreAndroidEGLWindow.h"
 #include "Android/OgreAPKFileSystemArchive.h"
 #include "Android/OgreAPKZipArchive.h"
 #include "AuraEngine.h"
 #include "AuraIOEngineAndroid.h"
-#include <android/log.h>
 #include "AuraApplication.h"
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))

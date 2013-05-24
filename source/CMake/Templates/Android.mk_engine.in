@@ -13,12 +13,12 @@ LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/Components/Overlay/include
 LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/PlugIns/ParticleFX/include -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/PlugIns/OctreeSceneManager/include 
 LOCAL_CFLAGS += -I@OGRE_DEPENDENCIES_DIR@/include -I@OGRE_DEPENDENCIES_DIR@/include/OIS -I@OGRE_BINARY_DIR@/Samples/include
 LOCAL_CFLAGS += -fexceptions -frtti -x c++ -D___ANDROID___ -DANDROID -DZZIP_OMIT_CONFIG_H -DUSE_RTSHADER_SYSTEM=1 
-LOCAL_CFLAGS += -I@AURA_SOURCE_DIR@/vuforia-2.0/include
+LOCAL_CFLAGS += -I@AURA_SOURCE_DIR@/vuforia-2.0/include @FLAG_RENDERSYSTEM@
 
 LOCAL_PATH := @AURA_SOURCE_DIR@/Engine
 
 LOCAL_SRC_FILES := AuraApplication.cpp AuraEngineAndroid.cpp ShaderController.cpp AuraIOEngineAndroid.cpp AuraEngine.cpp 
-LOCAL_SRC_FILES += AuraIOEngine.cpp #AuraQCARController.cpp
+LOCAL_SRC_FILES += AuraIOEngine.cpp AuraQCARController.cpp AuraJNIUtils.cpp
 
 include $(BUILD_STATIC_LIBRARY) 
 

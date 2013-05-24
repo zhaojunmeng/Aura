@@ -7,6 +7,13 @@ include_directories(${OGRE_SOURCE_DIR}/OgreMain/include)
 include_directories(${OGRE_BINARY_DIR}/include)
 include_directories(${AURA_SOURCE_DIR}/Engine)
 
+if (OGRE_BUILD_RENDERSYSTEM_GLES)
+  set(FLAG_RENDERSYSTEM "-DUSE_OPENGL_ES_1_1")
+endif ()
+if (OGRE_BUILD_RENDERSYSTEM_GLES2)
+  set(FLAG_RENDERSYSTEM "-DUSE_OPENGL_ES_2_0")
+endif ()
+
 configure_file("${OGRE_TEMPLATES_DIR}/Android.mk_engine.in" "${CMAKE_BINARY_DIR}/Android_engine.mk" @ONLY)
 
 # Make sure all plugins are built
