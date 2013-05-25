@@ -26,22 +26,16 @@
  -----------------------------------------------------------------------------
  */
 #include "OgrePlatform.h"
-
 #include "@APP_NAME@.h"
 
 
 // Different headers for different platforms (Main :) )
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-#include "AuraJNIUtils.h"
+//#include "AuraJNIUtils.h"
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {
-  Aura::AuraJNIUtils::getInstance()->setVM(vm);
-
-  // Load all the classes we need :)
-  Aura::AuraJNIUtils::getInstance()->loadAndCacheQCARClass();
-
-
+  //Aura::AuraJNIUtils::getInstance()->setVM(vm);
   return JNI_VERSION_1_6;
 }
 
@@ -69,7 +63,7 @@ int main(int argc, char *argv[]) {
     app_dummy();
 
     // We need it in order to load Java classes
-    Aura::AuraJNIUtils::getInstance()->setState(state);
+    //Aura::AuraJNIUtils::getInstance()->setState(state);
 
     Aura::@APP_NAME@ app (state, true);
     app.go();

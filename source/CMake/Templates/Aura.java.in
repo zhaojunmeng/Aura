@@ -1,26 +1,47 @@
 package com.cesardev.aura;
 
-import android.app.Activity;
-import android.content.Intent;
+import com.qualcomm.QCAR.QCAR;
+
+import android.app.NativeActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 
 /** Activity to do some initializations:
     - Load shared libraries
     - Init QCAR (Only in Java)
  */
-public class Aura extends Activity
+public class Aura extends NativeActivity
 {
+	int mScreenWidth, mScreenHeight;
 	
     /** Static initializer block to load native libraries on start-up. */
     static
     {
     	System.loadLibrary("QCAR");
-    	System.loadLibrary("@APP_NAME@");
+    	System.loadLibrary("TestApp");
     }
     
-    protected void onCreate(Bundle savedInstanceState){
-    	super.onCreate(savedInstanceState);
-    	Intent intent = new Intent(Aura.this, android.app.NativeActivity.class);
-    	Aura.this.startActivity(intent);
+    private native void startCamera(int width, int height);
+    
+    /** Stores screen dimensions */
+    private void storeScreenDimensions()
+    {
+        // Query display dimensions:
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        mScreenWidth = metrics.widthPixels;
+        mScreenHeight = metrics.heightPixels;
+    }
+
+    
+    protected void onCreate(Bundle savedInstanceState){ 
+    	super.onCreate(savedInstanceState);        
+    	    	
+    	// We need a Java part :)
+    	QCAR.setInitParameters(this, 2);
+    	QCAR.init();
+    	
+    	storeScreenDimensions();
+    	startCamera(mScreenWidth, mScreenHeight);    	
     }  
 }

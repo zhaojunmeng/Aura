@@ -9,66 +9,27 @@ namespace Aura{
   }
 
   
-  // Main function!
-  void AuraQCARController::init(){
+  // int AuraQCARController::QCAR_init(int flags){
+  //   JNIEnv* env;
+  //   struct android_app* state;
+  //   state = AuraJNIUtils::getInstance()->getState();
+
+  //   AuraJNIUtils::getInstance()->attachCurrentThread(env);
+  //   AuraJNIUtils::getInstance()->getEnv(&env);
+
+  //   jclass QCARClass = AuraJNIUtils::getInstance()->getQCARClass();
+
+  //   // Init parameters
+  //   jmethodID setInitParametersID = env->GetStaticMethodID(QCARClass, "setInitParameters", "(Landroid/app/Activity;I)V");
+  //   env->CallStaticVoidMethod(QCARClass, setInitParametersID, state->activity->clazz, getOpenGlEsVersion());
     
-    int initFlags = getOpenGlEsVersion();
-    QCAR_init(initFlags);
+  //   // Init QCAR
+  //   jmethodID initID = env->GetStaticMethodID(QCARClass, "init", "()I");
+  //   int retval = env->CallStaticIntMethod(QCARClass, initID);
+  //   AuraJNIUtils::getInstance()->detachCurrentThread();
 
-  }
-
-  int AuraQCARController::QCAR_init(int flags){
-    JNIEnv* env;
-    struct android_app* state;
-    state = AuraJNIUtils::getInstance()->getState();
-
-    AuraJNIUtils::getInstance()->attachCurrentThread(env);
-    AuraJNIUtils::getInstance()->getEnv(&env);
-
-    jclass QCARClass = AuraJNIUtils::getInstance()->getQCARClass();
-
-    jmethodID setInitParametersID = env->GetStaticMethodID(QCARClass, "setInitParameters", "(Landroid/app/Activity;I)V");
-    
-    // Init parameters
-    env->CallStaticVoidMethod(QCARClass, setInitParametersID, state->activity->clazz, 2);
-    
-    jmethodID initID = env->GetStaticMethodID(QCARClass, "init", "()I");
-        
-    // Init QCAR
-    int retval;
-    retval = env->CallStaticIntMethod(QCARClass, initID);
-
-    AuraJNIUtils::getInstance()->detachCurrentThread();
-
-    return retval;
-  }
-
-
-  int AuraQCARController::getOpenGlEsVersion(){
-#ifdef USE_OPENGL_ES_1_1
-    return 1;
-#else 
-#ifdef USE_OPENGL_ES_2_0
-    return 2;
-#else
-#error "Error choosing the OpenGL Version, constant not well defined?"
-#endif
-#endif
-  }
-
-
-  void AuraQCARController::setDisplayOrientation(bool isPortrait){
-    mPortraitOrientation = isPortrait;
-  }
-
-  void AuraQCARController::renderFrame(){
-    // Clear color and depth buffer 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    QCAR::State state = QCAR::Renderer::getInstance().begin();
-    QCAR::Renderer::getInstance().drawVideoBackground();
-    QCAR::Renderer::getInstance().end();
-  }
-
+  //   return retval;
+  // }
 
   void AuraQCARController::configureVideoBackground()
   {
@@ -112,40 +73,18 @@ namespace Aura{
 	  }
       }
 
-
     // Set the config:
     QCAR::Renderer::getInstance().setVideoBackgroundConfig(config);
   }
 
 
-  void AuraQCARController::initApplicationNative(int width, int height){
-    mScreenWidth = width;
-    mScreenHeight = height;
+  QCAR::Frame AuraQCARController::getFrame(){
+    QCAR::State  QCARState = QCAR::Renderer::getInstance().begin();
+    QCAR::Renderer::getInstance().drawVideoBackground();
+    QCAR::Frame frame = QCARState.getFrame();
+    QCAR::Renderer::getInstance().end();
+    return frame;
   }
-
-
-  void AuraQCARController::startCamera(){
-    // Select the camera to open, set this to QCAR::CameraDevice::CAMERA_FRONT 
-    // to activate the front camera instead.
-    QCAR::CameraDevice::CAMERA camera = QCAR::CameraDevice::CAMERA_DEFAULT;
-
-    // Initialize the camera:
-    if (!QCAR::CameraDevice::getInstance().init(camera))
-      return;
-
-    // Configure the video background
-    configureVideoBackground();
-
-    // Select the default mode:
-    if (!QCAR::CameraDevice::getInstance().selectVideoMode(
-							   QCAR::CameraDevice::MODE_DEFAULT))
-      return;
-
-    // Start the camera:
-    if (!QCAR::CameraDevice::getInstance().start())
-      return;
-  }
-
 
   void AuraQCARController::stopCamera(){
     QCAR::CameraDevice::getInstance().stop();
@@ -153,27 +92,90 @@ namespace Aura{
   }
 
 
-  void AuraQCARController::setProjectionMatrix(){
-    // Cache the projection matrix:
-    const QCAR::CameraCalibration& cameraCalibration =
-      QCAR::CameraDevice::getInstance().getCameraCalibration();
-    projectionMatrix = QCAR::Tool::getProjectionGL(cameraCalibration, 2.0f, 2500.0f);
-  }
+  // void AuraQCARController::setProjectionMatrix(){
+  //   // Cache the projection matrix:
+  //   const QCAR::CameraCalibration& cameraCalibration =
+  //     QCAR::CameraDevice::getInstance().getCameraCalibration();
+  //   projectionMatrix = QCAR::Tool::getProjectionGL(cameraCalibration, 2.0f, 2500.0f);
+  // }
+
+  // void AuraQCARController::setDisplayOrientation(bool isPortrait){
+  //   mPortraitOrientation = isPortrait;
+  // }
  
  
-  void AuraQCARController::initRendering(){
-    // Define clear color
-    glClearColor(0.0f, 0.0f, 0.0f, QCAR::requiresAlpha() ? 0.0f : 1.0f);
-  }
+  // void AuraQCARController::initRendering(){
+  //   // Define clear color
+  //   glClearColor(0.0f, 0.0f, 0.0f, QCAR::requiresAlpha() ? 0.0f : 1.0f);
+  // }
  
 
-  void AuraQCARController::updateRendering(int width, int height){
-    // Update screen dimensions
-    mScreenWidth = width;
-    mScreenHeight = height;
+  // void AuraQCARController::updateRendering(int width, int height){
+  //   // Update screen dimensions
+  //   mScreenWidth = width;
+  //   mScreenHeight = height;
    
-    // Reconfigure the video background
-    configureVideoBackground();
-  }
+  //   // Reconfigure the video background
+  //   configureVideoBackground();
+  // }
+
+
+  // void AuraQCARController::renderFrame(){
+  //   // Clear color and depth buffer 
+  //   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  //   QCAR::State state = QCAR::Renderer::getInstance().begin();
+  //   QCAR::Renderer::getInstance().drawVideoBackground();
+  //   QCAR::Renderer::getInstance().end();
+  // }
+
 
 }
+
+extern "C"
+{
+  JNIEXPORT void JNICALL
+  Java_com_cesardev_aura_Aura_startCamera(JNIEnv *, jobject, int screenWidth, int screenHeight)
+  {
+
+    Aura::AuraQCARController::getInstance()->setScreenWidth(screenWidth);
+    Aura::AuraQCARController::getInstance()->setScreenHeight(screenHeight);
+
+    // Select the camera to open, set this to QCAR::CameraDevice::CAMERA_FRONT 
+    // to activate the front camera instead.
+    QCAR::CameraDevice::CAMERA camera = QCAR::CameraDevice::CAMERA_DEFAULT;
+
+    // Initialize the camera:
+    if (!QCAR::CameraDevice::getInstance().init(camera)){
+      return ;
+    }
+    // Configure the video background
+    Aura::AuraQCARController::getInstance()->configureVideoBackground();
+
+    // Select the default mode:
+    if (!QCAR::CameraDevice::getInstance().selectVideoMode(QCAR::CameraDevice::MODE_DEFAULT)){
+      return ;
+    }
+
+    // Start the camera:
+    if (!QCAR::CameraDevice::getInstance().start()){
+      return ;
+    }
+  }
+
+
+
+  JNIEXPORT int JNICALL
+  Java_com_cesardev_aura_Aura_getOpenGlVersion(JNIEnv*, jobject){
+
+#ifdef USE_OPENGL_ES_1_1
+    return 1;
+#else 
+#ifdef USE_OPENGL_ES_2_0
+    return 2;
+#else
+#error "Error choosing the OpenGL Version, constant not well defined?"
+#endif
+#endif
+  }
+
+} // extern "C"

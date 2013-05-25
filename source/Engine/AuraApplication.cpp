@@ -16,10 +16,7 @@ namespace Aura{
   }
 #endif
 
-
   void AuraApplication::go(){
-    mQCARController->init();
-        
     // Init the Engine
     mEngine->init();
     
@@ -33,15 +30,33 @@ namespace Aura{
     mIOEngine->setupInput(mWindow);
     
     // Create the scene
-    createScene();
+     createScene();
     
     // Run the loop! (Just the loop)
     while (mRunning)
       {
-	
+
+	// Get the frame
+	LOGI("----- Starting frame ------");
+	QCAR::Frame frame = mQCARController->getFrame();
+
+	char str[100];
+	sprintf(str,"Timestamp %d",frame.getTimeStamp());
+	LOGI(str);
+	LOGI("Number of images and their format:");
+	sprintf(str,"N images: %d",frame.getNumImages());
+	LOGI(str);
+	for(int i=0; i<frame.getNumImages();i++){
+	  sprintf(str,"format: %d", frame.getImage(i)->getFormat());
+	  LOGI(str);
+
+	}
+
 	mIOEngine->capture();
 	if(!mEngine->auraFrameStarted()) break;
 	
+	mEngine->drawBackground(frame);
+
 	if(!mEngine->auraRenderOneFrame()) break;
 	
 	mEngine->auraFrameEnded();
@@ -58,7 +73,7 @@ namespace Aura{
 
 
   void AuraApplication::_setup(){
-    mQCARController = new AuraQCARController();
+    mQCARController = AuraQCARController::getInstance();
     mRunning = true;
   }
 

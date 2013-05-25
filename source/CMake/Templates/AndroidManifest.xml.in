@@ -20,25 +20,20 @@
       android:icon="@drawable/ic_launcher"
       android:launchMode="singleTask"
       android:hardwareAccelerated="true" 
-      android:allowBackup="true">
+      android:allowBackup="true"
+      android:hasCode="true">
 
     <activity
 	android:name="Aura"
 	android:screenOrientation="landscape"
 	android:configChanges="keyboardHidden|screenSize|smallestScreenSize"
 	android:noHistory="true" >
+      <meta-data android:name="android.app.lib_name" android:value="@APP_NAME@" />
       <intent-filter>
 	<action android:name="android.intent.action.MAIN" />
 	<category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name="android.app.NativeActivity"
-	      android:label="@APP_NAME@"
-	      android:configChanges="orientation@SCREEN_SIZE@|keyboardHidden"
-	      android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-      <!-- Tell NativeActivity the name of or .so -->
-      <meta-data android:name="android.app.lib_name" android:value="@APP_NAME@" />
-    </activity> 
   </application>
 
 </manifest>

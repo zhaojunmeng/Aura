@@ -26,30 +26,32 @@
   -----------------------------------------------------------------------------
 */
 #include "OgrePlatform.h"
+
 #include "TestApp.h"
 
 
 // Different headers for different platforms (Main :) )
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-
+#include <jni.h>
 #include "AuraJNIUtils.h"
+#include <QCAR/QCAR.h>
+#include <QCAR/CameraDevice.h>
+#include <QCAR/Renderer.h>
+#include <QCAR/VideoBackgroundConfig.h>
+#include <QCAR/Tool.h>
+#include <QCAR/CameraCalibration.h>
+#include <QCAR/Frame.h>
+#include <QCAR/Image.h>
 
 
-#include <android/log.h>
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
-#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
 
+jint JNI_OnLoad(JavaVM* vm, void* reserved){
 
-jint JNI_OnLoad(JavaVM* vm, void* reserved)
-{
-
-  Aura::AuraJNIUtils::getInstance()->setVM(vm);
-
-  // Load all the classes we need :)
-  Aura::AuraJNIUtils::getInstance()->loadAndCacheQCARClass();
-  
   return JNI_VERSION_1_6;
 }
+
+
+
 
 
 void android_main(struct android_app* state) {
@@ -74,11 +76,10 @@ void android_main(struct android_app* state) {
 #elif OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     // Make sure glue isn't stripped.
     app_dummy();
-    
+
     // We need it in order to load Java classes
     Aura::AuraJNIUtils::getInstance()->setState(state);
-
-        
+   
     Aura::TestApp app (state, true);
     app.go();
 #else

@@ -9,7 +9,7 @@ namespace Aura{
     AuraEngineAndroid::mInstance = this;
 
     mState->onAppCmd = &Aura::AuraEngineAndroid::handleCmd;
-    mState->onInputEvent = &Aura::AuraEngineAndroid::handleInput;
+
       
     mRoot = new Ogre::Root("");
     mStaticPluginLoader.load();
@@ -38,6 +38,8 @@ namespace Aura{
 	      return;
 	  }
       }
+
+    mState->onInputEvent = &Aura::AuraEngineAndroid::handleInput;
   }
 
   void AuraEngineAndroid::shutdown()
@@ -51,7 +53,6 @@ namespace Aura{
     mRoot = NULL;
     mWindow = NULL;
             
-            
     mStaticPluginLoader.unload();
 
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -60,19 +61,21 @@ namespace Aura{
   }
 
   int32_t AuraEngineAndroid::handleInput(struct android_app* app, AInputEvent* event){
-    if (AuraEngineAndroid::mInstance->mIOEngine){
-      if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION){
-	int action = (int)(AMOTION_EVENT_ACTION_MASK & AMotionEvent_getAction(event));
+
+      if (AuraEngineAndroid::mInstance->mIOEngine){
+	if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION){
+	  int action = (int)(AMOTION_EVENT_ACTION_MASK & AMotionEvent_getAction(event));
                     
-	if(action == 0)
-	  AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(2, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
+	  if(action == 0)
+	    AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(2, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
                     
-	AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(action, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
-      }else {
-	AuraEngineAndroid::mInstance->mIOEngine->injectKeyEvent(AKeyEvent_getAction(event), AKeyEvent_getKeyCode(event));
+	  AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(action, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
+	}else {
+	  AuraEngineAndroid::mInstance->mIOEngine->injectKeyEvent(AKeyEvent_getAction(event), AKeyEvent_getKeyCode(event));
+	}
+	return 1;
       }
-      return 1;
-    }
+
     return 0;
   }
         
@@ -97,17 +100,19 @@ namespace Aura{
 		AuraEngineAndroid::mInstance->mWindow = AuraEngineAndroid::mInstance->mRoot->createRenderWindow("AuraWindow", 0, 0, false, &opt);
    
 		if(AuraEngineAndroid::mInstance->mState != NULL)
-		  {
-		    AuraEngineAndroid::mInstance->mAssetMgr = AuraEngineAndroid::mInstance->mState->activity->assetManager;
-		    Ogre::ArchiveManager::getSingleton().addArchiveFactory( new Ogre::APKFileSystemArchiveFactory(AuraEngineAndroid::mInstance->mState->activity->assetManager));
-		    Ogre::ArchiveManager::getSingleton().addArchiveFactory( new Ogre::APKZipArchiveFactory(AuraEngineAndroid::mInstance->mState->activity->assetManager) );
-		  }
+		{
+		      AuraEngineAndroid::mInstance->mAssetMgr = AuraEngineAndroid::mInstance->mState->activity->assetManager;
+		  Ogre::ArchiveManager::getSingleton().addArchiveFactory( new Ogre::APKFileSystemArchiveFactory(AuraEngineAndroid::mInstance->mState->activity->assetManager));
+		  Ogre::ArchiveManager::getSingleton().addArchiveFactory( new Ogre::APKZipArchiveFactory(AuraEngineAndroid::mInstance->mState->activity->assetManager) );
+		}
 
 		AuraEngineAndroid::mInstance->initApp();
 	      }
+       
 	    else
 	      {
 		static_cast<Ogre::AndroidEGLWindow*>(AuraEngineAndroid::mInstance->mWindow)->_createInternalResources(AuraEngineAndroid::mInstance->mState->window, config);
+		
 	      }
 	  
 	    AConfiguration_delete(config);

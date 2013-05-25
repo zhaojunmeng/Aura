@@ -3,8 +3,11 @@
 
 #include <jni.h>
 #include <android/log.h>
+#include <android/native_activity.h>
+#include <android_native_app_glue.h>
 
-#include "AuraJNIUtils.h"
+//#include "AuraJNIUtils.h"
+#include "Singleton.h"
 
 #ifdef USE_OPENGL_ES_1_1
 #include <GLES/gl.h>
@@ -20,40 +23,49 @@
 #include <QCAR/VideoBackgroundConfig.h>
 #include <QCAR/Tool.h>
 #include <QCAR/CameraCalibration.h>
+#include <QCAR/Frame.h>
+#include <QCAR/Image.h>
 
 namespace Aura{
 
-  class AuraQCARController{
+
+  class AuraQCARController: public Singleton<AuraQCARController>{
 
   public:  
     AuraQCARController();
-
     ~AuraQCARController();
   
-    // Main function!
-    void init();
+    QCAR::Frame getFrame();
 
-  private:
-    int QCAR_init(int flags);
-    int getOpenGlEsVersion();
-    void setDisplayOrientation(bool isPortrait);
-    void renderFrame();
+    void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
+    void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
     void configureVideoBackground();
-    void initApplicationNative(int width, int height);
-    void startCamera();
     void stopCamera();
-    void setProjectionMatrix();
-    void initRendering();
-    void updateRendering(int width, int height);
-    unsigned int mScreenWidth;
-    unsigned int mScreenHeight;
-    bool mPortraitOrientation;
+    //void startCamera();
 
   private:
-    QCAR::Matrix44F projectionMatrix;
+
+
+
+
+    // void setDisplayOrientation(bool isPortrait);
+    //void renderFrame();
+    //void initApplicationNative(int width, int height);
+    
+    //void setProjectionMatrix();
+    //void initRendering();
+    //void updateRendering(int width, int height);
+
+  private:
     // Tracker
     // Targets
     // Camera
+
+    unsigned int mScreenWidth;
+    unsigned int mScreenHeight;
+    bool mPortraitOrientation;
+    QCAR::Matrix44F projectionMatrix;
+
   };
 
 }

@@ -18,7 +18,7 @@ LOCAL_CFLAGS += -I@AURA_SOURCE_DIR@/vuforia-2.0/include @FLAG_RENDERSYSTEM@
 LOCAL_PATH := @AURA_SOURCE_DIR@/Engine
 
 LOCAL_SRC_FILES := AuraApplication.cpp AuraEngineAndroid.cpp ShaderController.cpp AuraIOEngineAndroid.cpp AuraEngine.cpp 
-LOCAL_SRC_FILES += AuraIOEngine.cpp AuraQCARController.cpp AuraJNIUtils.cpp
+LOCAL_SRC_FILES += AuraIOEngine.cpp AuraQCARController.cpp #AuraJNIUtils.cpp
 
 include $(BUILD_STATIC_LIBRARY) 
 

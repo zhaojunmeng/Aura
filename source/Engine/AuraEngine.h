@@ -35,6 +35,8 @@
 #include "OgreFileSystemLayer.h"
 #include "OgreOverlaySystem.h"
 
+#include "AuraQCARController.h"
+
 #if OGRE_PLATFORM == OGRE_PLATFORM_WINRT
 // For the phone we only support running from the cache file.
 #    define ENABLE_SHADERS_CACHE_LOAD 1
@@ -139,6 +141,9 @@ namespace Aura
       void locateResources();
       void loadResources(){ Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();}
       void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
+
+      void drawBackground(const QCAR::Frame& frame);
+      void createBackground();
       
     protected:
       AuraApplication* mAppCallback;
@@ -149,6 +154,9 @@ namespace Aura
       Ogre::SceneManager* mSceneManager;
       Ogre::Camera* mCamera;
       Ogre::RenderWindow* mWindow;    // render window
+      int mScreenWidth;
+      int mScreenHeight;
+
 #ifdef USE_RTSHADER_SYSTEM
       ShaderController* mShaderController;
 #endif
