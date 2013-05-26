@@ -26,6 +26,12 @@
 #include <QCAR/Frame.h>
 #include <QCAR/Image.h>
 
+
+
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
+#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
+
+
 namespace Aura{
 
 
@@ -40,6 +46,12 @@ namespace Aura{
     void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
     void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
     void configureVideoBackground();
+
+    int getScreenWidth(){ return mScreenWidth; }
+    int getScreenHeight(){ return mScreenHeight; }
+
+    void setProjectionMatrix();
+
     void stopCamera();
     //void startCamera();
 
@@ -52,7 +64,7 @@ namespace Aura{
     //void renderFrame();
     //void initApplicationNative(int width, int height);
     
-    //void setProjectionMatrix();
+    
     //void initRendering();
     //void updateRendering(int width, int height);
 

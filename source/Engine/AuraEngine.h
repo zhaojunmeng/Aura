@@ -157,6 +157,10 @@ namespace Aura
       int mScreenWidth;
       int mScreenHeight;
 
+      // Some variables to optimize backgrond drawing
+      float widthRatio, heightRatio;
+      int frameRowSlice;
+
 #ifdef USE_RTSHADER_SYSTEM
       ShaderController* mShaderController;
 #endif
