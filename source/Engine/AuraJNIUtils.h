@@ -7,6 +7,8 @@
 
 namespace Aura{
 
+  class AuraApplication;
+
   class AuraJNIUtils: public Singleton<AuraJNIUtils>{
     
   public:
@@ -17,10 +19,12 @@ namespace Aura{
 
     void setVM(JavaVM* vm);
     void setState(struct android_app* state);
+    void setAuraApp(AuraApplication* app);
 
     struct android_app* getState();
     void getEnv(JNIEnv** env);
     JavaVM* getVM();
+    AuraApplication* getAuraApp();
     jclass getQCARClass();
 
     void attachCurrentThread(JNIEnv* env);
@@ -29,6 +33,7 @@ namespace Aura{
   private:
     JavaVM* mVm;
     struct android_app* mState;
+    AuraApplication* mApp;
     jclass mQCARClass;
   };
 

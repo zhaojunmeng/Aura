@@ -2,8 +2,8 @@
 
 namespace Aura{
 
-  AuraIOEngine::AuraIOEngine(bool nograb){
-    mNoGrabInput;
+  AuraIOEngine::AuraIOEngine(){
+    mNoGrabInput = true;
     mKeyboard = 0;
     mMouse = 0;
 #if OIS_WITH_MULTITOUCH

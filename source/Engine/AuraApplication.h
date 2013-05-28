@@ -37,7 +37,6 @@
 #endif
 
 #include "AuraQCARController.h"
-#include "AuraIOEngine.h"
 #include "AuraJNIUtils.h"
 
 namespace Aura
@@ -55,40 +54,35 @@ namespace Aura
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     friend class AuraEngineAndroid;
-    AuraApplication(struct android_app* state, bool nograb);
 #else
     friend class AuraEngine;
-    AuraApplication(bool nograb);
 #endif
+
+    AuraApplication();
 
     /* Main public methods :) */
     void go();
     void finish();
 
+    virtual void initTracker() = 0;
+
   protected:
     /* Ogre create scene */
-    virtual void createScene(){}
+    virtual void createScene() = 0;
 
-    /* Activity / Applet life cycle methods */
-    virtual void onStart(){}
-    virtual void onResume(){}
-    virtual void onPause(){}
-    virtual void onStop(){}
-    virtual void onDestroy(){}
 
-    bool mRunning;
+
     AuraEngine* mEngine;
-    AuraIOEngine* mIOEngine;
     Ogre::Root* mRoot;
     Ogre::SceneManager* mSceneManager;
     Ogre::Camera* mCamera;
     Ogre::RenderWindow* mWindow;
     AuraQCARController* mQCARController;
-#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-    struct android_app* mState;
-#endif
+
   private:
+    void _setupAuraInterface();
     void _setup();
+    bool mRunning;
   };
 }
 

@@ -12,6 +12,7 @@
 #include "AuraEngine.h"
 #include "AuraIOEngineAndroid.h"
 #include "AuraApplication.h"
+#include "AuraJNIUtils.h"
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
@@ -19,11 +20,11 @@
 
 namespace Aura{
 
-  class AuraEngineAndroid: public AuraEngine
+  class AuraEngineAndroid:  public AuraEngine
   {
   public:
 
-    AuraEngineAndroid(struct android_app* state, AuraIOEngineAndroid* ioEngine);
+    AuraEngineAndroid();
       
     virtual void init();
     virtual void shutdown();
@@ -39,7 +40,6 @@ namespace Aura{
     static AuraEngineAndroid* mInstance;
     struct android_app* mState;
     AAssetManager* mAssetMgr;       // Android asset manager to access files inside apk
-    AuraIOEngineAndroid* mIOEngine;
     bool mInit;
   };
 

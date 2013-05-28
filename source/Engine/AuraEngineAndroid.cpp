@@ -4,13 +4,14 @@ namespace Aura{
 
   AuraEngineAndroid* AuraEngineAndroid::mInstance = NULL;
 
-  AuraEngineAndroid::AuraEngineAndroid(struct android_app* state, AuraIOEngineAndroid* ioEngine): AuraEngine(), mState(state), mIOEngine(ioEngine){
+  AuraEngineAndroid::AuraEngineAndroid(): AuraEngine(){
       
     AuraEngineAndroid::mInstance = this;
 
-    mState->onAppCmd = &Aura::AuraEngineAndroid::handleCmd;
+    mState = AuraJNIUtils::getInstance()->getState();
 
-      
+    mState->onAppCmd = &Aura::AuraEngineAndroid::handleCmd;
+    mState = AuraJNIUtils::getInstance()->getState();
     mRoot = new Ogre::Root("");
     mStaticPluginLoader.load();
     mRoot->setRenderSystem(mRoot->getAvailableRenderers().at(0));
@@ -40,6 +41,10 @@ namespace Aura{
       }
 
     mState->onInputEvent = &Aura::AuraEngineAndroid::handleInput;
+
+    mIOEngine = new AuraIOEngineAndroid();
+    mIOEngine->setupInput(mWindow);
+
   }
 
   void AuraEngineAndroid::shutdown()
@@ -67,11 +72,11 @@ namespace Aura{
 	  int action = (int)(AMOTION_EVENT_ACTION_MASK & AMotionEvent_getAction(event));
                     
 	  if(action == 0)
-	    AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(2, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
+	    static_cast<AuraIOEngineAndroid*>(AuraEngineAndroid::mInstance->mIOEngine)->injectTouchEvent(2, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
                     
-	  AuraEngineAndroid::mInstance->mIOEngine->injectTouchEvent(action, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
+	  static_cast<AuraIOEngineAndroid*>(AuraEngineAndroid::mInstance->mIOEngine)->injectTouchEvent(action, AMotionEvent_getRawX(event, 0), AMotionEvent_getRawY(event, 0) );
 	}else {
-	  AuraEngineAndroid::mInstance->mIOEngine->injectKeyEvent(AKeyEvent_getAction(event), AKeyEvent_getKeyCode(event));
+	static_cast<AuraIOEngineAndroid*>(AuraEngineAndroid::mInstance->mIOEngine)->injectKeyEvent(AKeyEvent_getAction(event), AKeyEvent_getKeyCode(event));
 	}
 	return 1;
       }
@@ -139,9 +144,7 @@ namespace Aura{
       // 	break;
       // case APP_CMD_LOW_MEMORY:
       // 	break;
-      // case APP_CMD_START:
-      // 	AuraEngineAndroid::mInstance->onStart();
-      // 	AuraEngineAndroid::mInstance->mAppCallback->onStart();
+      //case APP_CMD_START:
       // 	break;
       // case APP_CMD_RESUME:
       // 	AuraEngineAndroid::mInstance->onResume();
@@ -167,6 +170,8 @@ namespace Aura{
     int ident, events;
     struct android_poll_source* source;
 
+    mIOEngine->capture();
+
     while ((ident = ALooper_pollAll(0, NULL, &events, (void**)&source)) >= 0)
       {
 	if (source != NULL)
@@ -182,6 +187,7 @@ namespace Aura{
   bool AuraEngineAndroid::auraRenderOneFrame(){
     if(mWindow != NULL && mWindow->isActive())
       {
+	updateBackground();
 	mWindow->windowMovedOrResized();
 	return mRoot->renderOneFrame();
       }

@@ -3,67 +3,82 @@
 namespace Aura {
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-AuraApplication::AuraApplication(struct android_app* state, bool nograb) :
-		mState(state) {
-	mIOEngine = new AuraIOEngineAndroid(nograb); // Closely related to Android Ogre Engine
-	mEngine = new AuraEngineAndroid(state,
-			static_cast<AuraIOEngineAndroid*>(mIOEngine));
-	_setup();
-}
+  AuraApplication::AuraApplication() {
+    mEngine = new AuraEngineAndroid();
+     _setup();
+  }
 #else
-AuraApplication::AuraApplication(bool nograb) {
-	mEngine = new AuraEngine();
-	mIOEngine = new AuraIOEngine(nograb);
-	_setup();
-}
+  AuraApplication::AuraApplication() {
+    mEngine = new AuraEngine();
+     _setup();
+  }
 #endif
 
-void AuraApplication::go() {
-	// Init the Engine
-	mEngine->init();
+  void AuraApplication::go() {
+    // Init the Engine
+    mEngine->init();
 
-	// Retrieve the main objects
-	mRoot = mEngine->mRoot;
-	mSceneManager = mEngine->mSceneManager;
-	mCamera = mEngine->mCamera;
-	mWindow = mEngine->mWindow;
+    // Right before calling the custom create scene
+    _setupAuraInterface();
 
-	// Init the IO
-	mIOEngine->setupInput(mWindow);
+    // Create the nodes for the AR :(
+    mQCARController->createImageSceneNodes();
 
-	// Create the scene
-	createScene();
+    // Create the scene
+    createScene();
 
-	// Run the loop! (Just the loop)
-	while (mRunning) {
+    // Run the loop! (Just the loop)
+    while (mRunning) {
 
-		mIOEngine->capture();
+      if (!mEngine->auraFrameStarted())
+	break;
 
-		if (!mEngine->auraFrameStarted())
-			break;
+      // Draw the frame
+      mQCARController->update();
 
-		QCAR::Frame frame = mQCARController->getFrame();
-		mEngine->drawBackground(frame);
+      QCAR::Frame frame = mQCARController->getFrame();
 
-		if (!mEngine->auraRenderOneFrame())
-			break;
+      // Update trackable positions
+      if (!mEngine->auraRenderOneFrame())
+	break;
 
-		mEngine->auraFrameEnded();
-	}
+      mEngine->auraFrameEnded();
+    }
 
-	// Shutting down :)
-	mEngine->shutdown();
+    // Shutting down :)
+    mEngine->shutdown();
+
+  }
+
+  void AuraApplication::_setupAuraInterface(){
+    // Retrieve the main objects
+    mRoot = mEngine->mRoot;
+    mSceneManager = mEngine->mSceneManager;
+    mCamera = mEngine->mCamera;
+    mWindow = mEngine->mWindow;
+    mQCARController = AuraQCARController::getInstance();    
+  }
+
+  void AuraApplication::finish() {
+    mRunning = false;
+  }
+
+  void AuraApplication::_setup() {
+
+    mRunning = true;
+  }
 
 }
 
-void AuraApplication::finish() {
-	mRunning = false;
-}
+/* Lets put here the interface with the Java VM */
+extern "C" {
+  JNIEXPORT void JNICALL
+  Java_com_cesardev_aura_Aura_initQCARNative(JNIEnv*, jobject, int width, int height) {
+    Aura::AuraQCARController::getInstance()->setScreenWidth(width);
+    Aura::AuraQCARController::getInstance()->setScreenHeight(height);
+    Aura::AuraJNIUtils::getInstance()->getAuraApp()->initTracker();
+    Aura::AuraQCARController::getInstance()->startCamera();
+  }
 
-void AuraApplication::_setup() {
-	mQCARController = AuraQCARController::getInstance();
-	mRunning = true;
-}
-
-}
+} // extern "C"
 

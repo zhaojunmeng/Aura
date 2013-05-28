@@ -12,8 +12,6 @@ import android.util.DisplayMetrics;
  */
 public class Aura extends NativeActivity
 {
-	int mScreenWidth, mScreenHeight;
-	
     /** Static initializer block to load native libraries on start-up. */
     static
     {
@@ -21,7 +19,9 @@ public class Aura extends NativeActivity
     	System.loadLibrary("TestApp");
     }
     
-    private native void startCamera(int width, int height);
+    int width, height;
+
+    private native void initQCARNative(int width, int height);
     
     /** Stores screen dimensions */
     private void storeScreenDimensions()
@@ -29,8 +29,8 @@ public class Aura extends NativeActivity
         // Query display dimensions:
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        mScreenWidth = metrics.widthPixels;
-        mScreenHeight = metrics.heightPixels;
+	width = metrics.widthPixels;
+	height = metrics.heightPixels;
     }
 
     
@@ -40,8 +40,7 @@ public class Aura extends NativeActivity
     	// We need a Java part :)
     	QCAR.setInitParameters(this, 2);
     	QCAR.init();
-    	
-    	storeScreenDimensions();
-    	startCamera(mScreenWidth, mScreenHeight);    	
+	storeScreenDimensions();
+    	initQCARNative(width, height);
     }  
 }

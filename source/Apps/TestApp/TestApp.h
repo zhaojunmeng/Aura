@@ -1,3 +1,4 @@
+
 #ifndef _TEST_APP_H_
 #define _TEST_APP_H_
 
@@ -11,20 +12,21 @@ namespace Aura{
 
  public:
   virtual void createScene(){
-    mIOEngine->setIOCallback(this); // Very important line
+    // Set the IO Callback
+    mEngine->setIOCallback(this); // Very important line
     
-    mCamera->setPosition(Ogre::Vector3(5,10,20));
-    mCamera->lookAt(Ogre::Vector3(0,0,0));
-    mCamera->setNearClipDistance(5);
-    mCamera->setFarClipDistance(10000);
-    mCamera->setNearClipDistance(0.1);
-
     Ogre::Entity* sinbad = mSceneManager->createEntity("Sinbad.mesh");
-    Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("SinbadNode");
+    //    Ogre::SceneNode* sinbadNode = mSceneManager->getSceneNode("chips");
+    Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("sinbad");
+    sinbadNode->setScale(Ogre::Vector3(10,10,10));
     sinbadNode->attachObject(sinbad);
     
    }
 
+  virtual void initTracker(){
+    // Loading the data :)
+    mQCARController->loadImageData("StonesAndChips", "StonesAndChips.xml");
+  }
 
   virtual bool keyPressed(const OIS::KeyEvent& evt){ 
      if(evt.key == OIS::KC_ESCAPE){ 
@@ -60,11 +62,7 @@ namespace Aura{
   virtual void destroyApp(){
   }
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
- TestApp(struct android_app* state, bool nograb): AuraApplication(state, nograb){}
-#else
- TestApp(bool nograb): AuraApplication(nograb){}
-#endif
+ TestApp(): AuraApplication(){}
 
   
   ~TestApp(){

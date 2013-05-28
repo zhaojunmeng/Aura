@@ -8,7 +8,6 @@ set(OGRE_MEDIA_DIR_REL ${CMAKE_CURRENT_SOURCE_DIR})
 configure_file("${AURA_SOURCE_DIR}/Engine/main.cpp.in" "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp" @ONLY)
 
 set(APP_SOURCE_FILES
-  main.cpp
   TestApp.cpp
   )
 
@@ -57,7 +56,7 @@ if(ANDROID)
   SET(ANDROID_MOD_NAME "${APP_NAME}")
   SET(JNI_SRC "LOCAL_PATH := @CMAKE_SOURCE_DIR@/source/Apps/${APP_NAME}/\n")
   STRING(REGEX REPLACE ";" " " APP_SOURCE_FILES_ANDROID "${APP_SOURCE_FILES}")
-  SET(JNI_SRC "${JNI_SRC}\nLOCAL_SRC_FILES := ${APP_SOURCE_FILES_ANDROID} \n")
+  SET(JNI_SRC "${JNI_SRC}\nLOCAL_SRC_FILES := ${APP_SOURCE_FILES_ANDROID} main.cpp \n")
   
   if(NOT ANDROID_GLES_ONLY)
     configure_file("${OGRE_TEMPLATES_DIR}/Android.mk_app.in" "${NDKOUT}/jni/Android.mk" @ONLY)
@@ -68,6 +67,7 @@ if(ANDROID)
   configure_file("${OGRE_TEMPLATES_DIR}/Aura.java.in" "${NDKOUT}/src/com/cesardev/aura/Aura.java" @ONLY)
   
   file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/media" DESTINATION "${NDKOUT}/assets")
+  file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/ar" DESTINATION "${NDKOUT}/assets")
   file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/../SDK/RTShaderLib" DESTINATION "${NDKOUT}/assets")
   file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/../SDK/Android/.classpath" DESTINATION "${NDKOUT}/")
   file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/../SDK/Android/drawable-hdpi" DESTINATION "${NDKOUT}/res")

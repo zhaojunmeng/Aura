@@ -68,7 +68,7 @@ namespace Aura{
         
   public:
         
-    AuraIOEngineAndroid(bool nograb);
+    AuraIOEngineAndroid();
 
     void injectKeyEvent(int action, int32_t keyCode);
     void injectTouchEvent(int action, float x, float y, int pointerId = 0);

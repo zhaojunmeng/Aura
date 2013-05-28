@@ -35,7 +35,9 @@
 #include "OgreFileSystemLayer.h"
 #include "OgreOverlaySystem.h"
 
+#include "AuraIOEngine.h"
 #include "AuraQCARController.h"
+#include "Singleton.h"
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_WINRT
 // For the phone we only support running from the cache file.
@@ -119,9 +121,16 @@ namespace Aura
       void setup();
       virtual void shutdown();
 
+      virtual void setIOCallback(AuraIOListener* callback){
+	mIOEngine->setIOCallback(callback);
+      }
+
       virtual bool auraFrameStarted(){return true;}
       virtual bool auraFrameEnded(){return true;}
       virtual bool auraRenderOneFrame(){
+	// Update background
+	mIOEngine->capture();
+	updateBackground();
 	Ogre::WindowEventUtilities::messagePump();
 	return mRoot->renderOneFrame();
       }
@@ -142,11 +151,12 @@ namespace Aura
       void loadResources(){ Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();}
       void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
 
-      void drawBackground(const QCAR::Frame& frame);
+      void updateBackground();
       void createBackground();
       
     protected:
       AuraApplication* mAppCallback;
+      AuraIOEngine* mIOEngine;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
       Ogre::Root* mRoot;              // OGRE root
       Ogre::OverlaySystem* mOverlaySystem;  // Overlay system

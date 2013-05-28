@@ -31,13 +31,16 @@
 
 // Different headers for different platforms (Main :) )
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-//#include "AuraJNIUtils.h"
+
+#include "AuraJNIUtils.h"
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {
-  //Aura::AuraJNIUtils::getInstance()->setVM(vm);
+  Aura::AuraJNIUtils::getInstance()->setVM(vm);
+  //Aura::AuraJNIUtils::getInstance()->loadAndCacheQCARClass();
   return JNI_VERSION_1_6;
 }
+
 
 void android_main(struct android_app* state) {
 #else
@@ -62,14 +65,15 @@ int main(int argc, char *argv[]) {
     // Make sure glue isn't stripped.
     app_dummy();
 
-    // We need it in order to load Java classes
-    //Aura::AuraJNIUtils::getInstance()->setState(state);
+    Aura::AuraJNIUtils::getInstance()->setState(state);
+    Aura::TestApp app;
+    Aura::AuraJNIUtils::getInstance()->setAuraApp(&app);
 
-    Aura::TestApp app (state, true);
     app.go();
+
  #else
     // Run everything
-    Aura::TestApp app (true);
+    Aura::TestApp app;
     app.go();
     return 0;
  #endif

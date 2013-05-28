@@ -8,6 +8,7 @@ AuraEngine::AuraEngine() {
 	mRoot = 0;
 	mWindow = 0;
 	mOverlaySystem = 0;
+
 #ifdef USE_RTSHADER_SYSTEM
 	mShaderController = 0;
 #endif
@@ -22,6 +23,9 @@ void AuraEngine::init() {
 	Ogre::String nextRenderer = mRoot->getAvailableRenderers()[0]->getName();
 	mRoot->setRenderSystem(mRoot->getRenderSystemByName(nextRenderer));
 	setup();
+
+	mIOEngine = new AuraIOEngine();
+	mIOEngine->setupInput(mWindow);
 }
 
 Ogre::RenderWindow* AuraEngine::createWindow() {
@@ -39,6 +43,9 @@ void AuraEngine::setup() {
 	mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
 	mSceneManager->addRenderQueueListener(mOverlaySystem);
 	mCamera = mSceneManager->createCamera("Camera");
+	mCamera->setFarClipDistance(1000);
+	mCamera->setNearClipDistance(0.1); 
+
 
 	// Load shader!!
 #ifdef USE_RTSHADER_SYSTEM
@@ -98,7 +105,9 @@ void AuraEngine::shutdown() {
 #endif
 }
 
-void AuraEngine::drawBackground(const QCAR::Frame& frame) {
+void AuraEngine::updateBackground() {
+
+  QCAR::Frame& frame = AuraQCARController::getInstance()->getFrame();
 
 	Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().getByName(
 			"BackgroundTex",
