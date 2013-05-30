@@ -34,8 +34,7 @@ Ogre::RenderWindow* AuraEngine::createWindow() {
 }
 
 void AuraEngine::setup() {
-	if (mWindow == NULL)
-		mWindow = createWindow();
+	if (mWindow == NULL) mWindow = createWindow();
 
 	mScreenWidth = mWindow->getWidth();
 	mScreenHeight = mWindow->getHeight();
@@ -89,20 +88,25 @@ void AuraEngine::shutdown() {
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 	[mGestureView release];
 #endif
-	// Shutdown input
-	mWindow = 0;
 	// remove window event listener before shutting down OIS
 	Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
+	mWindow = 0;
 
-	if (mRoot) {
-		OGRE_DELETE mOverlaySystem;
-		OGRE_DELETE mRoot;
-	}
+	// Shutdown input
+	mIOEngine->shutdownInput();
+
+	
 	mStaticPluginLoader.unload();
 
 #ifdef USE_RTSHADER_SYSTEM
 	mShaderController->shutdown();
 #endif
+
+	if (mRoot) {
+		OGRE_DELETE mOverlaySystem;
+		OGRE_DELETE mRoot;
+	}
+
 }
 
 void AuraEngine::updateBackground() {

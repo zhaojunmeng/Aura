@@ -128,15 +128,18 @@ namespace Aura{
     // detach input devices
     if(mKeyboard)
       mKeyboard->setEventCallback(NULL);
+
     if(mMouse)
       mMouse->setEventCallback(NULL);
+
 #if OIS_WITH_MULTITOUCH
     if(mMultiTouch)
       mMultiTouch->setEventCallback(NULL);
 #endif
     if(mAccelerometer)
       mAccelerometer->setEventCallback(NULL);
-	  
+
+    // Destroy resources	  
 #if OGRE_PLATFORM != OGRE_PLATFORM_ANDROID && OGRE_PLATFORM != OGRE_PLATFORM_WINRT
     if (mInputMgr)
       {
@@ -144,10 +147,10 @@ namespace Aura{
 	  mInputMgr->destroyInputObject(mKeyboard);
 	if(mMouse)
 	  mInputMgr->destroyInputObject(mMouse);
-#if OIS_WITH_MULTITOUCH
+#  if OIS_WITH_MULTITOUCH
 	if(mMultiTouch)
 	  mInputMgr->destroyInputObject(mMultiTouch);
-#endif
+#  endif
 	if(mAccelerometer)
 	  mInputMgr->destroyInputObject(mAccelerometer);
 	      

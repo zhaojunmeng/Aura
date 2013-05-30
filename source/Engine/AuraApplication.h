@@ -45,11 +45,14 @@ namespace Aura
   /*=============================================================================
     | The AuraApplication interface :)
     =============================================================================*/
-  class AuraApplication
+  class AuraApplication: public QCAR::UpdateCallback
   {        
 
   public:
-
+    virtual void QCAR_onUpdate(QCAR::State& /*state*/)
+    {
+      //LOGI("Update callback");
+    }
 
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
@@ -69,8 +72,6 @@ namespace Aura
   protected:
     /* Ogre create scene */
     virtual void createScene() = 0;
-
-
 
     AuraEngine* mEngine;
     Ogre::Root* mRoot;

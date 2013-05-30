@@ -5,12 +5,12 @@ namespace Aura {
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
   AuraApplication::AuraApplication() {
     mEngine = new AuraEngineAndroid();
-     _setup();
+    _setup();
   }
 #else
   AuraApplication::AuraApplication() {
     mEngine = new AuraEngine();
-     _setup();
+    _setup();
   }
 #endif
 
@@ -18,10 +18,11 @@ namespace Aura {
     // Init the Engine
     mEngine->init();
 
+    LOGI("Creating scene noces and stuff");
     // Right before calling the custom create scene
     _setupAuraInterface();
 
-    // Create the nodes for the AR :(
+    // Create the nodes for the AR (after initializing Ogre)
     mQCARController->createImageSceneNodes();
 
     // Create the scene
@@ -29,24 +30,20 @@ namespace Aura {
 
     // Run the loop! (Just the loop)
     while (mRunning) {
+      // This guy controls the exit :)
+      mEngine->auraFrameStarted();
 
-      if (!mEngine->auraFrameStarted())
-	break;
-
-      // Draw the frame
+      // Draw the frame and update scene nodes
       mQCARController->update();
 
-      QCAR::Frame frame = mQCARController->getFrame();
-
       // Update trackable positions
-      if (!mEngine->auraRenderOneFrame())
-	break;
+      mEngine->auraRenderOneFrame();
 
       mEngine->auraFrameEnded();
     }
 
-    // Shutting down :)
-    mEngine->shutdown();
+
+    mEngine->finish();
 
   }
 
@@ -64,7 +61,6 @@ namespace Aura {
   }
 
   void AuraApplication::_setup() {
-
     mRunning = true;
   }
 
@@ -72,12 +68,19 @@ namespace Aura {
 
 /* Lets put here the interface with the Java VM */
 extern "C" {
-  JNIEXPORT void JNICALL
+
+  JNIEXPORT bool JNICALL
   Java_com_cesardev_aura_Aura_initQCARNative(JNIEnv*, jobject, int width, int height) {
     Aura::AuraQCARController::getInstance()->setScreenWidth(width);
     Aura::AuraQCARController::getInstance()->setScreenHeight(height);
-    Aura::AuraJNIUtils::getInstance()->getAuraApp()->initTracker();
-    Aura::AuraQCARController::getInstance()->startCamera();
+
+    if(Aura::AuraJNIUtils::getInstance()->getAuraApp()){
+      QCAR::registerCallback(Aura::AuraJNIUtils::getInstance()->getAuraApp());
+      Aura::AuraJNIUtils::getInstance()->getAuraApp()->initTracker();
+      if(!Aura::AuraQCARController::getInstance()->startCamera()) return false;
+      return true;
+    }
+    return false;
   }
 
 } // extern "C"

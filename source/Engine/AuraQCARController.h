@@ -27,6 +27,7 @@
 #include <QCAR/CameraCalibration.h>
 #include <QCAR/Frame.h>
 #include <QCAR/Image.h>
+#include <QCAR/UpdateCallback.h>
 #include <QCAR/Tracker.h>
 #include <QCAR/ImageTracker.h>
 #include <QCAR/Trackable.h>
@@ -34,10 +35,8 @@
 #include <QCAR/TrackerManager.h>
 #include <QCAR/DataSet.h>
 
-
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
-
 
 namespace Aura{
 
@@ -54,7 +53,7 @@ namespace Aura{
     void loadImageData(const std::string& name, const std::string& filename);
     void createImageSceneNodes();
 
-    //QCAR::DataSet* getDataSet(const std::string& name);
+    void shutdown();
 
     void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
     void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
@@ -66,16 +65,12 @@ namespace Aura{
     void setProjectionMatrix();
 
     void stopCamera();
-    void startCamera();
+    bool startCamera();
     int getOpenGlVersion();
 
     
   private:
-    std::vector<QCAR::DataSet*> mDataSets;
-
     QCAR::Frame mFrame;
-
-    QCAR::Tracker::TYPE mTrackerType;
     unsigned int mScreenWidth;
     unsigned int mScreenHeight;
     bool mPortraitOrientation;

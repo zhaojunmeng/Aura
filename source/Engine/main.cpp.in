@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     Aura::AuraJNIUtils::getInstance()->setAuraApp(&app);
 
     app.go();
-
+    
  #else
     // Run everything
     Aura::@APP_NAME@ app;

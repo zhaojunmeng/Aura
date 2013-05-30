@@ -65,12 +65,13 @@ int main(int argc, char *argv[]) {
     // Make sure glue isn't stripped.
     app_dummy();
 
+
     Aura::AuraJNIUtils::getInstance()->setState(state);
     Aura::TestApp app;
     Aura::AuraJNIUtils::getInstance()->setAuraApp(&app);
 
     app.go();
-
+    
  #else
     // Run everything
     Aura::TestApp app;

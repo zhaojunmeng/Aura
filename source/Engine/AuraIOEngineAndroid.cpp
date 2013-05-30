@@ -17,9 +17,7 @@ namespace Aura{
   }
 
 
-  AuraIOEngineAndroid::AuraIOEngineAndroid(){
-
-  } 
+  AuraIOEngineAndroid::AuraIOEngineAndroid(): mCallback(0){} 
       
   void AuraIOEngineAndroid::injectKeyEvent(int action, int32_t keyCode)
   {
@@ -79,16 +77,16 @@ namespace Aura{
 	switch(state.touchType)
 	  {
 	  case OIS::MT_Pressed:
-	    mCallback->touchPressed(evt);
+	    if(mCallback) mCallback->touchPressed(evt);
 	    break;
 	  case OIS::MT_Released:
-	    mCallback->touchReleased(evt);
+	    if(mCallback) mCallback->touchReleased(evt);
 	    break;
 	  case OIS::MT_Moved:
-	    mCallback->touchMoved(evt);
+	    if(mCallback) mCallback->touchMoved(evt);
 	    break;
 	  case OIS::MT_Cancelled:
-	    mCallback->touchCancelled(evt);
+	    if(mCallback) mCallback->touchCancelled(evt);
 	    break;
 	  default:
 	    break;
@@ -114,15 +112,10 @@ namespace Aura{
     mKeyboard = NULL;
   }
 
-
-
-
   void AuraIOEngineAndroid::setIOCallback(AuraIOListener* callback){
     mCallback = callback;
 
     if(mMultiTouch)
       mMultiTouch->setEventCallback(callback);
   }
-
-    
 }

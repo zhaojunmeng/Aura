@@ -39,11 +39,6 @@
 #include "AuraQCARController.h"
 #include "Singleton.h"
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_WINRT
-// For the phone we only support running from the cache file.
-#    define ENABLE_SHADERS_CACHE_LOAD 1
-#endif
-
 #define ENABLE_SHADERS_CACHE_SAVE 1
 #define ENABLE_SHADERS_CACHE_LOAD 1
 
@@ -149,13 +144,15 @@ namespace Aura
       virtual void loadConfigFile(Ogre::ConfigFile& cf);
       void locateResources();
       void loadResources(){ Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();}
-      void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
+      //void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
 
       void updateBackground();
       void createBackground();
       
+      virtual void finish(){}
+
     protected:
-      AuraApplication* mAppCallback;
+      //AuraApplication* mAppCallback;
       AuraIOEngine* mIOEngine;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
       Ogre::Root* mRoot;              // OGRE root

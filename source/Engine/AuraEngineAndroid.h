@@ -32,9 +32,11 @@ namespace Aura{
     static void handleCmd(struct android_app* app, int32_t cmd);
     virtual bool auraFrameStarted();
     virtual bool auraRenderOneFrame();
-    void initApp();
+    void setupAndroid();
     virtual void loadConfigFile(Ogre::ConfigFile& cf);
     Ogre::DataStreamPtr openAPKFile(const Ogre::String& fileName);
+
+    virtual void finish();
 
   private:
     static AuraEngineAndroid* mInstance;
