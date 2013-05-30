@@ -17,7 +17,7 @@ namespace Aura {
 
     // Initialize the camera:
     if (!QCAR::CameraDevice::getInstance().init(camera)) {
-      LOGI("Cant init camera!");
+      AuraLog::error("Cant init camera!");
       return false;
     }
 
@@ -27,19 +27,19 @@ namespace Aura {
     // Select the default mode:
     if (!QCAR::CameraDevice::getInstance().selectVideoMode(
 							   QCAR::CameraDevice::MODE_DEFAULT)) {
-      LOGI("Cant set video mode!");
+      AuraLog::error("Cant set video mode!");
       return false;
     }
 
     // Set image format
     if (!QCAR::setFrameFormat(QCAR::RGB888, true)) {
-      LOGI("ERROR setting camera format");
+      AuraLog::error("ERROR setting camera format");
       return false;
     }
 
     // Start the camera:
     if (!QCAR::CameraDevice::getInstance().start()) {
-      LOGI("Cant start camera");
+      AuraLog::error("Cant start camera");
       return false;
     }
 
@@ -154,23 +154,28 @@ namespace Aura {
   void AuraQCARController::loadImageData(const std::string& name, const std::string& filename){
 
     QCAR::ImageTracker* imTracker = static_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().initTracker(QCAR::Tracker::IMAGE_TRACKER));
+
+    if(!imTracker){
+      AuraLog::info("Could not initialize Image Tracker. Probably already initialized");
+      return;
+    }
+
     QCAR::DataSet* dataset = imTracker->createDataSet();
 
     if(dataset == 0){
-      //LOGI("Error creating a new dataset");
+      AuraLog::error("Error creating a new dataset");
       return;
     }
 
     if(!dataset->load(filename.c_str(), QCAR::DataSet::STORAGE_APPRESOURCE)){
-      //LOGI("Error loading the image data");
+      AuraLog::error("Error loading the image data");
       return;
     }
 
     if(!imTracker->activateDataSet(dataset)){
-      //LOGI("Error activating the data set");
+      AuraLog::error("Error activating the data set");
       return;
     }
-    
   }
 
   void AuraQCARController::createImageSceneNodes(){
@@ -202,9 +207,9 @@ namespace Aura {
     // Stopping camera
     //stopCamera();
 
-
     // Deinit tracker
     QCAR::TrackerManager::getInstance().deinitTracker(QCAR::Tracker::IMAGE_TRACKER);
+
   }
   
   QCAR::Frame& AuraQCARController::getFrame() {

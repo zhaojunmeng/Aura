@@ -10,6 +10,7 @@ namespace Aura{
     mMultiTouch = 0;
 #endif
     mAccelerometer = 0;
+    mCallback = 0;
   }
 
   void AuraIOEngine::capture() const
@@ -61,6 +62,8 @@ namespace Aura{
   }
   
   void AuraIOEngine::setIOCallback(AuraIOListener* callback){
+    mCallback = callback;
+
 #if (OGRE_PLATFORM != OGRE_PLATFORM_APPLE_IOS) && (OGRE_PLATFORM != OGRE_PLATFORM_ANDROID)
     if(mKeyboard)
       mKeyboard->setEventCallback(callback);

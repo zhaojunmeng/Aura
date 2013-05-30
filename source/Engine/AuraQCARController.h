@@ -2,13 +2,9 @@
 #define _AuraQCARController_H_
 
 #include "Ogre.h"
-#include <jni.h>
-#include <android/log.h>
-#include <android/native_activity.h>
-#include <android_native_app_glue.h>
-#include <vector>
 
 #include "AuraJNIUtils.h"
+#include "AuraLog.h"
 #include "Singleton.h"
 
 #ifdef USE_OPENGL_ES_1_1
@@ -35,9 +31,6 @@
 #include <QCAR/TrackerManager.h>
 #include <QCAR/DataSet.h>
 
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "Ogre", __VA_ARGS__))
-#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "Ogre", __VA_ARGS__))
-
 namespace Aura{
 
   class AuraQCARController: public Singleton<AuraQCARController>{
@@ -45,29 +38,28 @@ namespace Aura{
   public:  
     AuraQCARController();
     ~AuraQCARController();
-  
-    QCAR::Frame& getFrame();
 
     void update();
 
+    // Image targets loader
     void loadImageData(const std::string& name, const std::string& filename);
     void createImageSceneNodes();
 
-    void shutdown();
-
     void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
     void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
-    void configureVideoBackground();
 
     int getScreenWidth(){ return mScreenWidth; }
     int getScreenHeight(){ return mScreenHeight; }
+    QCAR::Frame& getFrame();
+    int getOpenGlVersion();
 
     void setProjectionMatrix();
+    void configureVideoBackground();
 
     void stopCamera();
     bool startCamera();
-    int getOpenGlVersion();
 
+    void shutdown();
     
   private:
     QCAR::Frame mFrame;
@@ -75,7 +67,6 @@ namespace Aura{
     unsigned int mScreenHeight;
     bool mPortraitOrientation;
     QCAR::Matrix44F projectionMatrix;
-
   };
 
 }

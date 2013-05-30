@@ -74,14 +74,12 @@ namespace Aura{
     void injectTouchEvent(int action, float x, float y, int pointerId = 0);
     virtual void setupInput(Ogre::RenderWindow *mWindow);
     virtual void shutdownInput();
-    virtual void setIOCallback(AuraIOListener* callback);
     virtual void capture(){
       // Nothing to do. Handled by Android callback
     }
 
 
   private:
-    AuraIOListener* mCallback;
     AndroidMultiTouch* mTouch;
   };
 

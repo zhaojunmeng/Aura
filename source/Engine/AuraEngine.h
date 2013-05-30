@@ -37,6 +37,7 @@
 
 #include "AuraIOEngine.h"
 #include "AuraQCARController.h"
+#include "AuraLog.h"
 #include "Singleton.h"
 
 #define ENABLE_SHADERS_CACHE_SAVE 1
@@ -105,54 +106,42 @@ namespace Aura
     =============================================================================*/
   class AuraEngine : public Ogre::FrameListener, public Ogre::WindowEventListener
     {
-    public:
 
+
+      
+
+    public:
       friend class AuraApplication;
 
       AuraEngine();
       virtual ~AuraEngine();
+
       virtual void init( );
-      virtual Ogre::RenderWindow* createWindow();
-      void setup();
       virtual void shutdown();
 
-      virtual void setIOCallback(AuraIOListener* callback){
-	mIOEngine->setIOCallback(callback);
-      }
-
-      virtual bool auraFrameStarted(){return true;}
-      virtual bool auraFrameEnded(){return true;}
-      virtual bool auraRenderOneFrame(){
-	// Update background
-	mIOEngine->capture();
-	updateBackground();
-	Ogre::WindowEventUtilities::messagePump();
-	return mRoot->renderOneFrame();
-      }
-	
-      bool frameStarted(const Ogre::FrameEvent& evt){ return true; }
-      bool frameEnded(const Ogre::FrameEvent& evt){  return true; }
-
-      /* Activity / Applet life cycle methods */
-      virtual void onStart(){}
-      virtual void onResume(){}
-      virtual void onPause(){}
-      virtual void onStop(){}
-      virtual void onDestroy(){}
-      
-      virtual void createRoot();
-      virtual void loadConfigFile(Ogre::ConfigFile& cf);
-      void locateResources();
-      void loadResources(){ Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();}
-      //void setAppCallback(AuraApplication* callback){ mAppCallback = callback; }
-
-      void updateBackground();
-      void createBackground();
-      
-      virtual void finish(){}
+      void setIOCallback(AuraIOListener* callback);
 
     protected:
-      //AuraApplication* mAppCallback;
+
+      void updateBackground();
+
+      void _initEngine();
+      virtual void _freeResources();
+
+      virtual void createRoot();
+      virtual void createWindow();
+      virtual void setupInput();
+
+      virtual void loadConfigFile(Ogre::ConfigFile& cf);
+      void locateResources();
+      void loadResources();
+      void createBackground();
+
+      virtual bool engineFrameStarted();
+      virtual bool engineFrameEnded();
+      virtual bool engineRenderOneFrame();
+
+      bool mInit;
       AuraIOEngine* mIOEngine;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
       Ogre::Root* mRoot;              // OGRE root
@@ -161,8 +150,6 @@ namespace Aura
       Ogre::SceneManager* mSceneManager;
       Ogre::Camera* mCamera;
       Ogre::RenderWindow* mWindow;    // render window
-      int mScreenWidth;
-      int mScreenHeight;
 
       // Some variables to optimize backgrond drawing
       float widthRatio, heightRatio;
