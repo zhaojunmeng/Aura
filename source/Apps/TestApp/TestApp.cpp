@@ -7,21 +7,19 @@ namespace Aura{
   TestApp::~TestApp(){}
 
   void TestApp::createScene(){
-    // Set the IO Callback
-    mEngine->setIOCallback(this); // Very important line
-    
+ 
     Ogre::Entity* sinbad = mSceneManager->createEntity("Sinbad.mesh");
     Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
     Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
     sinbadNode->setScale(Ogre::Vector3(10,10,10));
     sinbadNode->attachObject(sinbad);
-    
+
   }
 
   void TestApp::initTracker(){
     // Loading the data :)
-    // This creates a scene node "chips" and "stones"
-    mQCARController->loadImageData("StonesAndChips", "ar/StonesAndChips.xml");
+  //    This creates a scene node "chips" and "stones"
+       mQCARController->loadImageData("StonesAndChips", "ar/StonesAndChips.xml");
   }
 
   bool TestApp::keyPressed(const OIS::KeyEvent& evt){ 

@@ -1,60 +1,88 @@
 package com.cesardev.aura;
 
 import com.qualcomm.QCAR.QCAR;
-
 import android.app.NativeActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.WindowManager;
 
-/** Activity to do some initializations:
-    - Load shared libraries
-    - Init QCAR (Only in Java)
-*/
-public class Aura extends NativeActivity
-{
-    /** Static initializer block to load native libraries on start-up. */
-    static
-    {
-    	System.loadLibrary("QCAR");
-    	System.loadLibrary("TestApp");
-    }
-    
-    int width, height;
+/**
+ * Activity to do some initializations: - Load shared libraries - Init QCAR
+ * (Only in Java)
+ */
+public class Aura extends NativeActivity {
+	/** Static initializer block to load native libraries on start-up. */
+	static {
+		System.loadLibrary("QCAR");
+		System.loadLibrary("TestApp");
+	}
 
-    private native void initQCARNative(int width, int height);
-    
-    /** Stores screen dimensions */
-    private void storeScreenDimensions()
-    {
-        // Query display dimensions:
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-	width = metrics.widthPixels;
-	height = metrics.heightPixels;
-    }
+	int width, height;
 
-    
-    protected void onCreate(Bundle savedInstanceState){ 
-    	super.onCreate(savedInstanceState);        
-    	    	
-        // As long as this window is visible to the user, keep the device's
-        // screen turned on and bright:
-        getWindow().setFlags(
-			     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
-			     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	private native boolean initQCARNative(int width, int height);
+	private native void deinitQCARNative();
+	private native void stopCamera();
+	private native void startCamera();
 
-    	// We need a Java part :)
-    	QCAR.setInitParameters(this, 2);
-    	QCAR.init();
-	storeScreenDimensions();
-    	initQCARNative(width, height);
-    }  
+	/** Stores screen dimensions */
+	private void storeScreenDimensions() {
+		// Query display dimensions:
+		DisplayMetrics metrics = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		width = metrics.widthPixels;
+		height = metrics.heightPixels;
+	}
 
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        QCAR.deinit();
-        System.gc();
-    }
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	protected void onStart(){
+		super.onStart();
+
+		// As long as this window is visible to the user, keep the device's
+		// screen turned on and bright:
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+		// We need a Java part :)
+		QCAR.setInitParameters(this, 2);
+		if (QCAR.init() < 0) {
+			Log.d("Aura", "Error loading QCAR");
+			this.finish();
+		}
+		storeScreenDimensions();
+		if(!initQCARNative(width, height)){
+			Log.d("Aura","Error initializing native part of QCAR.");
+			finish();
+		}
+	}
+
+	protected void onStop() {
+		super.onStop();
+	}
+
+	protected void onResume() {
+		super.onResume();
+
+		// QCAR-specific resume operation:
+		startCamera();
+		QCAR.onResume();
+	}
+
+	protected void onPause() {
+		super.onPause();
+
+		// QCAR-specific pause operation:
+		stopCamera();
+		QCAR.onPause();
+	}
+
+	protected void onDestroy() {
+		super.onDestroy();
+		deinitQCARNative();
+		QCAR.deinit();
+		System.gc();
+	}
 }

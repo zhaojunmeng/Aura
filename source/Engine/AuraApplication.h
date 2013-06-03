@@ -29,14 +29,8 @@
 #define __AuraApplication_H__
 
 #include "OgrePlatform.h"
-
-#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-#include "AuraEngineAndroid.h"
-#else
-#include "AuraEngine.h"
-#endif
-
 #include "AuraQCARController.h"
+#include "AuraIOListener.h" 
 #include "AuraJNIUtils.h"
 
 namespace Aura
@@ -45,47 +39,32 @@ namespace Aura
   /*=============================================================================
     | The AuraApplication interface :)
     =============================================================================*/
-  class AuraApplication//: public QCAR::UpdateCallback
+  class AuraApplication: public AuraIOListener
   {        
 
   public:
-    //virtual void QCAR_onUpdate(QCAR::State& /*state*/)
-    //{
-      //AuraLog::info("Update callback");
-    //}
-
-
-#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-    friend class AuraEngineAndroid;
-#else
-    friend class AuraEngine;
-#endif
 
     AuraApplication();
 
     /* Main public methods :) */
-    void go();
-    void finish();
-
     virtual void initTracker() = 0;
-    void setPause(bool pause){ mPause = pause; }
-
-  protected:
     /* Ogre create scene */
     virtual void createScene() = 0;
+    void setupAuraInterface();
 
-    AuraEngine* mEngine;
+    void finish() { 
+      ANativeActivity_finish(AuraJNIUtils::getInstance()->getState()->activity);
+    }
+
+  protected:
+
+    /* Interface :) */
     Ogre::Root* mRoot;
     Ogre::SceneManager* mSceneManager;
-    Ogre::Camera* mCamera;
-    Ogre::RenderWindow* mWindow;
     AuraQCARController* mQCARController;
 
   private:
-    void _setupAuraInterface();
-    void _setup();
-    bool mRunning;
-    bool mPause;
+
   };
 }
 

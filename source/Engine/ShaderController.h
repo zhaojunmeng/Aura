@@ -20,6 +20,7 @@ namespace Aura{
 
     bool initializeRTShaderSystem(Ogre::SceneManager* sceneMgr);
     void finalizeRTShaderSystem();
+    Ogre::RTShader::ShaderGenerator* getShaderGenerator(){ return mShaderGenerator; }
 
     virtual void locateShaderResources();
     Ogre::String getShaderCacheFileName();

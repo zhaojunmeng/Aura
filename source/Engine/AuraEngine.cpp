@@ -1,4 +1,5 @@
 #include "AuraEngine.h"
+
 namespace Aura {
 
   AuraEngine::AuraEngine() {
@@ -7,7 +8,8 @@ namespace Aura {
     mWindow = 0;
     mOverlaySystem = 0;
     mInit = false;
-
+    mRunning = true;
+    mPaused = false;
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController = 0;
 #endif
@@ -17,20 +19,40 @@ namespace Aura {
     OGRE_DELETE_T(mFSLayer, FileSystemLayer, Ogre::MEMCATEGORY_GENERAL);
   }
 
+
+  void AuraEngine::start(AuraApplication* app){
+    mAuraApp = app;
+
+    // Init the Engine
+    init();
+   
+    int i = 0;
+    // Run the loop! (Just the loop)
+    while (mRunning) {
+      i = (i+1)%100;
+      engineFrameStarted();
+      engineRenderOneFrame();
+      engineFrameEnded();
+    }
+  }
+
+
   void AuraEngine::init() {
     _initEngine();
-
-
   }
 
   void AuraEngine::_initEngine() {
+    if(mRoot != NULL){
+      AuraLog::warn("Engine already initialized!");
+      return;
+    }
+
     createRoot();
 
     setupInput();
-    
+    mIOEngine->setIOCallback(mAuraApp);
+
     if (mWindow == NULL) createWindow();
-
-
 
     Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
     Ogre::Root::getSingleton().clearEventTimes();
@@ -41,8 +63,19 @@ namespace Aura {
 
     // Creating the camera
     mCamera = mSceneManager->createCamera("Camera");
-    mCamera->setFarClipDistance(1000);
-    mCamera->setNearClipDistance(0.1); 
+    mCamera->setPosition(Ogre::Vector3(0,0,0));
+    mCamera->setDirection(Ogre::Vector3(0,0,-1));
+
+    QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
+    Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
+    			      projMat.data[1], -projMat.data[5], projMat.data[9],  projMat.data[13],
+    			      projMat.data[2], projMat.data[6], -projMat.data[10], projMat.data[14],
+    			      projMat.data[3], projMat.data[7], -projMat.data[11], projMat.data[15]);
+
+    mCamera->setCustomProjectionMatrix(true, ogreProjMat);
+
+    //mCamera->setFarClipDistance(1000);
+    //mCamera->setNearClipDistance(0.1); 
 
     // Create shader controller
 #ifdef USE_RTSHADER_SYSTEM
@@ -64,9 +97,11 @@ namespace Aura {
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 #endif
 
+    // Scene nodes
+    AuraQCARController::getInstance()->createImageSceneNodes();
     createBackground();
 
-    // Creating app specific stuff :)
+    // ------ Creating app specific stuff :) ---------
 
     // add a bright light above the scene
     Ogre::Light* light = mSceneManager->createLight();
@@ -74,25 +109,35 @@ namespace Aura {
     light->setPosition(-10, 40, 20);
     light->setSpecularColour(Ogre::ColourValue::White);
 
-    //mWindow->removeAllViewports();
-    Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
+    // We have to ajust the aspect ratio :)
+    const QCAR::VideoBackgroundConfig& config = AuraQCARController::getInstance()->getVideoBackgroundConfig(); 
+    int screenWidth = AuraQCARController::getInstance()->getScreenWidth();
+    int screenHeight = AuraQCARController::getInstance()->getScreenHeight();
+
+    float vZoom = config.mSize.data[1] / (float) screenHeight;
+    float vOffset = ((vZoom * screenHeight) - screenHeight) / (2 * screenHeight);
+
+    float uZoom = config.mSize.data[0] / (float) screenWidth;
+    float uOffset = ((uZoom * screenWidth) - screenWidth) / (2 * screenWidth);
+
+
+    Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
+    viewport->setMaterialScheme(Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME);
     viewport->setBackgroundColour(Ogre::ColourValue(1.0, 0.0, 0.0));
     double width = viewport->getActualWidth();
     double height = viewport->getActualHeight();
     mCamera->setAspectRatio(width / height);
 
-    // Scene nodes
-    AuraQCARController::getInstance()->createImageSceneNodes();
 
     // Game!
-    //AuraJNIUtils::getInstance()->getAuraApp()->createScene();
+    mAuraApp->setupAuraInterface();
+    mAuraApp->createScene();
 
     mInit = true;
   }
 
   void AuraEngine::createWindow() {
     mWindow = mRoot->initialise(true, "AuraWindow");
-    
   }
 
   void AuraEngine::setupInput(){
@@ -143,8 +188,7 @@ namespace Aura {
 	if (!Ogre::StringUtil::startsWith(arch, "/", false))// only adjust relative dirs
 	  arch = Ogre::String(Ogre::macBundlePath() + "/" + arch);
 #endif
-	Ogre::ResourceGroupManager::getSingleton().addResourceLocation(arch,
-								       type, sec);
+	Ogre::ResourceGroupManager::getSingleton().addResourceLocation(arch, type, sec);
       }
     }
 
@@ -154,20 +198,13 @@ namespace Aura {
 
   }
 
-  void AuraEngine::shutdown(){
-    _freeResources();
-  }
-
-
   void AuraEngine::_freeResources() {
-
     if(!mInit) return;
     mInit = false;
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     [mGestureView release];
 #endif
-
     // Shutdown input
     mIOEngine->shutdownInput();
 
@@ -187,173 +224,128 @@ namespace Aura {
       
     mRoot = NULL;
     mWindow = NULL;
-
-      
   }
 
+  void AuraEngine::engineFrameStarted(){}
+  void AuraEngine::engineFrameEnded(){}
 
 
-  void AuraEngine::setIOCallback(AuraIOListener* callback){
-    mIOEngine->setIOCallback(callback);
-  }
-
-  bool AuraEngine::engineFrameStarted(){
-    return true;
-  }
-  bool AuraEngine::engineFrameEnded(){
-    return true;
-  }
-
-
-  bool AuraEngine::engineRenderOneFrame(){
-    if(mWindow != NULL && mWindow->isActive())
+  void AuraEngine::engineRenderOneFrame(){
+    if(!mPaused && mWindow != NULL && mWindow->isActive())
       {
 	try{
 	  mIOEngine->capture();
+	  // TODO, esta al update callback del tracker
+	  AuraQCARController::getInstance()->update();
 	  updateBackground();
 	  mWindow->windowMovedOrResized();
 	  Ogre::WindowEventUtilities::messagePump();
-	  return mRoot->renderOneFrame();
+	  if(!mRoot->renderOneFrame()) mRunning = false;
 	}catch(Ogre::RenderingAPIException e){}
 	
       }
-    return true;
   }
 
   void AuraEngine::updateBackground() {
 
     QCAR::Frame& frame = AuraQCARController::getInstance()->getFrame();
-
-    Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().getByName(
-									      "BackgroundTex",
-									      Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().getByName("Aura/BackgroundTexture", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
     Ogre::HardwarePixelBufferSharedPtr pixelBuffer = texture->getBuffer();
 
     pixelBuffer->lock(Ogre::HardwareBuffer::HBL_DISCARD);
     const Ogre::PixelBox& pixelBox = pixelBuffer->getCurrentLock();
-
     Ogre::uint8* pDest = static_cast<Ogre::uint8*>(pixelBox.data);
-    for (int img = 0; img < frame.getNumImages(); img++) {
-      if (frame.getImage(img)->getFormat() == QCAR::RGB888) {
 
-	// TODO!! Esto a SHADER!
-	int texPos = 0;
-	float jFrame = 0;
-	float iFrame = 0;
-	int posFrameITmp = 0;
-	int posFrameJTmp = 0;
 
-	for (int j = 0; j < texture->getHeight(); j++) {
-	  for (int i = 0; i < texture->getWidth(); i++) {
-	    //int idx = ((j) * pixelBox.rowPitch + i) * 3; //Use pixelBox.rowPitch instead of "width"
-	    //int posFrame = ((int)(j * heightRatio) * frameWidth + (int)(i * widthRatio)) * 3;
-	    //int posFrame = ((int) (jFrame) * frameWidth + (int) (iFrame)) * 3;
+    int texPosRow = 0;
+    int texPos = 0;
+	
+    char* framePixels = static_cast<char*>(const_cast<void*>(frame.getImage(mFrameImageId)->getPixels()));
 
-	    //					pDest[texPos++] = *((char*) (frame.getImage(img)->getPixels()) + posFrame++);
-	    //					pDest[texPos++] = *((char*) (frame.getImage(img)->getPixels()) + posFrame++);
-	    //					pDest[texPos++] = *((char*) (frame.getImage(img)->getPixels()) + posFrame);
-
-	    pDest[texPos++] =
-	      *((char*) (frame.getImage(img)->getPixels())
-		+ posFrameITmp);
-	    pDest[texPos++] =
-	      *((char*) (frame.getImage(img)->getPixels())
-		+ posFrameITmp + 1);
-	    pDest[texPos++] =
-	      *((char*) (frame.getImage(img)->getPixels())
-		+ posFrameITmp + 2);
-
-	    iFrame += widthRatio;
-	    if (iFrame >= 1) {
-	      iFrame--;
-	      posFrameITmp += 3;
-	    }
-	  }
-
-	  jFrame += heightRatio;
-	  if (jFrame >= 1) {
-	    jFrame--;
-	    posFrameJTmp += frameRowSlice;
-	  }
-	  iFrame = 0;
-	  posFrameITmp = posFrameJTmp;
-	}
-
-	break; // We found the correct frame :)
+    for (int j = 0; j <  mFrameHeight; j++) {
+      for (int i = 0; i <  mFrameWidth; i++) {
+	pDest[texPos++] = *((char*) (framePixels)++);
+	pDest[texPos++] = *((char*) (framePixels)++);
+	pDest[texPos++] = *((char*) (framePixels)++);
       }
-    }
+
+      texPosRow += mTexBytesRow;
+      texPos = texPosRow;
+    }// End method 1
 
     pixelBuffer->unlock();
 
-    Ogre::Rectangle2D* rect =
-      static_cast<Ogre::Rectangle2D*>(mSceneManager->getSceneNode(
-								  "BackgroundNode")->getAttachedObject(0));
-    Ogre::MaterialPtr material = rect->getMaterial();
   }
 
   void AuraEngine::createBackground() {
 
     /* Ogre code */
     Ogre::TexturePtr texture =
-      Ogre::TextureManager::getSingleton().createManual(
-							"BackgroundTex", // name
+      Ogre::TextureManager::getSingleton().createManual("Aura/BackgroundTexture", // name
 							Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
 							Ogre::TEX_TYPE_2D, // texture type
-							//QCAR::CameraDevice::getInstance().getVideoMode(0).mWidth, QCAR::CameraDevice::getInstance().getVideoMode(0).mHeight,
-							//AuraQCARController::getInstance()->getScreenWidth(),AuraQCARController::getInstance()->getScreenHeight(), 0,
 							QCAR::CameraDevice::getInstance().getVideoMode(0).mWidth,
 							QCAR::CameraDevice::getInstance().getVideoMode(0).mHeight,
-							0, Ogre::PF_B8G8R8, // pixel format
-							//Ogre::PF_BYTE_BGRA,
-							//Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE
-							//Ogre::TU_DYNAMIC_WRITE
+							0, Ogre::PF_R8G8B8, // pixel format
 							Ogre::HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
 
 
-    int texWidth = texture->getWidth();
-    int texHeight = texture->getHeight();
+    // Get pixels per row in the texture :)
+    Ogre::HardwarePixelBufferSharedPtr pixelBuffer = texture->getBuffer();
+    pixelBuffer->lock(Ogre::HardwareBuffer::HBL_DISCARD);
+    const Ogre::PixelBox& pixelBox = pixelBuffer->getCurrentLock();
+    mTexBytesRow = pixelBox.rowPitch*3;
+    pixelBuffer->unlock();
 
-    int frameWidth = QCAR::CameraDevice::getInstance().getVideoMode(0).mWidth;
-    int frameHeight = QCAR::CameraDevice::getInstance().getVideoMode(0).mHeight;
+    // Get and store in the class the frame height :)
+    mFrameHeight = QCAR::CameraDevice::getInstance().getVideoMode(0).mHeight;
+    mFrameWidth = QCAR::CameraDevice::getInstance().getVideoMode(0).mWidth;
 
-    // These can also be stripped out
-    widthRatio = frameWidth / (float) texWidth;
-    heightRatio = frameHeight / (float) texHeight;
-    frameRowSlice = frameWidth * 3;
+    // Get the id of the image that we are looking for :)
+    AuraQCARController::getInstance()->update(); // We grab one frame :)
+    QCAR::Frame& frame = AuraQCARController::getInstance()->getFrame(); // Just to store that id
+    for (int img = 0; img < frame.getNumImages(); ++img) {
+      if (frame.getImage(img)->getFormat() == QCAR::RGB888){
+	mFrameImageId = img;
+	break;
+      }
+    }
 
+    Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create("Aura/BackgroundMaterial", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
-    Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(
-									      "Background",
-									      Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     material->getTechnique(0)->getPass(0)->createTextureUnitState();
-    material->getTechnique(0)->getPass(0)->setSceneBlending(
-							    Ogre::SBT_TRANSPARENT_ALPHA);
+    material->getTechnique(0)->getPass(0)->setSceneBlending(Ogre::SBT_TRANSPARENT_ALPHA);
     material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
     material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
     material->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-    material->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureName(
-										  "BackgroundTex");
+    material->getTechnique(0)->getPass(0)->getTextureUnitState(0)->setTextureName("Aura/BackgroundTexture");
+    
 
     // Create background rectangle covering the whole screen
     Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
+
+    // Not all the texture is frame, we have to adjust the u, v coordinates
+    float u,v;
+    const QCAR::VideoMode& videoMode = AuraQCARController::getInstance()->getVideoMode();
+
+    // area of the texture with the frame :)
+    u = videoMode.mWidth / (float)texture->getWidth();
+    v = videoMode.mHeight / (float)texture->getHeight();
+
+    rect->setUVs(Ogre::Vector2(0, 0),Ogre::Vector2(0, v),Ogre::Vector2(u, 0),Ogre::Vector2(u, v));
     rect->setCorners(-1.0, 1.0, 1.0, -1.0);
-    rect->setMaterial("Background");
+    rect->setMaterial("Aura/BackgroundMaterial");
 
     // Render the background before everything else
     rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
-
-    // Hacky, but we need to set the bounding box to something big
-    // NOTE: If you are using Eihort (v1.4), please see the note below on setting the bounding box
-    rect->setBoundingBox(
-			 Ogre::AxisAlignedBox(-100000.0 * Ogre::Vector3::UNIT_SCALE,
+    rect->setBoundingBox(Ogre::AxisAlignedBox(-100000.0 * Ogre::Vector3::UNIT_SCALE,
 					      100000.0 * Ogre::Vector3::UNIT_SCALE));
 
     // Attach background to the scene
-    Ogre::SceneNode* node =
-      mSceneManager->getRootSceneNode()->createChildSceneNode(
-							      "BackgroundNode");
+    Ogre::SceneNode* node = mSceneManager->getRootSceneNode()->createChildSceneNode("Aura/BackgroundNode");
     node->attachObject(rect);
 
   }
 }// Aura
+

@@ -3,11 +3,10 @@
 #define _TEST_APP_H_
 
 #include <AuraApplication.h>
-#include <AuraIOListener.h>
 
 namespace Aura{
 
-  class TestApp: public AuraApplication , public AuraIOListener
+  class TestApp: public AuraApplication 
   {
 
   public:

@@ -35,6 +35,7 @@
 #include "OgreFileSystemLayer.h"
 #include "OgreOverlaySystem.h"
 
+#include "AuraApplication.h"
 #include "AuraIOEngine.h"
 #include "AuraQCARController.h"
 #include "AuraLog.h"
@@ -107,20 +108,13 @@ namespace Aura
   class AuraEngine : public Ogre::FrameListener, public Ogre::WindowEventListener
     {
 
-
-      
-
     public:
-      friend class AuraApplication;
-
       AuraEngine();
       virtual ~AuraEngine();
 
+      void start(AuraApplication* app);
+
       virtual void init( );
-      virtual void shutdown();
-
-      void setIOCallback(AuraIOListener* callback);
-
     protected:
 
       void updateBackground();
@@ -137,11 +131,15 @@ namespace Aura
       void loadResources();
       void createBackground();
 
-      virtual bool engineFrameStarted();
-      virtual bool engineFrameEnded();
-      virtual bool engineRenderOneFrame();
+      virtual void engineFrameStarted();
+      virtual void engineFrameEnded();
+      virtual void engineRenderOneFrame();
 
+      bool mPaused;
+      bool mSceneNodesCreated;
+      bool mRunning;
       bool mInit;
+      AuraApplication* mAuraApp;
       AuraIOEngine* mIOEngine;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
       Ogre::Root* mRoot;              // OGRE root
@@ -152,9 +150,9 @@ namespace Aura
       Ogre::RenderWindow* mWindow;    // render window
 
       // Some variables to optimize backgrond drawing
-      float widthRatio, heightRatio;
-      int frameRowSlice;
-
+      int mTexBytesRow;
+      int mFrameWidth, mFrameHeight;
+      int mFrameImageId;
 #ifdef USE_RTSHADER_SYSTEM
       ShaderController* mShaderController;
 #endif

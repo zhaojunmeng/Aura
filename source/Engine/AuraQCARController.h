@@ -3,7 +3,6 @@
 
 #include "Ogre.h"
 
-#include "AuraJNIUtils.h"
 #include "AuraLog.h"
 #include "Singleton.h"
 
@@ -50,8 +49,13 @@ namespace Aura{
 
     int getScreenWidth(){ return mScreenWidth; }
     int getScreenHeight(){ return mScreenHeight; }
+    
+    const QCAR::VideoBackgroundConfig& getVideoBackgroundConfig(){ return mVideoBackgroundConfig; }
+    const QCAR::VideoMode& getVideoMode(){ return mVideoMode; }
+    QCAR::Matrix44F getProjectionMatrix() { return mProjectionMatrix; }
     QCAR::Frame& getFrame();
     int getOpenGlVersion();
+    
 
     void setProjectionMatrix();
     void configureVideoBackground();
@@ -63,10 +67,13 @@ namespace Aura{
     
   private:
     QCAR::Frame mFrame;
+    //QCAR::ImageTracker* mImageTracker;
     unsigned int mScreenWidth;
     unsigned int mScreenHeight;
     bool mPortraitOrientation;
-    QCAR::Matrix44F projectionMatrix;
+    QCAR::Matrix44F mProjectionMatrix;
+    QCAR::VideoBackgroundConfig mVideoBackgroundConfig;
+    QCAR::VideoMode mVideoMode;
   };
 
 }

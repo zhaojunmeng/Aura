@@ -13,10 +13,6 @@ namespace Aura{
     
   public:
 
-    // In the future, this could be a generic funtion!
-    // We pass the name of the class, and store it in a map
-    void loadAndCacheQCARClass();
-
     void setVM(JavaVM* vm);
     void setState(struct android_app* state);
     void setAuraApp(AuraApplication* app);
@@ -25,7 +21,6 @@ namespace Aura{
     void getEnv(JNIEnv** env);
     JavaVM* getVM();
     AuraApplication* getAuraApp();
-    jclass getQCARClass();
 
     void attachCurrentThread(JNIEnv* env);
     void detachCurrentThread();
@@ -34,7 +29,6 @@ namespace Aura{
     JavaVM* mVm;
     struct android_app* mState;
     AuraApplication* mApp;
-    jclass mQCARClass;
   };
 
 }

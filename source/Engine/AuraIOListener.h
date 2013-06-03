@@ -1,6 +1,8 @@
 #ifndef _AuraIOListener_H_
 #define _AuraIOListener_H_
 
+#include <OIS/OIS.h>
+
 namespace Aura{
 
   class AuraIOListener:

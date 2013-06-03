@@ -2,80 +2,15 @@
 
 namespace Aura {
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
   AuraApplication::AuraApplication() {
-    mEngine = new AuraEngineAndroid();
-    _setup();
-  }
-#else
-  AuraApplication::AuraApplication() {
-    mEngine = new AuraEngine();
-    _setup();
-  }
-#endif
-
-  void AuraApplication::go() {
-    // Init the Engine
-    mEngine->init();
-
-    // Right before calling the custom create scene
-    _setupAuraInterface();
-
-    // Create the nodes for the AR (after initializing Ogre)
-    //mQCARController->createImageSceneNodes();
-
-    // Create the scene
-    createScene();
-
-    // Run the loop! (Just the loop)
-    while (mRunning) {
-
-      mQCARController->update();
-
-      mEngine->engineFrameStarted();
-      mEngine->engineRenderOneFrame();
-      mEngine->engineFrameEnded();
-    }
-
-
-    mEngine->shutdown();
-
   }
 
-  void AuraApplication::_setupAuraInterface(){
+  void AuraApplication::setupAuraInterface(){
     // Retrieve the main objects
-    mRoot = mEngine->mRoot;
-    mSceneManager = mEngine->mSceneManager;
-    mCamera = mEngine->mCamera;
-    mWindow = mEngine->mWindow;
+    mRoot = &Ogre::Root::getSingleton();
+    mSceneManager = mRoot->getSceneManager("SceneManager");
     mQCARController = AuraQCARController::getInstance();    
   }
-
-  void AuraApplication::finish() {
-    mRunning = false;
-  }
-
-  void AuraApplication::_setup() {
-    mRunning = true;
-    mPause = false;
-  }
-
 }
 
-/* Lets put here the interface with the Java VM */
-extern "C" {
-
-  JNIEXPORT bool JNICALL
-  Java_com_cesardev_aura_Aura_initQCARNative(JNIEnv*, jobject, int width, int height) {
-
-    Aura::AuraQCARController::getInstance()->setScreenWidth(width);
-    Aura::AuraQCARController::getInstance()->setScreenHeight(height);
-
-    Aura::AuraJNIUtils::getInstance()->getAuraApp()->initTracker();
-    if(!Aura::AuraQCARController::getInstance()->startCamera()) return false;
-    
-    return true;
-  }
-
-} // extern "C"
 

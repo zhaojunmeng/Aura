@@ -10,7 +10,6 @@ namespace Aura {
   }
 
   bool AuraQCARController::startCamera(){
-
     // Select the camera to open, set this to QCAR::CameraDevice::CAMERA_FRONT
     // to activate the front camera instead.
     QCAR::CameraDevice::CAMERA camera = QCAR::CameraDevice::CAMERA_DEFAULT;
@@ -25,8 +24,7 @@ namespace Aura {
     Aura::AuraQCARController::getInstance()->configureVideoBackground();
 
     // Select the default mode:
-    if (!QCAR::CameraDevice::getInstance().selectVideoMode(
-							   QCAR::CameraDevice::MODE_DEFAULT)) {
+    if (!QCAR::CameraDevice::getInstance().selectVideoMode(QCAR::CameraDevice::MODE_DEFAULT)) {
       AuraLog::error("Cant set video mode!");
       return false;
     }
@@ -47,8 +45,11 @@ namespace Aura {
 
     QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
     QCAR::Tracker* imageTracker = trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER);
-    if(imageTracker != 0)
+    if(imageTracker != 0){
       imageTracker->start();
+    }else{
+      AuraLog::error("Error starting the tracker!");
+    }
 
     return true;
   }
@@ -67,38 +68,43 @@ namespace Aura {
 
   void AuraQCARController::update(){
     /* Begin - end */
-    QCAR::State QCARState = QCAR::Renderer::getInstance().begin();
+
 
     // Retrieve a frame
+
+    QCAR::State QCARState = QCAR::Renderer::getInstance().begin();	  
     QCAR::Renderer::getInstance().drawVideoBackground();
     mFrame = QCARState.getFrame();
-
-    // Hide the scene nodes
+	  
+    // Update image trackers
     QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
     QCAR::ImageTracker* imageTracker = static_cast<QCAR::ImageTracker*>(trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER));
 
-    for(unsigned int i=0; i < imageTracker->getActiveDataSetCount(); i++){
-      QCAR::DataSet* dataset = imageTracker->getActiveDataSet(i);    
-      if(dataset == NULL) continue;
-      for(size_t tr=0; tr<dataset->getNumTrackables(); tr++){
-	QCAR::Trackable* trackable = dataset->getTrackable(tr);
-	Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable->getName());
-	node->setVisible(false);
+    if(imageTracker != NULL){
+
+      // Hide the scene nodes
+      for(unsigned int i=0; i < imageTracker->getActiveDataSetCount(); i++){
+	QCAR::DataSet* dataset = imageTracker->getActiveDataSet(i);    
+	if(dataset == NULL) continue;
+	for(size_t tr=0; tr<dataset->getNumTrackables(); tr++){
+	  QCAR::Trackable* trackable = dataset->getTrackable(tr);
+	  Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable->getName());
+	  node->setVisible(false);
+	}
       }
     }
-
 
     // Inspect the trackables
     for(size_t tr = 0; tr < QCARState.getNumTrackableResults(); tr++){
       const QCAR::TrackableResult* result = QCARState.getTrackableResult(tr);
       const QCAR::Trackable& trackable = result->getTrackable();
-
+      
       QCAR::Matrix44F pose = QCAR::Tool::convertPose2GLMatrix(result->getPose());
       
       Ogre::Matrix4 matPose( pose.data[0], pose.data[4], pose.data[8], pose.data[12], 
-			    -pose.data[1], -pose.data[5], -pose.data[9],  -pose.data[13],
-			    -pose.data[2], -pose.data[6], -pose.data[10], -pose.data[14],
-			     pose.data[3],  pose.data[7],  pose.data[11],  pose.data[15]);
+      			     -pose.data[1], -pose.data[5], -pose.data[9],  -pose.data[13],
+      			     -pose.data[2], -pose.data[6], -pose.data[10], -pose.data[14],
+      			     pose.data[3],  pose.data[7],  pose.data[11],  pose.data[15]);
 
       Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable.getName());
       node->setVisible(true);
@@ -108,56 +114,56 @@ namespace Aura {
 
     QCAR::Renderer::getInstance().end();
 
-
   }
 
   void AuraQCARController::configureVideoBackground() {
     // Get the default video mode:
     QCAR::CameraDevice& cameraDevice = QCAR::CameraDevice::getInstance();
-    QCAR::VideoMode videoMode = cameraDevice.getVideoMode(
-							  QCAR::CameraDevice::MODE_DEFAULT);
+    mVideoMode = cameraDevice.getVideoMode(QCAR::CameraDevice::MODE_DEFAULT);
 
-    // Configure the video background
-    QCAR::VideoBackgroundConfig config;
-    config.mEnabled = false;
-    config.mSynchronous = true;
-    config.mPosition.data[0] = 0.0f;
-    config.mPosition.data[1] = 0.0f;
+    // Configure the video background    
+    mVideoBackgroundConfig.mEnabled = false;
+    mVideoBackgroundConfig.mSynchronous = true;
+    mVideoBackgroundConfig.mPosition.data[0] = 0.0f;
+    mVideoBackgroundConfig.mPosition.data[1] = 0.0f;
 
     if (mPortraitOrientation) {
-      config.mSize.data[0] = videoMode.mHeight
-	* (mScreenHeight / (float) videoMode.mWidth);
-      config.mSize.data[1] = mScreenHeight;
+      mVideoBackgroundConfig.mSize.data[0] = mVideoMode.mHeight	* (mScreenHeight / (float) mVideoMode.mWidth);
+      mVideoBackgroundConfig.mSize.data[1] = mScreenHeight;
 
-      if (config.mSize.data[0] < mScreenWidth) {
-	config.mSize.data[0] = mScreenWidth;
-	config.mSize.data[1] = mScreenWidth
-	  * (videoMode.mWidth / (float) videoMode.mHeight);
+      if (mVideoBackgroundConfig.mSize.data[0] < mScreenWidth) {
+	mVideoBackgroundConfig.mSize.data[0] = mScreenWidth;
+	mVideoBackgroundConfig.mSize.data[1] = mScreenWidth  * (mVideoMode.mWidth / (float) mVideoMode.mHeight);
       }
 
     } else {
-      config.mSize.data[0] = mScreenWidth;
-      config.mSize.data[1] = videoMode.mHeight
-	* (mScreenWidth / (float) videoMode.mWidth);
+      mVideoBackgroundConfig.mSize.data[0] = mScreenWidth;
+      mVideoBackgroundConfig.mSize.data[1] = mVideoMode.mHeight * (mScreenWidth / (float) mVideoMode.mWidth);
 
-      if (config.mSize.data[1] < mScreenHeight) {
-	config.mSize.data[0] = mScreenHeight
-	  * (videoMode.mWidth / (float) videoMode.mHeight);
-	config.mSize.data[1] = mScreenHeight;
+      if (mVideoBackgroundConfig.mSize.data[1] < mScreenHeight) {
+	mVideoBackgroundConfig.mSize.data[0] = mScreenHeight * (mVideoMode.mWidth / (float) mVideoMode.mHeight);
+	mVideoBackgroundConfig.mSize.data[1] = mScreenHeight;
       }
     }
 
-    // Set the config:
-    QCAR::Renderer::getInstance().setVideoBackgroundConfig(config);
+    // Set the mVideoBackgroundConfig:
+    QCAR::Renderer::getInstance().setVideoBackgroundConfig(mVideoBackgroundConfig);
   }
 
   void AuraQCARController::loadImageData(const std::string& name, const std::string& filename){
 
-    QCAR::ImageTracker* imTracker = static_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().initTracker(QCAR::Tracker::IMAGE_TRACKER));
+    QCAR::ImageTracker* imTracker = reinterpret_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().initTracker(QCAR::Tracker::IMAGE_TRACKER));
 
     if(!imTracker){
-      AuraLog::info("Could not initialize Image Tracker. Probably already initialized");
-      return;
+      AuraLog::info("Could not initialize Image Tracker. Probably the camera is already running");
+      QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
+      imTracker = reinterpret_cast<QCAR::ImageTracker*>(trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER));
+      if(imTracker != 0){
+
+      }else{
+	AuraLog::error("Error getting the tracker to load de data!");
+	return;
+      }
     }
 
     QCAR::DataSet* dataset = imTracker->createDataSet();
@@ -176,40 +182,51 @@ namespace Aura {
       AuraLog::error("Error activating the data set");
       return;
     }
+
+    
   }
 
-  void AuraQCARController::createImageSceneNodes(){
 
-    QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
-    QCAR::ImageTracker* imageTracker = static_cast<QCAR::ImageTracker*>(trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER));
-    
-    for(unsigned int i=0; i < imageTracker->getActiveDataSetCount(); i++){
-      QCAR::DataSet* dataset = imageTracker->getActiveDataSet(i);    
-      if(dataset == NULL) continue;
-      for(size_t tr=0; tr<dataset->getNumTrackables(); tr++){
-	QCAR::Trackable* trackable = dataset->getTrackable(tr);
+  void AuraQCARController::createImageSceneNodes(){
+    QCAR::ImageTracker* imTracker = static_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().getTracker(QCAR::Tracker::IMAGE_TRACKER));
+    if(!imTracker){
+      AuraLog::error("Error creating the image scene nodes");
+      return;
+    }
+
+    for(int i = 0; i< imTracker->getActiveDataSetCount(); i++){
+
+      QCAR::DataSet* dataset = imTracker->getActiveDataSet(i);
+      if(!dataset){
+	AuraLog::error("Error trying to get the dataset to create the scene nodes!");
+	return;
+      }
+
+      for(int i=0; i < dataset->getNumTrackables(); i++){
+	QCAR::Trackable* trackable = dataset->getTrackable(i);
 	Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->createChildSceneNode(trackable->getName());
 	node->setVisible(false);
       }
     }
   }
 
-
   void AuraQCARController::shutdown(){
     QCAR::ImageTracker* imTracker = static_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().getTracker(QCAR::Tracker::IMAGE_TRACKER));
 
     // Destroy tracker data
-    QCAR::DataSet* dataset = imTracker->getActiveDataSet();
-    if(dataset && imTracker->deactivateDataSet(dataset)){
-      imTracker->destroyDataSet(dataset);
+    if(imTracker){
+      QCAR::DataSet* dataset = imTracker->getActiveDataSet();
+      if(dataset && imTracker->deactivateDataSet(dataset)){
+	imTracker->destroyDataSet(dataset);
+      }else{
+	AuraLog::error("Error while trying to destroy image dataset.");
+      }
+
+      // Deinit tracker
+      if(!QCAR::TrackerManager::getInstance().deinitTracker(QCAR::Tracker::IMAGE_TRACKER)){
+	AuraLog::error("Error deinitializing the image tracker");
+      }
     }
-
-    // Stopping camera
-    //stopCamera();
-
-    // Deinit tracker
-    QCAR::TrackerManager::getInstance().deinitTracker(QCAR::Tracker::IMAGE_TRACKER);
-
   }
   
   QCAR::Frame& AuraQCARController::getFrame() {
@@ -217,22 +234,23 @@ namespace Aura {
   }
 
   void AuraQCARController::stopCamera() {
-// Stop the tracker:
+
+    // Stop the tracker:
     QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
     QCAR::Tracker* imageTracker = trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER);
-    if(imageTracker != 0)
-        imageTracker->stop();
-
+    if(imageTracker != 0){
+      imageTracker->stop();
+    }else{
+      AuraLog::error("Error stopping the image tracker.");
+    }
     QCAR::CameraDevice::getInstance().stop();
     QCAR::CameraDevice::getInstance().deinit();
   }
 
   void AuraQCARController::setProjectionMatrix() {
     // Cache the projection matrix:
-    const QCAR::CameraCalibration& cameraCalibration =
-      QCAR::CameraDevice::getInstance().getCameraCalibration();
-    projectionMatrix = QCAR::Tool::getProjectionGL(cameraCalibration, 2.0f,
-						   2500.0f);
+    const QCAR::CameraCalibration& cameraCalibration = QCAR::CameraDevice::getInstance().getCameraCalibration();
+    mProjectionMatrix = QCAR::Tool::getProjectionGL(cameraCalibration, 2.0f, 2500.0f);
   }
 }
 

@@ -2,13 +2,6 @@
 
 namespace Aura{
 
-  void AuraJNIUtils::loadAndCacheQCARClass(){
-    JNIEnv* env;
-    getEnv(&env);
-    jclass QCARClass_local = env->FindClass("com/qualcomm/QCAR/QCAR");  
-    mQCARClass = reinterpret_cast<jclass>(env->NewGlobalRef(QCARClass_local));
-  }
-
   void AuraJNIUtils::setVM(JavaVM* vm){
     mVm = vm;
   }
@@ -37,8 +30,6 @@ namespace Aura{
     return mApp;
   }
 
-  jclass AuraJNIUtils::getQCARClass(){ return mQCARClass; }
-
   void AuraJNIUtils::attachCurrentThread(JNIEnv* env){
     mVm->AttachCurrentThread(&env, NULL);
   }
@@ -49,3 +40,4 @@ namespace Aura{
 
 
 }
+
