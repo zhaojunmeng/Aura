@@ -19,24 +19,6 @@ namespace Aura {
     OGRE_DELETE_T(mFSLayer, FileSystemLayer, Ogre::MEMCATEGORY_GENERAL);
   }
 
-
-  void AuraEngine::start(AuraApplication* app){
-    mAuraApp = app;
-
-    // Init the Engine
-    init();
-   
-    int i = 0;
-    // Run the loop! (Just the loop)
-    while (mRunning) {
-      i = (i+1)%100;
-      engineFrameStarted();
-      engineRenderOneFrame();
-      engineFrameEnded();
-    }
-  }
-
-
   void AuraEngine::init() {
     _initEngine();
   }
@@ -63,19 +45,15 @@ namespace Aura {
 
     // Creating the camera
     mCamera = mSceneManager->createCamera("Camera");
-    mCamera->setPosition(Ogre::Vector3(0,0,0));
-    mCamera->setDirection(Ogre::Vector3(0,0,-1));
 
     QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
     Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
-    			      projMat.data[1], -projMat.data[5], projMat.data[9],  projMat.data[13],
-    			      projMat.data[2], projMat.data[6], -projMat.data[10], projMat.data[14],
-    			      projMat.data[3], projMat.data[7], -projMat.data[11], projMat.data[15]);
+    			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
+    			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
+    			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
+
 
     mCamera->setCustomProjectionMatrix(true, ogreProjMat);
-
-    //mCamera->setFarClipDistance(1000);
-    //mCamera->setNearClipDistance(0.1); 
 
     // Create shader controller
 #ifdef USE_RTSHADER_SYSTEM
@@ -132,6 +110,9 @@ namespace Aura {
     // Game!
     mAuraApp->setupAuraInterface();
     mAuraApp->createScene();
+
+    // Lets start the tracker! :)
+    AuraQCARController::getInstance()->startTracker();
 
     mInit = true;
   }
@@ -231,24 +212,23 @@ namespace Aura {
 
 
   void AuraEngine::engineRenderOneFrame(){
-    if(!mPaused && mWindow != NULL && mWindow->isActive())
-      {
-	try{
-	  mIOEngine->capture();
-	  // TODO, esta al update callback del tracker
-	  AuraQCARController::getInstance()->update();
-	  updateBackground();
-	  mWindow->windowMovedOrResized();
-	  Ogre::WindowEventUtilities::messagePump();
-	  if(!mRoot->renderOneFrame()) mRunning = false;
-	}catch(Ogre::RenderingAPIException e){}
-	
-      }
+    if(!mPaused) {
+      //try{
+      mIOEngine->capture();
+      // TODO, esta al update callback del tracker
+      AuraQCARController::getInstance()->update();
+      updateBackground();
+      //mWindow->windowMovedOrResized();
+      Ogre::WindowEventUtilities::messagePump();
+      if(!mRoot->renderOneFrame()) mRunning = false;
+      //}catch(Ogre::RenderingAPIException e){}
+    }
   }
 
   void AuraEngine::updateBackground() {
-
+    
     QCAR::Frame& frame = AuraQCARController::getInstance()->getFrame();
+    Ogre::uchar* framePixels = static_cast<Ogre::uchar*>(const_cast<void*>(frame.getImage(mFrameImageId)->getPixels()));
     Ogre::TexturePtr texture = Ogre::TextureManager::getSingleton().getByName("Aura/BackgroundTexture", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
     Ogre::HardwarePixelBufferSharedPtr pixelBuffer = texture->getBuffer();
@@ -260,14 +240,11 @@ namespace Aura {
 
     int texPosRow = 0;
     int texPos = 0;
-	
-    char* framePixels = static_cast<char*>(const_cast<void*>(frame.getImage(mFrameImageId)->getPixels()));
-
     for (int j = 0; j <  mFrameHeight; j++) {
       for (int i = 0; i <  mFrameWidth; i++) {
-	pDest[texPos++] = *((char*) (framePixels)++);
-	pDest[texPos++] = *((char*) (framePixels)++);
-	pDest[texPos++] = *((char*) (framePixels)++);
+	pDest[texPos++] = *((Ogre::uchar*) (framePixels)++);
+	pDest[texPos++] = *((Ogre::uchar*) (framePixels)++);
+	pDest[texPos++] = *((Ogre::uchar*) (framePixels)++);
       }
 
       texPosRow += mTexBytesRow;
@@ -287,9 +264,12 @@ namespace Aura {
 							Ogre::TEX_TYPE_2D, // texture type
 							QCAR::CameraDevice::getInstance().getVideoMode(0).mWidth,
 							QCAR::CameraDevice::getInstance().getVideoMode(0).mHeight,
-							0, Ogre::PF_R8G8B8, // pixel format
+							0, 
+							Ogre::PF_R8G8B8, // pixel format
 							Ogre::HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
 
+    // Create the dynamic image to fill out the texture :)
+    
 
     // Get pixels per row in the texture :)
     Ogre::HardwarePixelBufferSharedPtr pixelBuffer = texture->getBuffer();

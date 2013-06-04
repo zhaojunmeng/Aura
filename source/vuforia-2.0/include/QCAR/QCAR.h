@@ -54,7 +54,7 @@ enum PIXEL_FORMAT {
     RGBA8888 = 16,              ///< A color pixel stored in 32 bits using 8 bits
                                 ///< each and an alpha channel.
 };
-
+ 
 
 /// Use when calling QCAR::setHint()
 enum HINT {

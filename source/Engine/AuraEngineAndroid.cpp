@@ -13,10 +13,43 @@ namespace Aura{
 
   }
     
-  void AuraEngineAndroid::init()
-  {
-    // Empty, do it in init window state
+  void AuraEngineAndroid::init(){
+    //  Wait until the window is created
+    while (mWindow == NULL) {
+      while ((ident = ALooper_pollAll(0, NULL, &events, (void**)&source)) >= 0) {
+	if (source != NULL)
+	  source->process(mState, source);
+	
+	if (mState->destroyRequested != 0){
+	  return; // Bye :)
+	}
+      }
+    }
   }
+
+  void AuraEngineAndroid::start(AuraApplication* app){
+    mAuraApp = app;
+
+    // Init the Engine
+    init();
+   
+    int i = 0;
+    // Run the loop! (Just the loop)
+    while (true) {      
+      while ((ident = ALooper_pollAll(0, NULL, &events, (void**)&source)) >= 0) {
+	if (source != NULL)
+	  source->process(mState, source);
+	
+	if (mState->destroyRequested != 0){
+	  return; // Bye :)
+	}
+      }
+   
+      engineRenderOneFrame();
+      engineFrameEnded();
+    }
+  }
+
 
 
   void AuraEngineAndroid::createWindow(){
@@ -98,33 +131,33 @@ namespace Aura{
 	}
 
 	break;
-      // case APP_CMD_GAINED_FOCUS:
-      // 	//	AuraLog::info("APP_CMD_GAINED_FOCUS");
-      // 	break;
-      // case APP_CMD_LOST_FOCUS:
-      // 	//AuraLog::info("APP_CMD_LOST_FOCUS");
-      // 	break;
-      // case APP_CMD_CONFIG_CHANGED:
-      // 	//AuraLog::info("APP_CMD_CONFIG_CHANGED");
-      // 	break;
-      // case APP_CMD_INPUT_CHANGED:
-      // 	//AuraLog::info("APP_CMD_INPUT_CHANGED");
-      // 	break;
-      // case APP_CMD_WINDOW_RESIZED:
-      // 	//AuraLog::info("APP_CMD_WINDOW_RESIZED");
-      // 	break;
-      // case APP_CMD_WINDOW_REDRAW_NEEDED:
-      // 	//AuraLog::info("APP_CMD_REDRAW_NEEDED");
-      // 	break;
-      // case APP_CMD_CONTENT_RECT_CHANGED:
-      // 	//AuraLog::info("APP_CMD_RECT_CHANGED");
-      // 	break;
-      // case APP_CMD_LOW_MEMORY:
-      // 	//AuraLog::info("APP_CMD_LOW_MEMORY");
-      // 	break;
-      // case APP_CMD_START:
-      // 	//AuraLog::info("APP_CMD_START");
-      // 	break;
+	// case APP_CMD_GAINED_FOCUS:
+	// 	//	AuraLog::info("APP_CMD_GAINED_FOCUS");
+	// 	break;
+	// case APP_CMD_LOST_FOCUS:
+	// 	//AuraLog::info("APP_CMD_LOST_FOCUS");
+	// 	break;
+	// case APP_CMD_CONFIG_CHANGED:
+	// 	//AuraLog::info("APP_CMD_CONFIG_CHANGED");
+	// 	break;
+	// case APP_CMD_INPUT_CHANGED:
+	// 	//AuraLog::info("APP_CMD_INPUT_CHANGED");
+	// 	break;
+	// case APP_CMD_WINDOW_RESIZED:
+	// 	//AuraLog::info("APP_CMD_WINDOW_RESIZED");
+	// 	break;
+	// case APP_CMD_WINDOW_REDRAW_NEEDED:
+	// 	//AuraLog::info("APP_CMD_REDRAW_NEEDED");
+	// 	break;
+	// case APP_CMD_CONTENT_RECT_CHANGED:
+	// 	//AuraLog::info("APP_CMD_RECT_CHANGED");
+	// 	break;
+	// case APP_CMD_LOW_MEMORY:
+	// 	//AuraLog::info("APP_CMD_LOW_MEMORY");
+	// 	break;
+	// case APP_CMD_START:
+	// 	//AuraLog::info("APP_CMD_START");
+	// 	break;
       case APP_CMD_RESUME:
 	//AuraLog::info("APP_CMD_RESUME");
 	Aura::AuraEngineAndroid::mInstance->mPaused = false;
@@ -137,10 +170,10 @@ namespace Aura{
 	//AuraLog::info("APP_CMD_STOP");
 	AuraEngineAndroid::mInstance->_freeResources();
 	break;
-      // case APP_CMD_DESTROY:
-      // 	AuraLog::info("APP_CMD_DESTORY");
+	// case APP_CMD_DESTROY:
+	// 	AuraLog::info("APP_CMD_DESTORY");
 
-      // 	break;
+	// 	break;
       }
   }
 
@@ -165,22 +198,7 @@ namespace Aura{
 
     return 0;
   }
-        
-
-  void AuraEngineAndroid::engineFrameStarted(){
-    int ident, events;
-    struct android_poll_source* source;
-    while ((ident = ALooper_pollAll(0, NULL, &events, (void**)&source)) >= 0)
-      {
-	if (source != NULL)
-	  source->process(mState, source);
-                    
-	if (mState->destroyRequested != 0){
-	  mRunning = false;
-	}
-      }
-  }
-
+  
 } // Aura
 
 /* Lets put here the interface with the Java VM */

@@ -32,7 +32,7 @@
 
 namespace Aura{
 
-  class AuraQCARController: public Singleton<AuraQCARController>{
+  class AuraQCARController: public Singleton<AuraQCARController>{//, public QCAR::UpdateCallback{
 
   public:  
     AuraQCARController();
@@ -44,11 +44,15 @@ namespace Aura{
     void loadImageData(const std::string& name, const std::string& filename);
     void createImageSceneNodes();
 
+    //    virtual void QCAR_onUpdate(QCAR::State& state);
+
     void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
     void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
 
     int getScreenWidth(){ return mScreenWidth; }
     int getScreenHeight(){ return mScreenHeight; }
+
+    void startTracker();
     
     const QCAR::VideoBackgroundConfig& getVideoBackgroundConfig(){ return mVideoBackgroundConfig; }
     const QCAR::VideoMode& getVideoMode(){ return mVideoMode; }
@@ -67,6 +71,7 @@ namespace Aura{
     
   private:
     QCAR::Frame mFrame;
+    Ogre::SceneNode* mQCARNode;
     //QCAR::ImageTracker* mImageTracker;
     unsigned int mScreenWidth;
     unsigned int mScreenHeight;

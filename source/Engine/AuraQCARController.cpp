@@ -43,6 +43,10 @@ namespace Aura {
 
     Aura::AuraQCARController::getInstance()->setProjectionMatrix();
 
+    return true;
+  }
+
+  void AuraQCARController::startTracker(){
     QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
     QCAR::Tracker* imageTracker = trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER);
     if(imageTracker != 0){
@@ -50,8 +54,6 @@ namespace Aura {
     }else{
       AuraLog::error("Error starting the tracker!");
     }
-
-    return true;
   }
 
   int AuraQCARController::getOpenGlVersion(){
@@ -67,53 +69,29 @@ namespace Aura {
   }
 
   void AuraQCARController::update(){
-    /* Begin - end */
-
-
     // Retrieve a frame
-
-    QCAR::State QCARState = QCAR::Renderer::getInstance().begin();	  
-    QCAR::Renderer::getInstance().drawVideoBackground();
-    mFrame = QCARState.getFrame();
-	  
-    // Update image trackers
-    QCAR::TrackerManager& trackerManager = QCAR::TrackerManager::getInstance();
-    QCAR::ImageTracker* imageTracker = static_cast<QCAR::ImageTracker*>(trackerManager.getTracker(QCAR::Tracker::IMAGE_TRACKER));
-
-    if(imageTracker != NULL){
-
-      // Hide the scene nodes
-      for(unsigned int i=0; i < imageTracker->getActiveDataSetCount(); i++){
-	QCAR::DataSet* dataset = imageTracker->getActiveDataSet(i);    
-	if(dataset == NULL) continue;
-	for(size_t tr=0; tr<dataset->getNumTrackables(); tr++){
-	  QCAR::Trackable* trackable = dataset->getTrackable(tr);
-	  Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable->getName());
-	  node->setVisible(false);
-	}
-      }
-    }
-
-    // Inspect the trackables
-    for(size_t tr = 0; tr < QCARState.getNumTrackableResults(); tr++){
-      const QCAR::TrackableResult* result = QCARState.getTrackableResult(tr);
-      const QCAR::Trackable& trackable = result->getTrackable();
-      
-      QCAR::Matrix44F pose = QCAR::Tool::convertPose2GLMatrix(result->getPose());
-      
-      Ogre::Matrix4 matPose( pose.data[0], pose.data[4], pose.data[8], pose.data[12], 
-      			     -pose.data[1], -pose.data[5], -pose.data[9],  -pose.data[13],
-      			     -pose.data[2], -pose.data[6], -pose.data[10], -pose.data[14],
-      			     pose.data[3],  pose.data[7],  pose.data[11],  pose.data[15]);
-
-      Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable.getName());
-      node->setVisible(true);
-      node->setOrientation(matPose.extractQuaternion());
-      node->setPosition(matPose.getTrans());
-    }
-
+    QCAR::State state = QCAR::Renderer::getInstance().begin();	  
+    mFrame = state.getFrame();
     QCAR::Renderer::getInstance().end();
 
+    mQCARNode->setVisible(false);
+
+    // Inspect the trackables
+    for(size_t tr = 0; tr < state.getNumTrackableResults(); tr++){
+      const QCAR::TrackableResult* result = state.getTrackableResult(tr);
+      const QCAR::Trackable& trackable = result->getTrackable();
+
+      Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getSceneNode(trackable.getName());
+      
+      QCAR::Matrix44F pose = QCAR::Tool::convertPose2GLMatrix(result->getPose());
+      Ogre::Matrix3 rotMat( pose.data[0], pose.data[4], pose.data[8],
+			    pose.data[1], pose.data[5], pose.data[9],
+			    pose.data[2], pose.data[6], pose.data[10]);
+
+      node->setOrientation(Ogre::Quaternion(rotMat));
+      node->setPosition(Ogre::Vector3(pose.data[12], pose.data[13], pose.data[14]));
+      node->setVisible(true);
+    }
   }
 
   void AuraQCARController::configureVideoBackground() {
@@ -194,6 +172,8 @@ namespace Aura {
       return;
     }
 
+    mQCARNode = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->createChildSceneNode("QCARNode");
+
     for(int i = 0; i< imTracker->getActiveDataSetCount(); i++){
 
       QCAR::DataSet* dataset = imTracker->getActiveDataSet(i);
@@ -204,8 +184,7 @@ namespace Aura {
 
       for(int i=0; i < dataset->getNumTrackables(); i++){
 	QCAR::Trackable* trackable = dataset->getTrackable(i);
-	Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->createChildSceneNode(trackable->getName());
-	node->setVisible(false);
+	Ogre::SceneNode* node = mQCARNode->createChildSceneNode(trackable->getName());
       }
     }
   }

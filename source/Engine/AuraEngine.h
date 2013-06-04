@@ -112,7 +112,7 @@ namespace Aura
       AuraEngine();
       virtual ~AuraEngine();
 
-      void start(AuraApplication* app);
+
 
       virtual void init( );
     protected:
@@ -134,7 +134,6 @@ namespace Aura
       virtual void engineFrameStarted();
       virtual void engineFrameEnded();
       virtual void engineRenderOneFrame();
-
       bool mPaused;
       bool mSceneNodesCreated;
       bool mRunning;
@@ -148,14 +147,14 @@ namespace Aura
       Ogre::SceneManager* mSceneManager;
       Ogre::Camera* mCamera;
       Ogre::RenderWindow* mWindow;    // render window
+#ifdef USE_RTSHADER_SYSTEM
+      ShaderController* mShaderController;
+#endif
 
       // Some variables to optimize backgrond drawing
       int mTexBytesRow;
       int mFrameWidth, mFrameHeight;
       int mFrameImageId;
-#ifdef USE_RTSHADER_SYSTEM
-      ShaderController* mShaderController;
-#endif
     };
 }
 

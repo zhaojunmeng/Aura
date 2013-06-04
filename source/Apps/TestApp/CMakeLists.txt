@@ -58,6 +58,7 @@ if(ANDROID)
   STRING(REGEX REPLACE ";" " " APP_SOURCE_FILES_ANDROID "${APP_SOURCE_FILES}")
   SET(JNI_SRC "${JNI_SRC}\nLOCAL_SRC_FILES := ${APP_SOURCE_FILES_ANDROID} main.cpp \n")
   
+  STRING(REGEX REPLACE ";" " " APPS_DEPENDENCIES_LIBS_ANDROID "${APPS_DEPENDENCIES_LIBS}")
   if(NOT ANDROID_GLES_ONLY)
     configure_file("${OGRE_TEMPLATES_DIR}/Android.mk_app.in" "${NDKOUT}/jni/Android.mk" @ONLY)
   else()
@@ -113,7 +114,7 @@ else()
 
   
 
-  # configure SampleBrowser build
+  # configure build
   set(OGRE_RUNTIME_OUTPUT ${CMAKE_CURRENT_BINARY_DIR})
   ogre_config_common(${APP_NAME})
 
@@ -134,6 +135,10 @@ else()
     set_property(TARGET ${APP_NAME} PROPERTY INSTALL_RPATH_USE_LINK_PATH TRUE)
   endif ()
 
+
+
+
+# APPLE!!
   if (APPLE)
     set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/${APP_NAME}.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")
 

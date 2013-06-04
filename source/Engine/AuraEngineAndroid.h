@@ -22,7 +22,7 @@ namespace Aura{
     AuraEngineAndroid();
       
     virtual void init();
-    virtual void engineFrameStarted();
+    virtual void start(AuraApplication* app);
 
   protected:
 
@@ -38,6 +38,9 @@ namespace Aura{
     static AuraEngineAndroid* mInstance;
     struct android_app* mState;
     AAssetManager* mAssetMgr;       // Android asset manager to access files inside apk
+    // To get the events
+    int ident, events;
+    struct android_poll_source* source;
   };
 
 } // Aura

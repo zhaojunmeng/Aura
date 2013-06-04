@@ -29,19 +29,10 @@ elseif(OGRE_BUILD_PLATFORM_ANDROID)
   set(OGRE_DEP_SEARCH_PATH 
     ${OGRE_DEPENDENCIES_DIR}
     ${ENV_OGRE_DEPENDENCIES_DIR}
-    "${OGRE_BINARY_DIR}/AndroidDependencies"
-    "${OGRE_SOURCE_DIR}/AndroidDependencies"
-    "${OGRE_BINARY_DIR}/../AndroidDependencies"
-    "${OGRE_SOURCE_DIR}/../AndroidDependencies"
-  )
-else()
-  set(OGRE_DEP_SEARCH_PATH 
-    ${OGRE_DEPENDENCIES_DIR}
-    ${ENV_OGRE_DEPENDENCIES_DIR}
-    "${OGRE_BINARY_DIR}/Dependencies"
-    "${OGRE_SOURCE_DIR}/Dependencies"
-    "${OGRE_BINARY_DIR}/../Dependencies"
-    "${OGRE_SOURCE_DIR}/../Dependencies"
+    #"${OGRE_BINARY_DIR}/AndroidDependencies"
+    #"${OGRE_SOURCE_DIR}/../Dependencies/AndroidDependencies"
+    #"${OGRE_BINARY_DIR}/../AndroidDependencies"
+    #"${OGRE_SOURCE_DIR}/Dependencies/AndroidDependencies"
   )
 endif()
 

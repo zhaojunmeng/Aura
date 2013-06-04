@@ -15,8 +15,7 @@ DEPENDENCIES_DIR := @CMAKE_SOURCE_DIR@/source/Dependencies/AndroidDependencies/l
 LOCAL_LDLIBS := -landroid -lc -lm -ldl -llog -lEGL -lGLESv2
 LOCAL_LDLIBS	+= -L@CMAKE_BINARY_DIR@/lib -L$(DEPENDENCIES_DIR)
 
-LOCAL_LDLIBS += -lPlugin_ParticleFXStatic -lPlugin_OctreeSceneManagerStatic -lRenderSystem_GLES2Static -lOgreRTShaderSystemStatic 
-LOCAL_LDLIBS += -lOgreOverlayStatic -lOgreMainStatic
+LOCAL_LDLIBS +=  @APPS_DEPENDENCIES_LIBS_ANDROID@
 LOCAL_LDLIBS += -lzzip -lz -lFreeImage -lfreetype -lOIS @GLES_OPTIMISER@ $(DEPENDENCIES_DIR)/libsupc++.a 
 LOCAL_LDLIBS += $(DEPENDENCIES_DIR)/libstdc++.a @NDKOUT@/obj/local/@ANDROID_ABI@/libcpufeatures.a
 
