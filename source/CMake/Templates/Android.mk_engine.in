@@ -6,16 +6,16 @@ LOCAL_LDLIBS := -landroid -lc -lm -ldl -llog -lEGL -lGLESv2
 
 LOCAL_STATIC_LIBRARIES := android_native_app_glue cpufeatures
 
-LOCAL_CFLAGS := -DGL_GLEXT_PROTOTYPES=1 -I@OGRE_BINARY_DIR@/include -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/OgreMain/include 
+LOCAL_CFLAGS := -DGL_GLEXT_PROTOTYPES=1 -I@CMAKE_SOURCE_DIR@/source/Engine/Build -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/OgreMain/include 
 LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/RenderSystems/GLES2/include -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/RenderSystems/GLES2/include/EGL
 LOCAL_CFLAGS += -I@ANDROID_NDK@/sources/cpufeatures -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/Components/RTShaderSystem/include 
 LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/Components/Overlay/include -I@CMAKE_SOURCE_DIR@/source/Engine
 LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/PlugIns/ParticleFX/include -I@CMAKE_SOURCE_DIR@/source/Ogre-1.9a/PlugIns/OctreeSceneManager/include 
-LOCAL_CFLAGS += -I@OGRE_DEPENDENCIES_DIR@/include -I@OGRE_DEPENDENCIES_DIR@/include/OIS -I@OGRE_BINARY_DIR@/Samples/include
+LOCAL_CFLAGS += -I@OGRE_DEPENDENCIES_DIR@/include/OIS -I@OGRE_BINARY_DIR@/Samples/include
+LOCAL_CFLAGS += -I@CMAKE_SOURCE_DIR@/source/Dependencies/AndroidDependencies/include 
 LOCAL_CFLAGS += -I@AURA_SOURCE_DIR@/cricket-1.0.31/inc
-LOCAL_CFLAGS += -fexceptions -frtti -x c++ -D___ANDROID___ -DANDROID -DZZIP_OMIT_CONFIG_H -DUSE_RTSHADER_SYSTEM=1 
+LOCAL_CFLAGS += -fexceptions -frtti -x c++ -D___ANDROID___ -DANDROID -DZZIP_OMIT_CONFIG_H -DUSE_OPENGL_ES_2_0=1 -DUSE_RTSHADER_SYSTEM=1 
 LOCAL_CFLAGS += -I@AURA_SOURCE_DIR@/vuforia-2.0/include @FLAG_RENDERSYSTEM@
-
 
 LOCAL_PATH := @AURA_SOURCE_DIR@/Engine
 

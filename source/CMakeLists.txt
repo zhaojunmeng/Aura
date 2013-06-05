@@ -5,8 +5,6 @@ cmake_minimum_required(VERSION 2.6)
 #SET(CMAKE_USE_RELATIVE_PATHS 1)
 #SET(INTERNAL_CREATE_DISTRIBUTABLE_MSVC_PROJECTFILES 1)
 
-
-
 project(AURA)
 SET(AURA 1.0)
 set(AURA TRUE)
@@ -30,7 +28,7 @@ include(PreprocessorUtils)
 
 
 # Ogre
-subdirs(Ogre-1.9a)
+# subdirs(Ogre-1.9a)
 
 
 
