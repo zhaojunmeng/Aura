@@ -55,6 +55,8 @@ namespace Aura
     virtual bool frameStarted(const Ogre::FrameEvent& evt) = 0;  
     /* Frame ended */
     virtual bool frameEnded(const Ogre::FrameEvent& evt) = 0;  
+    /* Destroy scene */
+    virtual void destroyScene() = 0;
 
     void setupAuraInterface();
     

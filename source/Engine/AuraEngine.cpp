@@ -12,6 +12,10 @@ namespace Aura {
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController = 0;
 #endif
+
+    // Init the audio before everything :)
+    AuraAudioController::getInstance()->initialize();
+
   }
 
   AuraEngine::~AuraEngine() {
@@ -26,6 +30,8 @@ namespace Aura {
 
   void AuraEngine::_initEngine() {
 
+
+    // Init Ogre :)
     createRoot();
 
     setupInput();
@@ -86,6 +92,7 @@ namespace Aura {
     
     // Game!
     mAuraApp->setupAuraInterface();
+
     mInit = true;
   }
 
@@ -165,8 +172,10 @@ namespace Aura {
   }
 
   void AuraEngine::_freeEngine() {
-    if(!mInit) return;
+    // Free the resources!
+    mAuraApp->destroyScene();
 
+    CkShutdown();
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     [mGestureView release];
@@ -174,8 +183,6 @@ namespace Aura {
     // Shutdown input
     mIOEngine->shutdownInput();
 
-    // Shutdown audio
-    AuraAudioController::getInstance()->shutdown();
 
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController->shutdown();
@@ -184,15 +191,18 @@ namespace Aura {
     // remove window event listener before shutting down OIS
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
            
+
     if (mRoot) {
       OGRE_DELETE mOverlaySystem;
       OGRE_DELETE mRoot;
     }
 	
     mStaticPluginLoader.unload();
-      
+
     mRoot = NULL;
     mWindow = NULL;
+
+
 
     mInit = false;
   }

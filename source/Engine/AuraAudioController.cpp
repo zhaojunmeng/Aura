@@ -3,6 +3,9 @@
 namespace Aura{
 
   AuraAudioController::AuraAudioController(){
+  }
+
+  void AuraAudioController::initialize(){
     // Android initialization
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     CkConfig config(AuraJNIUtils::getInstance()->getEnv(), AuraJNIUtils::getInstance()->getState()->activity->clazz);

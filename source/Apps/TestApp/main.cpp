@@ -73,6 +73,8 @@ int main(int argc, char *argv[]) {
     engine.start(&app);
 
     Aura::AuraJNIUtils::getInstance()->detachCurrentThread();
+
+    exit(0); // Destroy the singletons :)
  #else
     // Run everything
     Aura::AuraEngine* engine = new AuraEngine();

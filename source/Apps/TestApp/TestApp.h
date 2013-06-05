@@ -18,6 +18,7 @@ namespace Aura{
     virtual void initTracker();
     virtual bool frameStarted(const Ogre::FrameEvent& evt);  
     virtual bool frameEnded(const Ogre::FrameEvent& evt);  
+    virtual void destroyScene();
 
     virtual bool keyPressed(const OIS::KeyEvent& evt);
     virtual bool keyReleased(const OIS::KeyEvent& evt);

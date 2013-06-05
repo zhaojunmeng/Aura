@@ -29,8 +29,6 @@ namespace Aura{
 
   void AuraEngineAndroid::start(AuraApplication* app){
     mAuraApp = app;
-    AuraLog::info("Start Engine :)");
-
    
     int i = 0;
     // Run the loop! (Just the loop)
@@ -115,24 +113,22 @@ namespace Aura{
 	//       	AuraLog::info("APP_CMD_SAVE_STATE");
 	break;
       case APP_CMD_INIT_WINDOW:{
-	AuraLog::info("APP_CMD_INIT_WINDOW");
+	//AuraLog::info("APP_CMD_INIT_WINDOW");
 	if(app->window)
 	 {
 	   AuraEngineAndroid::mInstance->_initEngine();
 	   AuraEngineAndroid::mInstance->_initResources();
-	   //AuraJNIUtils::getInstance()->initResourcesJava();
-	   
 	 }
-	AuraLog::info("Engine initialized :) LETS ROCK!");
       }
 	break;
       case APP_CMD_TERM_WINDOW:
 	//AuraLog::info("APP_TERM_WINDOW");
+	Aura::AuraEngineAndroid::mInstance->_freeEngine();
 	if(AuraEngineAndroid::mInstance->mRoot && AuraEngineAndroid::mInstance->mWindow){
 	  static_cast<Ogre::AndroidEGLWindow*>(AuraEngineAndroid::mInstance->mWindow)->_destroyInternalResources();
 	}
 
-	break;
+	 break;
 	// case APP_CMD_GAINED_FOCUS:
 	// 	//	AuraLog::info("APP_CMD_GAINED_FOCUS");
 	// 	break;
@@ -171,20 +167,18 @@ namespace Aura{
 	Aura::AuraAudioController::getInstance()->pause();
 	break;
       case APP_CMD_STOP:
-	//AuraLog::info("APP_CMD_STOP");
-	AuraEngineAndroid::mInstance->_freeEngine();
+	//Aura::AuraLog::info("APP_CMD_STOP");
+	//	Aura::AuraEngineAndroid::mInstance->_freeEngine();
 	break;
-	// case APP_CMD_DESTROY:
-	// 	AuraLog::info("APP_CMD_DESTORY");
-
-	// 	break;
+      case APP_CMD_DESTROY:
+	//AuraLog::info("APP_CMD_DESTORY");
+	
+	break;
       }
   }
 
 
   int32_t AuraEngineAndroid::handleInput(struct android_app* app, AInputEvent* event){
-
-    if(!AuraEngineAndroid::mInstance->mInit) return 0;
 
     if (AuraEngineAndroid::mInstance->mIOEngine){
       if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION){

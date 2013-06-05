@@ -22,7 +22,7 @@ namespace Aura{
     AuraEngineAndroid(struct android_app* state);
       
     virtual void init();
-    virtual void start(AuraApplication* app);
+    void start(AuraApplication* app);
 
     virtual void createWindow();
     virtual void setupInput();

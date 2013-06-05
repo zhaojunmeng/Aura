@@ -121,7 +121,7 @@ namespace Aura
 
       void _initEngine();
       void _initResources();
-      virtual void _freeEngine();
+      void _freeEngine();
 
       virtual void createRoot();
       virtual void createWindow();

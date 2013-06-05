@@ -19,6 +19,7 @@ namespace Aura{
     AuraAudioController();
     ~AuraAudioController();
     
+    void initialize();
     void update();
 
     void loadAudioFile(std::string& file);

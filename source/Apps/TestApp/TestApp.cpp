@@ -61,6 +61,12 @@ namespace Aura{
     return true;
   }
 
+  void TestApp::destroyScene(){
+    sound->destroy();
+    music->destroy();
+    bank->destroy();
+  }
+
   bool TestApp::frameEnded(const Ogre::FrameEvent& evt){
     return true;
   }
