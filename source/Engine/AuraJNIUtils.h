@@ -3,6 +3,7 @@
 
 #include <jni.h>
 #include <android_native_app_glue.h>
+#include <AuraLog.h>
 #include "Singleton.h"
 
 namespace Aura{
@@ -12,21 +13,24 @@ namespace Aura{
   class AuraJNIUtils: public Singleton<AuraJNIUtils>{
     
   public:
+    // High-level Engine functions
+    void finishActivity();
+    //void initResourcesJava();
 
+    // Getters and setters
     void setVM(JavaVM* vm);
     void setState(struct android_app* state);
-    void setAuraApp(AuraApplication* app);
 
     struct android_app* getState();
-    void getEnv(JNIEnv** env);
+    JNIEnv* getEnv();
     JavaVM* getVM();
-    AuraApplication* getAuraApp();
 
-    void attachCurrentThread(JNIEnv* env);
+    void attachCurrentThread();
     void detachCurrentThread();
     
   private:
     JavaVM* mVm;
+    JNIEnv* mEnv;
     struct android_app* mState;
     AuraApplication* mApp;
   };

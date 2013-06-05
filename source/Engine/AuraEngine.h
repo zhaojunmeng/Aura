@@ -38,6 +38,7 @@
 #include "AuraApplication.h"
 #include "AuraIOEngine.h"
 #include "AuraQCARController.h"
+#include "AuraAudioController.h"
 #include "AuraLog.h"
 #include "Singleton.h"
 
@@ -101,7 +102,7 @@ namespace Aura
 {
   
   class AuraApplication;
-
+  
   /*=============================================================================
     | Base class responsible for setting up a common context.
     =============================================================================*/
@@ -112,15 +113,15 @@ namespace Aura
       AuraEngine();
       virtual ~AuraEngine();
 
-
-
       virtual void init( );
-    protected:
+
+      AuraApplication* getAuraApp(){return mAuraApp; }
 
       void updateBackground();
 
       void _initEngine();
-      virtual void _freeResources();
+      void _initResources();
+      virtual void _freeEngine();
 
       virtual void createRoot();
       virtual void createWindow();
@@ -131,13 +132,23 @@ namespace Aura
       void loadResources();
       void createBackground();
 
-      virtual void engineFrameStarted();
-      virtual void engineFrameEnded();
-      virtual void engineRenderOneFrame();
-      bool mPaused;
-      bool mSceneNodesCreated;
-      bool mRunning;
+      void finish() { 
+	AuraJNIUtils::getInstance()->finishActivity();
+      }
+
+
+      void engineRenderOneFrame();
+      bool frameStarted(const Ogre::FrameEvent& evt){ 
+	if(mSceneCreated) return mAuraApp->frameStarted(evt); 
+	return true;
+      }
+      bool frameEnded(const Ogre::FrameEvent& evt){ 
+       	if(mSceneCreated) return mAuraApp->frameEnded(evt); 
+	return true;
+      } 
+
       bool mInit;
+      bool mSceneCreated;
       AuraApplication* mAuraApp;
       AuraIOEngine* mIOEngine;
       Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer

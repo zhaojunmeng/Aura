@@ -8,8 +8,7 @@ namespace Aura {
     mWindow = 0;
     mOverlaySystem = 0;
     mInit = false;
-    mRunning = true;
-    mPaused = false;
+    mSceneCreated = false;
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController = 0;
 #endif
@@ -19,15 +18,13 @@ namespace Aura {
     OGRE_DELETE_T(mFSLayer, FileSystemLayer, Ogre::MEMCATEGORY_GENERAL);
   }
 
-  void AuraEngine::init() {
+  void AuraEngine::init() {    
+    // This method is not actually used!
     _initEngine();
+    _initResources();
   }
 
   void AuraEngine::_initEngine() {
-    if(mRoot != NULL){
-      AuraLog::warn("Engine already initialized!");
-      return;
-    }
 
     createRoot();
 
@@ -52,7 +49,6 @@ namespace Aura {
     			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
     			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
 
-
     mCamera->setCustomProjectionMatrix(true, ogreProjMat);
 
     // Create shader controller
@@ -60,16 +56,12 @@ namespace Aura {
     mShaderController = new ShaderController(mFSLayer);
 #endif
 
-    // Load resources
+    // Locate resources
     locateResources();
-    loadResources();
 
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController->init();
 #endif
-
-
-
 
 #if OGRE_PLATFORM != OGRE_PLATFORM_ANDROID
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
@@ -81,40 +73,33 @@ namespace Aura {
 
     // ------ Creating app specific stuff :) ---------
 
-    // add a bright light above the scene
-    Ogre::Light* light = mSceneManager->createLight();
-    light->setType(Ogre::Light::LT_POINT);
-    light->setPosition(-10, 40, 20);
-    light->setSpecularColour(Ogre::ColourValue::White);
-
     // We have to ajust the aspect ratio :)
     const QCAR::VideoBackgroundConfig& config = AuraQCARController::getInstance()->getVideoBackgroundConfig(); 
     int screenWidth = AuraQCARController::getInstance()->getScreenWidth();
     int screenHeight = AuraQCARController::getInstance()->getScreenHeight();
-
     float vZoom = config.mSize.data[1] / (float) screenHeight;
     float vOffset = ((vZoom * screenHeight) - screenHeight) / (2 * screenHeight);
-
     float uZoom = config.mSize.data[0] / (float) screenWidth;
     float uOffset = ((uZoom * screenWidth) - screenWidth) / (2 * screenWidth);
 
-
     Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
-    viewport->setMaterialScheme(Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME);
-    viewport->setBackgroundColour(Ogre::ColourValue(1.0, 0.0, 0.0));
-    double width = viewport->getActualWidth();
-    double height = viewport->getActualHeight();
-    mCamera->setAspectRatio(width / height);
-
-
+    
     // Game!
     mAuraApp->setupAuraInterface();
+    mInit = true;
+  }
+
+
+  void AuraEngine::_initResources(){
+    // I would say that from here, we paralelice it!! :)
+    loadResources();
+
     mAuraApp->createScene();
+    mSceneCreated = true;
 
     // Lets start the tracker! :)
     AuraQCARController::getInstance()->startTracker();
 
-    mInit = true;
   }
 
   void AuraEngine::createWindow() {
@@ -132,7 +117,7 @@ namespace Aura {
 
 
   void AuraEngine::createRoot() {
-    mRoot = OGRE_NEW Ogre::Root("");
+    mRoot = OGRE_NEW Ogre::Root("","","");
     mRoot->addFrameListener(this);
     mStaticPluginLoader.load();
     Ogre::String nextRenderer = mRoot->getAvailableRenderers()[0]->getName();
@@ -179,15 +164,18 @@ namespace Aura {
 
   }
 
-  void AuraEngine::_freeResources() {
+  void AuraEngine::_freeEngine() {
     if(!mInit) return;
-    mInit = false;
+
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     [mGestureView release];
 #endif
     // Shutdown input
     mIOEngine->shutdownInput();
+
+    // Shutdown audio
+    AuraAudioController::getInstance()->shutdown();
 
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController->shutdown();
@@ -205,22 +193,20 @@ namespace Aura {
       
     mRoot = NULL;
     mWindow = NULL;
+
+    mInit = false;
   }
 
-  void AuraEngine::engineFrameStarted(){}
-  void AuraEngine::engineFrameEnded(){}
-
-
   void AuraEngine::engineRenderOneFrame(){
-    if(!mPaused) {
+    if(mInit) {
       //try{
       mIOEngine->capture();
-      // TODO, esta al update callback del tracker
       AuraQCARController::getInstance()->update();
+      AuraAudioController::getInstance()->update();
       updateBackground();
       //mWindow->windowMovedOrResized();
       Ogre::WindowEventUtilities::messagePump();
-      if(!mRoot->renderOneFrame()) mRunning = false;
+      if(!mRoot->renderOneFrame()) finish();
       //}catch(Ogre::RenderingAPIException e){}
     }
   }
@@ -328,4 +314,3 @@ namespace Aura {
 
   }
 }// Aura
-

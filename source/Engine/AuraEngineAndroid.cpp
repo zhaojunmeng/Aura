@@ -4,10 +4,10 @@ namespace Aura{
 
   AuraEngineAndroid* AuraEngineAndroid::mInstance = NULL;
 
-  AuraEngineAndroid::AuraEngineAndroid(): AuraEngine(){
+  AuraEngineAndroid::AuraEngineAndroid(struct android_app* state): AuraEngine(){
       
     AuraEngineAndroid::mInstance = this;
-    mState = AuraJNIUtils::getInstance()->getState();
+    mState = state;
     mState->onAppCmd = &Aura::AuraEngineAndroid::handleCmd;
     mState->onInputEvent = &Aura::AuraEngineAndroid::handleInput;
 
@@ -29,9 +29,8 @@ namespace Aura{
 
   void AuraEngineAndroid::start(AuraApplication* app){
     mAuraApp = app;
+    AuraLog::info("Start Engine :)");
 
-    // Init the Engine
-    init();
    
     int i = 0;
     // Run the loop! (Just the loop)
@@ -44,9 +43,9 @@ namespace Aura{
 	  return; // Bye :)
 	}
       }
-   
+
       engineRenderOneFrame();
-      engineFrameEnded();
+
     }
   }
 
@@ -116,16 +115,19 @@ namespace Aura{
 	//       	AuraLog::info("APP_CMD_SAVE_STATE");
 	break;
       case APP_CMD_INIT_WINDOW:{
-	//AuraLog::info("APP_CMD_INIT_WINDOW");
+	AuraLog::info("APP_CMD_INIT_WINDOW");
 	if(app->window)
-	  {
-	    AuraEngineAndroid::mInstance->_initEngine();
-	  }
+	 {
+	   AuraEngineAndroid::mInstance->_initEngine();
+	   AuraEngineAndroid::mInstance->_initResources();
+	   //AuraJNIUtils::getInstance()->initResourcesJava();
+	   
+	 }
+	AuraLog::info("Engine initialized :) LETS ROCK!");
       }
 	break;
       case APP_CMD_TERM_WINDOW:
 	//AuraLog::info("APP_TERM_WINDOW");
-
 	if(AuraEngineAndroid::mInstance->mRoot && AuraEngineAndroid::mInstance->mWindow){
 	  static_cast<Ogre::AndroidEGLWindow*>(AuraEngineAndroid::mInstance->mWindow)->_destroyInternalResources();
 	}
@@ -160,15 +162,17 @@ namespace Aura{
 	// 	break;
       case APP_CMD_RESUME:
 	//AuraLog::info("APP_CMD_RESUME");
-	Aura::AuraEngineAndroid::mInstance->mPaused = false;
+	//Aura::AuraEngineAndroid::mInstance->mInit = true;
+	Aura::AuraAudioController::getInstance()->resume();
 	break;
       case APP_CMD_PAUSE:
 	//AuraLog::info("APP_CMD_PAUSE");
-	Aura::AuraEngineAndroid::mInstance->mPaused = true;
+	Aura::AuraEngineAndroid::mInstance->mInit = false;
+	Aura::AuraAudioController::getInstance()->pause();
 	break;
       case APP_CMD_STOP:
 	//AuraLog::info("APP_CMD_STOP");
-	AuraEngineAndroid::mInstance->_freeResources();
+	AuraEngineAndroid::mInstance->_freeEngine();
 	break;
 	// case APP_CMD_DESTROY:
 	// 	AuraLog::info("APP_CMD_DESTORY");
@@ -209,7 +213,7 @@ extern "C" {
 
     Aura::AuraQCARController::getInstance()->setScreenWidth(width);
     Aura::AuraQCARController::getInstance()->setScreenHeight(height);
-    Aura::AuraJNIUtils::getInstance()->getAuraApp()->initTracker();
+    Aura::AuraEngineAndroid::mInstance->getAuraApp()->initTracker();
 
     return true;
   }
@@ -229,4 +233,8 @@ extern "C" {
     Aura::AuraQCARController::getInstance()->startCamera();
   }
 
+  JNIEXPORT void JNICALL
+  Java_com_cesardev_aura_Aura_initResourcesNative(JNIEnv*, jobject) {
+    Aura::AuraEngineAndroid::mInstance->_initResources();
+  }
 } // extern "C"

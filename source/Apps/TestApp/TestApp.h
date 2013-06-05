@@ -16,6 +16,8 @@ namespace Aura{
 
     virtual void createScene();
     virtual void initTracker();
+    virtual bool frameStarted(const Ogre::FrameEvent& evt);  
+    virtual bool frameEnded(const Ogre::FrameEvent& evt);  
 
     virtual bool keyPressed(const OIS::KeyEvent& evt);
     virtual bool keyReleased(const OIS::KeyEvent& evt);
@@ -27,6 +29,12 @@ namespace Aura{
     virtual bool touchReleased(const OIS::MultiTouchEvent&);
     virtual bool touchCancelled(const OIS::MultiTouchEvent&);
     virtual void destroyApp();
+
+  private:
+    Ogre::AnimationStateSet* sinbadAnims;
+    CkBank* bank;
+    CkSound* sound;
+    CkSound* music;
  
   };
 

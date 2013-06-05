@@ -66,12 +66,13 @@ int main(int argc, char *argv[]) {
     app_dummy();
 
     Aura::AuraJNIUtils::getInstance()->setState(state);
-    Aura::AuraEngineAndroid engine;
+    Aura::AuraJNIUtils::getInstance()->attachCurrentThread();
+    Aura::AuraEngineAndroid engine(state);
     Aura::TestApp app;
-    Aura::AuraJNIUtils::getInstance()->setAuraApp(&app);
 
     engine.start(&app);
 
+    Aura::AuraJNIUtils::getInstance()->detachCurrentThread();
  #else
     // Run everything
     Aura::AuraEngine* engine = new AuraEngine();

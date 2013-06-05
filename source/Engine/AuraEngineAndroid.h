@@ -19,25 +19,22 @@ namespace Aura{
   {
   public:
 
-    AuraEngineAndroid();
+    AuraEngineAndroid(struct android_app* state);
       
     virtual void init();
     virtual void start(AuraApplication* app);
-
-  protected:
 
     virtual void createWindow();
     virtual void setupInput();
     virtual void loadConfigFile(Ogre::ConfigFile& cf);
     Ogre::DataStreamPtr openAPKFile(const Ogre::String& fileName);
-
     static int32_t handleInput(struct android_app* app, AInputEvent* event); 
     static void handleCmd(struct android_app* app, int32_t cmd);
 
-  private:
     static AuraEngineAndroid* mInstance;
     struct android_app* mState;
     AAssetManager* mAssetMgr;       // Android asset manager to access files inside apk
+
     // To get the events
     int ident, events;
     struct android_poll_source* source;

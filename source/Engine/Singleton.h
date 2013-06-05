@@ -14,9 +14,6 @@
 template<typename T>
 class Singleton {
 public:
-
-
-public:
 	static T* getInstance() {
 		if (_instance == NULL) {
 			_instance = new T;

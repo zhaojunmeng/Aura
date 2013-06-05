@@ -30,6 +30,7 @@
 
 #include "OgrePlatform.h"
 #include "AuraQCARController.h"
+#include "AuraAudioController.h"
 #include "AuraIOListener.h" 
 #include "AuraJNIUtils.h"
 
@@ -50,10 +51,15 @@ namespace Aura
     virtual void initTracker() = 0;
     /* Ogre create scene */
     virtual void createScene() = 0;
-    void setupAuraInterface();
+    /* Frame started */
+    virtual bool frameStarted(const Ogre::FrameEvent& evt) = 0;  
+    /* Frame ended */
+    virtual bool frameEnded(const Ogre::FrameEvent& evt) = 0;  
 
+    void setupAuraInterface();
+    
     void finish() { 
-      ANativeActivity_finish(AuraJNIUtils::getInstance()->getState()->activity);
+      AuraJNIUtils::getInstance()->finishActivity();
     }
 
   protected:
@@ -62,9 +68,7 @@ namespace Aura
     Ogre::Root* mRoot;
     Ogre::SceneManager* mSceneManager;
     AuraQCARController* mQCARController;
-
-  private:
-
+    AuraAudioController* mAudioController;
   };
 }
 
