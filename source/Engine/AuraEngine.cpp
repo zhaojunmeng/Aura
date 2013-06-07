@@ -88,7 +88,7 @@ namespace Aura {
     float uZoom = config.mSize.data[0] / (float) screenWidth;
     float uOffset = ((uZoom * screenWidth) - screenWidth) / (2 * screenWidth);
 
-    Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
+    mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
     
     // Game!
     mAuraApp->setupAuraInterface();
@@ -178,7 +178,7 @@ namespace Aura {
     CkShutdown();
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
-    [mGestureView release];
+    //[mGestureView release];
 #endif
     // Shutdown input
     mIOEngine->shutdownInput();

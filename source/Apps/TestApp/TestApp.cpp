@@ -74,7 +74,7 @@ namespace Aura{
   void TestApp::initTracker(){
     // Loading the data :)
   //    This creates a scene node "chips" and "stones"
-       mQCARController->loadImageData("StonesAndChips", "ar/StonesAndChips.xml");
+      mQCARController->loadImageData("StonesAndChips", "ar/StonesAndChips.xml");
   }
 
   bool TestApp::keyPressed(const OIS::KeyEvent& evt){ 

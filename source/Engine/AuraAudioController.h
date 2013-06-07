@@ -1,6 +1,7 @@
 #ifndef _AuraAudioController_H_
 #define _AuraAudioController_H_
 
+#include "OgrePlatform.h"
 #include "Singleton.h"
 #include "ck/ck.h"
 #include "ck/config.h"
@@ -8,7 +9,7 @@
 #include "ck/sound.h"
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-#  include "AuraJNIUtils.h"
+#  include "Android/AuraJNIUtils.h"
 #endif
 
 namespace Aura{

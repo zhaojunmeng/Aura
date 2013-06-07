@@ -44,6 +44,8 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved)
 
 void android_main(struct android_app* state) {
 #else
+#include "IOS/AuraEngineIOS.h"
+
 int main(int argc, char *argv[]) {
 #endif
 

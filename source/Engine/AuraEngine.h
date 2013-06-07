@@ -132,8 +132,10 @@ namespace Aura
       void loadResources();
       void createBackground();
 
-      void finish() { 
+      void finish() {
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
 	AuraJNIUtils::getInstance()->finishActivity();
+#endif
       }
 
 

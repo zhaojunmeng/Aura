@@ -48,7 +48,7 @@ namespace Aura{
     sprintf(str,"%f %f %f %f",mat.data[3],mat.data[7],mat.data[11],mat.data[15]);
     info(str);
 #else
-    std::cout<<"[Mat] "<<mat<<std::endl;
+    //ßstd::cout<<"[Mat] "<<mat<<std::endl;
 #endif
     
   }

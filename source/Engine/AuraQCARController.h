@@ -6,13 +6,13 @@
 #include "AuraLog.h"
 #include "Singleton.h"
 
-#ifdef USE_OPENGL_ES_1_1
-#include <GLES/gl.h>
-#include <GLES/glext.h>
-#else
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-#endif
+//#ifdef USE_OPENGL_ES_1_1
+//#include <GLES/gl.h>
+//#include <GLES/glext.h>
+//#else
+//#include <GLES2/gl2.h>
+//#include <GLES2/gl2ext.h>
+//#endif
 
 #include <QCAR/QCAR.h>
 #include <QCAR/CameraDevice.h>

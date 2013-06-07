@@ -4,10 +4,14 @@
 #include "Ogre.h"
 #include "OgreRTShaderSystem.h"
 #include "ShaderGeneratorTechniqueResolverListener.h"
+
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+# include "macUtils.h"
+#endif
+
 // Remove the comment below in order to make the RTSS use valid path for writing down the generated shaders.
 // If cache path is not set - all shaders are generated to system memory.
 //#define _RTSS_WRITE_SHADERS_TO_DISK
-
 namespace Aura{
 
   class ShaderController{

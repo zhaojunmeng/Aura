@@ -29,10 +29,14 @@
 #define __AuraApplication_H__
 
 #include "OgrePlatform.h"
+#include "OgreBuildSettings.h"
 #include "AuraQCARController.h"
 #include "AuraAudioController.h"
 #include "AuraIOListener.h" 
-#include "AuraJNIUtils.h"
+
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+# include "AuraJNIUtils.h"
+#endif
 
 namespace Aura
 {
@@ -60,8 +64,10 @@ namespace Aura
 
     void setupAuraInterface();
     
-    void finish() { 
+    void finish() {
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
       AuraJNIUtils::getInstance()->finishActivity();
+#endif
     }
 
   protected:

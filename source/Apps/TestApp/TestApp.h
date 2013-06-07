@@ -31,6 +31,12 @@ namespace Aura{
     virtual bool touchCancelled(const OIS::MultiTouchEvent&);
     virtual void destroyApp();
 
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+    virtual void motionBegan( void ){}
+    virtual void motionEnded( void ){}
+    virtual void motionCancelled( void ){}
+#endif
+
   private:
     Ogre::AnimationStateSet* sinbadAnims;
     CkBank* bank;

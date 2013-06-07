@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash
 
 # Build and package the SDK for iOS
 # Assumes that you are in the SDK/iOS directory

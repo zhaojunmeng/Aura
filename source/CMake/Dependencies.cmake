@@ -20,10 +20,10 @@ if(OGRE_BUILD_PLATFORM_APPLE_IOS)
   set(OGRE_DEP_SEARCH_PATH 
     ${OGRE_DEPENDENCIES_DIR}
     ${ENV_OGRE_DEPENDENCIES_DIR}
-    "${OGRE_BINARY_DIR}/iOSDependencies"
-    "${OGRE_SOURCE_DIR}/iOSDependencies"
-    "${OGRE_BINARY_DIR}/../iOSDependencies"
-    "${OGRE_SOURCE_DIR}/../iOSDependencies"
+#    "${AURA_BINARY_DIR}/iOSDependencies"
+    "${AURA_SOURCE_DIR}/Dependencies/iOSDependencies"
+#    "${OGRE_BINARY_DIR}/../iOSDependencies"
+#    "${OGRE_SOURCE_DIR}/../iOSDependencies"
   )
 elseif(OGRE_BUILD_PLATFORM_ANDROID)
   set(OGRE_DEP_SEARCH_PATH 
