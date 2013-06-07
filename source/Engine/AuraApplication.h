@@ -35,7 +35,7 @@
 #include "AuraIOListener.h" 
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
-# include "AuraJNIUtils.h"
+# include "Android/AuraJNIUtils.h"
 #endif
 
 namespace Aura
@@ -55,6 +55,8 @@ namespace Aura
     virtual void initTracker() = 0;
     /* Ogre create scene */
     virtual void createScene() = 0;
+    /* Init audio */
+    virtual void initAudio() = 0;
     /* Frame started */
     virtual bool frameStarted(const Ogre::FrameEvent& evt) = 0;  
     /* Frame ended */

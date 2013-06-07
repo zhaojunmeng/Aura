@@ -32,8 +32,8 @@
 // Different headers for different platforms (Main :) )
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
 
-#include "AuraJNIUtils.h"
-#include "AuraEngineAndroid.h"
+#include "Android/AuraJNIUtils.h"
+#include "Android/AuraEngineAndroid.h"
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {

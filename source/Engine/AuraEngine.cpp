@@ -15,6 +15,7 @@ namespace Aura {
 
     // Init the audio before everything :)
     AuraAudioController::getInstance()->initialize();
+    
 
   }
 
@@ -29,7 +30,8 @@ namespace Aura {
   }
 
   void AuraEngine::_initEngine() {
-
+    // We load the sounds (to give them time)
+    mAuraApp->initAudio();
 
     // Init Ogre :)
     createRoot();

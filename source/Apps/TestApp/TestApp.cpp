@@ -42,13 +42,17 @@ namespace Aura{
     sinbadAnims->getAnimationState("IdleBase")->setEnabled(true);
     sinbadAnims->getAnimationState("Dance")->setLoop(true);
 
+    // Here, start hte logic
+    music->play();
 
-    // Sound?
+
+  }
+
+  void TestApp::initAudio(){
+    // Better to create the sounds here (we give time to load resources)
     bank = CkBank::newBank("sound/game.ckb");
     sound = CkSound::newBankSound(bank, 0);
     music = CkSound::newStreamSound("sound/music.cks");
-
-    music->play();
     music->setLoopCount(-1);
   }
 

@@ -14,8 +14,9 @@ namespace Aura{
     TestApp();
     ~TestApp();
 
-    virtual void createScene();
     virtual void initTracker();
+    virtual void initAudio();
+    virtual void createScene();
     virtual bool frameStarted(const Ogre::FrameEvent& evt);  
     virtual bool frameEnded(const Ogre::FrameEvent& evt);  
     virtual void destroyScene();
