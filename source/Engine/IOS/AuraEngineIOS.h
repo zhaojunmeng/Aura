@@ -10,28 +10,31 @@
 
 #include "AuraEngine.h"
 
+#import <UIKit/UIKit.h> 
+#import <QuartzCore/QuartzCore.h>
+
 @interface AuraApplicationGestureView : UIView
 {
-  Aura::AuraEngine *mEngine;
+    Aura::AuraEngine *mEngine;
 }
 @property (assign) Aura::AuraEngine *mEngine;
-		   
+
 @end
 
 namespace Aura{
-
-  class AuraEngineIOS: public AuraEngine
-  {
-  public:
     
+class AuraEngineIOS: public AuraEngine
+{
+public:
+        
     AuraEngineIOS();
 
-    virtual void init();
+    virtual void start(AuraApplication* app);
+    //virtual void init();
     virtual void createWindow();
-    
-  private:
+        
     AuraApplicationGestureView *mGestureView;
-  };
+};
 } // Aura
 
 #endif //_AuraOgreEngineIOS_H_

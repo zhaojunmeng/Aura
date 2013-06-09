@@ -22,7 +22,12 @@ if(ANDROID)
 else()
  set(AURA_SOURCE_FILES
   ${AURA_SOURCE_FILES}
+  IOS/AuraEngineIOS.cpp
  )
+ set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/IOS/AuraEngineIOS.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")
+ set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/AuraLog.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")
+ set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/AuraQCARController.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")	
+
 endif(ANDROID)
 
 

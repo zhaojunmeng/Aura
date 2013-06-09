@@ -9,6 +9,31 @@ namespace Aura {
   AuraQCARController::~AuraQCARController() {
   }
 
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+  void AuraQCARController::initQCAR_iOS(){
+    // :)
+    // Init QCAR
+    QCAR::setInitParameters(getOpenGlVersion());
+    int retval = QCAR::init();
+    if(retval < -1){
+      AuraLog::error("Error initializing QCAR");
+    }
+
+    // Store screen dimensions
+    // Engine IOS does it!
+    //setScreenWidth([[UIScreen mainScreen] bounds].size.width);
+    //setScreenHeight([[UIScreen mainScreen] bounds].size.height);
+    
+    // Init tracker
+    //myApp->initTracker();
+    
+    // Start camera
+    startCamera();
+
+  }
+#endif
+
+
   bool AuraQCARController::startCamera(){
     // Select the camera to open, set this to QCAR::CameraDevice::CAMERA_FRONT
     // to activate the front camera instead.
@@ -74,7 +99,8 @@ namespace Aura {
     mFrame = state.getFrame();
     QCAR::Renderer::getInstance().end();
 
-    mQCARNode->setVisible(false);
+    //mQCARNode->setVisible(false);
+    mQCARNode->setVisible(true);
 
     // Inspect the trackables
     for(size_t tr = 0; tr < state.getNumTrackableResults(); tr++){
@@ -166,13 +192,14 @@ namespace Aura {
 
 
   void AuraQCARController::createImageSceneNodes(){
+
+    mQCARNode = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->createChildSceneNode("QCARNode");
+
     QCAR::ImageTracker* imTracker = static_cast<QCAR::ImageTracker*>(QCAR::TrackerManager::getInstance().getTracker(QCAR::Tracker::IMAGE_TRACKER));
     if(!imTracker){
       AuraLog::error("Error creating the image scene nodes");
       return;
     }
-
-    mQCARNode = Ogre::Root::getSingleton().getSceneManager("SceneManager")->getRootSceneNode()->createChildSceneNode("QCARNode");
 
     for(int i = 0; i< imTracker->getActiveDataSetCount(); i++){
 

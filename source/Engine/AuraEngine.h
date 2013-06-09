@@ -114,17 +114,19 @@ namespace Aura
       virtual ~AuraEngine();
 
       virtual void init( );
+      
+      virtual void start(AuraApplication* app) = 0;
 
       AuraApplication* getAuraApp(){return mAuraApp; }
 
       void updateBackground();
-
+      
       void _initEngine();
       void _initResources();
       void _freeEngine();
 
       virtual void createRoot();
-      virtual void createWindow();
+      virtual void createWindow() = 0;
       virtual void setupInput();
 
       virtual void loadConfigFile(Ogre::ConfigFile& cf);
@@ -139,7 +141,8 @@ namespace Aura
       }
 
 
-      void engineRenderOneFrame();
+      void engineRenderOneFrame(Ogre::Real differenceInSeconds = Ogre::Real(0));
+
       bool frameStarted(const Ogre::FrameEvent& evt){ 
 	if(mSceneCreated) return mAuraApp->frameStarted(evt); 
 	return true;

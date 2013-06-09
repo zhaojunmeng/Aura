@@ -14,25 +14,26 @@ namespace Aura{
     light->setSpecularColour(Ogre::ColourValue::White);
 
     Ogre::Entity* sinbad = mSceneManager->createEntity("Sinbad.mesh");
-    Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
-    Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
-    sinbadNode->pitch(Ogre::Degree(90));
-    sinbadNode->translate(0,0,50);
-    sinbadNode->setScale(Ogre::Vector3(10,10,10));
-    sinbadNode->attachObject(sinbad);
-
+    //Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
+    //Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
+    //sinbadNode->pitch(Ogre::Degree(90));
+    //sinbadNode->translate(0,0,50);    
+    //sinbadNode->setScale(Ogre::Vector3(10,10,10));
+    Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("sinbadNode");
+     sinbadNode->attachObject(sinbad);
+    //sinbadNode->setVisible(false);
     // Set animation mode
     sinbad->getSkeleton()->setBlendMode(Ogre::ANIMBLEND_CUMULATIVE);
     
     // Get animations
     sinbadAnims = sinbad->getAllAnimationStates();
 
-    AuraLog::info("Sinbad animations!! ");
+    //AuraLog::info("Sinbad animations!! ");
     Ogre::AnimationStateIterator it = sinbadAnims->getAnimationStateIterator();
-    while(it.hasMoreElements()){
-      Ogre::AnimationState* as = it.getNext();
-      AuraLog::info(as->getAnimationName());
-    }
+    //while(it.hasMoreElements()){
+      //Ogre::AnimationState* as = it.getNext();
+      //AuraLog::info(as->getAnimationName());
+      //}
 
     
     sinbadAnims->getAnimationState("IdleTop")->setLoop(true);
@@ -44,7 +45,6 @@ namespace Aura{
 
     // Here, start hte logic
     music->play();
-
 
   }
 
@@ -88,36 +88,42 @@ namespace Aura{
   } 
 
   bool TestApp::keyReleased(const OIS::KeyEvent& evt){
+    return true;
   }
 
  
   bool TestApp::touchMoved(const OIS::MultiTouchEvent&){
-
+    return true;
   }
 
   bool TestApp::touchPressed(const OIS::MultiTouchEvent&){
-   sound->play();
+    sound->play();
     if(sinbadAnims->getAnimationState("Dance")->getEnabled()){
       sinbadAnims->getAnimationState("Dance")->setEnabled(false);
     }else{
       sinbadAnims->getAnimationState("Dance")->setEnabled(true);
     }
+    return true;
   }
-
+  
   bool TestApp::touchReleased(const OIS::MultiTouchEvent&){
-
+    return true;
   }
 
   bool TestApp::touchCancelled(const OIS::MultiTouchEvent&){
+    return true;  
   }
 
- bool TestApp::mouseMoved(const OIS::MouseEvent& evt){
+  bool TestApp::mouseMoved(const OIS::MouseEvent& evt){
+    return true;
   }
 
   bool TestApp::mousePressed(const OIS::MouseEvent& evt, OIS::MouseButtonID id){
+    return true;
   }
 
   bool TestApp::mouseReleased(const OIS::MouseEvent& evt, OIS::MouseButtonID id){
+    return true;  
   }
 
 

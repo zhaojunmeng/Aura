@@ -6,24 +6,23 @@ namespace Aura{
       mGestureView = 0;
     }
 
-  void AuraEngineIOS::init( ){
-    createRoot();
-    Ogre::String nextRenderer = mRoot->getAvailableRenderers()[0]->getName();
-    mRoot->setRenderSystem(mRoot->getRenderSystemByName(nextRenderer));
-    //setup();
-    Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
-    Ogre::Root::getSingleton().clearEventTimes();
+  void AuraEngineIOS::start(AuraApplication* app) {
+    mAuraApp = app;
+    AuraQCARController::getInstance()->setScreenWidth([[UIScreen mainScreen] bounds].size.width);
+    AuraQCARController::getInstance()->setScreenHeight([[UIScreen mainScreen] bounds].size.height);
+   
+    AuraQCARController::getInstance()->initQCAR_iOS();
+    init();
   }
 
   void AuraEngineIOS::createWindow() {
-    mWindow = mRoot->initialise(true, "Aura Application");
+    mWindow = mRoot->initialise(true, "AuraWindow");
     mGestureView = [[AuraApplicationGestureView alloc] init];
     mGestureView.mEngine = this;
     [[[UIApplication sharedApplication] keyWindow] addSubview:mGestureView];
     
   }
 } // Aura
-
 
 
 /* Iphone  Objective C binding */

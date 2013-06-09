@@ -15,6 +15,9 @@
 //#endif
 
 #include <QCAR/QCAR.h>
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+ #include <QCAR/QCAR_ios.h>
+#endif
 #include <QCAR/CameraDevice.h>
 #include <QCAR/Renderer.h>
 #include <QCAR/VideoBackgroundConfig.h>
@@ -37,6 +40,10 @@ namespace Aura{
   public:  
     AuraQCARController();
     ~AuraQCARController();
+
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+    void initQCAR_iOS();
+#endif
 
     void update();
 

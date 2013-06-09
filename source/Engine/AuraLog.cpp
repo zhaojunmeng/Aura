@@ -6,7 +6,7 @@ namespace Aura{
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     __android_log_print(ANDROID_LOG_INFO, "Aura", msg);
 #else
-    std::cout<<"[INFO] "<<msg<<std::endl;
+    NSLog(@"[INFO] ",msg);
 #endif
   }
 
@@ -14,7 +14,7 @@ namespace Aura{
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     __android_log_print(ANDROID_LOG_WARN, "Aura", msg);
 #else
-    std::cout<<"[WARN] "<<msg<<std::endl;
+    NSLog(@"[WARN] ",msg);
 #endif
   }
 
@@ -22,7 +22,7 @@ namespace Aura{
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     __android_log_print(ANDROID_LOG_ERROR, "Aura", msg);
 #else
-    std::cout<<"[ERROR] "<<msg<<std::endl;
+    NSLog(@"[ERROR] ",msg);
 #endif
   }
 

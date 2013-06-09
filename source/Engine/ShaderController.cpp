@@ -39,9 +39,10 @@ namespace Aura{
       OGRE_EXCEPT(Ogre::Exception::ERR_FILE_NOT_FOUND, "Shader Generator Initialization failed - Core shader libs path not found", "AuraApplication");
     }
     
-    if(mRoot.getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_FIXED_FUNCTION) == false){
-      Ogre::RTShader::ShaderGenerator::getSingletonPtr()->addSceneManager(mSceneManager);
-    }
+      // Assuming that it is a mobile device (no Fixed capabilities)
+    //if(mRoot.getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_FIXED_FUNCTION) == false){
+    //  Ogre::RTShader::ShaderGenerator::getSingletonPtr()->addSceneManager(mSceneManager);
+    //}
   }
 
 

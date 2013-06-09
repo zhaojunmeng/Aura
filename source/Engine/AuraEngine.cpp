@@ -15,8 +15,6 @@ namespace Aura {
 
     // Init the audio before everything :)
     AuraAudioController::getInstance()->initialize();
-    
-
   }
 
   AuraEngine::~AuraEngine() {
@@ -24,7 +22,7 @@ namespace Aura {
   }
 
   void AuraEngine::init() {    
-    // This method is not actually used!
+    // This method is not used, just a model of what the guys should do! :)
     _initEngine();
     _initResources();
   }
@@ -35,38 +33,27 @@ namespace Aura {
 
     // Init Ogre :)
     createRoot();
-
+   
+    if (mWindow == NULL) createWindow();
+   
     setupInput();
     mIOEngine->setIOCallback(mAuraApp);
-
-    if (mWindow == NULL) createWindow();
-
-    Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
-    Ogre::Root::getSingleton().clearEventTimes();
-
+ 
     // Creating the scene manager
     mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
     mSceneManager->addRenderQueueListener(mOverlaySystem);
-
-    // Creating the camera
-    mCamera = mSceneManager->createCamera("Camera");
-
-    QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
-    Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
-    			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
-    			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
-    			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
-
-    mCamera->setCustomProjectionMatrix(true, ogreProjMat);
-
+    
+    Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
+    Ogre::Root::getSingleton().clearEventTimes();
+    
     // Create shader controller
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController = new ShaderController(mFSLayer);
-#endif
+#endif    
 
     // Locate resources
     locateResources();
-
+  
 #ifdef USE_RTSHADER_SYSTEM
     mShaderController->init();
 #endif
@@ -75,11 +62,33 @@ namespace Aura {
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 #endif
 
+
+    
     // Scene nodes
     AuraQCARController::getInstance()->createImageSceneNodes();
     createBackground();
 
     // ------ Creating app specific stuff :) ---------
+// Creating the camera
+    mCamera = mSceneManager->createCamera("Camera");       
+    //Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
+    //viewport->setBackgroundColour(Ogre::ColourValue(0.0, 1.0 , 0.0));
+    mCamera->setPosition(Ogre::Vector3(0, 60, 60));
+    mCamera->lookAt(Ogre::Vector3(0, 0, 0));
+    mCamera->setNearClipDistance(1);
+    mCamera->setFarClipDistance(1000);
+
+    //mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
+    //viewport->setCamera(mCamera);
+
+    /* 
+    QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
+    Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
+    			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
+     			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
+     			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
+    mCamera->setCustomProjectionMatrix(true, ogreProjMat);
+    */
 
     // We have to ajust the aspect ratio :)
     const QCAR::VideoBackgroundConfig& config = AuraQCARController::getInstance()->getVideoBackgroundConfig(); 
@@ -90,12 +99,18 @@ namespace Aura {
     float uZoom = config.mSize.data[0] / (float) screenWidth;
     float uOffset = ((uZoom * screenWidth) - screenWidth) / (2 * screenWidth);
 
-    mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
+    //Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
+    Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
     
+
+    //mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
+    //viewport->setCamera(mCamera);
+
     // Game!
     mAuraApp->setupAuraInterface();
-
+   
     mInit = true;
+
   }
 
 
@@ -107,12 +122,8 @@ namespace Aura {
     mSceneCreated = true;
 
     // Lets start the tracker! :)
-    AuraQCARController::getInstance()->startTracker();
+    //AuraQCARController::getInstance()->startTracker();
 
-  }
-
-  void AuraEngine::createWindow() {
-    mWindow = mRoot->initialise(true, "AuraWindow");
   }
 
   void AuraEngine::setupInput(){
@@ -126,12 +137,14 @@ namespace Aura {
 
 
   void AuraEngine::createRoot() {
-    mRoot = OGRE_NEW Ogre::Root("","","");
+    //Ogre::String pluginsPath = Ogre::StringUtil::BLANK;
+    //mRoot = OGRE_NEW Ogre::Root(pluginsPath, mFSLayer->getWritablePath("ogre.cfg"), mFSLayer->getWritablePath("ogre.log"));
+    mRoot = OGRE_NEW Ogre::Root();
     mRoot->addFrameListener(this);
     mStaticPluginLoader.load();
+    mOverlaySystem = OGRE_NEW Ogre::OverlaySystem();
     Ogre::String nextRenderer = mRoot->getAvailableRenderers()[0]->getName();
     mRoot->setRenderSystem(mRoot->getRenderSystemByName(nextRenderer));
-    mOverlaySystem = OGRE_NEW Ogre::OverlaySystem();
   }
 
   void AuraEngine::loadConfigFile(Ogre::ConfigFile& cf) {
@@ -156,12 +169,12 @@ namespace Aura {
 	type = i->first;
 	arch = i->second;
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 	// OS X does not set the working directory relative to the app,
 	// In order to make things portable on OS X we need to provide
 	// the loading with it's own bundle path location
-	if (!Ogre::StringUtil::startsWith(arch, "/", false))// only adjust relative dirs
-	  arch = Ogre::String(Ogre::macBundlePath() + "/" + arch);
+      	if (!Ogre::StringUtil::startsWith(arch, "/", false))// only adjust relative dirs
+	    arch = Ogre::String(Ogre::macBundlePath() + "/" + arch);
 #endif
 	Ogre::ResourceGroupManager::getSingleton().addResourceLocation(arch, type, sec);
       }
@@ -179,9 +192,9 @@ namespace Aura {
 
     CkShutdown();
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+    //#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     //[mGestureView release];
-#endif
+    //#endif
     // Shutdown input
     mIOEngine->shutdownInput();
 
@@ -193,7 +206,6 @@ namespace Aura {
     // remove window event listener before shutting down OIS
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
            
-
     if (mRoot) {
       OGRE_DELETE mOverlaySystem;
       OGRE_DELETE mRoot;
@@ -204,22 +216,25 @@ namespace Aura {
     mRoot = NULL;
     mWindow = NULL;
 
-
-
     mInit = false;
   }
 
-  void AuraEngine::engineRenderOneFrame(){
+  void AuraEngine::engineRenderOneFrame(Ogre::Real differenceInSeconds){
     if(mInit) {
-      //try{
-      mIOEngine->capture();
-      AuraQCARController::getInstance()->update();
-      AuraAudioController::getInstance()->update();
-      updateBackground();
-      //mWindow->windowMovedOrResized();
-      Ogre::WindowEventUtilities::messagePump();
-      if(!mRoot->renderOneFrame()) finish();
-      //}catch(Ogre::RenderingAPIException e){}
+      try{
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+	mIOEngine->capture(); 
+#endif
+	AuraQCARController::getInstance()->update();
+	AuraAudioController::getInstance()->update();
+	updateBackground();
+
+	//mWindow->windowMovedOrResized(); // Esto no parece funcionar muy bien..no de momento
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
+	Ogre::WindowEventUtilities::messagePump();
+#endif
+	if(!mRoot->renderOneFrame(differenceInSeconds)) finish();
+      }catch(Ogre::RenderingAPIException e){}
     }
   }
 

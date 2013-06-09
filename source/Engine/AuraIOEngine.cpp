@@ -79,7 +79,7 @@ namespace Aura{
 
   void AuraIOEngine::setupInput(Ogre::RenderWindow *mWindow)
   {
-#if OGRE_PLATFORM != OGRE_PLATFORM_ANDROID && OGRE_PLATFORM != OGRE_PLATFORM_WINRT
+#if OGRE_PLATFORM != OGRE_PLATFORM_ANDROID
     OIS::ParamList pl;
     size_t winHandle = 0;
     std::ostringstream winHandleStr;
@@ -112,10 +112,6 @@ namespace Aura{
     mAccelerometer = static_cast<OIS::JoyStick*>(mInputMgr->createInputObject(OIS::OISJoyStick, true));
 #elif OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     // nothing to do
-#elif OGRE_PLATFORM == OGRE_PLATFORM_WINRT
-    // mInputMgr is NULL and input devices are already passed to us, therefore nothing to do
-    assert(mKeyboard);
-    assert(mMouse);
 #else
     mKeyboard = static_cast<OIS::Keyboard*>(mInputMgr->createInputObject(OIS::OISKeyboard, true));
     mMouse = static_cast<OIS::Mouse*>(mInputMgr->createInputObject(OIS::OISMouse, true));
@@ -162,6 +158,81 @@ namespace Aura{
       }
 #endif
   }
+
+
+
+
+// #if (OGRE_NO_VIEWPORT_ORIENTATIONMODE == 0)
+//         void transformInputState(OIS::MultiTouchState &state) {
+//             int w = mWindow->getViewport(0)->getActualWidth();
+//             int h = mWindow->getViewport(0)->getActualHeight();
+//             int absX = state.X.abs;
+//             int absY = state.Y.abs;
+//             int relX = state.X.rel;
+//             int relY = state.Y.rel;
+
+//             switch (mWindow->getViewport(0)->getOrientationMode()){
+//             case Ogre::OR_DEGREE_0:
+//                 break;
+//             case Ogre::OR_DEGREE_90:
+//                 state.X.abs = w - absY;
+//                 state.Y.abs = absX;
+//                 state.X.rel = -relY;
+//                 state.Y.rel = relX;
+//                 break;
+//             case Ogre::OR_DEGREE_180:
+//                 state.X.abs = w - absX;
+//                 state.Y.abs = h - absY;
+//                 state.X.rel = -relX;
+//                 state.Y.rel = -relY;
+//                 break;
+//             case Ogre::OR_DEGREE_270:
+//                 state.X.abs = absY;
+//                 state.Y.abs = h - absX;
+//                 state.X.rel = relY;
+//                 state.Y.rel = -relX;
+//                 break;
+//             }
+//         }
+
+// #elif (OGRE_NO_VIEWPORT_ORIENTATIONMODE == 1) && (OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS)
+//     // Variation based upon device orientation for use with a view controller
+//     void transformInputState(OIS::MultiTouchState &state)
+//     {
+//         int w = mWindow->getViewport(0)->getActualWidth();
+//         int h = mWindow->getViewport(0)->getActualHeight();
+//         int absX = state.X.abs;
+//         int absY = state.Y.abs;
+//         int relX = state.X.rel;
+//         int relY = state.Y.rel;
+
+//         UIInterfaceOrientation interfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
+//         switch (interfaceOrientation)
+//         {
+//             case UIInterfaceOrientationPortrait:
+//                 break;
+//             case UIInterfaceOrientationLandscapeLeft:
+//                 state.X.abs = w - absY;
+//                 state.Y.abs = absX;
+//                 state.X.rel = -relY;
+//                 state.Y.rel = relX;
+//                 break;
+//             case UIInterfaceOrientationPortraitUpsideDown:
+//                 state.X.abs = w - absX;
+//                 state.Y.abs = h - absY;
+//                 state.X.rel = -relX;
+//                 state.Y.rel = -relY;
+//                 break;
+//             case UIInterfaceOrientationLandscapeRight:
+//                 state.X.abs = absY;
+//                 state.Y.abs = h - absX;
+//                 state.X.rel = relY;
+//                 state.Y.rel = -relX;
+//                 break;
+//         }
+//     }
+// #endif
+
 
 
 }

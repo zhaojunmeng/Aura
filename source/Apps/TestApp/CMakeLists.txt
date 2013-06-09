@@ -105,6 +105,13 @@ if(ANDROID)
 
 else()
   
+  # Set up the frameworks
+ # set(CMAKE_EXE_LINKER_FLAGS
+  #"-framework QuartzCore -framework CoreMotion -framework SystemConfiguration -framework CoreVideo -framework CoreMedia -framework CoreGraphics -framework OpenGLES -framework UIKit -framework AudioToolbox" 
+  #)
+
+  set(CMAKE_OSX_ARCHITECTURES $(ARCHS_STANDARD_32_BIT))
+
   link_directories(${AURA_DEPENDENCIES_DIR})	
   
   ogre_add_executable(${APP_NAME} WIN32  ${APP_SOURCE_FILES} main.cpp ${AURA_RESOURCE_FILES})
@@ -140,6 +147,7 @@ else()
     set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/main.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")
     set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/${APP_NAME}.cpp PROPERTIES COMPILE_FLAGS "-x objective-c++")
 
+
     # On OS X, create .app bundle
     set_property(TARGET ${APP_NAME} PROPERTY MACOSX_BUNDLE TRUE)
     set_property(TARGET ${APP_NAME} PROPERTY MACOSX_BUNDLE_ICON_FILE AuraApplication_OSX.icns)
@@ -149,10 +157,13 @@ else()
 
     set_target_properties(${APP_NAME} PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2")
     set(AURA_CONTENTS_PATH ${AURA_BINARY_DIR}/bin/$(CONFIGURATION)/${APP_NAME}.app)
+
+
     add_custom_command(TARGET ${APP_NAME} POST_BUILD
-    COMMAND ditto ${CMAKE_CURRENT_SOURCE_DIR}/cdmisc/*.png ${AURA_CONTENTS_PATH}/
+    COMMAND ditto ${CMAKE_CURRENT_SOURCE_DIR}/misc/*.png ${AURA_CONTENTS_PATH}/
     COMMAND ditto ${AURA_BINARY_DIR}/bin/*.cfg ${AURA_CONTENTS_PATH}/
     )
+
     add_custom_command(TARGET ${APP_NAME} POST_BUILD
     COMMAND mkdir ARGS -p ${CMAKE_BINARY_DIR}/lib/$(CONFIGURATION)/
     )

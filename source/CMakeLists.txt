@@ -36,9 +36,7 @@ include(OgreConfigTargets)
 
 # Include directories :)
 include_directories(${AURA_SOURCE_DIR}/Ogre-1.9a/OgreMain/include)
-#include_directories(${AURA_BINARY_DIR}/include)
 include_directories(${AURA_SOURCE_DIR}/Engine)
-include_directories(${AURA_SOURCE_DIR}/Engine/Build)
 include_directories(${AURA_SOURCE_DIR}/Engine/IOS)
 include_directories(${AURA_SOURCE_DIR}/vuforia-2.0/include)
 include_directories(${AURA_SOURCE_DIR}/cricket-1.0.31/inc)
@@ -135,6 +133,13 @@ include_directories(
  ${AURA_SOURCE_DIR}/Ogre-1.9a/RenderSystems/GL3Plus/include
  ${AURA_SOURCE_DIR}/Ogre-1.9a/RenderSystems/GL3Plus/src/GLSL/include
 )
+
+
+if(ANDROID)
+  include_directories(${AURA_SOURCE_DIR}/Ogre-1.9a/build_android/include)
+else()
+  include_directories(${AURA_SOURCE_DIR}/Ogre-1.9a/build_ios/include)
+endif(ANDROID)
 
 # Link to all enabled plugins
 # Link the PLUGINS and LIBRARIES
