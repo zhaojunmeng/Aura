@@ -69,28 +69,30 @@ namespace Aura {
     createBackground();
 
     // ------ Creating app specific stuff :) ---------
-// Creating the camera
-    mCamera = mSceneManager->createCamera("Camera");       
-    //Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
-    //viewport->setBackgroundColour(Ogre::ColourValue(0.0, 1.0 , 0.0));
-    mCamera->setPosition(Ogre::Vector3(0, 60, 60));
-    mCamera->lookAt(Ogre::Vector3(0, 0, 0));
-    mCamera->setNearClipDistance(1);
-    mCamera->setFarClipDistance(1000);
-
+    // Creating the camera
+   
+    
+    //mCamera->setPosition(Ogre::Vector3(0, 60, 60));
+    //mCamera->lookAt(Ogre::Vector3(0, 0, 0));
+    //mCamera->setNearClipDistance(1);
+    //mCamera->setFarClipDistance(1000);
     //mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
     //viewport->setCamera(mCamera);
 
-    /* 
+    mCamera = mSceneManager->createCamera("Camera");        
     QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
     Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
     			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
      			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
      			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
     mCamera->setCustomProjectionMatrix(true, ogreProjMat);
-    */
+
+    //mCamera->setNearClipDistance(0.1);
+    //mCamera->setFarClipDistance(1000);
+    
 
     // We have to ajust the aspect ratio :)
+#if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
     const QCAR::VideoBackgroundConfig& config = AuraQCARController::getInstance()->getVideoBackgroundConfig(); 
     int screenWidth = AuraQCARController::getInstance()->getScreenWidth();
     int screenHeight = AuraQCARController::getInstance()->getScreenHeight();
@@ -99,12 +101,22 @@ namespace Aura {
     float uZoom = config.mSize.data[0] / (float) screenWidth;
     float uOffset = ((uZoom * screenWidth) - screenWidth) / (2 * screenWidth);
 
-    //Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
-    Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
+    //char str[100];
+    //sprintf(str,"Screen size %d x %d",screenWidth, screenHeight);
+    //AuraLog::info(str);
+    //sprintf(str,"Config mSize %d x %d",config.mSize.data[0], config.mSize.data[1]);
+    //AuraLog::info(str);
+    //sprintf(str,"uOffset %f vOffset %f",uOffset, vOffset);
+    //AuraLog::info(str);
+    //sprintf(str,"uZoom %f vZoom %f",uZoom, vZoom);
+    //AuraLog::info(str);
     
 
-    //mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
-    //viewport->setCamera(mCamera);
+    Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -vOffset, -uOffset, vZoom, uZoom);
+#else // IOS
+    Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
+#endif    
+
 
     // Game!
     mAuraApp->setupAuraInterface();
@@ -122,7 +134,7 @@ namespace Aura {
     mSceneCreated = true;
 
     // Lets start the tracker! :)
-    //AuraQCARController::getInstance()->startTracker();
+    AuraQCARController::getInstance()->startTracker();
 
   }
 

@@ -28,7 +28,7 @@ namespace Aura {
     //myApp->initTracker();
     
     // Start camera
-    startCamera();
+    //startCamera();
 
   }
 #endif
@@ -99,9 +99,8 @@ namespace Aura {
     mFrame = state.getFrame();
     QCAR::Renderer::getInstance().end();
 
-    //mQCARNode->setVisible(false);
-    mQCARNode->setVisible(true);
-
+    mQCARNode->setVisible(false);
+    
     // Inspect the trackables
     for(size_t tr = 0; tr < state.getNumTrackableResults(); tr++){
       const QCAR::TrackableResult* result = state.getTrackableResult(tr);

@@ -53,9 +53,13 @@ namespace Aura{
 
     //    virtual void QCAR_onUpdate(QCAR::State& state);
 
-    void setScreenWidth(int screenWidth){ mScreenWidth = screenWidth; }
-    void setScreenHeight(int screenHeight){ mScreenHeight = screenHeight; }
-
+    void setScreenWidth(int screenWidth){ 
+      mScreenWidth = screenWidth; 
+    }
+    void setScreenHeight(int screenHeight){ 
+      mScreenHeight = screenHeight; 
+    }
+    
     int getScreenWidth(){ return mScreenWidth; }
     int getScreenHeight(){ return mScreenHeight; }
 

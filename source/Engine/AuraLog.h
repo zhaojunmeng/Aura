@@ -9,7 +9,7 @@
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
 #  include <android/log.h>
 #else
-
+// Empty by now
 #endif
 
 namespace Aura{

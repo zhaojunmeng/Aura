@@ -8,10 +8,23 @@ namespace Aura{
 
   void AuraEngineIOS::start(AuraApplication* app) {
     mAuraApp = app;
+
+    // We init QCAR here, before Ogre
     AuraQCARController::getInstance()->setScreenWidth([[UIScreen mainScreen] bounds].size.width);
     AuraQCARController::getInstance()->setScreenHeight([[UIScreen mainScreen] bounds].size.height);
-   
+
+    //AuraQCARController::getInstance()->setScreenWidth(640);
+    //AuraQCARController::getInstance()->setScreenHeight(960);
+    
     AuraQCARController::getInstance()->initQCAR_iOS();
+
+
+    // Init the images from the application
+    mAuraApp->initTracker();
+    
+    // Start camera
+    AuraQCARController::getInstance()->startCamera();
+
     init();
   }
 

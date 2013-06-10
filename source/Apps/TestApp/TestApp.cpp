@@ -14,13 +14,15 @@ namespace Aura{
     light->setSpecularColour(Ogre::ColourValue::White);
 
     Ogre::Entity* sinbad = mSceneManager->createEntity("Sinbad.mesh");
-    //Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
-    //Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
-    //sinbadNode->pitch(Ogre::Degree(90));
-    //sinbadNode->translate(0,0,50);    
-    //sinbadNode->setScale(Ogre::Vector3(10,10,10));
-    Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("sinbadNode");
-     sinbadNode->attachObject(sinbad);
+    Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
+    Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
+    sinbadNode->pitch(Ogre::Degree(90));
+    //sinbadNode->translate(0,0,50);
+    sinbadNode->setScale(Ogre::Vector3(10,10,10));
+    
+    //Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("sinbadNode");
+    
+    sinbadNode->attachObject(sinbad);
     //sinbadNode->setVisible(false);
     // Set animation mode
     sinbad->getSkeleton()->setBlendMode(Ogre::ANIMBLEND_CUMULATIVE);
