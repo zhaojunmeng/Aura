@@ -1,0 +1,7 @@
+# Resource locations to be added to the default path
+[General]
+FileSystem=media
+FileSystem=RTShaderLib/GLSLES
+#FileSystem=media/RTShaderLib/materials
+
+

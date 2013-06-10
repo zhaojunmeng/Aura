@@ -1,0 +1,7 @@
+# Resource locations to be added to the default path
+[General]
+APKFileSystem=media
+APKFileSystem=RTShaderLib/GLSLES
+#FileSystem=media/RTShaderLib/materials
+
+

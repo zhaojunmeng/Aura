@@ -17,7 +17,7 @@ namespace Aura{
     Ogre::SceneNode* chipsNode = mSceneManager->getSceneNode("chips");
     Ogre::SceneNode* sinbadNode = chipsNode->createChildSceneNode("sinbadNode");
     sinbadNode->pitch(Ogre::Degree(90));
-    //sinbadNode->translate(0,0,50);
+    sinbadNode->translate(0,0,50);
     sinbadNode->setScale(Ogre::Vector3(10,10,10));
     
     //Ogre::SceneNode* sinbadNode = mSceneManager->getRootSceneNode()->createChildSceneNode("sinbadNode");

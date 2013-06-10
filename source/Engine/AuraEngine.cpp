@@ -9,9 +9,7 @@ namespace Aura {
     mOverlaySystem = 0;
     mInit = false;
     mSceneCreated = false;
-#ifdef USE_RTSHADER_SYSTEM
     mShaderController = 0;
-#endif
 
     // Init the audio before everything :)
     AuraAudioController::getInstance()->initialize();
@@ -35,6 +33,10 @@ namespace Aura {
     createRoot();
    
     if (mWindow == NULL) createWindow();
+
+    Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
+    Ogre::Root::getSingleton().clearEventTimes();
+
    
     setupInput();
     mIOEngine->setIOCallback(mAuraApp);
@@ -42,25 +44,29 @@ namespace Aura {
     // Creating the scene manager
     mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
     mSceneManager->addRenderQueueListener(mOverlaySystem);
+
+    mCamera = mSceneManager->createCamera("Camera");        
+    QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
+    Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
+    			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
+     			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
+     			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
+    mCamera->setCustomProjectionMatrix(true, ogreProjMat);
+
     
-    Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
-    Ogre::Root::getSingleton().clearEventTimes();
     
     // Create shader controller
-#ifdef USE_RTSHADER_SYSTEM
     mShaderController = new ShaderController(mFSLayer);
-#endif    
 
     // Locate resources
     locateResources();
   
-#ifdef USE_RTSHADER_SYSTEM
     mShaderController->init();
-#endif
 
 #if OGRE_PLATFORM != OGRE_PLATFORM_ANDROID
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 #endif
+
 
 
     
@@ -79,13 +85,6 @@ namespace Aura {
     //mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
     //viewport->setCamera(mCamera);
 
-    mCamera = mSceneManager->createCamera("Camera");        
-    QCAR::Matrix44F projMat = AuraQCARController::getInstance()->getProjectionMatrix();    
-    Ogre::Matrix4 ogreProjMat(projMat.data[0], projMat.data[4],  projMat.data[8],  projMat.data[12],
-    			      projMat.data[1], projMat.data[5], projMat.data[9],  projMat.data[13],
-     			      projMat.data[2], projMat.data[6], projMat.data[10], projMat.data[14],
-     			      projMat.data[3], projMat.data[7], projMat.data[11], projMat.data[15]);
-    mCamera->setCustomProjectionMatrix(true, ogreProjMat);
 
     //mCamera->setNearClipDistance(0.1);
     //mCamera->setFarClipDistance(1000);
@@ -112,7 +111,7 @@ namespace Aura {
     //AuraLog::info(str);
     
 
-    Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -vOffset, -uOffset, vZoom, uZoom);
+    Ogre::Viewport* viewport = mWindow->addViewport(mCamera, 0, -uOffset, -vOffset, uZoom, vZoom);
 #else // IOS
     Ogre::Viewport* viewport = mWindow->addViewport(mCamera);
 #endif    
@@ -192,10 +191,7 @@ namespace Aura {
       }
     }
 
-#ifdef USE_RTSHADER_SYSTEM
     mShaderController->locateShaderResources();
-#endif
-
   }
 
   void AuraEngine::_freeEngine() {
@@ -210,10 +206,7 @@ namespace Aura {
     // Shutdown input
     mIOEngine->shutdownInput();
 
-
-#ifdef USE_RTSHADER_SYSTEM
     mShaderController->shutdown();
-#endif
 
     // remove window event listener before shutting down OIS
     Ogre::WindowEventUtilities::removeWindowEventListener(mWindow, this);
@@ -244,8 +237,10 @@ namespace Aura {
 	//mWindow->windowMovedOrResized(); // Esto no parece funcionar muy bien..no de momento
 #if OGRE_PLATFORM == OGRE_PLATFORM_ANDROID
 	Ogre::WindowEventUtilities::messagePump();
-#endif
+	if(!mRoot->renderOneFrame()) finish();
+#else
 	if(!mRoot->renderOneFrame(differenceInSeconds)) finish();
+#endif
       }catch(Ogre::RenderingAPIException e){}
     }
   }
